@@ -68,7 +68,7 @@ export default function PromptAdminPage() {
       loadTestParts();
       loadTemplates();
     }
-  }, [selectedExam, selectedSkill, selectedPart, loadTestParts, loadTemplates]);
+  }, [selectedExam, selectedSkill, selectedPart]);
 
   const loadInitialData = async () => {
     try {
@@ -156,14 +156,20 @@ export default function PromptAdminPage() {
 
       if (error) throw error;
 
-      const sections = data?.map(item => ({
-        id: item.prompt_section_content.id,
-        section_name: item.prompt_section_content.prompt_sections.section_name,
-        description: item.prompt_section_content.prompt_sections.description,
-        content: item.prompt_section_content.content,
-        content_type: item.prompt_section_content.content_type,
-        order_index: item.order_index
-      })) || [];
+      const sections = data?.map((item) => {
+        const content = item.prompt_section_content;
+        const section = Array.isArray(content) ? content[0] : content;
+        const promptSection = Array.isArray(section?.prompt_sections) ? section.prompt_sections[0] : section?.prompt_sections;
+        
+        return {
+          id: section?.id || 0,
+          section_name: promptSection?.section_name || '',
+          description: promptSection?.description || '',
+          content: section?.content || '',
+          content_type: section?.content_type || '',
+          order_index: item.order_index || 0
+        };
+      }) || [];
 
       setPromptSections(sections);
     } catch (error) {

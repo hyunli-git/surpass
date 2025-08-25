@@ -103,7 +103,7 @@ class PromptManager {
         return null;
       }
 
-      return data as PromptTemplate;
+      return data as unknown as PromptTemplate;
     } catch (error) {
       console.error('Error in getPromptTemplate:', error);
       return null;
@@ -144,13 +144,13 @@ class PromptManager {
       let instructions = '';
 
       for (const section of data) {
-        const content = section.prompt_section_content;
-        const processedContent = this.processVariables(content.content, {
-          ...content.variables,
+        const content = Array.isArray(section.prompt_section_content) ? section.prompt_section_content[0] : section.prompt_section_content;
+        const processedContent = this.processVariables(content?.content || '', {
+          ...(content?.variables || {}),
           ...variables
         });
 
-        switch (content.content_type) {
+        switch (content?.content_type) {
           case 'system':
             systemPrompt += processedContent + '\n\n';
             break;
@@ -186,27 +186,40 @@ class PromptManager {
     scoreLevels?: number[]
   ): Promise<ScoringExample[]> {
     try {
+      const baseSelect = `
+        score_level,
+        example_response,
+        example_question,
+        score_justification,
+        criteria_breakdown,
+        strengths,
+        weaknesses,
+        exam_types!inner (exam_name),
+        skill_types!inner (skill_name)
+      `;
+
+      const selectWithPart = `
+        score_level,
+        example_response,
+        example_question,
+        score_justification,
+        criteria_breakdown,
+        strengths,
+        weaknesses,
+        exam_types!inner (exam_name),
+        skill_types!inner (skill_name),
+        test_parts!inner (part_name)
+      `;
+
       let query = supabase
         .from('scoring_examples')
-        .select(`
-          score_level,
-          example_response,
-          example_question,
-          score_justification,
-          criteria_breakdown,
-          strengths,
-          weaknesses,
-          exam_types!inner (exam_name),
-          skill_types!inner (skill_name)
-        `)
+        .select(partName ? selectWithPart : baseSelect)
         .eq('exam_types.exam_name', examName)
         .eq('skill_types.skill_name', skillName)
         .eq('is_verified', true);
 
       if (partName) {
-        query = query
-          .select('*, test_parts!inner (part_name)')
-          .eq('test_parts.part_name', partName);
+        query = query.eq('test_parts.part_name', partName);
       }
 
       if (scoreLevels && scoreLevels.length > 0) {
@@ -220,7 +233,7 @@ class PromptManager {
         return [];
       }
 
-      return data as ScoringExample[];
+      return (data || []) as unknown as ScoringExample[];
     } catch (error) {
       console.error('Error in getScoringExamples:', error);
       return [];
@@ -236,25 +249,37 @@ class PromptManager {
     partName?: string
   ): Promise<ScoreBenchmark[]> {
     try {
+      const baseSelect = `
+        criterion_name,
+        score_level,
+        description,
+        key_features,
+        typical_errors,
+        improvement_tips,
+        exam_types!inner (exam_name),
+        skill_types!inner (skill_name)
+      `;
+
+      const selectWithPart = `
+        criterion_name,
+        score_level,
+        description,
+        key_features,
+        typical_errors,
+        improvement_tips,
+        exam_types!inner (exam_name),
+        skill_types!inner (skill_name),
+        test_parts!inner (part_name)
+      `;
+
       let query = supabase
         .from('score_benchmarks')
-        .select(`
-          criterion_name,
-          score_level,
-          description,
-          key_features,
-          typical_errors,
-          improvement_tips,
-          exam_types!inner (exam_name),
-          skill_types!inner (skill_name)
-        `)
+        .select(partName ? selectWithPart : baseSelect)
         .eq('exam_types.exam_name', examName)
         .eq('skill_types.skill_name', skillName);
 
       if (partName) {
-        query = query
-          .select('*, test_parts!inner (part_name)')
-          .eq('test_parts.part_name', partName);
+        query = query.eq('test_parts.part_name', partName);
       }
 
       const { data, error } = await query.order('criterion_name, score_level');
@@ -264,7 +289,7 @@ class PromptManager {
         return [];
       }
 
-      return data as ScoreBenchmark[];
+      return (data || []) as unknown as ScoreBenchmark[];
     } catch (error) {
       console.error('Error in getScoreBenchmarks:', error);
       return [];
