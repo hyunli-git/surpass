@@ -6,54 +6,68 @@ export default function Pricing() {
   const plans = [
     {
       name: "Free",
-      price: "$0",
+      price: "₩0",
       period: "forever",
-      description: "Perfect for getting started with language practice",
+      description: "Try our platform with limited practice tests",
       features: [
-        "5 practice tests per month",
+        "1 practice test (guest access)",
+        "3 practice tests with free account",
         "Basic progress tracking",
-        "Speaking practice (limited)",
-        "Community support",
-        "Basic feedback"
+        "Community support"
       ],
       popular: false,
-      buttonText: "Get Started",
+      buttonText: "Get Started Free",
       buttonStyle: "btn btn-outline"
     },
     {
-      name: "Pro",
-      price: "$19",
+      name: "Starter",
+      price: "₩19,000",
+      priceUSD: "$19",
       period: "per month",
-      description: "Best for serious language learners",
+      description: "Essential features for focused exam preparation",
       features: [
+        "1 exam pack included",
         "Unlimited practice tests",
-        "Advanced progress analytics",
-        "Full speaking practice suite",
-        "AI-powered detailed feedback",
-        "Priority support",
-        "Personalized study plans",
-        "Mock exam simulations"
+        "3 full mock tests per month",
+        "Advanced AI feedback & personalization",
+        "Customized study plans"
       ],
       popular: true,
       buttonText: "Start Free Trial",
       buttonStyle: "btn btn-primary"
     },
     {
-      name: "Enterprise",
-      price: "$99",
+      name: "Pro",
+      price: "₩39,000",
+      priceUSD: "$39",
       period: "per month",
-      description: "For educational institutions and organizations",
+      description: "Comprehensive preparation for serious learners",
       features: [
-        "Everything in Pro",
-        "Up to 100 student accounts",
-        "Admin dashboard",
-        "Custom branding",
-        "Advanced reporting",
-        "Integration support",
-        "Dedicated account manager"
+        "Everything in Starter",
+        "3 exam packs per language",
+        "Unlimited full mock tests",
+        "Advanced progress analytics",
+        "Priority email support"
       ],
       popular: false,
-      buttonText: "Contact Sales",
+      buttonText: "Choose Pro",
+      buttonStyle: "btn btn-outline"
+    },
+    {
+      name: "Expert",
+      price: "₩59,000",
+      priceUSD: "$59",
+      period: "per month",
+      description: "Master multiple languages with unlimited access",
+      features: [
+        "Everything in Pro",
+        "Unlimited exam packs across 3 languages",
+        "All exam types (IELTS, TOEFL, TOEIC)",
+        "Advanced performance insights",
+        "Dedicated account support"
+      ],
+      popular: false,
+      buttonText: "Choose Expert",
       buttonStyle: "btn btn-outline"
     }
   ];
@@ -71,7 +85,7 @@ export default function Pricing() {
       {/* Pricing Cards */}
       <section className="section">
         <div className="container">
-          <div className="grid grid-3">
+          <div className="grid grid-4">
             {plans.map((plan) => (
               <div 
                 key={plan.name} 
@@ -85,6 +99,9 @@ export default function Pricing() {
                   <h3>{plan.name}</h3>
                   <div className="price">
                     <span className="price-amount">{plan.price}</span>
+                    {plan.priceUSD && (
+                      <span className="price-usd">({plan.priceUSD})</span>
+                    )}
                     <span className="price-period">/{plan.period}</span>
                   </div>
                   <p className="plan-description">{plan.description}</p>

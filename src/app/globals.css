@@ -1376,6 +1376,13 @@ nav {
     margin-left: 4px;
 }
 
+.price-usd {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-left: 8px;
+    font-weight: 400;
+}
+
 .plan-description {
     color: var(--text-secondary);
     margin-bottom: var(--space-xl);
