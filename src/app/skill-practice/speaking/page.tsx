@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient';
 
 // 컴포넌트의 여러 상태를 정의합니다.
-type PracticeStatus = 'loading' | 'preparing' | 'speaking' | 'finished';
+type PracticeStatus = 'loading' | 'ready' | 'preparing' | 'speaking' | 'finished';
 
 interface SpeakingQuestion {
   part: number;
@@ -52,11 +52,7 @@ export default function SpeakingPracticePage() {
         alert('질문을 불러오는 데 실패했습니다.');
       } else {
         setQuestion(data);
-        // ▼▼▼ TTS 기능 호출 ▼▼▼
-        const textToSpeak = `Part ${data.part}. The topic is ${data.topic}. Please, describe a book that you enjoyed reading. You have one minute to prepare.`;
-        speak(textToSpeak);
-        // ▲▲▲ TTS 기능 호출 ▲▲▲
-        setStatus('preparing');
+        setStatus('ready'); // 바로 preparing으로 가지 않고 ready 상태로
       }
     };
     fetchQuestion();
@@ -132,6 +128,14 @@ export default function SpeakingPracticePage() {
 
   const handleGetFeedback = () => alert("AI 분석 기능은 곧 추가될 예정입니다!");
 
+  const startPractice = () => {
+    if (!question) return;
+    
+    const textToSpeak = `Part ${question.part}. The topic is ${question.topic}. Please, describe a book that you enjoyed reading. You have one minute to prepare.`;
+    speak(textToSpeak);
+    setStatus('preparing');
+  };
+
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60).toString().padStart(2, '0');
     const secs = (seconds % 60).toString().padStart(2, '0');
@@ -140,6 +144,27 @@ export default function SpeakingPracticePage() {
 
   const renderStatusUI = () => {
     switch (status) {
+      case 'ready':
+        return (
+          <div className="ready-state">
+            <div className="practice-instructions">
+              <h4>🎤 Speaking Practice Instructions</h4>
+              <ul>
+                <li>Make sure your microphone is working</li>
+                <li>Find a quiet place to practice</li>
+                <li>You&apos;ll have 1 minute to prepare, then 2 minutes to speak</li>
+                <li>The system will provide audio instructions</li>
+              </ul>
+            </div>
+            <button 
+              onClick={startPractice} 
+              className="btn btn-primary"
+              style={{ fontSize: '1.125rem', padding: 'var(--space-md) var(--space-xl)' }}
+            >
+              🎯 Start Speaking Practice
+            </button>
+          </div>
+        );
       case 'preparing':
         return <div>준비 시간: {formatTime(timer)}</div>;
       case 'speaking':

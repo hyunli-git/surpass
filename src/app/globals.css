@@ -1573,3 +1573,45 @@ nav {
         font-size: 2.5rem;
     }
 }
+
+/* Speaking Practice Ready State */
+.ready-state {
+    text-align: center;
+    padding: var(--space-2xl);
+}
+
+.practice-instructions {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+    text-align: left;
+}
+
+.practice-instructions h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+.practice-instructions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.practice-instructions li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-sm) 0;
+    color: var(--text-primary);
+}
+
+.practice-instructions li:before {
+    content: "✓";
+    color: var(--accent-green);
+    font-weight: 600;
+    margin-top: 2px;
+}
