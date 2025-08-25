@@ -1,0 +1,116 @@
+{
+  "common": {
+    "login": "Anmelden",
+    "logout": "Abmelden", 
+    "language": "Sprache",
+    "loading": "Wird geladen...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "home": "Startseite",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "pricing": "Preise"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "tests": "Tests", 
+    "practice": "Übung",
+    "speaking": "Sprechen",
+    "writing": "Schreiben",
+    "pricing": "Preise",
+    "about": "Über uns"
+  },
+  "hero": {
+    "title": "Meistern Sie jeden Sprachtest mit KI",
+    "description": "Personalisierte Vorbereitung für TOEIC, IELTS, HSK, JLPT und über 30 Sprachtests weltweit.",
+    "startLearning": "Lernen Beginnen",
+    "browseTests": "Alle Tests Durchsuchen"
+  },
+  "features": {
+    "title": "Warum Surpass wählen?",
+    "personalizedLearning": {
+      "title": "Personalisiertes Lernen",
+      "description": "KI passt sich Ihrem Lernstil an und verfolgt Ihren Fortschritt in Echtzeit.",
+      "action": "KI-Übung Starten"
+    },
+    "speakingPractice": {
+      "title": "Sprechübung", 
+      "description": "Üben Sie mit KI-Tutoren, die sofortiges Feedback zur Aussprache geben.",
+      "action": "Sprechübung Ausprobieren"
+    },
+    "writingAssistant": {
+      "title": "Schreibassistent",
+      "description": "Erhalten Sie detailliertes Feedback zu Aufsätzen mit KI-gestützter Bewertung.",
+      "action": "Schreibfähigkeiten Verbessern"
+    },
+    "testsSection": {
+      "title": "Meistern Sie über 30 Sprachtests",
+      "description": "Von TOEIC und IELTS bis HSK und JLPT - umfassende Vorbereitung für alle wichtigen Sprachzertifizierungen",
+      "browseAllTests": "Alle Tests Durchsuchen"
+    }
+  },
+  "tests": {
+    "title": "Sprachtests",
+    "allTests": "Alle Tests",
+    "filterByLanguage": "Nach Sprache filtern",
+    "startPractice": "Übung Starten",
+    "comingSoon": "Demnächst Verfügbar",
+    "languages": {
+      "english": "Englisch",
+      "chinese": "Chinesisch",
+      "japanese": "Japanisch", 
+      "korean": "Koreanisch",
+      "french": "Französisch",
+      "german": "Deutsch",
+      "spanish": "Spanisch",
+      "portuguese": "Portugiesisch",
+      "italian": "Italienisch",
+      "russian": "Russisch",
+      "european": "Europäisch"
+    }
+  },
+  "practice": {
+    "speaking": {
+      "title": "Sprechübung",
+      "description": "Verbessern Sie Ihre Aussprache und Geläufigkeit",
+      "startRecording": "Aufnahme Starten",
+      "stopRecording": "Aufnahme Stoppen",
+      "playback": "Wiedergabe",
+      "analyzing": "Analysiere Ihre Sprache...",
+      "error": "Fehler: Sprechübung konnte nicht geladen werden."
+    },
+    "writing": {
+      "title": "Schreibübung", 
+      "task1": "Aufgabe 1",
+      "task2": "Aufgabe 2",
+      "description": "Verbessern Sie Ihre Schreibfähigkeiten mit KI-Feedback",
+      "submit": "Zur Analyse Einreichen",
+      "analyzing": "Analysiere Ihr Schreiben...",
+      "error": "Fehler: Schreibübung konnte nicht geladen werden."
+    }
+  },
+  "auth": {
+    "loginRequired": "Anmeldung Erforderlich",
+    "loginDescription": "Bitte melden Sie sich an, um auf diese Funktion zuzugreifen.",
+    "loginButton": "Anmelden",
+    "loggingIn": "Anmeldung läuft...",
+    "loginError": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "logout": "Abmelden",
+    "loggingOut": "Abmeldung läuft..."
+  },
+  "errors": {
+    "general": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "networkError": "Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.",
+    "notFound": "Seite nicht gefunden",
+    "unauthorized": "Sie sind nicht berechtigt, auf diese Seite zuzugreifen",
+    "serverError": "Serverfehler. Bitte versuchen Sie es später erneut."
+  }
+}

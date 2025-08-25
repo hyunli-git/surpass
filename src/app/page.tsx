@@ -1,13 +1,6 @@
-// src/app/page.tsx
+// Root page - simple redirect to English
+import {redirect} from 'next/navigation';
 
-import Hero from '@/components/Hero'
-import Features from '@/components/Features'
-
-export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      <Features />
-    </>
-  )
+export default function RootPage() {
+  redirect('/en');
 }

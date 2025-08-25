@@ -1,0 +1,116 @@
+{
+  "common": {
+    "login": "ログイン",
+    "logout": "ログアウト", 
+    "language": "言語",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "save": "保存",
+    "edit": "編集",
+    "delete": "削除",
+    "back": "戻る",
+    "next": "次へ",
+    "previous": "前へ",
+    "home": "ホーム",
+    "about": "概要",
+    "contact": "お問い合わせ",
+    "pricing": "料金"
+  },
+  "navigation": {
+    "home": "ホーム",
+    "tests": "テスト", 
+    "practice": "練習",
+    "speaking": "スピーキング",
+    "writing": "ライティング",
+    "pricing": "料金",
+    "about": "概要"
+  },
+  "hero": {
+    "title": "AIで語学試験をマスターしよう",
+    "description": "TOEIC、IELTS、HSK、JLPTなど世界の30以上の語学試験に対応したパーソナライズされた学習。",
+    "startLearning": "学習を開始",
+    "browseTests": "すべてのテストを見る"
+  },
+  "features": {
+    "title": "Surpassを選ぶ理由",
+    "personalizedLearning": {
+      "title": "パーソナライズされた学習",
+      "description": "AIがあなたの学習スタイルに適応し、リアルタイムで進捗を追跡します。",
+      "action": "AI練習を開始"
+    },
+    "speakingPractice": {
+      "title": "スピーキング練習", 
+      "description": "即座に発音フィードバックを提供するAIチューターと練習しましょう。",
+      "action": "スピーキング練習を試す"
+    },
+    "writingAssistant": {
+      "title": "ライティングアシスタント",
+      "description": "AI搭載の評価でエッセイに詳細なフィードバックを受けましょう。",
+      "action": "ライティングスキルを向上"
+    },
+    "testsSection": {
+      "title": "30以上の語学試験をマスター",
+      "description": "TOEICとIELTSからHSKとJLPTまで - すべての主要言語資格の包括的な準備",
+      "browseAllTests": "すべてのテストを見る"
+    }
+  },
+  "tests": {
+    "title": "語学試験",
+    "allTests": "すべてのテスト",
+    "filterByLanguage": "言語でフィルター",
+    "startPractice": "練習を開始",
+    "comingSoon": "近日公開",
+    "languages": {
+      "english": "英語",
+      "chinese": "中国語",
+      "japanese": "日本語", 
+      "korean": "韓国語",
+      "french": "フランス語",
+      "german": "ドイツ語",
+      "spanish": "スペイン語",
+      "portuguese": "ポルトガル語",
+      "italian": "イタリア語",
+      "russian": "ロシア語",
+      "european": "ヨーロッパ言語"
+    }
+  },
+  "practice": {
+    "speaking": {
+      "title": "スピーキング練習",
+      "description": "発音と流暢さを向上させましょう",
+      "startRecording": "録音開始",
+      "stopRecording": "録音停止",
+      "playback": "録音再生",
+      "analyzing": "音声を分析中...",
+      "error": "エラー：スピーキング練習を読み込めません。"
+    },
+    "writing": {
+      "title": "ライティング練習", 
+      "task1": "タスク1",
+      "task2": "タスク2",
+      "description": "AIフィードバックでライティングスキルを向上",
+      "submit": "分析のため提出",
+      "analyzing": "ライティングを分析中...",
+      "error": "エラー：ライティング練習を読み込めません。"
+    }
+  },
+  "auth": {
+    "loginRequired": "ログインが必要です",
+    "loginDescription": "この機能をご利用いただくにはログインしてください。",
+    "loginButton": "ログイン",
+    "loggingIn": "ログイン中...",
+    "loginError": "ログインに失敗しました。もう一度お試しください。",
+    "logout": "ログアウト",
+    "loggingOut": "ログアウト中..."
+  },
+  "errors": {
+    "general": "問題が発生しました。もう一度お試しください。",
+    "networkError": "ネットワークエラー。接続を確認してください。",
+    "notFound": "ページが見つかりません",
+    "unauthorized": "このページにアクセスする権限がありません",
+    "serverError": "サーバーエラー。後でもう一度お試しください。"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "common": {
+    "login": "Se connecter",
+    "logout": "Se déconnecter", 
+    "language": "Langue",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Enregistrer",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "pricing": "Tarifs"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "tests": "Tests", 
+    "practice": "Pratique",
+    "speaking": "Expression orale",
+    "writing": "Écriture",
+    "pricing": "Tarifs",
+    "about": "À propos"
+  },
+  "hero": {
+    "title": "Maîtrisez tout test de langue avec l'IA",
+    "description": "Préparation personnalisée pour TOEIC, IELTS, HSK, JLPT et plus de 30 tests de langue dans le monde.",
+    "startLearning": "Commencer à Apprendre",
+    "browseTests": "Voir Tous les Tests"
+  },
+  "features": {
+    "title": "Pourquoi choisir Surpass ?",
+    "personalizedLearning": {
+      "title": "Apprentissage Personnalisé",
+      "description": "L'IA s'adapte à votre style d'apprentissage et suit vos progrès en temps réel.",
+      "action": "Commencer la Pratique IA"
+    },
+    "speakingPractice": {
+      "title": "Pratique de l'Expression Orale", 
+      "description": "Pratiquez avec des tuteurs IA qui fournissent des commentaires instantanés sur la prononciation.",
+      "action": "Essayer la Pratique Orale"
+    },
+    "writingAssistant": {
+      "title": "Assistant d'Écriture",
+      "description": "Obtenez des commentaires détaillés sur les essais avec une évaluation alimentée par l'IA.",
+      "action": "Améliorer les Compétences d'Écriture"
+    },
+    "testsSection": {
+      "title": "Maîtrisez plus de 30 Tests de Langue",
+      "description": "Du TOEIC et IELTS au HSK et JLPT - préparation complète pour toutes les principales certifications linguistiques",
+      "browseAllTests": "Voir Tous les Tests"
+    }
+  },
+  "tests": {
+    "title": "Tests de Langue",
+    "allTests": "Tous les Tests",
+    "filterByLanguage": "Filtrer par Langue",
+    "startPractice": "Commencer la Pratique",
+    "comingSoon": "Bientôt Disponible",
+    "languages": {
+      "english": "Anglais",
+      "chinese": "Chinois",
+      "japanese": "Japonais", 
+      "korean": "Coréen",
+      "french": "Français",
+      "german": "Allemand",
+      "spanish": "Espagnol",
+      "portuguese": "Portugais",
+      "italian": "Italien",
+      "russian": "Russe",
+      "european": "Européen"
+    }
+  },
+  "practice": {
+    "speaking": {
+      "title": "Pratique de l'Expression Orale",
+      "description": "Améliorez votre prononciation et votre fluidité",
+      "startRecording": "Commencer l'Enregistrement",
+      "stopRecording": "Arrêter l'Enregistrement",
+      "playback": "Lire l'Enregistrement",
+      "analyzing": "Analyse de votre discours...",
+      "error": "Erreur : Impossible de charger la pratique orale."
+    },
+    "writing": {
+      "title": "Pratique de l'Écriture", 
+      "task1": "Tâche 1",
+      "task2": "Tâche 2",
+      "description": "Améliorez vos compétences d'écriture avec les commentaires de l'IA",
+      "submit": "Soumettre pour Analyse",
+      "analyzing": "Analyse de votre écriture...",
+      "error": "Erreur : Impossible de charger la pratique d'écriture."
+    }
+  },
+  "auth": {
+    "loginRequired": "Connexion Requise",
+    "loginDescription": "Veuillez vous connecter pour accéder à cette fonctionnalité.",
+    "loginButton": "Se Connecter",
+    "loggingIn": "Connexion en cours...",
+    "loginError": "Échec de la connexion. Veuillez réessayer.",
+    "logout": "Se Déconnecter",
+    "loggingOut": "Déconnexion en cours..."
+  },
+  "errors": {
+    "general": "Une erreur s'est produite. Veuillez réessayer.",
+    "networkError": "Erreur réseau. Veuillez vérifier votre connexion.",
+    "notFound": "Page non trouvée",
+    "unauthorized": "Vous n'êtes pas autorisé à accéder à cette page",
+    "serverError": "Erreur serveur. Veuillez réessayer plus tard."
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "common": {
+    "login": "Accedi",
+    "logout": "Esci", 
+    "language": "Lingua",
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo",
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "save": "Salva",
+    "edit": "Modifica",
+    "delete": "Elimina",
+    "back": "Indietro",
+    "next": "Avanti",
+    "previous": "Precedente",
+    "home": "Home",
+    "about": "Chi siamo",
+    "contact": "Contatto",
+    "pricing": "Prezzi"
+  },
+  "navigation": {
+    "home": "Home",
+    "tests": "Test", 
+    "practice": "Pratica",
+    "speaking": "Conversazione",
+    "writing": "Scrittura",
+    "pricing": "Prezzi",
+    "about": "Chi siamo"
+  },
+  "hero": {
+    "title": "Padroneggia qualsiasi test linguistico con l'IA",
+    "description": "Preparazione personalizzata per TOEIC, IELTS, HSK, JLPT e oltre 30 test linguistici in tutto il mondo.",
+    "startLearning": "Inizia a Imparare",
+    "browseTests": "Visualizza Tutti i Test"
+  },
+  "features": {
+    "title": "Perché scegliere Surpass?",
+    "personalizedLearning": {
+      "title": "Apprendimento Personalizzato",
+      "description": "L'IA si adatta al tuo stile di apprendimento e monitora i tuoi progressi in tempo reale.",
+      "action": "Inizia la Pratica con IA"
+    },
+    "speakingPractice": {
+      "title": "Pratica di Conversazione", 
+      "description": "Pratica con tutor IA che forniscono feedback istantaneo sulla pronuncia.",
+      "action": "Prova la Pratica di Conversazione"
+    },
+    "writingAssistant": {
+      "title": "Assistente di Scrittura",
+      "description": "Ricevi feedback dettagliato sui saggi con valutazione alimentata dall'IA.",
+      "action": "Migliora le Competenze di Scrittura"
+    },
+    "testsSection": {
+      "title": "Padroneggia oltre 30 Test Linguistici",
+      "description": "Da TOEIC e IELTS a HSK e JLPT - preparazione completa per tutte le principali certificazioni linguistiche",
+      "browseAllTests": "Visualizza Tutti i Test"
+    }
+  },
+  "tests": {
+    "title": "Test Linguistici",
+    "allTests": "Tutti i Test",
+    "filterByLanguage": "Filtra per Lingua",
+    "startPractice": "Inizia la Pratica",
+    "comingSoon": "Prossimamente",
+    "languages": {
+      "english": "Inglese",
+      "chinese": "Cinese",
+      "japanese": "Giapponese", 
+      "korean": "Coreano",
+      "french": "Francese",
+      "german": "Tedesco",
+      "spanish": "Spagnolo",
+      "portuguese": "Portoghese",
+      "italian": "Italiano",
+      "russian": "Russo",
+      "european": "Europeo"
+    }
+  },
+  "practice": {
+    "speaking": {
+      "title": "Pratica di Conversazione",
+      "description": "Migliora la tua pronuncia e fluidità",
+      "startRecording": "Inizia Registrazione",
+      "stopRecording": "Ferma Registrazione",
+      "playback": "Riproduci",
+      "analyzing": "Analizzando il tuo parlato...",
+      "error": "Errore: Impossibile caricare la pratica di conversazione."
+    },
+    "writing": {
+      "title": "Pratica di Scrittura", 
+      "task1": "Compito 1",
+      "task2": "Compito 2",
+      "description": "Migliora le tue competenze di scrittura con feedback IA",
+      "submit": "Invia per Analisi",
+      "analyzing": "Analizzando la tua scrittura...",
+      "error": "Errore: Impossibile caricare la pratica di scrittura."
+    }
+  },
+  "auth": {
+    "loginRequired": "Login Richiesto",
+    "loginDescription": "Effettua il login per accedere a questa funzionalità.",
+    "loginButton": "Accedi",
+    "loggingIn": "Accesso in corso...",
+    "loginError": "Login fallito. Riprova.",
+    "logout": "Esci",
+    "loggingOut": "Disconnessione in corso..."
+  },
+  "errors": {
+    "general": "Si è verificato un errore. Riprova.",
+    "networkError": "Errore di rete. Controlla la tua connessione.",
+    "notFound": "Pagina non trovata",
+    "unauthorized": "Non sei autorizzato ad accedere a questa pagina",
+    "serverError": "Errore del server. Riprova più tardi."
+  }
+}

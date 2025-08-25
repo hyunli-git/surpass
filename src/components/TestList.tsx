@@ -4,6 +4,7 @@
 
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface Test {
   id: number;
@@ -17,6 +18,7 @@ interface Test {
 
 export default function TestList({ tests }: { tests: Test[] | null }) {
   const [selectedLanguage, setSelectedLanguage] = useState<string>('all');
+  const t = useTranslations('tests');
 
   const languageGroups = useMemo(() => {
     if (!tests) return [];
@@ -51,7 +53,7 @@ export default function TestList({ tests }: { tests: Test[] | null }) {
             className={`filter-pill ${selectedLanguage === 'all' ? 'active' : ''}`}
             onClick={() => setSelectedLanguage('all')}
           >
-            All Tests ({tests.length})
+            {t('allTests')} ({tests.length})
           </button>
           {languageGroups.map(([language, count]) => (
             <button 
@@ -59,7 +61,7 @@ export default function TestList({ tests }: { tests: Test[] | null }) {
               className={`filter-pill ${selectedLanguage === language ? 'active' : ''}`}
               onClick={() => setSelectedLanguage(language)}
             >
-              {language.charAt(0).toUpperCase() + language.slice(1)} ({count})
+              {t(`languages.${language}` as keyof typeof t)} ({count})
             </button>
           ))}
         </div>
@@ -78,10 +80,12 @@ export default function TestList({ tests }: { tests: Test[] | null }) {
               
               {test.name.includes('IELTS') ? (
                 <Link href="/ielts-practice" className="btn btn-primary" style={{ width: '100%' }}>
-                  Start Practice
+                  {t('startPractice')}
                 </Link>
               ) : (
-                <button className="btn btn-primary" style={{ width: '100%' }} disabled>Start Practice</button>
+                <button className="btn btn-primary" style={{ width: '100%' }} disabled>
+                  {t('comingSoon')}
+                </button>
               )}
             </div>
           ))}

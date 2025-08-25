@@ -32,10 +32,10 @@ export default function IeltsGeneralPracticePage() {
         />
       )}
 
-      <section className="test-hero" style={{ background: 'linear-gradient(135deg, #667eea 0%, #4c51bf 100%)' }}>
+      <section className="hero">
         <div className="container container-narrow">
           <div style={{ marginBottom: 'var(--space-lg)' }}>
-            <Link href="/ielts-practice" className="btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', border: '1px solid rgba(255,255,255,0.3)' }}>
+            <Link href="/ielts-practice" className="btn">
               ← Back to IELTS Selection
             </Link>
           </div>

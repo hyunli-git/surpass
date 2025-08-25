@@ -3,6 +3,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Testimonials() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -151,13 +152,13 @@ export default function Testimonials() {
           <h3>Ready to Join Our Success Stories?</h3>
           <p>Start your journey to test mastery today</p>
           <div className="cta-buttons">
-            <a href="/tests" className="btn btn-primary-xl">
+            <Link href="/tests" className="btn btn-primary-xl">
               <span className="btn-icon">🚀</span>
               Start Free Practice
-            </a>
-            <a href="/pricing" className="btn btn-outline">
+            </Link>
+            <Link href="/pricing" className="btn btn-outline">
               View Plans & Pricing
-            </a>
+            </Link>
           </div>
         </div>
       </div>

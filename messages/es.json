@@ -1,0 +1,116 @@
+{
+  "common": {
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión", 
+    "language": "Idioma",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "pricing": "Precios"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "tests": "Exámenes", 
+    "practice": "Práctica",
+    "speaking": "Hablar",
+    "writing": "Escritura",
+    "pricing": "Precios",
+    "about": "Acerca de"
+  },
+  "hero": {
+    "title": "Domina cualquier examen de idiomas con IA",
+    "description": "Preparación personalizada para TOEIC, IELTS, HSK, JLPT y más de 30 exámenes de idiomas mundiales.",
+    "startLearning": "Comenzar a Aprender",
+    "browseTests": "Ver Todos los Exámenes"
+  },
+  "features": {
+    "title": "¿Por qué elegir Surpass?",
+    "personalizedLearning": {
+      "title": "Aprendizaje Personalizado",
+      "description": "La IA se adapta a tu estilo de aprendizaje y rastrea tu progreso en tiempo real.",
+      "action": "Comenzar Práctica con IA"
+    },
+    "speakingPractice": {
+      "title": "Práctica de Habla", 
+      "description": "Practica con tutores de IA que proporcionan comentarios instantáneos sobre pronunciación.",
+      "action": "Probar Práctica de Habla"
+    },
+    "writingAssistant": {
+      "title": "Asistente de Escritura",
+      "description": "Obtén comentarios detallados sobre ensayos con evaluación impulsada por IA.",
+      "action": "Mejorar Habilidades de Escritura"
+    },
+    "testsSection": {
+      "title": "Domina más de 30 Exámenes de Idiomas",
+      "description": "Desde TOEIC e IELTS hasta HSK y JLPT - preparación integral para todas las certificaciones de idiomas principales",
+      "browseAllTests": "Ver Todos los Exámenes"
+    }
+  },
+  "tests": {
+    "title": "Exámenes de Idiomas",
+    "allTests": "Todos los Exámenes",
+    "filterByLanguage": "Filtrar por Idioma",
+    "startPractice": "Comenzar Práctica",
+    "comingSoon": "Próximamente",
+    "languages": {
+      "english": "Inglés",
+      "chinese": "Chino",
+      "japanese": "Japonés", 
+      "korean": "Coreano",
+      "french": "Francés",
+      "german": "Alemán",
+      "spanish": "Español",
+      "portuguese": "Portugués",
+      "italian": "Italiano",
+      "russian": "Ruso",
+      "european": "Europeo"
+    }
+  },
+  "practice": {
+    "speaking": {
+      "title": "Práctica de Habla",
+      "description": "Mejora tu pronunciación y fluidez",
+      "startRecording": "Comenzar Grabación",
+      "stopRecording": "Detener Grabación",
+      "playback": "Reproducir Grabación",
+      "analyzing": "Analizando tu discurso...",
+      "error": "Error: No se puede cargar la práctica de habla."
+    },
+    "writing": {
+      "title": "Práctica de Escritura", 
+      "task1": "Tarea 1",
+      "task2": "Tarea 2",
+      "description": "Mejora tus habilidades de escritura con comentarios de IA",
+      "submit": "Enviar para Análisis",
+      "analyzing": "Analizando tu escritura...",
+      "error": "Error: No se puede cargar la práctica de escritura."
+    }
+  },
+  "auth": {
+    "loginRequired": "Inicio de Sesión Requerido",
+    "loginDescription": "Por favor, inicia sesión para acceder a esta función.",
+    "loginButton": "Iniciar Sesión",
+    "loggingIn": "Iniciando sesión...",
+    "loginError": "Error al iniciar sesión. Por favor, intenta de nuevo.",
+    "logout": "Cerrar Sesión",
+    "loggingOut": "Cerrando sesión..."
+  },
+  "errors": {
+    "general": "Algo salió mal. Por favor, intenta de nuevo.",
+    "networkError": "Error de red. Por favor, verifica tu conexión.",
+    "notFound": "Página no encontrada",
+    "unauthorized": "No estás autorizado para acceder a esta página",
+    "serverError": "Error del servidor. Por favor, intenta más tarde."
+  }
+}

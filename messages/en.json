@@ -1,0 +1,116 @@
+{
+  "common": {
+    "login": "Login",
+    "logout": "Logout", 
+    "language": "Language",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "pricing": "Pricing"
+  },
+  "navigation": {
+    "home": "Home",
+    "tests": "Tests", 
+    "practice": "Practice",
+    "speaking": "Speaking",
+    "writing": "Writing",
+    "pricing": "Pricing",
+    "about": "About"
+  },
+  "hero": {
+    "title": "Master any language test with AI",
+    "description": "Personalized preparation for TOEIC, IELTS, HSK, JLPT, and 30+ language tests worldwide.",
+    "startLearning": "Start Learning",
+    "browseTests": "Browse All Tests"
+  },
+  "features": {
+    "title": "Why Choose Surpass?",
+    "personalizedLearning": {
+      "title": "Personalized Learning",
+      "description": "AI adapts to your learning style and tracks your progress in real-time.",
+      "action": "Start AI Practice"
+    },
+    "speakingPractice": {
+      "title": "Speaking Practice", 
+      "description": "Practice with AI tutors that provide instant pronunciation feedback.",
+      "action": "Try Speaking Practice"
+    },
+    "writingAssistant": {
+      "title": "Writing Assistant",
+      "description": "Get detailed feedback on essays with AI-powered evaluation.",
+      "action": "Improve Writing Skills"
+    },
+    "testsSection": {
+      "title": "Master 30+ Language Tests",
+      "description": "From TOEIC and IELTS to HSK and JLPT - comprehensive preparation for all major language certifications",
+      "browseAllTests": "Browse All Tests"
+    }
+  },
+  "tests": {
+    "title": "Language Tests",
+    "allTests": "All Tests",
+    "filterByLanguage": "Filter by Language",
+    "startPractice": "Start Practice",
+    "comingSoon": "Coming Soon",
+    "languages": {
+      "english": "English",
+      "chinese": "Chinese",
+      "japanese": "Japanese", 
+      "korean": "Korean",
+      "french": "French",
+      "german": "German",
+      "spanish": "Spanish",
+      "portuguese": "Portuguese",
+      "italian": "Italian",
+      "russian": "Russian",
+      "european": "European"
+    }
+  },
+  "practice": {
+    "speaking": {
+      "title": "Speaking Practice",
+      "description": "Improve your pronunciation and fluency",
+      "startRecording": "Start Recording",
+      "stopRecording": "Stop Recording",
+      "playback": "Play Recording",
+      "analyzing": "Analyzing your speech...",
+      "error": "Error: Unable to load speaking practice."
+    },
+    "writing": {
+      "title": "Writing Practice", 
+      "task1": "Task 1",
+      "task2": "Task 2",
+      "description": "Enhance your writing skills with AI feedback",
+      "submit": "Submit for Analysis",
+      "analyzing": "Analyzing your writing...",
+      "error": "Error: Unable to load writing practice."
+    }
+  },
+  "auth": {
+    "loginRequired": "Login Required",
+    "loginDescription": "Please log in to access this feature.",
+    "loginButton": "Log In",
+    "loggingIn": "Logging in...",
+    "loginError": "Login failed. Please try again.",
+    "logout": "Logout",
+    "loggingOut": "Logging out..."
+  },
+  "errors": {
+    "general": "Something went wrong. Please try again.",
+    "networkError": "Network error. Please check your connection.",
+    "notFound": "Page not found",
+    "unauthorized": "You are not authorized to access this page",
+    "serverError": "Server error. Please try again later."
+  }
+}

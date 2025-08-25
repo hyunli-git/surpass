@@ -5,10 +5,10 @@ import Link from 'next/link';
 export default function IeltsPracticePage() {
   return (
     <>
-      <section className="test-hero">
+      <section className="hero">
         <div className="container container-narrow">
-          <h1 style={{color: 'white'}}>IELTS Practice</h1>
-          <p style={{color: 'rgba(255, 255, 255, 0.9)'}}>Choose your test format to begin preparation</p>
+          <h1>IELTS Practice</h1>
+          <p>Choose your test format to begin preparation</p>
         </div>
       </section>
 
