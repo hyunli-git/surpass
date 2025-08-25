@@ -9,7 +9,7 @@ export default async function TestsPage() {
 
   if (error) {
     console.error("Error fetching tests:", error);
-    return <p>오류: 시험 목록을 불러올 수 없습니다.</p>;
+    return <p>Error: Unable to load test list.</p>;
   }
 
   return (

@@ -1,9 +1,12 @@
 // src/components/TestList.tsx
 
+'use client';
+
 import Link from 'next/link';
+import { useState, useMemo } from 'react';
 
 interface Test {
-  id: string;
+  id: number;
   name: string;
   language_group: string;
   badge_type: string;
@@ -13,6 +16,29 @@ interface Test {
 }
 
 export default function TestList({ tests }: { tests: Test[] | null }) {
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('all');
+
+  const languageGroups = useMemo(() => {
+    if (!tests) return [];
+    
+    const groups = tests.reduce((acc, test) => {
+      const lang = test.language_group;
+      if (!acc[lang]) {
+        acc[lang] = 0;
+      }
+      acc[lang]++;
+      return acc;
+    }, {} as Record<string, number>);
+
+    return Object.entries(groups).sort((a, b) => b[1] - a[1]);
+  }, [tests]);
+
+  const filteredTests = useMemo(() => {
+    if (!tests) return [];
+    if (selectedLanguage === 'all') return tests;
+    return tests.filter(test => test.language_group === selectedLanguage);
+  }, [tests, selectedLanguage]);
+
   if (!tests) {
     return null;
   }
@@ -21,14 +47,25 @@ export default function TestList({ tests }: { tests: Test[] | null }) {
     <section className="section">
       <div className="container">
         <div className="filter-pills">
-          <button className="filter-pill active">All Tests (9)</button>
-          <button className="filter-pill">English (6)</button>
-          <button className="filter-pill">Asian (2)</button>
-          <button className="filter-pill">European (1)</button>
+          <button 
+            className={`filter-pill ${selectedLanguage === 'all' ? 'active' : ''}`}
+            onClick={() => setSelectedLanguage('all')}
+          >
+            All Tests ({tests.length})
+          </button>
+          {languageGroups.map(([language, count]) => (
+            <button 
+              key={language}
+              className={`filter-pill ${selectedLanguage === language ? 'active' : ''}`}
+              onClick={() => setSelectedLanguage(language)}
+            >
+              {language.charAt(0).toUpperCase() + language.slice(1)} ({count})
+            </button>
+          ))}
         </div>
 
         <div className="grid grid-3">
-          {tests.map((test) => (
+          {filteredTests.map((test) => (
             <div key={test.id} className="test-card" data-lang={test.language_group}>
               <div className={`badge badge-${test.badge_type}`}>{test.badge_text}</div>
               <h3>{test.name}</h3>
@@ -39,9 +76,7 @@ export default function TestList({ tests }: { tests: Test[] | null }) {
                 ))}
               </ul>
               
-              {/* ▼▼▼ 이 부분이 올바른 주소로 수정되었습니다 ▼▼▼ */}
               {test.name.includes('IELTS') ? (
-                // 목적지를 /mock-test가 아닌 /ielts-practice로 변경합니다.
                 <Link href="/ielts-practice" className="btn btn-primary" style={{ width: '100%' }}>
                   Start Practice
                 </Link>
