@@ -1845,3 +1845,171 @@ nav {
         font-size: 2rem;
     }
 }
+
+/* Next Level Guide Styles */
+.next-level-guide {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    border: 3px solid var(--accent-blue);
+    border-radius: 16px;
+    padding: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.next-level-guide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-green));
+}
+
+.next-level-guide h4 {
+    text-align: center;
+    color: var(--accent-blue);
+    margin-bottom: var(--space-xl);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Level Progress */
+.level-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.level-badge {
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-align: center;
+    min-width: 160px;
+}
+
+.level-badge.current {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.level-badge.target {
+    background: linear-gradient(135deg, var(--accent-green), #059669);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.progress-arrow {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+    font-weight: 700;
+}
+
+/* Guide Content */
+.guide-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+}
+
+.guide-section {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-lg);
+}
+
+.guide-section h5 {
+    color: var(--accent-blue);
+    margin-bottom: var(--space-md);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.focus-list, .action-list, .practice-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.focus-list li, .action-list li, .practice-list li {
+    padding: var(--space-sm) 0;
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: var(--space-lg);
+}
+
+.focus-list li:before {
+    content: "🎯";
+    position: absolute;
+    left: 0;
+    top: var(--space-sm);
+}
+
+.action-list li:before {
+    content: "✅";
+    position: absolute;
+    left: 0;
+    top: var(--space-sm);
+}
+
+.practice-list li:before {
+    content: "📚";
+    position: absolute;
+    left: 0;
+    top: var(--space-sm);
+}
+
+.timeline-box {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    color: white;
+    border-radius: 12px;
+    padding: var(--space-lg);
+    text-align: center;
+    margin-top: var(--space-md);
+}
+
+.timeline-box h5 {
+    color: white;
+    margin-bottom: var(--space-sm);
+    font-size: 1rem;
+}
+
+.timeline-box p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Responsive Design for Next Level Guide */
+@media (max-width: 768px) {
+    .level-progress {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+    
+    .progress-arrow {
+        transform: rotate(90deg);
+        font-size: 1.25rem;
+    }
+    
+    .guide-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .level-badge {
+        min-width: auto;
+        width: 100%;
+    }
+}

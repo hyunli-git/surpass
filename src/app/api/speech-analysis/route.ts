@@ -9,6 +9,7 @@ const openai = new OpenAI({
 
 interface IELTSFeedback {
   overallScore: number;
+  targetScore: number;
   scores: {
     fluencyCoherence: number;
     lexicalResource: number;
@@ -18,6 +19,14 @@ interface IELTSFeedback {
   transcript: string;
   strengths: string[];
   improvements: string[];
+  nextLevelGuide: {
+    currentLevel: string;
+    targetLevel: string;
+    keyFocus: string[];
+    specificActions: string[];
+    practiceActivities: string[];
+    timeline: string;
+  };
   detailedAnalysis: {
     fluency: string;
     vocabulary: string;
@@ -54,7 +63,7 @@ export async function POST(request: NextRequest) {
 
     // Step 2: Analyze the transcript for IELTS scoring
     const analysisPrompt = `
-You are an expert IELTS Speaking examiner. Analyze this IELTS Part 2 response and provide detailed feedback.
+You are an expert IELTS Speaking examiner. Analyze this IELTS Part 2 response and provide detailed feedback with a personalized next-level improvement guide.
 
 Question: "${question}"
 Response: "${transcript}"
@@ -62,6 +71,7 @@ Response: "${transcript}"
 Please provide your analysis in the following JSON format:
 {
   "overallScore": (number 4.0-9.0),
+  "targetScore": (next achievable band score - typically +0.5 or +1.0),
   "scores": {
     "fluencyCoherence": (number 4.0-9.0),
     "lexicalResource": (number 4.0-9.0), 
@@ -70,6 +80,14 @@ Please provide your analysis in the following JSON format:
   },
   "strengths": ["strength 1", "strength 2", "strength 3"],
   "improvements": ["improvement 1", "improvement 2", "improvement 3"],
+  "nextLevelGuide": {
+    "currentLevel": "Band X.X description (e.g., 'Band 5.5 - Limited User')",
+    "targetLevel": "Band X.X description for next level",
+    "keyFocus": ["Primary skill 1 to work on", "Primary skill 2 to work on", "Primary skill 3 to work on"],
+    "specificActions": ["Concrete action 1", "Concrete action 2", "Concrete action 3", "Concrete action 4"],
+    "practiceActivities": ["Practice activity 1", "Practice activity 2", "Practice activity 3"],
+    "timeline": "Realistic timeframe to reach next level (e.g., '2-3 months with daily practice')"
+  },
   "detailedAnalysis": {
     "fluency": "detailed fluency analysis",
     "vocabulary": "detailed vocabulary analysis", 
@@ -78,14 +96,21 @@ Please provide your analysis in the following JSON format:
   }
 }
 
-Consider:
-- Fluency & Coherence: Natural flow, hesitations, linking ideas
-- Lexical Resource: Vocabulary range, accuracy, appropriateness
-- Grammatical Range: Sentence variety, accuracy, complexity
-- Pronunciation: Based on transcript quality and patterns
-- Overall coherence and task achievement
+For the Next Level Guide, consider these IELTS band descriptors:
+- Band 4: Very limited user, frequent breakdowns
+- Band 5: Limited user, copes with simple situations  
+- Band 6: Competent user, occasional inaccuracies
+- Band 7: Good user, occasional inappropriate usage
+- Band 8: Very good user, occasional unsystematic inaccuracies
+- Band 9: Expert user, fully operational command
 
-Be constructive but honest in your assessment.`;
+Focus the next level guide on:
+1. The MOST important areas that will move them to the next band
+2. Specific, actionable steps they can take immediately
+3. Realistic practice activities they can do daily
+4. A reasonable timeline based on their current level
+
+Be constructive, specific, and motivating in your guidance.`;
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-4',

@@ -16,6 +16,7 @@ interface SpeakingQuestion {
 
 interface IELTSFeedback {
   overallScore: number;
+  targetScore: number;
   scores: {
     fluencyCoherence: number;
     lexicalResource: number;
@@ -25,6 +26,14 @@ interface IELTSFeedback {
   transcript: string;
   strengths: string[];
   improvements: string[];
+  nextLevelGuide: {
+    currentLevel: string;
+    targetLevel: string;
+    keyFocus: string[];
+    specificActions: string[];
+    practiceActivities: string[];
+    timeline: string;
+  };
   detailedAnalysis: {
     fluency: string;
     vocabulary: string;
@@ -371,6 +380,55 @@ export default function SpeakingPracticePage() {
                   <li key={index}>{improvement}</li>
                 ))}
               </ul>
+            </div>
+
+            {/* Next Level Guide */}
+            <div className="next-level-guide">
+              <h4>🚀 Your Path to {feedback.nextLevelGuide.targetLevel}</h4>
+              
+              <div className="level-progress">
+                <div className="current-level">
+                  <span className="level-badge current">Current: {feedback.nextLevelGuide.currentLevel}</span>
+                </div>
+                <div className="progress-arrow">→</div>
+                <div className="target-level">
+                  <span className="level-badge target">Target: {feedback.nextLevelGuide.targetLevel}</span>
+                </div>
+              </div>
+
+              <div className="guide-content">
+                <div className="guide-section">
+                  <h5>🎯 Key Focus Areas</h5>
+                  <ul className="focus-list">
+                    {feedback.nextLevelGuide.keyFocus.map((focus, index) => (
+                      <li key={index}>{focus}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="guide-section">
+                  <h5>✅ Specific Actions to Take</h5>
+                  <ul className="action-list">
+                    {feedback.nextLevelGuide.specificActions.map((action, index) => (
+                      <li key={index}>{action}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="guide-section">
+                  <h5>📚 Daily Practice Activities</h5>
+                  <ul className="practice-list">
+                    {feedback.nextLevelGuide.practiceActivities.map((activity, index) => (
+                      <li key={index}>{activity}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="timeline-box">
+                  <h5>⏰ Expected Timeline</h5>
+                  <p>{feedback.nextLevelGuide.timeline}</p>
+                </div>
+              </div>
             </div>
 
             {/* Detailed Analysis */}
