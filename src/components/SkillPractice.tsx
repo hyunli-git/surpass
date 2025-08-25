@@ -30,7 +30,9 @@ export default function SkillPractice() {
             <div className="skill-icon">✍️</div>
             <h3>Writing</h3>
             <p>2 tasks • 60 minutes</p>
-            <button className="btn btn-primary" style={{ width: '100%', marginTop: 'var(--space-md)' }} disabled>Practice Writing</button>
+            <Link href="/skill-practice/writing" className="btn btn-primary" style={{ width: '100%', marginTop: 'var(--space-md)' }}>
+              Practice Writing
+            </Link>
           </div>
           
           {/* Speaking Card */}

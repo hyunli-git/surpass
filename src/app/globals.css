@@ -2013,3 +2013,493 @@ nav {
         width: 100%;
     }
 }
+
+/* Writing Practice Styles */
+.writing-hero {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.writing-hero h1 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.writing-hero p {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+}
+
+/* Writing Tasks Grid */
+.writing-tasks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
+}
+
+.writing-task-card {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    padding: var(--space-2xl);
+    transition: var(--transition-slow);
+}
+
+.writing-task-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-blue);
+}
+
+.task-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.task-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.task-info h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    font-size: 1.5rem;
+}
+
+.task-subtitle {
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin: 0;
+}
+
+.difficulty-badge {
+    background: var(--accent-blue);
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.task-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+.task-specs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+}
+
+.spec-icon {
+    width: 20px;
+}
+
+.task-btn {
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    font-weight: 600;
+}
+
+/* Writing Features */
+.writing-features {
+    margin-top: var(--space-3xl);
+}
+
+.writing-features h2 {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    color: var(--text-primary);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+}
+
+.feature-card {
+    text-align: center;
+    padding: var(--space-xl);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-lg);
+}
+
+.feature-card h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Writing Instructions */
+.writing-instructions {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.writing-instructions h1 {
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2xl);
+}
+
+.task-overview {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+.task-overview ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-md) 0 0 0;
+}
+
+.task-overview li {
+    padding: var(--space-sm) 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.essay-structure {
+    margin-bottom: var(--space-xl);
+}
+
+.structure-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+}
+
+.structure-step {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-lg);
+}
+
+.structure-step h4 {
+    color: var(--accent-blue);
+    margin-bottom: var(--space-sm);
+}
+
+.structure-step p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-size: 0.9375rem;
+}
+
+.criteria-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.criteria-item {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-lg);
+}
+
+.criteria-item h4 {
+    color: var(--accent-blue);
+    margin-bottom: var(--space-sm);
+    font-size: 1rem;
+}
+
+.criteria-item p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-size: 0.9375rem;
+}
+
+.writing-tips {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 2px solid var(--accent-blue);
+    border-radius: 12px;
+    padding: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+}
+
+.writing-tips ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-md) 0 0 0;
+}
+
+.writing-tips li {
+    padding: var(--space-sm) 0;
+    color: var(--text-primary);
+    position: relative;
+    padding-left: var(--space-lg);
+}
+
+.writing-tips li:before {
+    content: "💡";
+    position: absolute;
+    left: 0;
+    top: var(--space-sm);
+}
+
+.start-writing-btn {
+    display: block;
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-2xl);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+/* Writing Practice Container */
+.writing-practice-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.writing-header {
+    background: var(--bg-primary);
+    border-bottom: 2px solid var(--border-color);
+    padding: var(--space-lg) var(--space-2xl);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.task-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-info h2 {
+    color: var(--text-primary);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.task-stats {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+.word-count, .timer {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.timer {
+    font-family: var(--font-mono);
+    font-size: 1.125rem;
+}
+
+/* Writing Workspace */
+.writing-workspace {
+    flex: 1;
+    display: flex;
+    height: calc(100vh - 120px);
+}
+
+.question-panel {
+    width: 40%;
+    background: var(--bg-secondary);
+    border-right: 2px solid var(--border-color);
+    overflow-y: auto;
+    padding: var(--space-xl);
+}
+
+.question-content h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.task-prompt {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.chart-placeholder {
+    background: var(--bg-primary);
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    padding: var(--space-2xl);
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.chart-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+}
+
+.quick-planner {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-lg);
+}
+
+.quick-planner h4 {
+    color: var(--accent-blue);
+    margin-bottom: var(--space-md);
+}
+
+.planner-sections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.planner-item strong {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.planner-box {
+    height: 60px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+}
+
+/* Writing Panel */
+.writing-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-xl);
+    background: var(--bg-primary);
+}
+
+.writing-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.writing-area h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.writing-textarea {
+    flex: 1;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+}
+
+.writing-textarea:focus {
+    border-color: var(--accent-blue);
+}
+
+.essay-textarea {
+    min-height: 400px;
+}
+
+.writing-actions {
+    margin-top: var(--space-lg);
+    text-align: center;
+}
+
+.submit-btn {
+    padding: var(--space-md) var(--space-2xl);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.word-warning {
+    display: block;
+    margin-top: var(--space-sm);
+    color: var(--accent-amber);
+    font-weight: 500;
+}
+
+/* Responsive Design for Writing Practice */
+@media (max-width: 768px) {
+    .writing-tasks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .structure-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .criteria-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .task-info {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+    }
+    
+    .task-stats {
+        justify-content: center;
+    }
+    
+    .writing-workspace {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .question-panel {
+        width: 100%;
+        max-height: 50vh;
+    }
+    
+    .writing-panel {
+        min-height: 50vh;
+    }
+}
