@@ -75,7 +75,7 @@ export default function MockTest() {
   if (isFinished) {
     return (
       <AuthProtection feature="mock test results">
-        <div className="container" style={{ textAlign: 'center', marginTop: '50px' }}>
+        <div className="container container-narrow" style={{ textAlign: 'center', marginTop: '50px' }}>
           <h1>시험 종료!</h1>
           <p style={{ fontSize: '1.5rem' }}>
             당신의 점수는: **{score} / {sampleQuestions.length}**
@@ -88,7 +88,7 @@ export default function MockTest() {
 
   return (
     <AuthProtection feature="mock test">
-      <div className="container" style={{ maxWidth: '600px', margin: '50px auto' }}>
+      <div className="container container-narrow" style={{ margin: '50px auto' }}>
         <h1>모의고사</h1>
         <div className="question-box">
           <h3 className="question-title">문제 {currentQuestionIndex + 1}</h3>

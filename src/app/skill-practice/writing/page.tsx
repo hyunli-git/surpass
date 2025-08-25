@@ -31,7 +31,7 @@ export default function WritingPracticePage() {
 
   return (
     <AuthProtection feature="writing practice">
-      <div className="container" style={{ maxWidth: '900px', margin: '50px auto' }}>
+      <div className="container" style={{ margin: '50px auto' }}>
         <div className="writing-hero">
           <h1>IELTS Writing Practice</h1>
           <p>Master both tasks with AI-powered feedback and detailed scoring analysis</p>

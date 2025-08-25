@@ -145,7 +145,7 @@ Write at least 250 words.`
 
   if (showInstructions) {
     return (
-      <div className="container" style={{ maxWidth: '800px', margin: '50px auto' }}>
+      <div className="container" style={{ margin: '50px auto' }}>
         <div className="writing-instructions">
           <h1>📝 IELTS Writing Task 2 - Essay Practice</h1>
           

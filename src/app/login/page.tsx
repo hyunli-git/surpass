@@ -39,7 +39,7 @@ export default function LoginPage() {
 
   // 로그인 폼의 UI 부분
   return (
-    <div className="container" style={{ maxWidth: '400px', margin: '50px auto' }}>
+    <div className="container container-narrow" style={{ margin: '50px auto' }}>
       <h1 style={{ textAlign: 'center' }}>Login / Sign Up</h1>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
         <input

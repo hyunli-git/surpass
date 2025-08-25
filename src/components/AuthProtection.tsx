@@ -56,7 +56,7 @@ export default function AuthProtection({
   if (!user) {
     return (
       <div className="auth-required-container">
-        <div className="container" style={{ maxWidth: '600px', margin: '80px auto', textAlign: 'center' }}>
+        <div className="container container-narrow" style={{ margin: '80px auto', textAlign: 'center' }}>
           <div className="auth-required-card">
             <div className="auth-icon">🔐</div>
             <h1>Sign Up Required</h1>

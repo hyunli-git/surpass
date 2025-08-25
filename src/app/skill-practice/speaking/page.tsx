@@ -278,7 +278,7 @@ export default function SpeakingPracticePage() {
 
   return (
     <AuthProtection feature="speaking practice">
-      <div className="container" style={{ maxWidth: '700px', margin: '50px auto' }}>
+      <div className="container" style={{ margin: '50px auto' }}>
         <h1>IELTS Speaking Practice (Part 2)</h1>
         
         <div className="question-box" style={{ marginBottom: 'var(--space-xl)' }}>
