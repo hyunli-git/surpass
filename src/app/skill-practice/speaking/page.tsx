@@ -23,8 +23,46 @@ export default function SpeakingPracticePage() {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // 텍스트를 음성으로 변환하는 함수
-  const speak = (text: string) => {
+  // 텍스트를 음성으로 변환하는 함수 (OpenAI TTS 사용)
+  const speak = async (text: string) => {
+    try {
+      const response = await fetch('/api/tts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          text, 
+          voice: 'nova' // 여성 목소리, 자연스러운 톤
+        }),
+      });
+
+      if (!response.ok) {
+        console.warn('TTS API failed, falling back to browser TTS');
+        fallbackSpeak(text);
+        return;
+      }
+
+      const audioBuffer = await response.arrayBuffer();
+      const audioBlob = new Blob([audioBuffer], { type: 'audio/mpeg' });
+      const audioUrl = URL.createObjectURL(audioBlob);
+      
+      const audio = new Audio(audioUrl);
+      audio.play();
+
+      // Clean up the object URL after playing
+      audio.onended = () => {
+        URL.revokeObjectURL(audioUrl);
+      };
+
+    } catch (error) {
+      console.error('TTS Error:', error);
+      fallbackSpeak(text);
+    }
+  };
+
+  // 브라우저 기본 TTS (백업용)
+  const fallbackSpeak = (text: string) => {
     if (!window.speechSynthesis) {
       console.warn("Browser does not support Speech Synthesis.");
       return;
