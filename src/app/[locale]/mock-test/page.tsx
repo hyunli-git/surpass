@@ -60,6 +60,33 @@ export default function MockTestPage() {
     }
   };
 
+  const formatTime = (seconds: number) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    
+    if (hours > 0) {
+      return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+    return `${minutes}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  const getSectionDuration = (section: string) => {
+    switch (section) {
+      case 'listening': return 30 * 60;
+      case 'reading': return 60 * 60;
+      case 'writing': return 60 * 60;
+      case 'speaking': return 15 * 60;
+      default: return 30 * 60;
+    }
+  };
+
+  const getNextSection = () => {
+    const sections = ['listening', 'reading', 'writing', 'speaking'];
+    const currentIndex = sections.indexOf(currentSection);
+    return sections[currentIndex + 1] || 'speaking';
+  };
+
   useEffect(() => {
     if (!isStarted) return;
 
@@ -95,34 +122,7 @@ export default function MockTestPage() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [isStarted, currentSection, router, getNextSection, getSectionDuration]);
-
-  const formatTime = (seconds: number) => {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
-    
-    if (hours > 0) {
-      return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    }
-    return `${minutes}:${secs.toString().padStart(2, '0')}`;
-  };
-
-  const getSectionDuration = (section: string) => {
-    switch (section) {
-      case 'listening': return 30 * 60;
-      case 'reading': return 60 * 60;
-      case 'writing': return 60 * 60;
-      case 'speaking': return 15 * 60;
-      default: return 30 * 60;
-    }
-  };
-
-  const getNextSection = () => {
-    const sections = ['listening', 'reading', 'writing', 'speaking'];
-    const currentIndex = sections.indexOf(currentSection);
-    return sections[currentIndex + 1] || 'speaking';
-  };
+  }, [isStarted, currentSection, router]);
 
   const handleStartTest = () => {
     setIsStarted(true);
