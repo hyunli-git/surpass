@@ -14,11 +14,33 @@ interface SpeakingQuestion {
   prompt: string;
 }
 
+interface IELTSFeedback {
+  overallScore: number;
+  scores: {
+    fluencyCoherence: number;
+    lexicalResource: number;
+    grammaticalRange: number;
+    pronunciation: number;
+  };
+  transcript: string;
+  strengths: string[];
+  improvements: string[];
+  detailedAnalysis: {
+    fluency: string;
+    vocabulary: string;
+    grammar: string;
+    pronunciation: string;
+  };
+}
+
 export default function SpeakingPracticePage() {
   const [status, setStatus] = useState<PracticeStatus>('loading');
   const [question, setQuestion] = useState<SpeakingQuestion | null>(null);
   const [audioURL, setAudioURL] = useState('');
+  const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
   const [timer, setTimer] = useState(60); // 타이머 초기값은 60초
+  const [feedback, setFeedback] = useState<IELTSFeedback | null>(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
   
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -148,6 +170,7 @@ export default function SpeakingPracticePage() {
         const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
         const url = URL.createObjectURL(audioBlob);
         setAudioURL(url);
+        setAudioBlob(audioBlob);
         setStatus('finished');
         speak("Your speaking time is over.");
       };
@@ -164,7 +187,36 @@ export default function SpeakingPracticePage() {
     }
   };
 
-  const handleGetFeedback = () => alert("AI 분석 기능은 곧 추가될 예정입니다!");
+  const handleGetFeedback = async () => {
+    if (!audioBlob || !question) {
+      alert("Recording not available for analysis");
+      return;
+    }
+
+    setIsAnalyzing(true);
+    try {
+      const formData = new FormData();
+      formData.append('audio', audioBlob, 'recording.webm');
+      formData.append('question', question.prompt || question.topic);
+
+      const response = await fetch('/api/speech-analysis', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Analysis failed: ${response.status}`);
+      }
+
+      const feedbackData: IELTSFeedback = await response.json();
+      setFeedback(feedbackData);
+    } catch (error) {
+      console.error('Feedback analysis error:', error);
+      alert('Failed to analyze your recording. Please try again.');
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
 
   const startPractice = () => {
     if (!question) return;
@@ -237,13 +289,130 @@ export default function SpeakingPracticePage() {
           {renderStatusUI()}
         </div>
 
-        {status === 'finished' && audioURL && (
+        {status === 'finished' && audioURL && !feedback && (
           <div>
             <h4>Listen to your recording:</h4>
             <audio src={audioURL} controls style={{ width: '100%' }} />
-            <button onClick={handleGetFeedback} className="btn btn-success" style={{ marginTop: '20px', width: '100%' }}>
-              Get AI Feedback
+            <button 
+              onClick={handleGetFeedback} 
+              className="btn btn-primary" 
+              style={{ marginTop: '20px', width: '100%' }}
+              disabled={isAnalyzing}
+            >
+              {isAnalyzing ? (
+                <>
+                  <span>🧠 Analyzing your speech...</span>
+                </>
+              ) : (
+                <>
+                  <span>🎯 Get AI Feedback & Score</span>
+                </>
+              )}
             </button>
+          </div>
+        )}
+
+        {feedback && (
+          <div className="feedback-container">
+            <h3>🎉 Your IELTS Speaking Analysis</h3>
+            
+            {/* Overall Score */}
+            <div className="score-overview">
+              <div className="overall-score">
+                <div className="score-circle">
+                  <span className="score-number">{feedback.overallScore}</span>
+                  <span className="score-label">Overall</span>
+                </div>
+              </div>
+              
+              <div className="detailed-scores">
+                <div className="score-item">
+                  <span className="score-category">Fluency & Coherence</span>
+                  <span className="score-value">{feedback.scores.fluencyCoherence}</span>
+                </div>
+                <div className="score-item">
+                  <span className="score-category">Lexical Resource</span>
+                  <span className="score-value">{feedback.scores.lexicalResource}</span>
+                </div>
+                <div className="score-item">
+                  <span className="score-category">Grammar Range</span>
+                  <span className="score-value">{feedback.scores.grammaticalRange}</span>
+                </div>
+                <div className="score-item">
+                  <span className="score-category">Pronunciation</span>
+                  <span className="score-value">{feedback.scores.pronunciation}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Transcript */}
+            <div className="transcript-section">
+              <h4>📝 What you said:</h4>
+              <div className="transcript-box">
+                {feedback.transcript}
+              </div>
+            </div>
+
+            {/* Strengths */}
+            <div className="feedback-section">
+              <h4>✅ Your Strengths:</h4>
+              <ul className="strength-list">
+                {feedback.strengths.map((strength, index) => (
+                  <li key={index}>{strength}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Improvements */}
+            <div className="feedback-section">
+              <h4>🎯 Areas for Improvement:</h4>
+              <ul className="improvement-list">
+                {feedback.improvements.map((improvement, index) => (
+                  <li key={index}>{improvement}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Detailed Analysis */}
+            <div className="detailed-analysis">
+              <h4>📊 Detailed Analysis:</h4>
+              <div className="analysis-grid">
+                <div className="analysis-item">
+                  <h5>🗣️ Fluency & Coherence</h5>
+                  <p>{feedback.detailedAnalysis.fluency}</p>
+                </div>
+                <div className="analysis-item">
+                  <h5>📚 Vocabulary</h5>
+                  <p>{feedback.detailedAnalysis.vocabulary}</p>
+                </div>
+                <div className="analysis-item">
+                  <h5>🔤 Grammar</h5>
+                  <p>{feedback.detailedAnalysis.grammar}</p>
+                </div>
+                <div className="analysis-item">
+                  <h5>🎤 Pronunciation</h5>
+                  <p>{feedback.detailedAnalysis.pronunciation}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="action-buttons">
+              <button 
+                onClick={() => window.location.reload()} 
+                className="btn btn-outline"
+                style={{ width: '48%' }}
+              >
+                🔄 Try Again
+              </button>
+              <button 
+                onClick={() => window.print()} 
+                className="btn btn-primary"
+                style={{ width: '48%' }}
+              >
+                📄 Save Report
+              </button>
+            </div>
           </div>
         )}
       </div>

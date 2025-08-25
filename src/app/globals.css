@@ -1615,3 +1615,233 @@ nav {
     font-weight: 600;
     margin-top: 2px;
 }
+
+/* AI Feedback Styles */
+.feedback-container {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-light);
+    border-radius: 16px;
+    padding: var(--space-2xl);
+    margin-top: var(--space-2xl);
+}
+
+.feedback-container h3 {
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2xl);
+    font-size: 1.5rem;
+}
+
+/* Score Overview */
+.score-overview {
+    display: flex;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+    align-items: center;
+}
+
+.overall-score {
+    text-align: center;
+}
+
+.score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.score-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.score-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.detailed-scores {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+.score-item {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score-category {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+.score-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+}
+
+/* Transcript Section */
+.transcript-section {
+    margin-bottom: var(--space-2xl);
+}
+
+.transcript-section h4 {
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+}
+
+.transcript-box {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 80px;
+}
+
+/* Feedback Sections */
+.feedback-section {
+    margin-bottom: var(--space-2xl);
+}
+
+.feedback-section h4 {
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+}
+
+.strength-list, .improvement-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.strength-list li, .improvement-list li {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    padding: var(--space-md);
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+    position: relative;
+    padding-left: var(--space-2xl);
+}
+
+.strength-list li:before {
+    content: "✅";
+    position: absolute;
+    left: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.improvement-list li:before {
+    content: "🎯";
+    position: absolute;
+    left: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Detailed Analysis */
+.detailed-analysis {
+    margin-bottom: var(--space-2xl);
+}
+
+.detailed-analysis h4 {
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+}
+
+.analysis-item {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-lg);
+}
+
+.analysis-item h5 {
+    margin-bottom: var(--space-sm);
+    color: var(--accent-blue);
+    font-size: 1rem;
+}
+
+.analysis-item p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-size: 0.9375rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: space-between;
+    margin-top: var(--space-2xl);
+}
+
+/* Loading State */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive Design for Feedback */
+@media (max-width: 768px) {
+    .score-overview {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+    
+    .detailed-scores {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+    
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .action-buttons button {
+        width: 100% !important;
+    }
+    
+    .score-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .score-number {
+        font-size: 2rem;
+    }
+}
