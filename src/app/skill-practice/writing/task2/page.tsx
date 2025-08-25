@@ -3,6 +3,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
+import AuthProtection from '@/components/AuthProtection';
 
 interface WritingFeedback {
   overallScore: number;
@@ -222,58 +223,59 @@ Write at least 250 words.`
   }
 
   return (
-    <div className="writing-practice-container">
-      {/* Header with timer */}
-      <div className="writing-header">
-        <div className="task-info">
-          <h2>Writing Task 2 - {currentQuestion.title}</h2>
-          <div className="task-stats">
-            <span className="word-count">Words: {wordCount}/250</span>
-            <span className="timer">{formatTime(timeLeft)}</span>
+    <AuthProtection feature="writing practice">
+      <div className="writing-practice-container">
+        {/* Header with timer */}
+        <div className="writing-header">
+          <div className="task-info">
+            <h2>Writing Task 2 - {currentQuestion.title}</h2>
+            <div className="task-stats">
+              <span className="word-count">Words: {wordCount}/250</span>
+              <span className="timer">{formatTime(timeLeft)}</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="writing-workspace">
-        {/* Question Panel */}
-        <div className="question-panel">
-          <div className="question-content">
-            <h3>Essay Question:</h3>
-            <div className="task-prompt">
-              {currentQuestion.prompt.split('\n\n').map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
-            </div>
-            
-            <div className="quick-planner">
-              <h4>📝 Quick Planning Space:</h4>
-              <div className="planner-sections">
-                <div className="planner-item">
-                  <strong>Position:</strong>
-                  <div className="planner-box"></div>
-                </div>
-                <div className="planner-item">
-                  <strong>Main Arguments:</strong>
-                  <div className="planner-box"></div>
-                </div>
-                <div className="planner-item">
-                  <strong>Examples:</strong>
-                  <div className="planner-box"></div>
+        <div className="writing-workspace">
+          {/* Question Panel */}
+          <div className="question-panel">
+            <div className="question-content">
+              <h3>Essay Question:</h3>
+              <div className="task-prompt">
+                {currentQuestion.prompt.split('\n\n').map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+              
+              <div className="quick-planner">
+                <h4>📝 Quick Planning Space:</h4>
+                <div className="planner-sections">
+                  <div className="planner-item">
+                    <strong>Position:</strong>
+                    <div className="planner-box"></div>
+                  </div>
+                  <div className="planner-item">
+                    <strong>Main Arguments:</strong>
+                    <div className="planner-box"></div>
+                  </div>
+                  <div className="planner-item">
+                    <strong>Examples:</strong>
+                    <div className="planner-box"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Writing Panel */}
-        <div className="writing-panel">
-          {!feedback ? (
-            <div className="writing-area">
-              <h3>Your Essay:</h3>
-              <textarea
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                placeholder="Begin your essay here... 
+          {/* Writing Panel */}
+          <div className="writing-panel">
+            {!feedback ? (
+              <div className="writing-area">
+                <h3>Your Essay:</h3>
+                <textarea
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  placeholder="Begin your essay here... 
 
 Example structure:
 Introduction: In today's digital age, the role of technology in education has become a topic of significant debate...
@@ -283,120 +285,121 @@ Body Paragraph 1: On one hand, proponents of educational technology argue that..
 Body Paragraph 2: However, critics contend that...
 
 Conclusion: In conclusion, while technology offers valuable opportunities..."
-                className="writing-textarea essay-textarea"
-                disabled={isAnalyzing}
-              />
-              
-              <div className="writing-actions">
-                <button 
-                  onClick={submitForAnalysis}
-                  className="btn btn-primary submit-btn"
-                  disabled={isAnalyzing || wordCount < 200}
-                >
-                  {isAnalyzing ? (
-                    <>🧠 Analyzing your essay...</>
-                  ) : (
-                    <>📊 Get AI Feedback</>
-                  )}
-                </button>
-                {wordCount < 250 && (
-                  <small className="word-warning">
-                    ⚠️ Minimum 250 words recommended
-                  </small>
-                )}
-              </div>
-            </div>
-          ) : (
-            <div className="writing-feedback">
-              <h3>🎉 Your Essay Analysis</h3>
-              
-              {/* Overall Score */}
-              <div className="score-overview">
-                <div className="overall-score">
-                  <div className="score-circle">
-                    <span className="score-number">{feedback.overallScore}</span>
-                    <span className="score-label">Overall</span>
-                  </div>
-                </div>
+                  className="writing-textarea essay-textarea"
+                  disabled={isAnalyzing}
+                />
                 
-                <div className="detailed-scores">
-                  <div className="score-item">
-                    <span className="score-category">Task Response</span>
-                    <span className="score-value">{feedback.scores.taskResponse}</span>
-                  </div>
-                  <div className="score-item">
-                    <span className="score-category">Coherence & Cohesion</span>
-                    <span className="score-value">{feedback.scores.coherenceCohesion}</span>
-                  </div>
-                  <div className="score-item">
-                    <span className="score-category">Lexical Resource</span>
-                    <span className="score-value">{feedback.scores.lexicalResource}</span>
-                  </div>
-                  <div className="score-item">
-                    <span className="score-category">Grammar Range</span>
-                    <span className="score-value">{feedback.scores.grammaticalRange}</span>
-                  </div>
+                <div className="writing-actions">
+                  <button 
+                    onClick={submitForAnalysis}
+                    className="btn btn-primary submit-btn"
+                    disabled={isAnalyzing || wordCount < 200}
+                  >
+                    {isAnalyzing ? (
+                      <>🧠 Analyzing your essay...</>
+                    ) : (
+                      <>📊 Get AI Feedback</>
+                    )}
+                  </button>
+                  {wordCount < 250 && (
+                    <small className="word-warning">
+                      ⚠️ Minimum 250 words recommended
+                    </small>
+                  )}
                 </div>
               </div>
-
-              {/* Next Level Guide */}
-              {feedback.nextLevelGuide && (
-                <div className="next-level-guide">
-                  <h4>🚀 Your Path to {feedback.nextLevelGuide.targetLevel}</h4>
+            ) : (
+              <div className="writing-feedback">
+                <h3>🎉 Your Essay Analysis</h3>
+                
+                {/* Overall Score */}
+                <div className="score-overview">
+                  <div className="overall-score">
+                    <div className="score-circle">
+                      <span className="score-number">{feedback.overallScore}</span>
+                      <span className="score-label">Overall</span>
+                    </div>
+                  </div>
                   
-                  <div className="level-progress">
-                    <div className="current-level">
-                      <span className="level-badge current">Current: {feedback.nextLevelGuide.currentLevel}</span>
+                  <div className="detailed-scores">
+                    <div className="score-item">
+                      <span className="score-category">Task Response</span>
+                      <span className="score-value">{feedback.scores.taskResponse}</span>
                     </div>
-                    <div className="progress-arrow">→</div>
-                    <div className="target-level">
-                      <span className="level-badge target">Target: {feedback.nextLevelGuide.targetLevel}</span>
+                    <div className="score-item">
+                      <span className="score-category">Coherence & Cohesion</span>
+                      <span className="score-value">{feedback.scores.coherenceCohesion}</span>
                     </div>
-                  </div>
-
-                  <div className="guide-content">
-                    <div className="guide-section">
-                      <h5>🎯 Key Focus Areas</h5>
-                      <ul className="focus-list">
-                        {feedback.nextLevelGuide.keyFocus.map((focus, index) => (
-                          <li key={index}>{focus}</li>
-                        ))}
-                      </ul>
+                    <div className="score-item">
+                      <span className="score-category">Lexical Resource</span>
+                      <span className="score-value">{feedback.scores.lexicalResource}</span>
                     </div>
-
-                    <div className="guide-section">
-                      <h5>✅ Specific Actions to Take</h5>
-                      <ul className="action-list">
-                        {feedback.nextLevelGuide.specificActions.map((action, index) => (
-                          <li key={index}>{action}</li>
-                        ))}
-                      </ul>
+                    <div className="score-item">
+                      <span className="score-category">Grammar Range</span>
+                      <span className="score-value">{feedback.scores.grammaticalRange}</span>
                     </div>
                   </div>
                 </div>
-              )}
 
-              {/* Action Buttons */}
-              <div className="action-buttons">
-                <button 
-                  onClick={() => window.location.reload()} 
-                  className="btn btn-outline"
-                  style={{ width: '48%' }}
-                >
-                  🔄 Try New Topic
-                </button>
-                <button 
-                  onClick={() => window.print()} 
-                  className="btn btn-primary"
-                  style={{ width: '48%' }}
-                >
-                  📄 Save Report
-                </button>
+                {/* Next Level Guide */}
+                {feedback.nextLevelGuide && (
+                  <div className="next-level-guide">
+                    <h4>🚀 Your Path to {feedback.nextLevelGuide.targetLevel}</h4>
+                    
+                    <div className="level-progress">
+                      <div className="current-level">
+                        <span className="level-badge current">Current: {feedback.nextLevelGuide.currentLevel}</span>
+                      </div>
+                      <div className="progress-arrow">→</div>
+                      <div className="target-level">
+                        <span className="level-badge target">Target: {feedback.nextLevelGuide.targetLevel}</span>
+                      </div>
+                    </div>
+
+                    <div className="guide-content">
+                      <div className="guide-section">
+                        <h5>🎯 Key Focus Areas</h5>
+                        <ul className="focus-list">
+                          {feedback.nextLevelGuide.keyFocus.map((focus, index) => (
+                            <li key={index}>{focus}</li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="guide-section">
+                        <h5>✅ Specific Actions to Take</h5>
+                        <ul className="action-list">
+                          {feedback.nextLevelGuide.specificActions.map((action, index) => (
+                            <li key={index}>{action}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Action Buttons */}
+                <div className="action-buttons">
+                  <button 
+                    onClick={() => window.location.reload()} 
+                    className="btn btn-outline"
+                    style={{ width: '48%' }}
+                  >
+                    🔄 Try New Topic
+                  </button>
+                  <button 
+                    onClick={() => window.print()} 
+                    className="btn btn-primary"
+                    style={{ width: '48%' }}
+                  >
+                    📄 Save Report
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </AuthProtection>
   );
 }

@@ -4,6 +4,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient';
+import AuthProtection from '@/components/AuthProtection';
 
 // 컴포넌트의 여러 상태를 정의합니다.
 type PracticeStatus = 'loading' | 'ready' | 'preparing' | 'speaking' | 'finished';
@@ -276,204 +277,206 @@ export default function SpeakingPracticePage() {
   };
 
   return (
-    <div className="container" style={{ maxWidth: '700px', margin: '50px auto' }}>
-      <h1>IELTS Speaking Practice (Part 2)</h1>
-      
-      <div className="question-box" style={{ marginBottom: 'var(--space-xl)' }}>
-        {question ? (
-          <>
-            <h3>{question.topic}</h3>
-            <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: '0', color: 'var(--text-secondary)' }}>
-              {question.prompt}
-            </pre>
-          </>
-        ) : (
-          <p>Loading question...</p>
-        )}
-      </div>
-
-      <div className="question-box">
-        <h3>Your Response</h3>
-        <div style={{ padding: '20px 0', fontSize: '1.5rem', fontWeight: '600' }}>
-          {renderStatusUI()}
+    <AuthProtection feature="speaking practice">
+      <div className="container" style={{ maxWidth: '700px', margin: '50px auto' }}>
+        <h1>IELTS Speaking Practice (Part 2)</h1>
+        
+        <div className="question-box" style={{ marginBottom: 'var(--space-xl)' }}>
+          {question ? (
+            <>
+              <h3>{question.topic}</h3>
+              <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: '0', color: 'var(--text-secondary)' }}>
+                {question.prompt}
+              </pre>
+            </>
+          ) : (
+            <p>Loading question...</p>
+          )}
         </div>
 
-        {status === 'finished' && audioURL && !feedback && (
-          <div>
-            <h4>Listen to your recording:</h4>
-            <audio src={audioURL} controls style={{ width: '100%' }} />
-            <button 
-              onClick={handleGetFeedback} 
-              className="btn btn-primary" 
-              style={{ marginTop: '20px', width: '100%' }}
-              disabled={isAnalyzing}
-            >
-              {isAnalyzing ? (
-                <>
-                  <span>🧠 Analyzing your speech...</span>
-                </>
-              ) : (
-                <>
-                  <span>🎯 Get AI Feedback & Score</span>
-                </>
-              )}
-            </button>
+        <div className="question-box">
+          <h3>Your Response</h3>
+          <div style={{ padding: '20px 0', fontSize: '1.5rem', fontWeight: '600' }}>
+            {renderStatusUI()}
           </div>
-        )}
 
-        {feedback && (
-          <div className="feedback-container">
-            <h3>🎉 Your IELTS Speaking Analysis</h3>
-            
-            {/* Overall Score */}
-            <div className="score-overview">
-              <div className="overall-score">
-                <div className="score-circle">
-                  <span className="score-number">{feedback.overallScore}</span>
-                  <span className="score-label">Overall</span>
-                </div>
-              </div>
-              
-              <div className="detailed-scores">
-                <div className="score-item">
-                  <span className="score-category">Fluency & Coherence</span>
-                  <span className="score-value">{feedback.scores.fluencyCoherence}</span>
-                </div>
-                <div className="score-item">
-                  <span className="score-category">Lexical Resource</span>
-                  <span className="score-value">{feedback.scores.lexicalResource}</span>
-                </div>
-                <div className="score-item">
-                  <span className="score-category">Grammar Range</span>
-                  <span className="score-value">{feedback.scores.grammaticalRange}</span>
-                </div>
-                <div className="score-item">
-                  <span className="score-category">Pronunciation</span>
-                  <span className="score-value">{feedback.scores.pronunciation}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Transcript */}
-            <div className="transcript-section">
-              <h4>📝 What you said:</h4>
-              <div className="transcript-box">
-                {feedback.transcript}
-              </div>
-            </div>
-
-            {/* Strengths */}
-            <div className="feedback-section">
-              <h4>✅ Your Strengths:</h4>
-              <ul className="strength-list">
-                {feedback.strengths.map((strength, index) => (
-                  <li key={index}>{strength}</li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Improvements */}
-            <div className="feedback-section">
-              <h4>🎯 Areas for Improvement:</h4>
-              <ul className="improvement-list">
-                {feedback.improvements.map((improvement, index) => (
-                  <li key={index}>{improvement}</li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Next Level Guide */}
-            <div className="next-level-guide">
-              <h4>🚀 Your Path to {feedback.nextLevelGuide.targetLevel}</h4>
-              
-              <div className="level-progress">
-                <div className="current-level">
-                  <span className="level-badge current">Current: {feedback.nextLevelGuide.currentLevel}</span>
-                </div>
-                <div className="progress-arrow">→</div>
-                <div className="target-level">
-                  <span className="level-badge target">Target: {feedback.nextLevelGuide.targetLevel}</span>
-                </div>
-              </div>
-
-              <div className="guide-content">
-                <div className="guide-section">
-                  <h5>🎯 Key Focus Areas</h5>
-                  <ul className="focus-list">
-                    {feedback.nextLevelGuide.keyFocus.map((focus, index) => (
-                      <li key={index}>{focus}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="guide-section">
-                  <h5>✅ Specific Actions to Take</h5>
-                  <ul className="action-list">
-                    {feedback.nextLevelGuide.specificActions.map((action, index) => (
-                      <li key={index}>{action}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="guide-section">
-                  <h5>📚 Daily Practice Activities</h5>
-                  <ul className="practice-list">
-                    {feedback.nextLevelGuide.practiceActivities.map((activity, index) => (
-                      <li key={index}>{activity}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="timeline-box">
-                  <h5>⏰ Expected Timeline</h5>
-                  <p>{feedback.nextLevelGuide.timeline}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Detailed Analysis */}
-            <div className="detailed-analysis">
-              <h4>📊 Detailed Analysis:</h4>
-              <div className="analysis-grid">
-                <div className="analysis-item">
-                  <h5>🗣️ Fluency & Coherence</h5>
-                  <p>{feedback.detailedAnalysis.fluency}</p>
-                </div>
-                <div className="analysis-item">
-                  <h5>📚 Vocabulary</h5>
-                  <p>{feedback.detailedAnalysis.vocabulary}</p>
-                </div>
-                <div className="analysis-item">
-                  <h5>🔤 Grammar</h5>
-                  <p>{feedback.detailedAnalysis.grammar}</p>
-                </div>
-                <div className="analysis-item">
-                  <h5>🎤 Pronunciation</h5>
-                  <p>{feedback.detailedAnalysis.pronunciation}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="action-buttons">
+          {status === 'finished' && audioURL && !feedback && (
+            <div>
+              <h4>Listen to your recording:</h4>
+              <audio src={audioURL} controls style={{ width: '100%' }} />
               <button 
-                onClick={() => window.location.reload()} 
-                className="btn btn-outline"
-                style={{ width: '48%' }}
+                onClick={handleGetFeedback} 
+                className="btn btn-primary" 
+                style={{ marginTop: '20px', width: '100%' }}
+                disabled={isAnalyzing}
               >
-                🔄 Try Again
-              </button>
-              <button 
-                onClick={() => window.print()} 
-                className="btn btn-primary"
-                style={{ width: '48%' }}
-              >
-                📄 Save Report
+                {isAnalyzing ? (
+                  <>
+                    <span>🧠 Analyzing your speech...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>🎯 Get AI Feedback & Score</span>
+                  </>
+                )}
               </button>
             </div>
-          </div>
-        )}
+          )}
+
+          {feedback && (
+            <div className="feedback-container">
+              <h3>🎉 Your IELTS Speaking Analysis</h3>
+              
+              {/* Overall Score */}
+              <div className="score-overview">
+                <div className="overall-score">
+                  <div className="score-circle">
+                    <span className="score-number">{feedback.overallScore}</span>
+                    <span className="score-label">Overall</span>
+                  </div>
+                </div>
+                
+                <div className="detailed-scores">
+                  <div className="score-item">
+                    <span className="score-category">Fluency & Coherence</span>
+                    <span className="score-value">{feedback.scores.fluencyCoherence}</span>
+                  </div>
+                  <div className="score-item">
+                    <span className="score-category">Lexical Resource</span>
+                    <span className="score-value">{feedback.scores.lexicalResource}</span>
+                  </div>
+                  <div className="score-item">
+                    <span className="score-category">Grammar Range</span>
+                    <span className="score-value">{feedback.scores.grammaticalRange}</span>
+                  </div>
+                  <div className="score-item">
+                    <span className="score-category">Pronunciation</span>
+                    <span className="score-value">{feedback.scores.pronunciation}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Transcript */}
+              <div className="transcript-section">
+                <h4>📝 What you said:</h4>
+                <div className="transcript-box">
+                  {feedback.transcript}
+                </div>
+              </div>
+
+              {/* Strengths */}
+              <div className="feedback-section">
+                <h4>✅ Your Strengths:</h4>
+                <ul className="strength-list">
+                  {feedback.strengths.map((strength, index) => (
+                    <li key={index}>{strength}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Improvements */}
+              <div className="feedback-section">
+                <h4>🎯 Areas for Improvement:</h4>
+                <ul className="improvement-list">
+                  {feedback.improvements.map((improvement, index) => (
+                    <li key={index}>{improvement}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Next Level Guide */}
+              <div className="next-level-guide">
+                <h4>🚀 Your Path to {feedback.nextLevelGuide.targetLevel}</h4>
+                
+                <div className="level-progress">
+                  <div className="current-level">
+                    <span className="level-badge current">Current: {feedback.nextLevelGuide.currentLevel}</span>
+                  </div>
+                  <div className="progress-arrow">→</div>
+                  <div className="target-level">
+                    <span className="level-badge target">Target: {feedback.nextLevelGuide.targetLevel}</span>
+                  </div>
+                </div>
+
+                <div className="guide-content">
+                  <div className="guide-section">
+                    <h5>🎯 Key Focus Areas</h5>
+                    <ul className="focus-list">
+                      {feedback.nextLevelGuide.keyFocus.map((focus, index) => (
+                        <li key={index}>{focus}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="guide-section">
+                    <h5>✅ Specific Actions to Take</h5>
+                    <ul className="action-list">
+                      {feedback.nextLevelGuide.specificActions.map((action, index) => (
+                        <li key={index}>{action}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="guide-section">
+                    <h5>📚 Daily Practice Activities</h5>
+                    <ul className="practice-list">
+                      {feedback.nextLevelGuide.practiceActivities.map((activity, index) => (
+                        <li key={index}>{activity}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="timeline-box">
+                    <h5>⏰ Expected Timeline</h5>
+                    <p>{feedback.nextLevelGuide.timeline}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Detailed Analysis */}
+              <div className="detailed-analysis">
+                <h4>📊 Detailed Analysis:</h4>
+                <div className="analysis-grid">
+                  <div className="analysis-item">
+                    <h5>🗣️ Fluency & Coherence</h5>
+                    <p>{feedback.detailedAnalysis.fluency}</p>
+                  </div>
+                  <div className="analysis-item">
+                    <h5>📚 Vocabulary</h5>
+                    <p>{feedback.detailedAnalysis.vocabulary}</p>
+                  </div>
+                  <div className="analysis-item">
+                    <h5>🔤 Grammar</h5>
+                    <p>{feedback.detailedAnalysis.grammar}</p>
+                  </div>
+                  <div className="analysis-item">
+                    <h5>🎤 Pronunciation</h5>
+                    <p>{feedback.detailedAnalysis.pronunciation}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="action-buttons">
+                <button 
+                  onClick={() => window.location.reload()} 
+                  className="btn btn-outline"
+                  style={{ width: '48%' }}
+                >
+                  🔄 Try Again
+                </button>
+                <button 
+                  onClick={() => window.print()} 
+                  className="btn btn-primary"
+                  style={{ width: '48%' }}
+                >
+                  📄 Save Report
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </AuthProtection>
   );
 }

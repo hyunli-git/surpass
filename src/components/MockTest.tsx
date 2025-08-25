@@ -5,6 +5,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient';
 import { useRouter } from 'next/navigation';
+import AuthProtection from '@/components/AuthProtection';
 
 // 간단한 예시 문제 데이터 (나중에 이 부분도 DB에서 가져올 수 있습니다)
 const sampleQuestions = [
@@ -73,33 +74,37 @@ export default function MockTest() {
 
   if (isFinished) {
     return (
-      <div className="container" style={{ textAlign: 'center', marginTop: '50px' }}>
-        <h1>시험 종료!</h1>
-        <p style={{ fontSize: '1.5rem' }}>
-          당신의 점수는: **{score} / {sampleQuestions.length}**
-        </p>
-        <button onClick={() => router.push('/')} className="btn">홈으로 돌아가기</button>
-      </div>
+      <AuthProtection feature="mock test results">
+        <div className="container" style={{ textAlign: 'center', marginTop: '50px' }}>
+          <h1>시험 종료!</h1>
+          <p style={{ fontSize: '1.5rem' }}>
+            당신의 점수는: **{score} / {sampleQuestions.length}**
+          </p>
+          <button onClick={() => router.push('/')} className="btn">홈으로 돌아가기</button>
+        </div>
+      </AuthProtection>
     );
   }
 
   return (
-    <div className="container" style={{ maxWidth: '600px', margin: '50px auto' }}>
-      <h1>모의고사</h1>
-      <div className="question-box">
-        <h3 className="question-title">문제 {currentQuestionIndex + 1}</h3>
-        <p className="question-text">{sampleQuestions[currentQuestionIndex].text}</p>
-        <div className="answer-options">
-          {/* 간단한 예시를 위해 버튼으로 답변을 만듭니다. */}
-          <button onClick={() => handleAnswer("8:00 AM - 9:00 PM")} className="btn">8:00 AM - 9:00 PM</button>
-          <button onClick={() => handleAnswer("10 items")} className="btn">10 items</button>
-          <button onClick={() => handleAnswer("Spanish, French, and Mandarin")} className="btn">Spanish, French, and Mandarin</button>
-          <button onClick={() => handleAnswer("Wrong Answer")} className="btn">Wrong Answer</button>
+    <AuthProtection feature="mock test">
+      <div className="container" style={{ maxWidth: '600px', margin: '50px auto' }}>
+        <h1>모의고사</h1>
+        <div className="question-box">
+          <h3 className="question-title">문제 {currentQuestionIndex + 1}</h3>
+          <p className="question-text">{sampleQuestions[currentQuestionIndex].text}</p>
+          <div className="answer-options">
+            {/* 간단한 예시를 위해 버튼으로 답변을 만듭니다. */}
+            <button onClick={() => handleAnswer("8:00 AM - 9:00 PM")} className="btn">8:00 AM - 9:00 PM</button>
+            <button onClick={() => handleAnswer("10 items")} className="btn">10 items</button>
+            <button onClick={() => handleAnswer("Spanish, French, and Mandarin")} className="btn">Spanish, French, and Mandarin</button>
+            <button onClick={() => handleAnswer("Wrong Answer")} className="btn">Wrong Answer</button>
+          </div>
         </div>
+        <p style={{ textAlign: 'center', marginTop: '20px' }}>
+          {currentQuestionIndex + 1} / {sampleQuestions.length}
+        </p>
       </div>
-      <p style={{ textAlign: 'center', marginTop: '20px' }}>
-        {currentQuestionIndex + 1} / {sampleQuestions.length}
-      </p>
-    </div>
+    </AuthProtection>
   );
 }

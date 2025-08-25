@@ -3,6 +3,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
+import AuthProtection from '@/components/AuthProtection';
 
 interface WritingFeedback {
   overallScore: number;
@@ -175,164 +176,166 @@ Write at least 150 words.`,
   }
 
   return (
-    <div className="writing-practice-container">
-      {/* Header with timer */}
-      <div className="writing-header">
-        <div className="task-info">
-          <h2>Writing Task 1 - {task1Question.title}</h2>
-          <div className="task-stats">
-            <span className="word-count">Words: {wordCount}/150</span>
-            <span className="timer">{formatTime(timeLeft)}</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="writing-workspace">
-        {/* Question Panel */}
-        <div className="question-panel">
-          <div className="question-content">
-            <h3>Question:</h3>
-            <div className="task-prompt">
-              {task1Question.prompt.split('\n').map((line, index) => (
-                <p key={index}>{line}</p>
-              ))}
-            </div>
-            
-            {/* Placeholder for chart image */}
-            <div className="chart-placeholder">
-              <div className="chart-icon">📈</div>
-              <p>Chart/Graph would appear here</p>
-              <small>Sample data visualization</small>
+    <AuthProtection feature="writing practice">
+      <div className="writing-practice-container">
+        {/* Header with timer */}
+        <div className="writing-header">
+          <div className="task-info">
+            <h2>Writing Task 1 - {task1Question.title}</h2>
+            <div className="task-stats">
+              <span className="word-count">Words: {wordCount}/150</span>
+              <span className="timer">{formatTime(timeLeft)}</span>
             </div>
           </div>
         </div>
 
-        {/* Writing Panel */}
-        <div className="writing-panel">
-          {!feedback ? (
-            <div className="writing-area">
-              <h3>Your Response:</h3>
-              <textarea
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                placeholder="Begin your response here... 
+        <div className="writing-workspace">
+          {/* Question Panel */}
+          <div className="question-panel">
+            <div className="question-content">
+              <h3>Question:</h3>
+              <div className="task-prompt">
+                {task1Question.prompt.split('\n').map((line, index) => (
+                  <p key={index}>{line}</p>
+                ))}
+              </div>
+              
+              {/* Placeholder for chart image */}
+              <div className="chart-placeholder">
+                <div className="chart-icon">📈</div>
+                <p>Chart/Graph would appear here</p>
+                <small>Sample data visualization</small>
+              </div>
+            </div>
+          </div>
+
+          {/* Writing Panel */}
+          <div className="writing-panel">
+            {!feedback ? (
+              <div className="writing-area">
+                <h3>Your Response:</h3>
+                <textarea
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  placeholder="Begin your response here... 
 
 Example start:
 The line graph illustrates the number of tourists visiting a Caribbean island over a seven-year period from 2010 to 2017..."
-                className="writing-textarea"
-                disabled={isAnalyzing}
-              />
-              
-              <div className="writing-actions">
-                <button 
-                  onClick={submitForAnalysis}
-                  className="btn btn-primary submit-btn"
-                  disabled={isAnalyzing || wordCount < 100}
-                >
-                  {isAnalyzing ? (
-                    <>🧠 Analyzing your writing...</>
-                  ) : (
-                    <>📊 Get AI Feedback</>
-                  )}
-                </button>
-                {wordCount < 150 && (
-                  <small className="word-warning">
-                    ⚠️ Minimum 150 words recommended
-                  </small>
-                )}
-              </div>
-            </div>
-          ) : (
-            <div className="writing-feedback">
-              <h3>🎉 Your Writing Analysis</h3>
-              
-              {/* Overall Score */}
-              <div className="score-overview">
-                <div className="overall-score">
-                  <div className="score-circle">
-                    <span className="score-number">{feedback.overallScore}</span>
-                    <span className="score-label">Overall</span>
-                  </div>
-                </div>
+                  className="writing-textarea"
+                  disabled={isAnalyzing}
+                />
                 
-                <div className="detailed-scores">
-                  <div className="score-item">
-                    <span className="score-category">Task Achievement</span>
-                    <span className="score-value">{feedback.scores.taskAchievement}</span>
-                  </div>
-                  <div className="score-item">
-                    <span className="score-category">Coherence & Cohesion</span>
-                    <span className="score-value">{feedback.scores.coherenceCohesion}</span>
-                  </div>
-                  <div className="score-item">
-                    <span className="score-category">Lexical Resource</span>
-                    <span className="score-value">{feedback.scores.lexicalResource}</span>
-                  </div>
-                  <div className="score-item">
-                    <span className="score-category">Grammar Range</span>
-                    <span className="score-value">{feedback.scores.grammaticalRange}</span>
-                  </div>
+                <div className="writing-actions">
+                  <button 
+                    onClick={submitForAnalysis}
+                    className="btn btn-primary submit-btn"
+                    disabled={isAnalyzing || wordCount < 100}
+                  >
+                    {isAnalyzing ? (
+                      <>🧠 Analyzing your writing...</>
+                    ) : (
+                      <>📊 Get AI Feedback</>
+                    )}
+                  </button>
+                  {wordCount < 150 && (
+                    <small className="word-warning">
+                      ⚠️ Minimum 150 words recommended
+                    </small>
+                  )}
                 </div>
               </div>
-
-              {/* Next Level Guide */}
-              {feedback.nextLevelGuide && (
-                <div className="next-level-guide">
-                  <h4>🚀 Your Path to {feedback.nextLevelGuide.targetLevel}</h4>
+            ) : (
+              <div className="writing-feedback">
+                <h3>🎉 Your Writing Analysis</h3>
+                
+                {/* Overall Score */}
+                <div className="score-overview">
+                  <div className="overall-score">
+                    <div className="score-circle">
+                      <span className="score-number">{feedback.overallScore}</span>
+                      <span className="score-label">Overall</span>
+                    </div>
+                  </div>
                   
-                  <div className="level-progress">
-                    <div className="current-level">
-                      <span className="level-badge current">Current: {feedback.nextLevelGuide.currentLevel}</span>
+                  <div className="detailed-scores">
+                    <div className="score-item">
+                      <span className="score-category">Task Achievement</span>
+                      <span className="score-value">{feedback.scores.taskAchievement}</span>
                     </div>
-                    <div className="progress-arrow">→</div>
-                    <div className="target-level">
-                      <span className="level-badge target">Target: {feedback.nextLevelGuide.targetLevel}</span>
+                    <div className="score-item">
+                      <span className="score-category">Coherence & Cohesion</span>
+                      <span className="score-value">{feedback.scores.coherenceCohesion}</span>
                     </div>
-                  </div>
-
-                  <div className="guide-content">
-                    <div className="guide-section">
-                      <h5>🎯 Key Focus Areas</h5>
-                      <ul className="focus-list">
-                        {feedback.nextLevelGuide.keyFocus.map((focus, index) => (
-                          <li key={index}>{focus}</li>
-                        ))}
-                      </ul>
+                    <div className="score-item">
+                      <span className="score-category">Lexical Resource</span>
+                      <span className="score-value">{feedback.scores.lexicalResource}</span>
                     </div>
-
-                    <div className="guide-section">
-                      <h5>✅ Specific Actions to Take</h5>
-                      <ul className="action-list">
-                        {feedback.nextLevelGuide.specificActions.map((action, index) => (
-                          <li key={index}>{action}</li>
-                        ))}
-                      </ul>
+                    <div className="score-item">
+                      <span className="score-category">Grammar Range</span>
+                      <span className="score-value">{feedback.scores.grammaticalRange}</span>
                     </div>
                   </div>
                 </div>
-              )}
 
-              {/* Action Buttons */}
-              <div className="action-buttons">
-                <button 
-                  onClick={() => window.location.reload()} 
-                  className="btn btn-outline"
-                  style={{ width: '48%' }}
-                >
-                  🔄 Try Another Task
-                </button>
-                <button 
-                  onClick={() => window.print()} 
-                  className="btn btn-primary"
-                  style={{ width: '48%' }}
-                >
-                  📄 Save Report
-                </button>
+                {/* Next Level Guide */}
+                {feedback.nextLevelGuide && (
+                  <div className="next-level-guide">
+                    <h4>🚀 Your Path to {feedback.nextLevelGuide.targetLevel}</h4>
+                    
+                    <div className="level-progress">
+                      <div className="current-level">
+                        <span className="level-badge current">Current: {feedback.nextLevelGuide.currentLevel}</span>
+                      </div>
+                      <div className="progress-arrow">→</div>
+                      <div className="target-level">
+                        <span className="level-badge target">Target: {feedback.nextLevelGuide.targetLevel}</span>
+                      </div>
+                    </div>
+
+                    <div className="guide-content">
+                      <div className="guide-section">
+                        <h5>🎯 Key Focus Areas</h5>
+                        <ul className="focus-list">
+                          {feedback.nextLevelGuide.keyFocus.map((focus, index) => (
+                            <li key={index}>{focus}</li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="guide-section">
+                        <h5>✅ Specific Actions to Take</h5>
+                        <ul className="action-list">
+                          {feedback.nextLevelGuide.specificActions.map((action, index) => (
+                            <li key={index}>{action}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Action Buttons */}
+                <div className="action-buttons">
+                  <button 
+                    onClick={() => window.location.reload()} 
+                    className="btn btn-outline"
+                    style={{ width: '48%' }}
+                  >
+                    🔄 Try Another Task
+                  </button>
+                  <button 
+                    onClick={() => window.print()} 
+                    className="btn btn-primary"
+                    style={{ width: '48%' }}
+                  >
+                    📄 Save Report
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </AuthProtection>
   );
 }
