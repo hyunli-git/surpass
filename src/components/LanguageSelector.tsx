@@ -27,13 +27,19 @@ export default function LanguageSelector() {
   const handleLanguageChange = (locale: Locale) => {
     setIsOpen(false);
     
-    // Get the current path without the locale prefix
-    const pathWithoutLocale = pathname.startsWith(`/${currentLocale}`) 
-      ? pathname.slice(`/${currentLocale}`.length) || '/'
-      : pathname;
+    // Get the current path without any locale prefix
+    let pathWithoutLocale = pathname;
     
-    // Navigate to the new locale
-    const newPath = locale === 'en' ? pathWithoutLocale : `/${locale}${pathWithoutLocale}`;
+    // Remove any existing locale prefix from the path
+    for (const loc of locales) {
+      if (pathWithoutLocale.startsWith(`/${loc}`)) {
+        pathWithoutLocale = pathWithoutLocale.slice(`/${loc}`.length) || '/';
+        break;
+      }
+    }
+    
+    // Navigate to the new locale - all languages use prefix with 'always'
+    const newPath = `/${locale}${pathWithoutLocale}`;
     router.push(newPath);
   };
 

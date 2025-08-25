@@ -84,7 +84,7 @@ export default function Pricing() {
 
       {/* Pricing Cards */}
       <section className="section">
-        <div className="container">
+        <div className="container" style={{ maxWidth: '100%', padding: '0 var(--space-lg)' }}>
           <div className="grid grid-4">
             {plans.map((plan) => (
               <div 
@@ -127,34 +127,6 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="section section-alt">
-        <div className="container container-narrow">
-          <h2>Frequently Asked Questions</h2>
-          
-          <div className="faq-list">
-            <div className="faq-item">
-              <h4>Can I change my plan anytime?</h4>
-              <p>Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and billing is prorated.</p>
-            </div>
-            
-            <div className="faq-item">
-              <h4>Is there a free trial for Pro plan?</h4>
-              <p>Yes! You get a 7-day free trial with full access to all Pro features. No credit card required.</p>
-            </div>
-            
-            <div className="faq-item">
-              <h4>What payment methods do you accept?</h4>
-              <p>We accept all major credit cards (Visa, MasterCard, American Express) and PayPal.</p>
-            </div>
-            
-            <div className="faq-item">
-              <h4>Do you offer student discounts?</h4>
-              <p>Yes! Students get 50% off the Pro plan with a valid student ID. Contact support for verification.</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
