@@ -152,7 +152,12 @@ export default function PromptAdminPage() {
       }
       
       // 데이터 구조 안전하게 처리
-      const safeTemplates = (data || []).map((item: any) => ({
+      const safeTemplates = (data || []).map((item: {
+        exam_types?: unknown;
+        skill_types?: unknown;
+        test_parts?: unknown;
+        [key: string]: unknown;
+      }) => ({
         ...item,
         exam_type: Array.isArray(item.exam_types) ? item.exam_types[0] : item.exam_types,
         skill_type: Array.isArray(item.skill_types) ? item.skill_types[0] : item.skill_types,
@@ -160,7 +165,7 @@ export default function PromptAdminPage() {
       }));
 
       console.log('Safe templates:', safeTemplates);
-      setTemplates(safeTemplates);
+      setTemplates(safeTemplates as PromptTemplate[]);
     } catch (error) {
       console.error('Error loading templates:', error);
       setTemplates([]);
