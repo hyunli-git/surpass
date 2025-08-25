@@ -84,64 +84,19 @@ export default function PromptAdminPage() {
 
       if (examRes.error) {
         console.error('Exam types error:', examRes.error);
-        // 에러 시 하드코딩된 데이터 사용
-        setExamTypes([
-          { id: 1, exam_name: 'IELTS', display_name: 'IELTS Academic & General' },
-          { id: 2, exam_name: 'TOEFL_iBT', display_name: 'TOEFL Internet-Based Test' },
-          { id: 3, exam_name: 'TOEIC', display_name: 'TOEIC Speaking & Writing' }
-        ]);
       } else {
         console.log('Loaded exam types:', examRes.data);
         setExamTypes(examRes.data || []);
-        
-        // 데이터가 비어있으면 하드코딩 데이터 사용
-        if (!examRes.data || examRes.data.length === 0) {
-          console.log('No exam data found, using fallback data');
-          setExamTypes([
-            { id: 1, exam_name: 'IELTS', display_name: 'IELTS Academic & General' },
-            { id: 2, exam_name: 'TOEFL_iBT', display_name: 'TOEFL Internet-Based Test' },
-            { id: 3, exam_name: 'TOEIC', display_name: 'TOEIC Speaking & Writing' }
-          ]);
-        }
       }
 
       if (skillRes.error) {
         console.error('Skill types error:', skillRes.error);
-        // 에러 시 하드코딩된 데이터 사용
-        setSkillTypes([
-          { id: 1, skill_name: 'speaking', display_name: 'Speaking' },
-          { id: 2, skill_name: 'writing', display_name: 'Writing' },
-          { id: 3, skill_name: 'reading', display_name: 'Reading' },
-          { id: 4, skill_name: 'listening', display_name: 'Listening' }
-        ]);
       } else {
         console.log('Loaded skill types:', skillRes.data);
         setSkillTypes(skillRes.data || []);
-        
-        // 데이터가 비어있으면 하드코딩 데이터 사용
-        if (!skillRes.data || skillRes.data.length === 0) {
-          console.log('No skill data found, using fallback data');
-          setSkillTypes([
-            { id: 1, skill_name: 'speaking', display_name: 'Speaking' },
-            { id: 2, skill_name: 'writing', display_name: 'Writing' },
-            { id: 3, skill_name: 'reading', display_name: 'Reading' },
-            { id: 4, skill_name: 'listening', display_name: 'Listening' }
-          ]);
-        }
       }
     } catch (error) {
       console.error('Error loading initial data:', error);
-      
-      // 완전 실패 시 하드코딩 데이터 사용
-      setExamTypes([
-        { id: 1, exam_name: 'IELTS', display_name: 'IELTS Academic & General' },
-        { id: 2, exam_name: 'TOEFL_iBT', display_name: 'TOEFL Internet-Based Test' }
-      ]);
-      
-      setSkillTypes([
-        { id: 1, skill_name: 'speaking', display_name: 'Speaking' },
-        { id: 2, skill_name: 'writing', display_name: 'Writing' }
-      ]);
     } finally {
       setIsLoading(false);
     }
