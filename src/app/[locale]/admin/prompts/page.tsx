@@ -125,6 +125,8 @@ export default function PromptAdminPage() {
     if (!selectedExam || !selectedSkill) return;
 
     try {
+      console.log('Loading templates for:', selectedExam, selectedSkill, selectedPart);
+      
       let query = supabase
         .from('prompt_templates')
         .select(`
@@ -133,19 +135,35 @@ export default function PromptAdminPage() {
           skill_types!inner (id, skill_name, display_name),
           test_parts (id, part_name, display_name, description)
         `)
-        .eq('exam_types.id', selectedExam)
-        .eq('skill_types.id', selectedSkill);
+        .eq('exam_type_id', selectedExam)
+        .eq('skill_type_id', selectedSkill);
 
       if (selectedPart) {
-        query = query.eq('test_parts.id', selectedPart);
+        query = query.eq('test_part_id', selectedPart);
       }
 
       const { data, error } = await query.order('template_name');
 
-      if (error) throw error;
-      setTemplates(data || []);
+      console.log('Templates query result:', { data, error });
+
+      if (error) {
+        console.error('Templates query error:', error);
+        throw error;
+      }
+      
+      // 데이터 구조 안전하게 처리
+      const safeTemplates = (data || []).map((item: any) => ({
+        ...item,
+        exam_type: Array.isArray(item.exam_types) ? item.exam_types[0] : item.exam_types,
+        skill_type: Array.isArray(item.skill_types) ? item.skill_types[0] : item.skill_types,
+        test_part: Array.isArray(item.test_parts) ? item.test_parts[0] : item.test_parts
+      }));
+
+      console.log('Safe templates:', safeTemplates);
+      setTemplates(safeTemplates);
     } catch (error) {
       console.error('Error loading templates:', error);
+      setTemplates([]);
     }
   };
 
