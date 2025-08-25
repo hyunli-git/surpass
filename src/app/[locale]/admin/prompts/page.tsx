@@ -72,13 +72,29 @@ export default function PromptAdminPage() {
 
   const loadInitialData = async () => {
     try {
+      console.log('Loading initial data...');
+      
       const [examRes, skillRes] = await Promise.all([
         supabase.from('exam_types').select('*').eq('is_active', true).order('display_name'),
         supabase.from('skill_types').select('*').order('display_name')
       ]);
 
-      if (examRes.data) setExamTypes(examRes.data);
-      if (skillRes.data) setSkillTypes(skillRes.data);
+      console.log('Exam types response:', examRes);
+      console.log('Skill types response:', skillRes);
+
+      if (examRes.error) {
+        console.error('Exam types error:', examRes.error);
+      } else {
+        console.log('Loaded exam types:', examRes.data);
+        setExamTypes(examRes.data || []);
+      }
+
+      if (skillRes.error) {
+        console.error('Skill types error:', skillRes.error);  
+      } else {
+        console.log('Loaded skill types:', skillRes.data);
+        setSkillTypes(skillRes.data || []);
+      }
     } catch (error) {
       console.error('Error loading initial data:', error);
     } finally {
