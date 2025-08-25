@@ -1,10 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function MockTestPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const mode = searchParams.get('mode') || 'normal'; // 'test' or 'normal'
+  
   const [currentSection, setCurrentSection] = useState<'listening' | 'reading' | 'writing' | 'speaking'>('listening');
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [timeRemaining, setTimeRemaining] = useState(165 * 60); // 2h 45m in seconds
@@ -149,10 +152,41 @@ export default function MockTestPage() {
 
   if (!isStarted) {
     return (
-      <div className="mock-test-container">
+      <div className={`mock-test-container ${mode === 'test' ? 'test-mode' : 'normal-mode'}`}>
         <div className="test-instructions">
           <div className="container container-narrow">
-            <h1>IELTS General Training Mock Test</h1>
+            <div className="mode-header">
+              <h1>IELTS General Training Mock Test</h1>
+              <div className="mode-selector">
+                <span className="mode-label">Interface Mode:</span>
+                <button 
+                  className={`mode-btn ${mode === 'normal' ? 'active' : ''}`}
+                  onClick={() => router.push('/mock-test?mode=normal')}
+                >
+                  Normal
+                </button>
+                <button 
+                  className={`mode-btn ${mode === 'test' ? 'active' : ''}`}
+                  onClick={() => router.push('/mock-test?mode=test')}
+                >
+                  Test Mode
+                </button>
+              </div>
+            </div>
+            
+            <div className="mode-description">
+              {mode === 'test' ? (
+                <div className="test-mode-info">
+                  <h3>🎯 Test Mode</h3>
+                  <p>Authentic IELTS computer-based test interface. Mimics the real exam environment for optimal preparation.</p>
+                </div>
+              ) : (
+                <div className="normal-mode-info">
+                  <h3>📚 Normal Mode</h3>
+                  <p>Enhanced readability with improved UI/UX. Same content with better visual design for comfortable practice.</p>
+                </div>
+              )}
+            </div>
             
             <div className="test-overview">
               <h2>Test Overview</h2>
@@ -213,7 +247,7 @@ export default function MockTestPage() {
   const currentSectionData = testSections[currentSection];
 
   return (
-    <div className="mock-test-interface">
+    <div className={`mock-test-interface ${mode === 'test' ? 'test-mode' : 'normal-mode'}`}>
       {/* Test Header */}
       <div className="test-header">
         <div className="test-progress">
@@ -225,7 +259,7 @@ export default function MockTestPage() {
                   Object.keys(testSections).indexOf(section) < Object.keys(testSections).indexOf(currentSection) ? 'completed' : ''
                 }`}
               >
-                {section.charAt(0).toUpperCase()}
+                {mode === 'test' ? section.charAt(0).toUpperCase() : section.charAt(0).toUpperCase() + section.slice(1)}
               </div>
             ))}
           </div>
@@ -242,6 +276,18 @@ export default function MockTestPage() {
             Total: {formatTime(timeRemaining)}
           </div>
         </div>
+        
+        {mode === 'normal' && (
+          <div className="mode-indicator">
+            <span className="mode-badge normal">Normal Mode</span>
+          </div>
+        )}
+        
+        {mode === 'test' && (
+          <div className="mode-indicator">
+            <span className="mode-badge test">Test Mode</span>
+          </div>
+        )}
       </div>
 
       {/* Test Content */}

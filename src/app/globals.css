@@ -4445,6 +4445,291 @@ nav {
     background: #f8f9fa;
 }
 
+/* Mode Selector */
+.mode-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.mode-selector {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.mode-label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.mode-btn {
+    padding: var(--space-xs) var(--space-md);
+    border: 2px solid var(--border-light);
+    background: white;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mode-btn:hover {
+    border-color: var(--accent-blue);
+}
+
+.mode-btn.active {
+    background: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+}
+
+.mode-description {
+    margin-bottom: var(--space-xl);
+}
+
+.test-mode-info, .normal-mode-info {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: var(--space-lg);
+    border-left: 4px solid var(--accent-blue);
+}
+
+.test-mode-info {
+    border-left-color: #dc3545;
+}
+
+.normal-mode-info {
+    border-left-color: var(--accent-green);
+}
+
+.test-mode-info h3, .normal-mode-info h3 {
+    margin: 0 0 var(--space-sm) 0;
+    color: var(--text-primary);
+}
+
+.test-mode-info p, .normal-mode-info p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.mode-indicator {
+    display: flex;
+    align-items: center;
+}
+
+.mode-badge {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mode-badge.normal {
+    background: var(--accent-green);
+    color: white;
+}
+
+.mode-badge.test {
+    background: #dc3545;
+    color: white;
+}
+
+/* Test Mode Styling - Authentic IELTS look */
+.mock-test-interface.test-mode {
+    font-family: 'Arial', sans-serif;
+}
+
+.test-mode .test-header {
+    background: #e9ecef;
+    border-bottom: 1px solid #adb5bd;
+}
+
+.test-mode .section-dot {
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+    background: #6c757d;
+    border-radius: 4px;
+}
+
+.test-mode .section-dot.active {
+    background: #007bff;
+}
+
+.test-mode .section-dot.completed {
+    background: #28a745;
+}
+
+.test-mode .test-sidebar {
+    background: #f8f9fa;
+    border-left: 1px solid #dee2e6;
+}
+
+.test-mode .question-content {
+    border: 1px solid #dee2e6;
+    background: white;
+}
+
+.test-mode .question-text {
+    background: #f8f9fa;
+    border-left: 3px solid #007bff;
+}
+
+.test-mode .choice-option {
+    border: 1px solid #dee2e6;
+    background: #f8f9fa;
+}
+
+.test-mode .choice-option:hover {
+    background: #e9ecef;
+    border-color: #007bff;
+}
+
+.test-mode .writing-editor {
+    border: 1px solid #dee2e6;
+}
+
+.test-mode .editor-toolbar {
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Normal Mode Styling - Enhanced readability */
+.mock-test-interface.normal-mode {
+    font-family: inherit;
+}
+
+.normal-mode .test-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-bottom: none;
+}
+
+.normal-mode .section-dot {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 8px;
+}
+
+.normal-mode .section-dot.active {
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+}
+
+.normal-mode .section-dot.completed {
+    background: var(--accent-green);
+    color: white;
+}
+
+.normal-mode .current-section {
+    color: white;
+}
+
+.normal-mode .test-timers {
+    color: white;
+}
+
+.normal-mode .section-timer {
+    color: #ffd700;
+}
+
+.normal-mode .test-sidebar {
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 1px solid var(--border-light);
+}
+
+.normal-mode .question-content {
+    border: 1px solid var(--border-light);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.normal-mode .question-text {
+    background: linear-gradient(135deg, var(--accent-blue), #4dabf7);
+    color: white;
+    border-left: none;
+    border-radius: 6px;
+}
+
+.normal-mode .choice-option {
+    border: 2px solid var(--border-light);
+    background: white;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.normal-mode .choice-option:hover {
+    background: #f8f9fa;
+    border-color: var(--accent-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.normal-mode .writing-editor {
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.normal-mode .editor-toolbar {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 12px 12px 0 0;
+}
+
+.normal-mode .writing-task {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.normal-mode .audio-player {
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px solid var(--border-light);
+}
+
+.normal-mode .reading-passage {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mode-specific containers */
+.mock-test-container.test-mode {
+    background: #f8f9fa;
+}
+
+.mock-test-container.normal-mode {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.normal-mode .test-instructions {
+    background: white;
+    margin: var(--space-lg);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.normal-mode .container {
+    padding: var(--space-2xl);
+}
+
+.test-mode .test-instructions {
+    background: white;
+}
+
 .test-instructions {
     padding: var(--space-2xl) 0;
 }
