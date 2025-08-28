@@ -30,8 +30,18 @@ export default function LanguageSelector() {
     // Set locale in cookie
     document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; SameSite=Lax`;
     
-    // Reload page to apply new locale
-    window.location.reload();
+    // Navigate to the correct URL based on locale
+    const currentPath = window.location.pathname;
+    
+    if (locale === 'en') {
+      // For English (default), remove any locale prefix
+      const cleanPath = currentPath.replace(/^\/(ko|ja|zh|es|fr|de|pt|it|ru|ar)/, '');
+      window.location.href = cleanPath || '/';
+    } else {
+      // For non-English, add locale prefix
+      const cleanPath = currentPath.replace(/^\/(ko|ja|zh|es|fr|de|pt|it|ru|ar)/, '');
+      window.location.href = `/${locale}${cleanPath}`;
+    }
   };
 
   return (

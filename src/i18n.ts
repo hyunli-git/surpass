@@ -35,13 +35,10 @@ export const localeFlags: Record<Locale, string> = {
   ar: '🇸🇦'
 };
  
-export default getRequestConfig(async ({requestLocale}) => {
-  // Get the locale from the request (cookie, header, etc.)
-  let locale = await requestLocale;
-  
-  // Validate and fallback to default locale
-  if (!locale || !locales.includes(locale as Locale)) {
-    locale = defaultLocale;
+export default getRequestConfig(async ({locale}) => {
+  // Validate that the incoming `locale` parameter is valid
+  if (!locales.includes(locale as Locale)) {
+    notFound();
   }
  
   return {
