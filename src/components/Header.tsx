@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient';
 import type { User } from '@supabase/supabase-js';
-// import LanguageSelector from './LanguageSelector';
+import LanguageSelector from './LanguageSelector';
 
 export default function Header() {
   const [user, setUser] = useState<User | null>(null);
@@ -47,10 +47,10 @@ export default function Header() {
           <li><Link href="/pricing" className="nav-link">Pricing</Link></li>
           <li><Link href="/about" className="nav-link">About</Link></li>
           
-          {/* Language Selector - temporarily disabled */}
-          {/* <li className="language-selector-item">
+          {/* Language Selector */}
+          <li className="language-selector-item">
             <LanguageSelector />
-          </li> */}
+          </li>
           
           {user ? (
             <>
