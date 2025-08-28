@@ -7,22 +7,8 @@ export default createMiddleware({
   // Used when no locale matches
   defaultLocale: 'en',
   
-  // Hide default locale prefix but show others
-  localePrefix: {
-    mode: 'as-needed',
-    prefixes: {
-      'ko': '/ko',
-      'ja': '/ja', 
-      'zh': '/zh',
-      'es': '/es',
-      'fr': '/fr',
-      'de': '/de',
-      'pt': '/pt',
-      'it': '/it',
-      'ru': '/ru',
-      'ar': '/ar'
-    }
-  }
+  // Never show the locale in the URL for any language
+  localePrefix: 'never'
 });
  
 export const config = {

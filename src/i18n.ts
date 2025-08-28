@@ -35,17 +35,17 @@ export const localeFlags: Record<Locale, string> = {
   ar: '🇸🇦'
 };
  
-export default getRequestConfig(async ({locale, requestLocale}) => {
-  // Use requestLocale if locale is undefined
-  const actualLocale = locale || await requestLocale || defaultLocale;
+export default getRequestConfig(async ({requestLocale}) => {
+  // Get the locale from the request (cookie, header, etc.)
+  let locale = await requestLocale;
   
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(actualLocale as Locale)) {
-    notFound();
+  // Validate and fallback to default locale
+  if (!locale || !locales.includes(locale as Locale)) {
+    locale = defaultLocale;
   }
  
   return {
-    messages: (await import(`../messages/${actualLocale}.json`)).default,
-    locale: actualLocale
+    messages: (await import(`../messages/${locale}.json`)).default,
+    locale
   };
 });
