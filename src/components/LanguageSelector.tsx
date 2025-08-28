@@ -27,20 +27,20 @@ export default function LanguageSelector() {
   const handleLanguageChange = (locale: Locale) => {
     setIsOpen(false);
     
-    // Get the current path without any locale prefix
-    let pathWithoutLocale = pathname;
+    // Since we're not using locale in URL, we need to handle language change differently
+    // For now, we'll keep the current path and handle locale change via cookies or other means
+    // This would require updating the middleware to detect locale from cookies/headers
+    console.log(`Language changed to: ${locale}`);
     
-    // Remove any existing locale prefix from the path
-    for (const loc of locales) {
-      if (pathWithoutLocale.startsWith(`/${loc}`)) {
-        pathWithoutLocale = pathWithoutLocale.slice(`/${loc}`.length) || '/';
-        break;
-      }
-    }
+    // In a full implementation, you would:
+    // 1. Set locale in cookie/localStorage
+    // 2. Reload the page to apply new locale
+    // 3. Or use a locale context provider
     
-    // Navigate to the new locale - all languages use prefix with 'always'
-    const newPath = `/${locale}${pathWithoutLocale}`;
-    router.push(newPath);
+    // Simple page reload with locale parameter for now
+    const url = new URL(window.location.href);
+    url.searchParams.set('locale', locale);
+    window.location.href = url.toString();
   };
 
   return (

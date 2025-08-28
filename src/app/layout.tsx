@@ -1,16 +1,24 @@
-// Global root layout (no internationalization here)
-import type { Metadata } from 'next'
-import './globals.css'
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { defaultLocale } from '@/i18n';
+import Header from '@/components/Header';
 
-export const metadata: Metadata = {
-  title: 'Surpass — AI-Powered Language Test Preparation',
-  description: 'Personalized preparation for TOEIC, IELTS, HSK, JLPT, and 30+ language tests worldwide.',
-}
-
-export default function RootLayout({
-  children,
+export default async function RootLayout({
+  children
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  return children;
+  // Use default locale since we're not using locale in URL
+  const messages = await getMessages({ locale: defaultLocale });
+
+  return (
+    <html lang={defaultLocale}>
+      <body>
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          <main>{children}</main>
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
 }
