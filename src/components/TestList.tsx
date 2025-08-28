@@ -4,7 +4,6 @@
 
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
-import { useTranslations } from 'next-intl';
 
 interface Test {
   id: number;
@@ -18,7 +17,6 @@ interface Test {
 
 export default function TestList({ tests }: { tests: Test[] | null }) {
   const [selectedLanguage, setSelectedLanguage] = useState<string>('all');
-  const t = useTranslations('tests');
 
   const languageGroups = useMemo(() => {
     if (!tests) return [];
@@ -53,7 +51,7 @@ export default function TestList({ tests }: { tests: Test[] | null }) {
             className={`filter-pill ${selectedLanguage === 'all' ? 'active' : ''}`}
             onClick={() => setSelectedLanguage('all')}
           >
-            {t('allTests')} ({tests.length})
+            All Tests ({tests.length})
           </button>
           {languageGroups.map(([language, count]) => (
             <button 
@@ -61,7 +59,7 @@ export default function TestList({ tests }: { tests: Test[] | null }) {
               className={`filter-pill ${selectedLanguage === language ? 'active' : ''}`}
               onClick={() => setSelectedLanguage(language)}
             >
-              {t(`languages.${language}` as keyof typeof t)} ({count})
+              {language} ({count})
             </button>
           ))}
         </div>
@@ -80,11 +78,11 @@ export default function TestList({ tests }: { tests: Test[] | null }) {
               
               {test.name.includes('IELTS') ? (
                 <Link href="/ielts-practice" className="btn btn-primary" style={{ width: '100%' }}>
-                  {t('startPractice')}
+                  Start Practice
                 </Link>
               ) : (
                 <button className="btn btn-primary" style={{ width: '100%' }} disabled>
-                  {t('comingSoon')}
+                  Coming Soon
                 </button>
               )}
             </div>
