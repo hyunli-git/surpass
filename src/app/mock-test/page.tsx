@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function MockTestPage() {
+function MockTestContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const mode = searchParams.get('mode') || 'normal'; // 'test' or 'normal'
@@ -596,5 +596,13 @@ function WritingSection({
         />
       </div>
     </div>
+  );
+}
+
+export default function MockTestPage() {
+  return (
+    <Suspense fallback={<div>Loading mock test...</div>}>
+      <MockTestContent />
+    </Suspense>
   );
 }

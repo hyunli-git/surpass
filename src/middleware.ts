@@ -1,14 +1,15 @@
-import createMiddleware from 'next-intl/middleware';
-import {defaultLocale} from './i18n';
- 
-export default createMiddleware({
-  // Only use default locale since we're not using locale prefixes
-  locales: ['en'],
-  defaultLocale,
-  localeDetection: false,
-  localePrefix: 'never'
-});
- 
+// Temporarily disable middleware to troubleshoot 404 issues
+// import createMiddleware from 'next-intl/middleware';
+// import {defaultLocale} from './i18n';
+
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+export function middleware(request: NextRequest) {
+  // Simple pass-through middleware for now
+  return NextResponse.next();
+}
+
 export const config = {
   matcher: [
     // Match all pathnames except for:

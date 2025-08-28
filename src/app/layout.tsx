@@ -1,6 +1,4 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { defaultLocale } from '@/i18n';
+import './globals.css';
 import Header from '@/components/Header';
 import type { Metadata } from 'next';
 
@@ -9,21 +7,16 @@ export const metadata: Metadata = {
   description: 'Personalized preparation for TOEIC, IELTS, HSK, JLPT, and 30+ language tests worldwide.',
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children
 }: {
   children: React.ReactNode;
 }) {
-  // Use default locale since we're not using locale in URL
-  const messages = await getMessages({ locale: defaultLocale });
-
   return (
-    <html lang={defaultLocale}>
+    <html lang="en">
       <body>
-        <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main>{children}</main>
-        </NextIntlClientProvider>
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   );

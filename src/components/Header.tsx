@@ -4,14 +4,12 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
 import { supabase } from '@/utils/supabaseClient';
 import type { User } from '@supabase/supabase-js';
-import LanguageSelector from './LanguageSelector';
+// import LanguageSelector from './LanguageSelector';
 
 export default function Header() {
   const [user, setUser] = useState<User | null>(null);
-  const t = useTranslations();
 
   useEffect(() => {
     const checkUser = async () => {
@@ -44,23 +42,23 @@ export default function Header() {
         </Link>
         
         <ul className="nav-links">
-          <li><Link href="/" className="nav-link">{t('navigation.home')}</Link></li>
-          <li><Link href="/tests" className="nav-link">{t('navigation.tests')}</Link></li>
-          <li><Link href="/pricing" className="nav-link">{t('navigation.pricing')}</Link></li>
-          <li><Link href="/about" className="nav-link">{t('navigation.about')}</Link></li>
+          <li><Link href="/" className="nav-link">Home</Link></li>
+          <li><Link href="/tests" className="nav-link">Tests</Link></li>
+          <li><Link href="/pricing" className="nav-link">Pricing</Link></li>
+          <li><Link href="/about" className="nav-link">About</Link></li>
           
-          {/* Language Selector */}
-          <li className="language-selector-item">
+          {/* Language Selector - temporarily disabled */}
+          {/* <li className="language-selector-item">
             <LanguageSelector />
-          </li>
+          </li> */}
           
           {user ? (
             <>
               <li><span className="nav-link">{user.email}</span></li>
-              <li><button onClick={handleLogout} className="btn">{t('common.logout')}</button></li>
+              <li><button onClick={handleLogout} className="btn">Logout</button></li>
             </>
           ) : (
-            <li><Link href="/login" className="btn">{t('common.login')}</Link></li>
+            <li><Link href="/login" className="btn">Login</Link></li>
           )}
         </ul>
       </nav>

@@ -3,19 +3,16 @@
 'use client';
 
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
 
 export default function Hero() {
-  const t = useTranslations('hero');
-  
   return (
     <section className="hero">
       <div className="container container-narrow">
-        <h1>{t('title')}</h1>
-        <p>{t('description')}</p>
+        <h1>Master any language test with AI</h1>
+        <p>Personalized preparation for TOEIC, IELTS, HSK, JLPT, and 30+ language tests worldwide.</p>
         <div className="hero-actions">
-          <Link href="/tests" className="btn btn-primary">{t('startLearning')}</Link>
-          <Link href="/tests" className="btn">{t('browseTests')}</Link>
+          <Link href="/tests" className="btn btn-primary">Start Learning</Link>
+          <Link href="/tests" className="btn">Browse All Tests</Link>
         </div>
       </div>
     </section>
