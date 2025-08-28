@@ -27,20 +27,11 @@ export default function LanguageSelector() {
   const handleLanguageChange = (locale: Locale) => {
     setIsOpen(false);
     
-    // Since we're not using locale in URL, we need to handle language change differently
-    // For now, we'll keep the current path and handle locale change via cookies or other means
-    // This would require updating the middleware to detect locale from cookies/headers
-    console.log(`Language changed to: ${locale}`);
+    // Set locale in cookie
+    document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; SameSite=Lax`;
     
-    // In a full implementation, you would:
-    // 1. Set locale in cookie/localStorage
-    // 2. Reload the page to apply new locale
-    // 3. Or use a locale context provider
-    
-    // Simple page reload with locale parameter for now
-    const url = new URL(window.location.href);
-    url.searchParams.set('locale', locale);
-    window.location.href = url.toString();
+    // Reload page to apply new locale
+    window.location.reload();
   };
 
   return (
