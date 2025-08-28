@@ -1,5 +1,4 @@
 import createMiddleware from 'next-intl/middleware';
-import { NextRequest } from 'next/server';
  
 export default createMiddleware({
   // A list of all locales that are supported
@@ -8,11 +7,22 @@ export default createMiddleware({
   // Used when no locale matches
   defaultLocale: 'en',
   
-  // Never show the locale in the URL
-  localePrefix: 'never',
-  
-  // Detect locale from cookie
-  localeDetection: true
+  // Hide default locale prefix but show others
+  localePrefix: {
+    mode: 'as-needed',
+    prefixes: {
+      'ko': '/ko',
+      'ja': '/ja', 
+      'zh': '/zh',
+      'es': '/es',
+      'fr': '/fr',
+      'de': '/de',
+      'pt': '/pt',
+      'it': '/it',
+      'ru': '/ru',
+      'ar': '/ar'
+    }
+  }
 });
  
 export const config = {
