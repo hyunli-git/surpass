@@ -1,0 +1,8 @@
+/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+  Access-Control-Allow-Headers: *
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=3600
+  X-DNS-Prefetch-Control: on
