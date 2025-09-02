@@ -36,13 +36,16 @@ export const localeFlags: Record<Locale, string> = {
 };
  
 export default getRequestConfig(async ({locale}) => {
+  // Use default locale if none provided
+  const currentLocale = locale || defaultLocale;
+  
   // Validate that the incoming `locale` parameter is valid
-  if (!locale || !locales.includes(locale as Locale)) {
+  if (!locales.includes(currentLocale as Locale)) {
     notFound();
   }
  
   return {
-    messages: (await import(`../messages/${locale}.json`)).default,
-    locale: locale as string
+    messages: (await import(`../messages/${currentLocale}.json`)).default,
+    locale: currentLocale as string
   };
 });
