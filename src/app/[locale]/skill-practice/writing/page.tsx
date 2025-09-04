@@ -38,9 +38,10 @@ export default function WritingPracticePage() {
   const writingTasks = isTEF ? [
     {
       id: 'section-a',
-      title: 'Section A',
-      subtitle: 'Expression écrite - Message',
-      description: 'Rédigez un message/email de 60 à 120 mots selon la situation donnée',
+      title: 'Section A - Message',
+      subtitle: 'Situation professionnelle',
+      description: 'Vous travaillez dans une entreprise de marketing. Votre collègue Marie vous a envoyé par erreur un document confidentiel destiné à un autre service. Écrivez-lui un courriel pour l\'informer de cette erreur tout en restant poli et professionnel.',
+      prompt: 'Consignes :\n• Informez Marie de l\'erreur\n• Mentionnez que vous n\'avez pas consulté le document\n• Suggérez une solution\n• Gardez un ton professionnel\n\nNombre de mots requis : 60 à 120 mots',
       timeLimit: '30 minutes',
       icon: '✉️',
       difficulty: 'Intermediate',
@@ -48,9 +49,10 @@ export default function WritingPracticePage() {
     },
     {
       id: 'section-b', 
-      title: 'Section B',
-      subtitle: 'Expression écrite - Rédaction',
-      description: 'Rédigez un texte argumentatif de 200 à 250 mots sur un sujet donné',
+      title: 'Section B - Argumentation',
+      subtitle: 'Le télétravail : avantage ou inconvénient ?',
+      description: 'Le télétravail s\'est développé rapidement ces dernières années. Certains pensent que c\'est une révolution positive pour l\'équilibre vie-travail, d\'autres estiment que cela nuit à la productivité et à l\'esprit d\'équipe.',
+      prompt: 'Consignes :\n• Présentez votre point de vue sur le télétravail\n• Donnez deux arguments principaux\n• Illustrez avec des exemples concrets\n• Concluez en proposant une solution équilibrée\n\nNombre de mots requis : 200 à 250 mots',
       timeLimit: '30 minutes',
       icon: '📝',
       difficulty: 'Advanced',
@@ -65,7 +67,8 @@ export default function WritingPracticePage() {
       timeLimit: '20 minutes',
       icon: '📊',
       difficulty: 'Intermediate',
-      link: '/skill-practice/writing/task1'
+      link: '/skill-practice/writing/task1',
+      prompt: undefined // No detailed prompt for IELTS
     },
     {
       id: 'task2', 
@@ -75,7 +78,8 @@ export default function WritingPracticePage() {
       timeLimit: '40 minutes',
       icon: '📝',
       difficulty: 'Advanced',
-      link: '/skill-practice/writing/task2'
+      link: '/skill-practice/writing/task2',
+      prompt: undefined // No detailed prompt for IELTS
     }
   ];
 
@@ -122,6 +126,29 @@ export default function WritingPracticePage() {
             <div className="task-details">
               <p className="task-description">{task.description}</p>
               
+              {task.prompt && (
+                <div className="task-prompt" style={{ 
+                  background: 'var(--bg-secondary)', 
+                  padding: 'var(--space-md)', 
+                  borderRadius: '8px', 
+                  marginTop: 'var(--space-md)',
+                  border: '1px solid var(--border-light)'
+                }}>
+                  <h5 style={{ marginBottom: 'var(--space-sm)', color: 'var(--primary)' }}>
+                    📋 Instructions détaillées :
+                  </h5>
+                  <pre style={{ 
+                    whiteSpace: 'pre-wrap', 
+                    fontFamily: 'inherit', 
+                    fontSize: '0.9rem', 
+                    lineHeight: '1.5',
+                    margin: 0
+                  }}>
+                    {task.prompt}
+                  </pre>
+                </div>
+              )}
+              
               <div className="task-specs">
                 <div className="spec-item">
                   <span className="spec-icon">⏱️</span>
@@ -129,11 +156,11 @@ export default function WritingPracticePage() {
                 </div>
                 <div className="spec-item">
                   <span className="spec-icon">🎯</span>
-                  <span>AI Evaluation</span>
+                  <span>{isTEF ? 'Évaluation IA' : 'AI Evaluation'}</span>
                 </div>
                 <div className="spec-item">
                   <span className="spec-icon">📈</span>
-                  <span>Band Scoring</span>
+                  <span>{isTEF ? 'Score TEF' : 'Band Scoring'}</span>
                 </div>
               </div>
             </div>

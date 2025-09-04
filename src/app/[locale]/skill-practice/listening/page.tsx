@@ -54,8 +54,72 @@ export default function IELTSListeningPractice() {
   const [audioLoaded, setAudioLoaded] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Comprehensive IELTS Listening test sets reflecting current trends
-  const testSets: TestSet[] = [
+  // Test sets based on test type
+  const testSets: TestSet[] = isTEF ? [
+    {
+      id: 1,
+      name: "TEF Test 1: Situations de la vie quotidienne",
+      description: "Conversations et documents audio de la vie courante",
+      year: "2024", 
+      totalTime: 40,
+      totalQuestions: 60,
+      topics: ["Vie quotidienne", "Services", "Loisirs", "Médias"],
+      sections: [
+        {
+          id: 1,
+          title: "Section 1: À la pharmacie",
+          description: "Conversation entre un client et un pharmacien",
+          context: "Un client se rend à la pharmacie pour demander des conseils sur des médicaments sans ordonnance.",
+          audioUrl: "/audio/tef-test1-section1.mp3",
+          duration: 180, // 3 minutes
+          difficulty: "easy",
+          questions: [
+            {
+              id: 1,
+              type: "multiple-choice",
+              question: "Quel est le problème de santé du client ?",
+              options: [
+                "Il a mal à la tête",
+                "Il a mal à l'estomac", 
+                "Il a de la fièvre",
+                "Il tousse"
+              ],
+              answer: "Il a mal à la tête",
+              startTime: 15,
+              endTime: 25
+            },
+            {
+              id: 2,
+              type: "form-completion",
+              question: "Le pharmacien recommande de prendre _____ comprimés par jour.",
+              answer: "deux",
+              startTime: 45,
+              endTime: 55
+            }
+          ]
+        },
+        {
+          id: 2, 
+          title: "Section 2: Bulletin météorologique",
+          description: "Prévisions météo pour la région",
+          context: "Bulletin météorologique diffusé à la radio pour les prochains jours.",
+          audioUrl: "/audio/tef-test1-section2.mp3",
+          duration: 240, // 4 minutes
+          difficulty: "medium",
+          questions: [
+            {
+              id: 3,
+              type: "table-completion", 
+              question: "Température maximale prévue pour demain : _____°C",
+              answer: "23",
+              startTime: 30,
+              endTime: 40
+            }
+          ]
+        }
+      ]
+    }
+  ] : [
     {
       id: 1,
       name: "Test Set 1: Academic & Social Situations",

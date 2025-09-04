@@ -117,17 +117,27 @@ export default function SpeakingPracticePage() {
   useEffect(() => {
     const fetchQuestion = async () => {
       if (isTEF) {
-        // TEF 질문 샘플
+        // TEF Questions authentiques
         const tefQuestions: SpeakingQuestion[] = [
           {
             part: 1,
-            topic: "Présentation personnelle",
-            prompt: "Présentez-vous en parlant de votre parcours, vos intérêts et vos projets d'avenir. Vous avez 2 minutes pour vous préparer et 2 minutes pour parler."
+            topic: "Section A - Entretien dirigé",
+            prompt: "L'examinateur va vous poser des questions sur vous-même, votre famille, vos études, votre travail, vos loisirs et vos projets.\n\nExemple de questions :\n• Pouvez-vous vous présenter ?\n• Parlez-moi de votre famille\n• Que faites-vous dans la vie ?\n• Quels sont vos loisirs ?\n• Avez-vous des projets pour l'avenir ?\n\nDurée : 2-3 minutes\nConsignes : Répondez de manière naturelle et développée"
           },
           {
             part: 2,
-            topic: "Expression d'un point de vue",
-            prompt: "Pensez-vous que les réseaux sociaux ont une influence positive ou négative sur les relations humaines? Développez votre point de vue avec des exemples concrets. Vous avez 2 minutes pour vous préparer et 3 minutes pour parler."
+            topic: "Section B - Expression libre",
+            prompt: "Sujet : L'utilisation des smartphones chez les jeunes\n\n📱 Situation :\nDe plus en plus de jeunes passent plusieurs heures par jour sur leur smartphone. Certains parents s'inquiètent de cette dépendance, tandis que d'autres y voient un outil moderne d'apprentissage.\n\n🎯 Votre tâche :\n• Exprimez votre opinion sur ce sujet\n• Donnez 2-3 arguments pour soutenir votre point de vue\n• Illustrez avec des exemples personnels ou observés\n• Proposez des solutions si nécessaire\n\nTemps de préparation : 2 minutes\nTemps de parole : 3 minutes"
+          },
+          {
+            part: 2,
+            topic: "Section B - Expression libre", 
+            prompt: "Sujet : Le télétravail après la pandémie\n\n🏠 Situation :\nDepuis la pandémie, beaucoup d'entreprises ont adopté le télétravail. Certains employés préfèrent travailler de chez eux, d'autres souhaitent retourner au bureau.\n\n🎯 Votre tâche :\n• Quelle est votre position sur le télétravail ?\n• Quels sont les avantages et inconvénients ?\n• Comment voyez-vous l'avenir du travail ?\n• Donnez des exemples concrets\n\nTemps de préparation : 2 minutes\nTemps de parole : 3 minutes"
+          },
+          {
+            part: 2,
+            topic: "Section B - Expression libre",
+            prompt: "Sujet : L'écologie et les gestes du quotidien\n\n🌱 Situation :\nFace au changement climatique, chacun est appelé à modifier ses habitudes quotidiennes. Certains font de gros efforts, d'autres pensent que les actions individuelles sont insuffisantes.\n\n🎯 Votre tâche :\n• Que pensez-vous de la responsabilité individuelle en écologie ?\n• Quels gestes écologiques adoptez-vous ?\n• Les efforts individuels suffisent-ils ?\n• Proposez des solutions concrètes\n\nTemps de préparation : 2 minutes\nTemps de parole : 3 minutes"
           }
         ];
         const randomQuestion = tefQuestions[Math.floor(Math.random() * tefQuestions.length)];

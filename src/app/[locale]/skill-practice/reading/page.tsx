@@ -49,8 +49,107 @@ export default function IELTSReadingPractice() {
   const [isTimerActive, setIsTimerActive] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<'Academic' | 'General Training'>('Academic');
 
-  // Comprehensive test sets reflecting current IELTS trends (2024-2025)
-  const testSets: TestSet[] = [
+  // Test sets based on test type
+  const testSets: TestSet[] = isTEF ? [
+    {
+      id: 1,
+      name: "TEF Test 1: Société et Environnement",
+      description: "Textes sur les enjeux sociétaux et environnementaux contemporains",
+      category: "Academic",
+      topics: ["Environnement", "Société", "Urbanisme"],
+      year: "2024",
+      totalTime: 60,
+      totalQuestions: 50,
+      passages: [
+        {
+          id: 1,
+          title: "Les jardins verticaux en ville",
+          difficulty: "medium",
+          wordCount: 420,
+          timeAllocation: 15,
+          text: `Les jardins verticaux, aussi appelés murs végétalisés, sont devenus une solution innovante pour reverdir les espaces urbains. Ces structures permettent de cultiver des plantes sur les façades des bâtiments, apportant de nombreux bénéfices environnementaux et esthétiques aux villes modernes.
+
+L'idée n'est pas nouvelle : elle remonte aux jardins suspendus de Babylone, l'une des sept merveilles du monde antique. Cependant, la technique moderne a été développée par le botaniste français Patrick Blanc dans les années 1980. Son système révolutionnaire utilise un support métallique recouvert de feutre sur lequel poussent les plantes, alimentées par un réseau de circulation d'eau enrichie en nutriments.
+
+Les avantages des jardins verticaux sont multiples. Ils améliorent la qualité de l'air en absorbant le dioxyde de carbone et en produisant de l'oxygène. Une étude menée par l'Université de Toronto montre qu'un mètre carré de végétation verticale peut traiter 2,3 kg de CO2 par an. De plus, ces installations réduisent la température ambiante de 2 à 8°C grâce à l'évapotranspiration des plantes, contribuant ainsi à lutter contre l'effet d'îlot de chaleur urbain.
+
+Sur le plan acoustique, la végétation absorbe les ondes sonores et peut réduire le bruit de circulation de 10 décibels. Cet aspect est particulièrement appréciable dans les centres-villes où la pollution sonore constitue un problème majeur. Les jardins verticaux favorisent également la biodiversité urbaine en offrant des habitats aux oiseaux et aux insectes pollinisateurs.
+
+Économiquement, bien que l'investissement initial soit conséquent (entre 300 et 1000 euros par mètre carré), ces installations permettent des économies d'énergie significatives. L'isolation thermique naturelle qu'elles procurent peut réduire de 30% les coûts de climatisation en été et de chauffage en hiver. Plusieurs villes européennes proposent désormais des subventions pour encourager leur installation.`,
+          questions: [
+            {
+              id: 1,
+              type: "multiple-choice",
+              question: "Qui est à l'origine du système moderne de jardins verticaux ?",
+              options: [
+                "Un architecte babylonien",
+                "Patrick Blanc, botaniste français", 
+                "L'Université de Toronto",
+                "Un ingénieur canadien"
+              ],
+              answer: "Patrick Blanc, botaniste français",
+              explanation: "Le texte indique clairement que Patrick Blanc, botaniste français, a développé la technique moderne dans les années 1980."
+            },
+            {
+              id: 2,
+              type: "true-false-not-given",
+              question: "Un mètre carré de végétation verticale absorbe plus de 2 kg de CO2 par an.",
+              options: ["Vrai", "Faux", "Non mentionné"],
+              answer: "Vrai",
+              explanation: "Le texte mentionne qu'une étude de l'Université de Toronto montre qu'un mètre carré peut traiter 2,3 kg de CO2 par an."
+            },
+            {
+              id: 3,
+              type: "short-answer",
+              question: "De combien de degrés les jardins verticaux peuvent-ils réduire la température ambiante ?",
+              answer: "2 à 8°C",
+              explanation: "Le texte indique que ces installations réduisent la température ambiante de 2 à 8°C."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: 2,
+      name: "TEF Test 2: Culture et Technologie",
+      description: "Textes sur l'évolution culturelle et les innovations technologiques",
+      category: "Academic", 
+      topics: ["Culture", "Technologie", "Communication"],
+      year: "2024",
+      totalTime: 60,
+      totalQuestions: 50,
+      passages: [
+        {
+          id: 1,
+          title: "L'impact des réseaux sociaux sur les relations interpersonnelles",
+          difficulty: "medium",
+          wordCount: 450,
+          timeAllocation: 18,
+          text: `Les réseaux sociaux ont radicalement transformé notre façon de communiquer et d'entretenir des relations. Depuis l'apparition de Facebook en 2004, suivi par Twitter, Instagram et TikTok, ces plateformes sont devenues incontournables dans la vie quotidienne de milliards de personnes à travers le monde.
+
+D'un côté, les réseaux sociaux présentent des avantages indéniables. Ils permettent de maintenir le contact avec des amis éloignés géographiquement, de retrouver d'anciennes connaissances et de créer de nouvelles amitiés basées sur des centres d'intérêt communs. Les personnes timides ou introverties trouvent souvent plus facile de s'exprimer à travers ces plateformes qu'en face à face. De plus, ils offrent des opportunités professionnelles grâce au networking et permettent l'accès à une information diversifiée et instantanée.
+
+Cependant, plusieurs études sociologiques révèlent des effets négatifs préoccupants. Le phénomène de "Fear of Missing Out" (FOMO) génère une anxiété constante chez les utilisateurs qui comparent continuellement leur vie à celle des autres. Cette comparaison sociale permanente peut conduire à une baisse de l'estime de soi et à des symptômes dépressifs, particulièrement chez les adolescents.
+
+La qualité des relations interpersonnelles semble également affectée. Les interactions virtuelles, bien que nombreuses, manquent souvent de profondeur émotionnelle. Les nuances de la communication non-verbale se perdent derrière les écrans, rendant les malentendus plus fréquents. Paradoxalement, malgré une connexion permanente, beaucoup d'utilisateurs rapportent un sentiment croissant de solitude.
+
+L'addiction aux réseaux sociaux constitue un autre défi majeur. L'utilisation compulsive de ces plateformes peut interférer avec les relations familiales, les performances académiques ou professionnelles. Les algorithmes de recommandation, conçus pour maximiser l'engagement, créent des "bulles informationnelles" qui limitent la diversité des opinions et renforcent les biais de confirmation.
+
+Face à ces enjeux, une utilisation consciente et modérée des réseaux sociaux s'impose. Il convient de privilégier la qualité des interactions sur la quantité, de diversifier ses sources d'information et de maintenir un équilibre entre vie numérique et relations réelles.`,
+          questions: [
+            {
+              id: 1,
+              type: "multiple-choice",
+              question: "Quel est le premier réseau social mentionné dans le texte ?",
+              options: ["Twitter", "Instagram", "Facebook", "TikTok"],
+              answer: "Facebook",
+              explanation: "Le texte indique que Facebook est apparu en 2004, avant les autres réseaux mentionnés."
+            }
+          ]
+        }
+      ]
+    }
+  ] : [
     {
       id: 1,
       name: "Test Set 1: Climate & Technology",
