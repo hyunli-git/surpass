@@ -6147,3 +6147,108 @@ nav {
         width: 200px;
     }
 }
+
+/* TEF Practice Page Styles */
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.module-card {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--space-xl);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.module-card:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.module-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+}
+
+.module-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xs);
+    color: var(--text-primary);
+}
+
+.module-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.module-details {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    padding: var(--space-sm) 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    margin: var(--space-md) 0;
+}
+
+.test-info-section {
+    padding: var(--space-2xl);
+    background: var(--bg-secondary);
+    border-radius: 12px;
+}
+
+.btn-selected {
+    background: var(--accent-green);
+    color: white;
+    border-color: var(--accent-green);
+}
+
+.btn-selected:hover {
+    background: var(--accent-green);
+    opacity: 0.9;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-large {
+    font-size: 1.125rem;
+    padding: var(--space-md) var(--space-xl);
+}
+
+.score-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.score-table th,
+.score-table td {
+    padding: var(--space-md);
+    text-align: left;
+}
+
+.score-table th {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.score-table tr:hover {
+    background: var(--bg-hover);
+}

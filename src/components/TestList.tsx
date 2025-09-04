@@ -86,6 +86,14 @@ export default function TestList({ tests }: { tests: Test[] | null }) {
                 >
                   {t('startPractice')}
                 </Link>
+              ) : test.name.includes('TEF') ? (
+                <Link 
+                  href="/tef-practice" 
+                  className="btn btn-primary" 
+                  style={{ width: '100%' }}
+                >
+                  {t('startPractice')}
+                </Link>
               ) : (
                 <button className="btn btn-primary" style={{ width: '100%' }} disabled>
                   {t('comingSoon')}
