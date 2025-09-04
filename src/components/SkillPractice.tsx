@@ -2,14 +2,9 @@
 
 'use client';
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function SkillPractice() {
-  const router = useRouter();
-  
-  const handleNavigation = (path: string) => {
-    router.push(path);
-  };
   return (
     <section className="practice-section">
       <div className="container">
@@ -37,13 +32,13 @@ export default function SkillPractice() {
             <div className="skill-icon">✍️</div>
             <h3>Writing</h3>
             <p>2 tasks • 60 minutes</p>
-            <button 
-              onClick={() => handleNavigation('/skill-practice/writing')} 
+            <Link 
+              href="/skill-practice/writing" 
               className="btn btn-primary" 
               style={{ width: '100%', marginTop: 'var(--space-md)' }}
             >
               Practice Writing
-            </button>
+            </Link>
           </div>
           
           {/* Speaking Card */}
@@ -52,13 +47,13 @@ export default function SkillPractice() {
             <h3>Speaking</h3>
             <p>3 parts • 11-14 minutes</p>
             {/* ▼▼▼ 이 부분이 Link로 수정되었습니다 ▼▼▼ */}
-            <button 
-              onClick={() => handleNavigation('/skill-practice/speaking')} 
+            <Link 
+              href="/skill-practice/speaking" 
               className="btn btn-primary" 
               style={{ width: '100%', marginTop: 'var(--space-md)' }}
             >
               Practice Speaking
-            </button>
+            </Link>
           </div>
         </div>
       </div>

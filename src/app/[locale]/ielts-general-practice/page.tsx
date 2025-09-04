@@ -3,7 +3,7 @@
 "use client";
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import SkillPractice from '@/components/SkillPractice';
 import MockTests from '@/components/MockTests';
 import IeltsModePicker from '@/components/IeltsModePicker';
@@ -12,10 +12,6 @@ import IeltsModePicker from '@/components/IeltsModePicker';
 export default function IeltsGeneralPracticePage() {
   const [isModalVisible, setModalVisible] = useState(false);
   const router = useRouter();
-
-  const handleNavigation = (href: string) => {
-    router.push(href);
-  };
 
   const handleStartMockTest = () => {
     setModalVisible(true);
@@ -38,9 +34,9 @@ export default function IeltsGeneralPracticePage() {
       <section className="hero">
         <div className="container container-narrow">
           <div style={{ marginBottom: 'var(--space-lg)' }}>
-            <button onClick={() => handleNavigation('/ielts-practice')} className="btn">
+            <Link href="/ielts-practice" className="btn">
               ← Back to IELTS Selection
-            </button>
+            </Link>
           </div>
           <h1>IELTS General Training</h1>
           <p>Complete preparation for work, migration, and general English proficiency</p>

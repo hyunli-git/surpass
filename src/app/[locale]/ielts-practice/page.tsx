@@ -2,14 +2,9 @@
 
 "use client";
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function IeltsPracticePage() {
-  const router = useRouter();
-
-  const handleNavigation = (href: string) => {
-    router.push(href);
-  };
   return (
     <>
       <section className="hero">
@@ -45,9 +40,9 @@ export default function IeltsPracticePage() {
                 <li>✓ Letter writing (Task 1)</li>
               </ul>
               {/* General Training 페이지로 가는 링크를 추가합니다. */}
-              <button onClick={() => handleNavigation('/ielts-general-practice')} className="btn btn-primary" style={{ width: '100%' }}>
+              <Link href="/ielts-general-practice" className="btn btn-primary" style={{ width: '100%' }}>
                 Practice General
-              </button>
+              </Link>
             </div>
           </div>
         </div>

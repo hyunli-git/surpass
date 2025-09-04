@@ -2,7 +2,7 @@
 
 "use client";
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient';
 import type { User } from '@supabase/supabase-js';
@@ -10,11 +10,6 @@ import type { User } from '@supabase/supabase-js';
 export default function WritingPracticePage() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
-  
-  const handleNavigation = (path: string) => {
-    router.push(path);
-  };
 
   useEffect(() => {
     const checkUser = async () => {
@@ -118,12 +113,12 @@ export default function WritingPracticePage() {
 
             <div className="task-footer">
               {user ? (
-                <button 
-                  onClick={() => handleNavigation(task.link)} 
+                <Link 
+                  href={task.link} 
                   className="btn btn-primary task-btn"
                 >
                   Start {task.title}
-                </button>
+                </Link>
               ) : (
                 <button 
                   onClick={() => handleStartTask(task.link)}
@@ -180,19 +175,19 @@ export default function WritingPracticePage() {
             <div style={{ display: 'inline-block', margin: '0 12px' }}>🎯 AI Scoring</div>
           </div>
 
-          <button 
-            onClick={() => handleNavigation('/login')} 
+          <Link 
+            href="/login" 
             className="btn btn-primary" 
             style={{ fontSize: '18px', padding: '12px 32px' }}
           >
             Create Free Account
-          </button>
+          </Link>
           
           <p style={{ marginTop: '16px', fontSize: '14px', color: '#666' }}>
-            Already have an account? <button 
-              onClick={() => handleNavigation('/login')} 
-              style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', textDecoration: 'underline', padding: 0 }}
-            >Sign in here</button>
+            Already have an account? <Link 
+              href="/login" 
+              style={{ color: 'var(--primary)', textDecoration: 'underline' }}
+            >Sign in here</Link>
           </p>
         </div>
       )}

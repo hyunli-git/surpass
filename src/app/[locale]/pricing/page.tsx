@@ -2,14 +2,9 @@
 
 "use client";
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Pricing() {
-  const router = useRouter();
-
-  const handleNavigation = (href: string) => {
-    router.push(href);
-  };
   const plans = [
     {
       name: "Free",
@@ -124,9 +119,9 @@ export default function Pricing() {
                 </ul>
 
                 <div className="pricing-footer">
-                  <button onClick={() => handleNavigation('/login')} className={plan.buttonStyle}>
+                  <Link href="/login" className={plan.buttonStyle}>
                     {plan.buttonText}
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
