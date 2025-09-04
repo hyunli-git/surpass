@@ -2,7 +2,7 @@
 
 'use client';
 
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient';
 import type { User } from '@supabase/supabase-js';
@@ -10,6 +10,7 @@ import LanguageSelector from './LanguageSelector';
 
 export default function Header() {
   const [user, setUser] = useState<User | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const checkUser = async () => {
@@ -33,19 +34,27 @@ export default function Header() {
     window.location.reload();
   };
 
+  const handleNavigation = (path: string) => {
+    router.push(path);
+  };
+
   return (
     <header id="mainHeader">
       <nav className="container">
-        <Link href="/" className="logo">
+        <button 
+          onClick={() => handleNavigation('/')} 
+          className="logo"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+        >
           <span>⚡</span>
           <span>Surpass</span>
-        </Link>
+        </button>
         
         <ul className="nav-links">
-          <li><Link href="/" className="nav-link">Home</Link></li>
-          <li><Link href="/tests" className="nav-link">Tests</Link></li>
-          <li><Link href="/pricing" className="nav-link">Pricing</Link></li>
-          <li><Link href="/about" className="nav-link">About</Link></li>
+          <li><button onClick={() => handleNavigation('/')} className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>Home</button></li>
+          <li><button onClick={() => handleNavigation('/tests')} className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>Tests</button></li>
+          <li><button onClick={() => handleNavigation('/pricing')} className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>Pricing</button></li>
+          <li><button onClick={() => handleNavigation('/about')} className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>About</button></li>
           
           {/* Language Selector */}
           <li className="language-selector-item">
@@ -58,7 +67,7 @@ export default function Header() {
               <li><button onClick={handleLogout} className="btn">Logout</button></li>
             </>
           ) : (
-            <li><Link href="/login" className="btn">Login</Link></li>
+            <li><button onClick={() => handleNavigation('/login')} className="btn">Login</button></li>
           )}
         </ul>
       </nav>

@@ -2,7 +2,7 @@
 
 'use client';
 
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 
@@ -19,6 +19,11 @@ interface Test {
 export default function TestList({ tests }: { tests: Test[] | null }) {
   const [selectedLanguage, setSelectedLanguage] = useState<string>('all');
   const t = useTranslations('tests');
+  const router = useRouter();
+  
+  const handleNavigation = (path: string) => {
+    router.push(path);
+  };
 
   const languageGroups = useMemo(() => {
     if (!tests) return [];
@@ -79,9 +84,13 @@ export default function TestList({ tests }: { tests: Test[] | null }) {
               </ul>
               
               {test.name.includes('IELTS') ? (
-                <Link href="/ielts-practice" className="btn btn-primary" style={{ width: '100%' }}>
+                <button 
+                  onClick={() => handleNavigation('/ielts-practice')} 
+                  className="btn btn-primary" 
+                  style={{ width: '100%' }}
+                >
                   {t('startPractice')}
-                </Link>
+                </button>
               ) : (
                 <button className="btn btn-primary" style={{ width: '100%' }} disabled>
                   {t('comingSoon')}

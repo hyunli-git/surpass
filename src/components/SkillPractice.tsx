@@ -1,8 +1,15 @@
 // src/components/SkillPractice.tsx
 
-import Link from 'next/link'; // Link 컴포넌트를 사용하기 위해 import 합니다.
+'use client';
+
+import { useRouter } from 'next/navigation';
 
 export default function SkillPractice() {
+  const router = useRouter();
+  
+  const handleNavigation = (path: string) => {
+    router.push(path);
+  };
   return (
     <section className="practice-section">
       <div className="container">
@@ -30,9 +37,13 @@ export default function SkillPractice() {
             <div className="skill-icon">✍️</div>
             <h3>Writing</h3>
             <p>2 tasks • 60 minutes</p>
-            <Link href="/skill-practice/writing" className="btn btn-primary" style={{ width: '100%', marginTop: 'var(--space-md)' }}>
+            <button 
+              onClick={() => handleNavigation('/skill-practice/writing')} 
+              className="btn btn-primary" 
+              style={{ width: '100%', marginTop: 'var(--space-md)' }}
+            >
               Practice Writing
-            </Link>
+            </button>
           </div>
           
           {/* Speaking Card */}
@@ -41,9 +52,13 @@ export default function SkillPractice() {
             <h3>Speaking</h3>
             <p>3 parts • 11-14 minutes</p>
             {/* ▼▼▼ 이 부분이 Link로 수정되었습니다 ▼▼▼ */}
-            <Link href="/skill-practice/speaking" className="btn btn-primary" style={{ width: '100%', marginTop: 'var(--space-md)' }}>
+            <button 
+              onClick={() => handleNavigation('/skill-practice/speaking')} 
+              className="btn btn-primary" 
+              style={{ width: '100%', marginTop: 'var(--space-md)' }}
+            >
               Practice Speaking
-            </Link>
+            </button>
           </div>
         </div>
       </div>
