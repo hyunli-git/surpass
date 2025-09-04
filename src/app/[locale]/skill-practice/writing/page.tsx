@@ -4,12 +4,18 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { supabase } from '@/utils/supabaseClient';
 import type { User } from '@supabase/supabase-js';
 
 export default function WritingPracticePage() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const searchParams = useSearchParams();
+  const testType = searchParams.get('test') || 'ielts';
+  const language = searchParams.get('lang') || 'en';
+  
+  const isTEF = testType === 'tef';
 
   useEffect(() => {
     const checkUser = async () => {
@@ -29,7 +35,28 @@ export default function WritingPracticePage() {
     };
   }, []);
 
-  const writingTasks = [
+  const writingTasks = isTEF ? [
+    {
+      id: 'section-a',
+      title: 'Section A',
+      subtitle: 'Expression écrite - Message',
+      description: 'Rédigez un message/email de 60 à 120 mots selon la situation donnée',
+      timeLimit: '30 minutes',
+      icon: '✉️',
+      difficulty: 'Intermediate',
+      link: '/skill-practice/writing/task1?test=tef&lang=fr'
+    },
+    {
+      id: 'section-b', 
+      title: 'Section B',
+      subtitle: 'Expression écrite - Rédaction',
+      description: 'Rédigez un texte argumentatif de 200 à 250 mots sur un sujet donné',
+      timeLimit: '30 minutes',
+      icon: '📝',
+      difficulty: 'Advanced',
+      link: '/skill-practice/writing/task2?test=tef&lang=fr'
+    }
+  ] : [
     {
       id: 'task1',
       title: 'Writing Task 1',
@@ -67,8 +94,8 @@ export default function WritingPracticePage() {
   return (
     <div className="container" style={{ margin: '50px auto' }}>
       <div className="writing-hero">
-        <h1>IELTS Writing Practice</h1>
-        <p>Master both tasks with AI-powered feedback and detailed scoring analysis</p>
+        <h1>{isTEF ? 'TEF Expression écrite Practice' : 'IELTS Writing Practice'}</h1>
+        <p>{isTEF ? 'Maîtrisez les deux sections avec des commentaires alimentés par l&apos;IA et une analyse de notation détaillée' : 'Master both tasks with AI-powered feedback and detailed scoring analysis'}</p>
         {!user && (
           <p className="hero-cta">
             <span style={{ backgroundColor: '#f0f8ff', padding: '8px 16px', borderRadius: '20px', fontSize: '14px' }}>

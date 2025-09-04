@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 interface Question {
@@ -35,11 +36,16 @@ interface TestSet {
 }
 
 export default function IELTSReadingPractice() {
+  const searchParams = useSearchParams();
+  const testType = searchParams.get('test') || 'ielts';
+  const language = searchParams.get('lang') || 'en';
+  const isTEF = testType === 'tef';
+  
   const [selectedTest, setSelectedTest] = useState<number | null>(null);
   const [currentPassage, setCurrentPassage] = useState<number>(0);
   const [userAnswers, setUserAnswers] = useState<{ [key: string]: string | string[] }>({});
   const [showResults, setShowResults] = useState(false);
-  const [timeRemaining, setTimeRemaining] = useState<number>(3600); // 60 minutes
+  const [timeRemaining, setTimeRemaining] = useState<number>(isTEF ? 3600 : 3600); // 60 minutes for both
   const [isTimerActive, setIsTimerActive] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<'Academic' | 'General Training'>('Academic');
 
@@ -772,7 +778,7 @@ export default function IELTSReadingPractice() {
         <Link href="/skill-practice" className="back-link">
           ← Back to Skills
         </Link>
-        <h1>IELTS Reading Practice</h1>
+        <h1>{isTEF ? 'TEF Compréhension écrite Practice' : 'IELTS Reading Practice'}</h1>
         <p className="page-description">
           Comprehensive reading tests reflecting current IELTS formats and topics (2024-2025)
         </p>

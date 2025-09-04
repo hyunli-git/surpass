@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 interface Question {
@@ -37,11 +38,16 @@ interface TestSet {
 }
 
 export default function IELTSListeningPractice() {
+  const searchParams = useSearchParams();
+  const testType = searchParams.get('test') || 'ielts';
+  const language = searchParams.get('lang') || 'en';
+  const isTEF = testType === 'tef';
+  
   const [selectedTest, setSelectedTest] = useState<number | null>(null);
   const [currentSection, setCurrentSection] = useState<number>(0);
   const [userAnswers, setUserAnswers] = useState<{ [key: string]: string | string[] }>({});
   const [showResults, setShowResults] = useState(false);
-  const [timeRemaining, setTimeRemaining] = useState<number>(2400); // 40 minutes (30 + 10 transfer)
+  const [timeRemaining, setTimeRemaining] = useState<number>(isTEF ? 2400 : 2400); // 40 minutes for both
   const [isTimerActive, setIsTimerActive] = useState(false);
   const [audioCurrentTime, setAudioCurrentTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -707,7 +713,7 @@ export default function IELTSListeningPractice() {
         <Link href="/skill-practice" className="back-link">
           ← Back to Skills
         </Link>
-        <h1>IELTS Listening Practice</h1>
+        <h1>{isTEF ? 'TEF Compréhension orale Practice' : 'IELTS Listening Practice'}</h1>
         <p className="page-description">
           Comprehensive listening tests with authentic audio materials and current question formats
         </p>

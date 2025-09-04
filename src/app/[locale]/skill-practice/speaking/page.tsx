@@ -3,6 +3,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { supabase } from '@/utils/supabaseClient';
 import AuthProtection from '@/components/AuthProtection';
 
@@ -44,6 +45,11 @@ interface IELTSFeedback {
 }
 
 export default function SpeakingPracticePage() {
+  const searchParams = useSearchParams();
+  const testType = searchParams.get('test') || 'ielts';
+  const language = searchParams.get('lang') || 'en';
+  const isTEF = testType === 'tef';
+  
   const [status, setStatus] = useState<PracticeStatus>('loading');
   const [question, setQuestion] = useState<SpeakingQuestion | null>(null);
   const [audioURL, setAudioURL] = useState('');
@@ -110,6 +116,26 @@ export default function SpeakingPracticePage() {
   // 페이지 로드 시 질문을 가져옵니다.
   useEffect(() => {
     const fetchQuestion = async () => {
+      if (isTEF) {
+        // TEF 질문 샘플
+        const tefQuestions: SpeakingQuestion[] = [
+          {
+            part: 1,
+            topic: "Présentation personnelle",
+            prompt: "Présentez-vous en parlant de votre parcours, vos intérêts et vos projets d'avenir. Vous avez 2 minutes pour vous préparer et 2 minutes pour parler."
+          },
+          {
+            part: 2,
+            topic: "Expression d'un point de vue",
+            prompt: "Pensez-vous que les réseaux sociaux ont une influence positive ou négative sur les relations humaines? Développez votre point de vue avec des exemples concrets. Vous avez 2 minutes pour vous préparer et 3 minutes pour parler."
+          }
+        ];
+        const randomQuestion = tefQuestions[Math.floor(Math.random() * tefQuestions.length)];
+        setQuestion(randomQuestion);
+        setStatus('ready');
+        return;
+      }
+
       const { data, error } = await supabase
         .from('practice_questions')
         .select('*')
@@ -279,7 +305,7 @@ export default function SpeakingPracticePage() {
   return (
     <AuthProtection feature="speaking practice">
       <div className="container" style={{ margin: '50px auto' }}>
-        <h1>IELTS Speaking Practice (Part 2)</h1>
+        <h1>{isTEF ? 'TEF Expression orale Practice' : 'IELTS Speaking Practice (Part 2)'}</h1>
         
         <div className="question-box" style={{ marginBottom: 'var(--space-xl)' }}>
           {question ? (
@@ -325,7 +351,7 @@ export default function SpeakingPracticePage() {
 
           {feedback && (
             <div className="feedback-container">
-              <h3>🎉 Your IELTS Speaking Analysis</h3>
+              <h3>🎉 Your {isTEF ? 'TEF Expression orale' : 'IELTS Speaking'} Analysis</h3>
               
               {/* Overall Score */}
               <div className="score-overview">
