@@ -4,6 +4,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import SkillPractice from '@/components/SkillPractice';
 import MockTests from '@/components/MockTests';
 import IeltsModePicker from '@/components/IeltsModePicker';
