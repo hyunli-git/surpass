@@ -3,6 +3,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient';
 import type { User } from '@supabase/supabase-js';
@@ -37,8 +38,14 @@ export default function Header() {
     <header id="mainHeader">
       <nav className="container">
         <Link href="/" className="logo">
-          <span>⚡</span>
-          <span>Surpass</span>
+          <Image 
+            src="/logo.png" 
+            alt="Surpass Logo" 
+            width={120} 
+            height={40}
+            priority
+            style={{ height: 'auto', width: 'auto' }}
+          />
         </Link>
         
         <ul className="nav-links">
