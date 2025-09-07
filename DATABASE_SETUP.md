@@ -1,123 +1,94 @@
-# 🗄️ Supabase Database Setup for Prompt Management System
+# Database Setup Guide
 
-Since Supabase requires manual SQL execution for schema changes, follow these steps to set up the prompt management system:
+This guide explains how to set up the Surpass test system database with Supabase.
 
-## 📋 Setup Instructions
+## Overview
 
-### Step 1: Open Supabase SQL Editor
-1. Go to [Supabase Dashboard](https://supabase.com/dashboard)
-2. Select your project
-3. Navigate to **SQL Editor**
-4. Create a new query
+The database has been restructured to separate **skill practice** from **mock tests**:
+- **Skill Practice**: Individual skill training (reading, writing, listening, speaking)
+- **Mock Tests**: Complete test simulations with all skills combined
 
-### Step 2: Execute Schema SQL
-Copy and paste the entire content from `database/schema/prompt_management.sql` into the SQL editor and run it.
+## Setup Steps
 
-**Key Tables Created:**
-- `exam_types` - IELTS, TOEFL, TOEIC, etc.
-- `skill_types` - Speaking, Writing, Reading, Listening  
-- `test_parts` - Task1, Task2, Part1, Part2, etc.
-- `prompt_sections` - Reusable prompt components
-- `prompt_templates` - Complete prompt configurations
-- `prompt_section_content` - Actual prompt text content
-- `scoring_examples` - Sample responses with scores
-- `score_benchmarks` - Detailed scoring criteria
+### 1. Execute the Schema
 
-### Step 3: Insert Seed Data
-Copy and paste the entire content from `database/seed/prompt_management_seed.sql` into a new query and run it.
+The database schema is ready in `database/schema/test_system.sql`. To apply it:
 
-**Sample Data Includes:**
-- ✅ IELTS, TOEFL, TOEIC, PTE, Duolingo exam types
-- ✅ Speaking, Writing, Reading, Listening skills
-- ✅ IELTS Writing Task 1 complete prompt template
-- ✅ Band 6.0 and 8.0 scoring examples
-- ✅ Score benchmarks with improvement tips
+1. Go to your Supabase SQL Editor: https://supabase.com/dashboard/project/zszhcmcskltkzfapwsek/sql
+2. Copy the contents of `database/schema/test_system.sql`
+3. Paste and execute the SQL to create all tables, indexes, and RLS policies
 
-### Step 4: Verify Setup
-Run this query to verify everything was created correctly:
+### 2. Insert Initial Data
 
-```sql
--- Check tables exist
-SELECT table_name 
-FROM information_schema.tables 
-WHERE table_schema = 'public' 
-AND table_name LIKE '%prompt%' OR table_name IN ('exam_types', 'skill_types', 'test_parts', 'scoring_examples', 'score_benchmarks');
+After the schema is created, insert the sample test data:
 
--- Check sample data
-SELECT 
-  et.display_name as exam,
-  st.display_name as skill, 
-  tp.display_name as part,
-  pt.template_name,
-  pt.version
-FROM prompt_templates pt
-JOIN exam_types et ON pt.exam_type_id = et.id
-JOIN skill_types st ON pt.skill_type_id = st.id
-LEFT JOIN test_parts tp ON pt.test_part_id = tp.id;
-```
+1. In the same SQL Editor, copy the contents of `database/seeds/initial_test_data.sql`
+2. Paste and execute to populate with sample TEF and IELTS content
 
-## 🔧 Usage After Setup
+## Database Structure
 
-### Access Admin Interface
-Visit `/admin/prompts` to manage prompt templates:
-- View existing templates
-- Preview prompt content
-- Test prompt generation
-- Filter by exam/skill/part
+### Core Tables
 
-### Use in API Routes
+- `test_types`: IELTS, TEF, TOEFL, etc.
+- `skills`: Reading, Writing, Listening, Speaking
+
+### Skill Practice System
+
+- `skill_practice_sets`: Collections of exercises for one skill
+- `skill_practice_content`: Passages, audio, prompts
+- `skill_practice_questions`: Individual questions
+
+### Mock Test System
+
+- `mock_tests`: Complete test versions
+- `mock_test_sections`: Sections within tests (by skill)
+- `mock_test_content`: Content within sections
+- `mock_test_questions`: Questions within content
+
+### User Progress
+
+- `user_skill_sessions`: Skill practice sessions
+- `user_mock_test_sessions`: Mock test sessions
+- `user_answers`: All user responses
+
+## Code Integration
+
+The following services are available for database integration:
+
+- `@/lib/database/testService`: Query test content
+- `@/lib/database/userService`: Track user progress
+- `@/lib/database/types`: TypeScript interfaces
+
+### Example Usage
+
 ```typescript
-import { promptManager } from '@/utils/promptManager';
+import { TestService } from '@/lib/database/testService';
 
-// Get complete prompt for IELTS Writing Task 1
-const promptData = await promptManager.getCompleteAnalysisPrompt(
-  'IELTS',
-  'writing', 
-  'task1',
-  studentResponse,
-  question
-);
+// Get writing practice sets for TEF
+const sets = await TestService.getSkillPracticeSets('TEF', 'writing');
 
-// Use the generated prompts
-const completion = await openai.chat.completions.create({
-  model: 'gpt-4',
-  messages: [
-    { role: 'system', content: promptData.systemPrompt },
-    { role: 'user', content: promptData.userPrompt }
-  ]
-});
+// Get specific practice set with content
+const practiceSet = await TestService.getSkillPracticeSetWithContent(1);
 ```
 
-## 🎯 Skill-Specific Customization
+## Current Status
 
-Each IELTS skill can have completely different prompts:
+✅ **Completed:**
+- Database schema designed and ready
+- Service utilities created for data access
+- Writing practice page updated to use database
+- Fallback to hardcoded data if database is empty
 
-### 🗣️ Speaking (Part 1, 2, 3)
-- Fluency & Coherence focus
-- Pronunciation assessment
-- Natural conversation flow
+🟡 **Next Steps:**
+1. Execute the SQL schema in Supabase dashboard
+2. Run the initial data seeds
+3. Update remaining skill practice pages (reading, listening, speaking)
+4. Create admin interface for content management
 
-### ✍️ Writing (Task 1, Task 2) 
-- Task Achievement criteria
-- Data accuracy for Task 1
-- Argument development for Task 2
+## Benefits
 
-### 📖 Reading
-- Comprehension strategies
-- Question type analysis
-- Time management
-
-### 🎧 Listening
-- Accent recognition
-- Note-taking skills
-- Context understanding
-
-## 🚀 Next Steps
-
-1. **Execute the SQL files** in Supabase SQL Editor
-2. **Test the admin interface** at `/admin/prompts`
-3. **Create custom prompts** for different exam sections
-4. **Add more scoring examples** for better AI calibration
-5. **Update existing API routes** to use the new system
-
-The system is now ready to support **exam-specific optimization** with unlimited customization potential!
+- **Scalable**: Easy to add new tests and content
+- **Flexible**: Supports multiple test types and formats  
+- **Secure**: Row Level Security protects user data
+- **Performance**: Optimized indexes for fast queries
+- **Maintainable**: Structured data instead of hardcoded content

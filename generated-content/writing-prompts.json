@@ -1,0 +1,18 @@
+[
+  {
+    "type": "IELTS",
+    "prompt": "Some people believe that artificial intelligence will eventually replace human workers in most industries, while others argue that AI will create new job opportunities and enhance human capabilities.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words."
+  },
+  {
+    "type": "IELTS",
+    "prompt": "Many countries are struggling to balance economic development with environmental protection. Some argue that environmental concerns should take priority over economic growth, while others believe economic development is essential for funding environmental solutions.\n\nTo what extent do you agree or disagree with prioritizing environmental protection over economic growth?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words."
+  },
+  {
+    "type": "TEF",
+    "prompt": "Le gouvernement envisage d'interdire les voitures diesel dans les centres-villes pour réduire la pollution atmosphérique. Cette mesure divise l'opinion publique entre ceux qui soutiennent une action environnementale forte et ceux qui craignent les impacts économiques.\n\nConsignes :\n• Présentez votre position sur cette interdiction\n• Développez deux arguments principaux avec des exemples concrets\n• Proposez des mesures d'accompagnement pour faciliter la transition\n• Concluez en évoquant les perspectives d'avenir\n\nNombre de mots requis : 200 à 250 mots\nTemps alloué : 30 minutes"
+  },
+  {
+    "type": "TEF",
+    "prompt": "Les réseaux sociaux influencent de plus en plus les décisions d'achat des consommateurs, notamment chez les jeunes. Certains y voient une démocratisation de l'information commerciale, d'autres dénoncent une manipulation du comportement consommateur.\n\nConsignes :\n• Exprimez votre point de vue sur l'influence des réseaux sociaux sur la consommation\n• Justifiez votre position avec deux arguments principaux\n• Illustrez avec des exemples précis\n• Proposez des solutions pour un usage plus responsable\n\nNombre de mots requis : 200 à 250 mots\nTemps alloué : 30 minutes"
+  }
+]

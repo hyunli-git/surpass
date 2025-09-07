@@ -1,16 +1,18 @@
-// src/app/skill-practice/writing/page.tsx
-
 "use client";
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { supabase } from '@/utils/supabaseClient';
+import { TestService } from '@/lib/database/testService';
 import type { User } from '@supabase/supabase-js';
+import type { SkillPracticeSet } from '@/lib/database/types';
 
 export default function WritingPracticePage() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const [practiceSets, setPracticeSets] = useState<SkillPracticeSet[]>([]);
+  const [loadingPractice, setLoadingPractice] = useState(true);
   const searchParams = useSearchParams();
   const testType = searchParams.get('test') || 'ielts';
   const language = searchParams.get('lang') || 'en';
@@ -35,57 +37,40 @@ export default function WritingPracticePage() {
     };
   }, []);
 
-  const writingTasks = isTEF ? [
-    {
-      id: 'section-a',
-      title: 'Section A - Message',
-      subtitle: 'Situation professionnelle',
-      description: 'Vous travaillez dans une entreprise de marketing. Votre collègue Marie vous a envoyé par erreur un document confidentiel destiné à un autre service. Écrivez-lui un courriel pour l\'informer de cette erreur tout en restant poli et professionnel.',
-      prompt: 'Consignes :\n• Informez Marie de l\'erreur\n• Mentionnez que vous n\'avez pas consulté le document\n• Suggérez une solution\n• Gardez un ton professionnel\n\nNombre de mots requis : 60 à 120 mots',
-      timeLimit: '30 minutes',
-      icon: '✉️',
-      difficulty: 'Intermediate',
-      link: '/skill-practice/writing/task1?test=tef&lang=fr'
-    },
-    {
-      id: 'section-b', 
-      title: 'Section B - Argumentation',
-      subtitle: 'Le télétravail : avantage ou inconvénient ?',
-      description: 'Le télétravail s\'est développé rapidement ces dernières années. Certains pensent que c\'est une révolution positive pour l\'équilibre vie-travail, d\'autres estiment que cela nuit à la productivité et à l\'esprit d\'équipe.',
-      prompt: 'Consignes :\n• Présentez votre point de vue sur le télétravail\n• Donnez deux arguments principaux\n• Illustrez avec des exemples concrets\n• Concluez en proposant une solution équilibrée\n\nNombre de mots requis : 200 à 250 mots',
-      timeLimit: '30 minutes',
-      icon: '📝',
-      difficulty: 'Advanced',
-      link: '/skill-practice/writing/task2?test=tef&lang=fr'
-    }
-  ] : [
-    {
-      id: 'task1',
-      title: 'Writing Task 1',
-      subtitle: 'Academic Writing - Data Analysis',
-      description: 'Describe visual information (graphs, charts, diagrams) in 150+ words',
-      timeLimit: '20 minutes',
-      icon: '📊',
-      difficulty: 'Intermediate',
-      link: '/skill-practice/writing/task1',
-      prompt: undefined // No detailed prompt for IELTS
-    },
-    {
-      id: 'task2', 
-      title: 'Writing Task 2',
-      subtitle: 'Academic Writing - Essay',
-      description: 'Write an argumentative essay on a given topic in 250+ words',
-      timeLimit: '40 minutes',
-      icon: '📝',
-      difficulty: 'Advanced',
-      link: '/skill-practice/writing/task2',
-      prompt: undefined // No detailed prompt for IELTS
-    }
-  ];
+  // Load practice sets from database
+  useEffect(() => {
+    const loadPracticeSets = async () => {
+      try {
+        setLoadingPractice(true);
+        const testCode = isTEF ? 'TEF' : 'IELTS';
+        const sets = await TestService.getSkillPracticeSets(testCode, 'writing');
+        setPracticeSets(sets);
+      } catch (error) {
+        console.error('Error loading practice sets:', error);
+        setPracticeSets([]);
+      } finally {
+        setLoadingPractice(false);
+      }
+    };
+
+    loadPracticeSets();
+  }, [testType, isTEF]);
+
+  // Map database practice sets to UI format
+  const writingTasks = practiceSets.map(set => ({
+    id: set.id.toString(),
+    title: set.title,
+    subtitle: set.skill?.name || 'Writing',
+    description: set.description || '',
+    prompt: set.content?.[0]?.instructions,
+    timeLimit: set.estimated_duration ? `${set.estimated_duration} minutes` : '30 minutes',
+    icon: set.skill?.icon || '📝',
+    difficulty: set.difficulty || 'Intermediate',
+    link: `/skill-practice/writing/practice/${set.id}?test=${testType}&lang=${language}`
+  }));
 
   const handleStartTask = (taskLink: string) => {
     if (!user) {
-      // Scroll to sign up section instead of immediate redirect
       const signupSection = document.getElementById('signup-section');
       if (signupSection) {
         signupSection.scrollIntoView({ behavior: 'smooth' });
@@ -94,6 +79,38 @@ export default function WritingPracticePage() {
     }
     window.location.href = taskLink;
   };
+
+  if (loadingPractice) {
+    return (
+      <div className="container" style={{ margin: '50px auto' }}>
+        <div className="writing-hero">
+          <h1>{isTEF ? 'TEF Expression écrite Practice' : 'IELTS Writing Practice'}</h1>
+          <div style={{ textAlign: 'center', padding: '40px' }}>
+            <div>Loading writing practice sets...</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (writingTasks.length === 0) {
+    return (
+      <div className="container" style={{ margin: '50px auto' }}>
+        <div className="writing-hero">
+          <h1>{isTEF ? 'TEF Expression écrite Practice' : 'IELTS Writing Practice'}</h1>
+          <div style={{ textAlign: 'center', padding: '40px' }}>
+            <h3>📚 Content Loading...</h3>
+            <p>Practice sets are being prepared. Please check back shortly!</p>
+            <div style={{ marginTop: '20px' }}>
+              <Link href="/tests" className="btn btn-primary">
+                Browse All Tests
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container" style={{ margin: '50px auto' }}>
@@ -135,7 +152,7 @@ export default function WritingPracticePage() {
                   border: '1px solid var(--border-light)'
                 }}>
                   <h5 style={{ marginBottom: 'var(--space-sm)', color: 'var(--primary)' }}>
-                    📋 Instructions détaillées :
+                    📋 Instructions:
                   </h5>
                   <pre style={{ 
                     whiteSpace: 'pre-wrap', 
@@ -192,17 +209,17 @@ export default function WritingPracticePage() {
           <div className="feature-card">
             <div className="feature-icon">🤖</div>
             <h4>AI-Powered Analysis</h4>
-            <p>Comprehensive evaluation using GPT-4 for accurate IELTS scoring</p>
+            <p>Comprehensive evaluation using GPT-4 for accurate scoring</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">📊</div>
-            <h4>Detailed Band Scores</h4>
-            <p>Individual scores for Task Achievement, Coherence, Lexical Resource, Grammar</p>
+            <h4>Detailed Scores</h4>
+            <p>Individual scores for different assessment criteria</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">💡</div>
             <h4>Improvement Guide</h4>
-            <p>Specific suggestions to reach your target band score</p>
+            <p>Specific suggestions to reach your target score</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">⚡</div>
@@ -221,7 +238,7 @@ export default function WritingPracticePage() {
           textAlign: 'center'
         }}>
           <h2>Ready to Start Practicing? 🚀</h2>
-          <p>Join thousands of students who improved their IELTS scores with AI-powered feedback</p>
+          <p>Join thousands of students who improved their scores with AI-powered feedback</p>
           
           <div className="benefits-list" style={{ margin: '24px 0' }}>
             <div style={{ display: 'inline-block', margin: '0 12px' }}>✅ 100% Free</div>

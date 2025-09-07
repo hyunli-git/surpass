@@ -1,0 +1,58 @@
+[
+  {
+    "setId": "ielts-writing-technology-1",
+    "title": "IELTS Writing Task 2 - Technology",
+    "topic": "Technology",
+    "difficulty": "advanced",
+    "estimatedTime": 40,
+    "prompt": "Some people believe that social media platforms have a positive impact on society by connecting people and sharing information. Others argue that social media creates more problems than benefits, including misinformation and social isolation.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words."
+  },
+  {
+    "setId": "ielts-writing-technology-2",
+    "title": "IELTS Writing Task 2 - Technology",
+    "topic": "Technology",
+    "difficulty": "advanced",
+    "estimatedTime": 40,
+    "prompt": "Many workplaces are adopting artificial intelligence and automation to replace human workers. Some believe this will lead to mass unemployment, while others argue it will create new opportunities and improve productivity.\n\nTo what extent do you agree that AI and automation are beneficial for society?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words."
+  },
+  {
+    "setId": "ielts-writing-technology-3",
+    "title": "IELTS Writing Task 2 - Technology",
+    "topic": "Technology",
+    "difficulty": "advanced",
+    "estimatedTime": 40,
+    "prompt": "The use of smartphones and digital devices has become widespread among children and teenagers. Some educators believe technology enhances learning, while others worry about negative effects on concentration and social development.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words."
+  },
+  {
+    "setId": "ielts-writing-environment-1",
+    "title": "IELTS Writing Task 2 - Environment",
+    "topic": "Environment",
+    "difficulty": "advanced",
+    "estimatedTime": 40,
+    "prompt": "Climate change is one of the most pressing issues facing humanity. Some argue that individual actions are sufficient to address environmental problems, while others believe only government regulation and international cooperation can create meaningful change.\n\nTo what extent do you think individual actions can solve environmental problems?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words."
+  },
+  {
+    "setId": "ielts-writing-environment-2",
+    "title": "IELTS Writing Task 2 - Environment",
+    "topic": "Environment",
+    "difficulty": "advanced",
+    "estimatedTime": 40,
+    "prompt": "Many cities around the world are experiencing air pollution problems. Some people suggest that the best solution is to increase the price of fuel for cars and other vehicles, while others believe there are better alternatives.\n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words."
+  },
+  {
+    "setId": "ielts-writing-education-1",
+    "title": "IELTS Writing Task 2 - Education",
+    "topic": "Education",
+    "difficulty": "advanced",
+    "estimatedTime": 40,
+    "prompt": "Some people believe that university education should be free for all students, while others think students should pay for their education. \n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words."
+  },
+  {
+    "setId": "ielts-writing-education-2",
+    "title": "IELTS Writing Task 2 - Education",
+    "topic": "Education",
+    "difficulty": "advanced",
+    "estimatedTime": 40,
+    "prompt": "Traditional classroom teaching is being increasingly supplemented or replaced by online learning. Some educators embrace this change, while others prefer face-to-face instruction.\n\nDiscuss the advantages and disadvantages of online learning compared to traditional classroom education.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words."
+  }
+]

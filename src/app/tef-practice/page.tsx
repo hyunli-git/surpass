@@ -17,6 +17,30 @@ export default function TEFPracticePage() {
         </div>
       </section>
 
+      {/* Why Choose TEF/TEF Canada Section */}
+      <section className="section" style={{ background: 'var(--bg-secondary)' }}>
+        <div className="container">
+          <h2 style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }}>Why Choose TEF/TEF Canada?</h2>
+          <div className="grid grid-3">
+            <div className="feature-card">
+              <div className="feature-icon">🌍</div>
+              <h3>Internationally Recognized</h3>
+              <p>Accepted by universities, employers, and immigration authorities worldwide</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">📊</div>
+              <h3>Accurate Assessment</h3>
+              <p>Precisely evaluates your French language skills across all competencies</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">🎯</div>
+              <h3>Immigration Pathway</h3>
+              <p>Essential for Canadian Express Entry and Quebec immigration programs</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="practice-section">
         <div className="container">
           <h2>Select Your Test Version</h2>
@@ -224,30 +248,6 @@ export default function TEFPracticePage() {
               </div>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Additional Resources */}
-      <section className="section" style={{ background: 'var(--bg-secondary)', marginTop: 'var(--space-3xl)' }}>
-        <div className="container">
-          <h2 style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }}>Why Choose TEF/TEF Canada?</h2>
-          <div className="grid grid-3">
-            <div className="feature-card">
-              <div className="feature-icon">🌍</div>
-              <h3>Internationally Recognized</h3>
-              <p>Accepted by universities, employers, and immigration authorities worldwide</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">📊</div>
-              <h3>Accurate Assessment</h3>
-              <p>Precisely evaluates your French language skills across all competencies</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">🎯</div>
-              <h3>Immigration Pathway</h3>
-              <p>Essential for Canadian Express Entry and Quebec immigration programs</p>
-            </div>
-          </div>
         </div>
       </section>
     </>

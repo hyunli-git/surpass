@@ -1,0 +1,70 @@
+[
+  {
+    "setId": "tef-reading-société-et-innovation-1",
+    "title": "TEF Lecture - Les voitures électriques : vers une mobilité durable",
+    "topic": "Société et Innovation",
+    "difficulty": "intermediate",
+    "estimatedTime": 20,
+    "passage": {
+      "title": "Les voitures électriques : vers une mobilité durable",
+      "content": "L'adoption des véhicules électriques s'accélère dans le monde entier, portée par les préoccupations environnementales et les avancées technologiques. En 2023, les ventes mondiales de voitures électriques ont dépassé 10 millions d'unités, représentant 14% du marché automobile total.\n\nLa Norvège fait figure de pionnier avec 80% de ventes de véhicules électriques en 2023, grâce à une politique incitative comprenant des exemptions fiscales, l'accès gratuit aux péages et au stationnement. Ce succès démontre l'efficacité des mesures gouvernementales pour accélérer la transition énergétique.\n\nL'autonomie des batteries reste un défi majeur. Les modèles actuels offrent généralement 300 à 500 kilomètres d'autonomie, suffisant pour la majorité des trajets quotidiens mais limitant les voyages longue distance. Les constructeurs investissent massivement dans la recherche pour développer des batteries plus performantes et durables.\n\nL'infrastructure de recharge constitue un autre enjeu crucial. L'Europe compte environ 400 000 bornes de recharge publiques, mais les experts estiment qu'il faudra tripler ce nombre d'ici 2030 pour répondre à la demande croissante. La recharge rapide progresse également, permettant de récupérer 80% de la capacité en moins de 30 minutes.\n\nLes défis environnementaux persistent néanmoins. L'extraction du lithium nécessaire aux batteries pose des problèmes écologiques dans certaines régions. De plus, l'impact carbone dépend largement de la source d'électricité utilisée pour la recharge, privilégiant les pays avec une électricité décarbonée.",
+      "questions": [
+        {
+          "type": "QCM",
+          "text": "En Norvège, quel pourcentage des ventes de voitures étaient électriques en 2023?",
+          "options": [
+            "70%",
+            "75%",
+            "80%",
+            "85%"
+          ],
+          "correct": "80%"
+        },
+        {
+          "type": "vrai-faux",
+          "text": "L'Europe devra tripler son nombre de bornes de recharge d'ici 2030.",
+          "correct": "Vrai"
+        },
+        {
+          "type": "complétement",
+          "text": "Les ventes mondiales de voitures électriques ont représenté _____% du marché automobile en 2023.",
+          "correct": "14"
+        }
+      ]
+    }
+  },
+  {
+    "setId": "tef-reading-société-et-innovation-2",
+    "title": "TEF Lecture - L'économie circulaire : repenser notre modèle de consommation",
+    "topic": "Société et Innovation",
+    "difficulty": "intermediate",
+    "estimatedTime": 20,
+    "passage": {
+      "title": "L'économie circulaire : repenser notre modèle de consommation",
+      "content": "L'économie circulaire propose une alternative au modèle linéaire traditionnel \"extraire-produire-jeter\" en favorisant la réutilisation, le recyclage et la réparation des produits. Cette approche vise à réduire les déchets et l'utilisation des ressources naturelles tout en créant de nouveaux emplois.\n\nLes entreprises innovantes adoptent des modèles d'affaires circulaires. Patagonia, marque de vêtements outdoor, répare gratuitement ses produits et rachète les articles usagés pour les revendre. Cette stratégie renforce la fidélité client tout en réduisant l'impact environnemental de la production textile.\n\nLe secteur du bâtiment expérimente également la circularité. Les Pays-Bas ont développé des \"passeports matériaux\" numériques qui documentent tous les matériaux utilisés dans les constructions, facilitant leur réutilisation lors de démolitions. Cette innovation pourrait révolutionner l'industrie de la construction, traditionnellement très consommatrice de ressources.\n\nL'Union européenne s'engage vers l'économie circulaire avec des objectifs ambitieux : recycler 65% des déchets municipaux d'ici 2035 et réduire la mise en décharge à maximum 10%. Des mesures comme le \"droit à la réparation\" obligent les fabricants à proposer des pièces détachées pendant au moins 10 ans.\n\nCependant, la transition nécessite un changement profond des mentalités consuméristes. Les consommateurs doivent privilégier la durabilité à la nouveauté, accepter les produits reconditionnés et modifier leurs habitudes d'achat. Cette transformation culturelle représente le plus grand défi de l'économie circulaire.",
+      "questions": [
+        {
+          "type": "QCM",
+          "text": "L'UE vise à recycler quel pourcentage des déchets municipaux d'ici 2035?",
+          "options": [
+            "60%",
+            "65%",
+            "70%",
+            "75%"
+          ],
+          "correct": "65%"
+        },
+        {
+          "type": "vrai-faux",
+          "text": "Le 'droit à la réparation' oblige les fabricants à proposer des pièces détachées pendant 5 ans.",
+          "correct": "Faux"
+        },
+        {
+          "type": "complétement",
+          "text": "Les _______ matériaux documentent tous les matériaux utilisés dans les constructions.",
+          "correct": "passeports"
+        }
+      ]
+    }
+  }
+]

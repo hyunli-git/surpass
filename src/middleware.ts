@@ -9,8 +9,11 @@ const intlMiddleware = createMiddleware({
   // Used when no locale matches
   defaultLocale: 'en',
   
-  // Don't show locale in URL for default locale
-  localePrefix: 'as-needed'
+  // Never show locale in URL
+  localePrefix: 'never',
+  
+  // Don't redirect based on Accept-Language header
+  localeDetection: false
 });
 
 export default function middleware(request: NextRequest) {
@@ -31,10 +34,8 @@ export default function middleware(request: NextRequest) {
 }
  
 export const config = {
-  // Match only internationalized pathnames
+  // Match all pathnames except for api routes and static files
   matcher: [
-    '/',
-    '/(en|ko|ja|zh|es|fr|de|pt|it|ru|ar)/:path*',
     '/((?!api|_next/static|_next/image|favicon.ico|.*\\.png$).*)'
   ]
 };

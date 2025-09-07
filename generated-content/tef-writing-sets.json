@@ -1,0 +1,34 @@
+[
+  {
+    "setId": "tef-writing-environnement-1",
+    "title": "TEF Expression écrite - Environnement",
+    "topic": "Environnement",
+    "difficulty": "advanced",
+    "estimatedTime": 30,
+    "prompt": "De nombreuses villes interdisent progressivement les voitures diesel et essence dans leurs centres pour réduire la pollution. Cette mesure suscite des débats entre partisans de l'écologie et défenseurs de la liberté de circulation.\n\nConsignes :\n• Présentez votre position sur ces interdictions de circulation\n• Développez deux arguments principaux avec des exemples concrets\n• Proposez des alternatives pour faciliter cette transition\n• Concluez en évoquant l'avenir de la mobilité urbaine\n\nNombre de mots requis : 200 à 250 mots\nTemps alloué : 30 minutes"
+  },
+  {
+    "setId": "tef-writing-environnement-2",
+    "title": "TEF Expression écrite - Environnement",
+    "topic": "Environnement",
+    "difficulty": "advanced",
+    "estimatedTime": 30,
+    "prompt": "L'agriculture biologique se développe rapidement mais reste plus chère que l'agriculture conventionnelle. Certains considèrent qu'elle devrait être accessible à tous, d'autres estiment que son prix reflète sa qualité supérieure.\n\nConsignes :\n• Exprimez votre point de vue sur l'accessibilité de l'agriculture biologique\n• Justifiez votre position avec deux arguments principaux\n• Illustrez avec des exemples précis\n• Proposez des solutions pour démocratiser l'alimentation de qualité\n\nNombre de mots requis : 200 à 250 mots\nTemps alloué : 30 minutes"
+  },
+  {
+    "setId": "tef-writing-technologie-1",
+    "title": "TEF Expression écrite - Technologie",
+    "topic": "Technologie",
+    "difficulty": "advanced",
+    "estimatedTime": 30,
+    "prompt": "Les voitures autonomes commencent à circuler sur les routes. Certains y voient une révolution qui améliorera la sécurité routière, d'autres s'inquiètent des risques technologiques et éthiques.\n\nConsignes :\n• Présentez votre opinion sur les voitures autonomes\n• Développez deux arguments principaux\n• Donnez des exemples concrets pour illustrer vos propos\n• Concluez en évoquant les conditions nécessaires à leur développement\n\nNombre de mots requis : 200 à 250 mots\nTemps alloué : 30 minutes"
+  },
+  {
+    "setId": "tef-writing-technologie-2",
+    "title": "TEF Expression écrite - Technologie",
+    "topic": "Technologie",
+    "difficulty": "advanced",
+    "estimatedTime": 30,
+    "prompt": "L'intelligence artificielle commence à être utilisée dans l'éducation pour personnaliser l'apprentissage. Cette évolution divise les enseignants entre enthousiastes et sceptiques.\n\nConsignes :\n• Exprimez votre point de vue sur l'IA dans l'éducation\n• Justifiez avec deux arguments principaux et des exemples\n• Analysez les bénéfices et les risques potentiels\n• Proposez une approche équilibrée pour l'avenir\n\nNombre de mots requis : 200 à 250 mots\nTemps alloué : 30 minutes"
+  }
+]

@@ -1,0 +1,914 @@
+[
+  {
+    "setId": "opic-novice-mid---novice-high-personal-background-1",
+    "title": "OPIc Novice Mid - Novice High - Personal Background Practice 1",
+    "level": "Novice Mid - Novice High",
+    "category": "Personal Background",
+    "difficulty": "beginner",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "Tell me about yourself. What's your name and where are you from?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "Describe your family. How many people are in your family?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "What do you do? Are you a student or do you work?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "Tell me about where you live. Do you live in a house or an apartment?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "What languages do you speak? Which language do you speak best?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      }
+    ]
+  },
+  {
+    "setId": "opic-novice-mid---novice-high-daily-routine-2",
+    "title": "OPIc Novice Mid - Novice High - Daily Routine Practice 2",
+    "level": "Novice Mid - Novice High",
+    "category": "Daily Routine",
+    "difficulty": "beginner",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "Describe your typical day. What time do you wake up?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "What do you usually eat for breakfast?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "How do you get to work or school?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "What do you do in your free time?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "What time do you usually go to bed?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      }
+    ]
+  },
+  {
+    "setId": "opic-novice-mid---novice-high-family-&-home-3",
+    "title": "OPIc Novice Mid - Novice High - Family & Home Practice 3",
+    "level": "Novice Mid - Novice High",
+    "category": "Family & Home",
+    "difficulty": "beginner",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "Tell me about your family members. What do they do?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "Describe your home. How many rooms does it have?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "What is your favorite room in your home? Why?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "Do you help with housework? What do you do?",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "Do you have any pets? Tell me about them.",
+        "preparationTime": 30,
+        "responseTime": 60,
+        "tips": [
+          "Use simple, clear sentences",
+          "Take your time to think before speaking",
+          "It's okay to make small mistakes",
+          "Focus on communicating your main idea"
+        ]
+      }
+    ]
+  },
+  {
+    "setId": "opic-intermediate-low---intermediate-mid-past-experiences-1",
+    "title": "OPIc Intermediate Low - Intermediate Mid - Past Experiences Practice 1",
+    "level": "Intermediate Low - Intermediate Mid",
+    "category": "Past Experiences",
+    "difficulty": "intermediate",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "Tell me about a memorable vacation you took. Where did you go and what did you do?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "Describe a time when you moved to a new place. How did you feel about it?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "Think about a special celebration or holiday from your childhood. What made it memorable?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "Tell me about a time when you tried something new. What was it and how did it go?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "Describe a memorable meal you had. Where was it and who were you with?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      }
+    ]
+  },
+  {
+    "setId": "opic-intermediate-low---intermediate-mid-comparing-past-and-present-2",
+    "title": "OPIc Intermediate Low - Intermediate Mid - Comparing Past and Present Practice 2",
+    "level": "Intermediate Low - Intermediate Mid",
+    "category": "Comparing Past and Present",
+    "difficulty": "intermediate",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "How has your neighborhood changed since you were a child?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "Compare how you spent your free time in the past versus now.",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "How has technology changed the way people communicate compared to 10 years ago?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "Think about your eating habits. How have they changed over the years?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "Compare your current job or studies with what you did in the past.",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      }
+    ]
+  },
+  {
+    "setId": "opic-intermediate-low---intermediate-mid-personal-preferences-3",
+    "title": "OPIc Intermediate Low - Intermediate Mid - Personal Preferences Practice 3",
+    "level": "Intermediate Low - Intermediate Mid",
+    "category": "Personal Preferences",
+    "difficulty": "intermediate",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "What type of movies do you prefer and why? Give me some examples.",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "Describe your ideal vacation. Where would you go and what would you do?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "What kind of music do you like? How does it make you feel?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "Tell me about your favorite restaurant. What makes it special?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "What's your preferred way to exercise or stay healthy? Explain why.",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      }
+    ]
+  },
+  {
+    "setId": "opic-intermediate-high---advanced-low-problem-solving-1",
+    "title": "OPIc Intermediate High - Advanced Low - Problem Solving Practice 1",
+    "level": "Intermediate High - Advanced Low",
+    "category": "Problem Solving",
+    "difficulty": "intermediate",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "Imagine you're planning a surprise party for a friend, but the venue cancels last minute. What would you do to solve this problem?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "Your coworker keeps interrupting you during meetings. How would you handle this situation diplomatically?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "You're traveling abroad and lose your passport. Walk me through the steps you would take to resolve this.",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "A friend asks to borrow money, but they haven't returned money they borrowed before. How would you respond?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "You're assigned to work on a group project with someone who isn't contributing. What would you do?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      }
+    ]
+  },
+  {
+    "setId": "opic-intermediate-high---advanced-low-hypothetical-situations-2",
+    "title": "OPIc Intermediate High - Advanced Low - Hypothetical Situations Practice 2",
+    "level": "Intermediate High - Advanced Low",
+    "category": "Hypothetical Situations",
+    "difficulty": "intermediate",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "If you could change one thing about your city's transportation system, what would it be and why?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "Imagine you won a large amount of money in the lottery. What would you do with it?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "If you could have dinner with any three people, living or dead, who would you choose and why?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "Suppose your best friend was considering dropping out of school. What advice would you give them?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "If you could go back in time and change one decision you made, what would it be?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      }
+    ]
+  },
+  {
+    "setId": "opic-intermediate-high---advanced-low-abstract-topics-3",
+    "title": "OPIc Intermediate High - Advanced Low - Abstract Topics Practice 3",
+    "level": "Intermediate High - Advanced Low",
+    "category": "Abstract Topics",
+    "difficulty": "intermediate",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "What role does technology play in modern education? Discuss both positive and negative aspects.",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "How important is work-life balance in today's society? Share your perspective.",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "What are the advantages and disadvantages of social media for young people?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "How has globalization affected traditional cultures? Give your opinion with examples.",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "Discuss the importance of environmental protection. What can individuals do to help?",
+        "preparationTime": 30,
+        "responseTime": 90,
+        "tips": [
+          "Provide specific examples and details",
+          "Use connecting words (because, however, although)",
+          "Express your opinions clearly",
+          "Compare past and present experiences"
+        ]
+      }
+    ]
+  },
+  {
+    "setId": "opic-advanced-mid---advanced-high-complex-argumentation-1",
+    "title": "OPIc Advanced Mid - Advanced High - Complex Argumentation Practice 1",
+    "level": "Advanced Mid - Advanced High",
+    "category": "Complex Argumentation",
+    "difficulty": "advanced",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "Some people believe that artificial intelligence will eventually replace most human jobs, while others think it will create new opportunities. What's your position on this debate?",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "There's ongoing discussion about whether university education should be free for everyone. Present arguments for both sides and give your opinion.",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "Climate change policies often conflict with economic interests. How do you think governments should balance environmental protection with economic growth?",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "The rise of remote work has changed traditional office culture. Analyze the long-term implications of this shift on society and the economy.",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "Social media platforms face criticism for their role in spreading misinformation. How should this issue be addressed while maintaining free speech?",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      }
+    ]
+  },
+  {
+    "setId": "opic-advanced-mid---advanced-high-cultural-analysis-2",
+    "title": "OPIc Advanced Mid - Advanced High - Cultural Analysis Practice 2",
+    "level": "Advanced Mid - Advanced High",
+    "category": "Cultural Analysis",
+    "difficulty": "advanced",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "How do cultural values influence people's approach to work and career success in different societies?",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "Analyze how immigration has shaped the cultural landscape of modern cities. What are the benefits and challenges?",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "Discuss the role of traditional festivals and celebrations in preserving cultural identity in a globalized world.",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "How has the concept of family structure evolved in recent decades, and what factors have driven these changes?",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "Examine the influence of Western culture on other parts of the world. Is this cultural exchange beneficial or problematic?",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      }
+    ]
+  },
+  {
+    "setId": "opic-advanced-mid---advanced-high-philosophical-questions-3",
+    "title": "OPIc Advanced Mid - Advanced High - Philosophical Questions Practice 3",
+    "level": "Advanced Mid - Advanced High",
+    "category": "Philosophical Questions",
+    "difficulty": "advanced",
+    "estimatedTime": 15,
+    "totalQuestions": 5,
+    "questions": [
+      {
+        "questionNumber": 1,
+        "type": "speaking",
+        "prompt": "What defines a meaningful life? How do different people find purpose and fulfillment?",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 2,
+        "type": "speaking",
+        "prompt": "Is it more important to focus on individual achievement or community well-being? Justify your perspective.",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 3,
+        "type": "speaking",
+        "prompt": "How do you think artificial intelligence and automation will change human society in the next 20 years?",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 4,
+        "type": "speaking",
+        "prompt": "What is the relationship between happiness and success? Can someone be successful without being happy?",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      },
+      {
+        "questionNumber": 5,
+        "type": "speaking",
+        "prompt": "How should education systems adapt to prepare students for an rapidly changing world?",
+        "preparationTime": 30,
+        "responseTime": 120,
+        "tips": [
+          "Develop complex arguments with supporting evidence",
+          "Use sophisticated vocabulary and structures",
+          "Address multiple perspectives on the topic",
+          "Make abstract connections between ideas"
+        ]
+      }
+    ]
+  }
+]

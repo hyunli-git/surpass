@@ -1,0 +1,91 @@
+[
+  {
+    "title": "Smart Cities: The Future of Urban Living",
+    "content": "The concept of 'smart cities' has evolved from science fiction to practical urban planning reality. These technologically integrated urban environments use Internet of Things (IoT) sensors, artificial intelligence, and big data analytics to optimize city services and improve residents' quality of life.\n\nBarcelona stands as a pioneering example of smart city implementation. The city has deployed over 20,000 smart meters to monitor water usage, reducing consumption by 25% since 2012. Smart parking systems guide drivers to available spaces via mobile apps, decreasing traffic congestion and emissions. LED streetlights automatically adjust brightness based on pedestrian and vehicle traffic, cutting energy costs by 30%.\n\nHowever, the transition to smart cities presents significant challenges. Privacy concerns arise as cities collect unprecedented amounts of citizen data through surveillance cameras, mobile phone tracking, and behavioral monitoring systems. Critics argue that constant data collection creates potential for government overreach and corporate exploitation of personal information.\n\nThe digital divide also poses obstacles to smart city equality. Citizens without smartphones or digital literacy skills may find themselves excluded from city services increasingly delivered through digital platforms. Elderly residents, in particular, often struggle to adapt to app-based systems for accessing healthcare, transportation, and municipal services.\n\nDespite these challenges, urban planners worldwide continue embracing smart city technologies. Singapore's comprehensive sensor network monitors everything from air quality to traffic flow, enabling real-time adjustments to city systems. Amsterdam uses predictive analytics to prevent crime by analyzing patterns in historical data and environmental factors.\n\nThe COVID-19 pandemic has accelerated smart city adoption, with contact tracing apps, health monitoring systems, and digital health passports becoming commonplace. This health crisis demonstrated both the potential benefits and risks of pervasive urban surveillance technologies.",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "text": "According to the passage, Barcelona's smart city initiatives have resulted in:",
+        "options": [
+          "25% reduction in traffic congestion",
+          "30% decrease in water usage",
+          "25% reduction in water consumption",
+          "30% increase in LED efficiency"
+        ],
+        "correct": "25% reduction in water consumption"
+      },
+      {
+        "type": "true-false-not-given",
+        "text": "Amsterdam's predictive analytics system has successfully prevented all crime in the city.",
+        "correct": "Not Given"
+      },
+      {
+        "type": "sentence-completion",
+        "text": "The _______ has accelerated the adoption of smart city technologies globally.",
+        "correct": "COVID-19 pandemic"
+      }
+    ]
+  },
+  {
+    "title": "Renewable Energy Revolution: Challenges and Opportunities",
+    "content": "The global transition to renewable energy represents one of the most significant technological and economic shifts of the 21st century. Solar and wind power costs have plummeted by over 80% since 2010, making renewable energy increasingly competitive with fossil fuels across most global markets.\n\nDenmark exemplifies successful renewable energy integration, generating 140% of its electricity needs from wind power in 2020. The country exports excess wind energy to neighboring nations and imports power during calm periods, demonstrating how international cooperation can stabilize renewable energy grids.\n\nEnergy storage remains the critical challenge for renewable energy expansion. Battery technology improvements have reduced lithium-ion costs by 90% since 2010, yet large-scale storage solutions remain expensive and environmentally problematic. Mining lithium and cobalt for batteries raises environmental and ethical concerns, particularly regarding child labor in Democratic Republic of Congo mines.\n\nGrid integration presents additional complexities. Traditional power grids were designed for predictable, centralized fossil fuel plants, not intermittent renewable sources. Smart grid technologies must balance supply and demand in real-time, automatically switching between renewable sources, storage systems, and backup generators.\n\nThe economic implications extend beyond energy markets. The International Renewable Energy Agency estimates that renewable energy could create 42 million jobs globally by 2050, while displacing approximately 15 million fossil fuel positions. This transition requires massive retraining programs and economic support for affected communities.\n\nGeopolitical power structures are shifting as countries rich in fossil fuels lose influence while nations with abundant renewable resources gain strategic advantages. Morocco's massive solar installations and Iceland's geothermal abundance position these countries as future energy exporters.",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "text": "Denmark's wind power generation in 2020 was:",
+        "options": [
+          "80% of electricity needs",
+          "exactly meeting electricity demands",
+          "140% of electricity needs",
+          "insufficient for national needs"
+        ],
+        "correct": "140% of electricity needs"
+      },
+      {
+        "type": "true-false-not-given",
+        "text": "Lithium mining for batteries involves no environmental concerns.",
+        "correct": "False"
+      },
+      {
+        "type": "matching",
+        "text": "Match the countries with their renewable energy advantages:",
+        "pairs": [
+          [
+            "Morocco",
+            "Solar installations"
+          ],
+          [
+            "Iceland",
+            "Geothermal abundance"
+          ],
+          [
+            "Denmark",
+            "Wind power"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "title": "L'intelligence artificielle dans la médecine",
+    "content": "L'intelligence artificielle (IA) révolutionne le secteur médical avec des applications qui étaient impensables il y a quelques décennies. Des algorithmes sophistiqués peuvent désormais diagnostiquer certaines maladies avec une précision supérieure à celle des médecins expérimentés.\n\nEn radiologie, l'IA excelle dans l'analyse d'images médicales. Google DeepMind a développé un système capable de détecter plus de 50 maladies oculaires en analysant des photos de la rétine. Cette technologie pourrait révolutionner le dépistage dans les régions où les spécialistes sont rares.\n\nL'IA assiste également dans la découverte de nouveaux médicaments. Traditionnellement, développer un médicament nécessite 10 à 15 ans et coûte plusieurs milliards d'euros. Les algorithmes d'apprentissage automatique peuvent identifier des molécules prometteuses en quelques mois, accélérant considérablement le processus.\n\nCependant, l'intégration de l'IA en médecine soulève des questions éthiques importantes. Qui est responsable si un algorithme commet une erreur de diagnostic ? Comment protéger les données médicales sensibles ? Les médecins craignent également que leur expertise soit dévalorisée.\n\nMalgré ces défis, l'IA médicale progresse rapidement. L'hôpital Gustave Roussy utilise Watson d'IBM pour personnaliser les traitements contre le cancer. Ces outils ne remplacent pas les médecins mais augmentent leurs capacités diagnostiques et thérapeutiques.",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "text": "Selon le texte, développer un médicament traditionnel nécessite :",
+        "options": [
+          "5 à 10 ans",
+          "10 à 15 ans",
+          "15 à 20 ans",
+          "quelques mois"
+        ],
+        "correct": "10 à 15 ans"
+      },
+      {
+        "type": "vrai-faux-non-donné",
+        "text": "Google DeepMind peut diagnostiquer toutes les maladies oculaires.",
+        "correct": "Non donné"
+      }
+    ]
+  }
+]

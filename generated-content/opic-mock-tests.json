@@ -1,0 +1,647 @@
+[
+  {
+    "testId": "opic-mock-intermediate-low-1",
+    "title": "OPIc Practice Test 1 - Intermediate Low",
+    "description": "Complete OPIc simulation targeting Intermediate Low proficiency",
+    "targetLevel": "Intermediate Low",
+    "difficulty": "intermediate",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-intermediate-low-2",
+    "title": "OPIc Practice Test 2 - Intermediate Low",
+    "description": "Complete OPIc simulation targeting Intermediate Low proficiency",
+    "targetLevel": "Intermediate Low",
+    "difficulty": "intermediate",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-intermediate-low-3",
+    "title": "OPIc Practice Test 3 - Intermediate Low",
+    "description": "Complete OPIc simulation targeting Intermediate Low proficiency",
+    "targetLevel": "Intermediate Low",
+    "difficulty": "intermediate",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-intermediate-mid-1",
+    "title": "OPIc Practice Test 4 - Intermediate Mid",
+    "description": "Complete OPIc simulation targeting Intermediate Mid proficiency",
+    "targetLevel": "Intermediate Mid",
+    "difficulty": "intermediate",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-intermediate-mid-2",
+    "title": "OPIc Practice Test 5 - Intermediate Mid",
+    "description": "Complete OPIc simulation targeting Intermediate Mid proficiency",
+    "targetLevel": "Intermediate Mid",
+    "difficulty": "intermediate",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-intermediate-mid-3",
+    "title": "OPIc Practice Test 6 - Intermediate Mid",
+    "description": "Complete OPIc simulation targeting Intermediate Mid proficiency",
+    "targetLevel": "Intermediate Mid",
+    "difficulty": "intermediate",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-intermediate-high-1",
+    "title": "OPIc Practice Test 7 - Intermediate High",
+    "description": "Complete OPIc simulation targeting Intermediate High proficiency",
+    "targetLevel": "Intermediate High",
+    "difficulty": "intermediate",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-intermediate-high-2",
+    "title": "OPIc Practice Test 8 - Intermediate High",
+    "description": "Complete OPIc simulation targeting Intermediate High proficiency",
+    "targetLevel": "Intermediate High",
+    "difficulty": "intermediate",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-intermediate-high-3",
+    "title": "OPIc Practice Test 9 - Intermediate High",
+    "description": "Complete OPIc simulation targeting Intermediate High proficiency",
+    "targetLevel": "Intermediate High",
+    "difficulty": "intermediate",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-advanced-low-1",
+    "title": "OPIc Practice Test 10 - Advanced Low",
+    "description": "Complete OPIc simulation targeting Advanced Low proficiency",
+    "targetLevel": "Advanced Low",
+    "difficulty": "advanced",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-advanced-low-2",
+    "title": "OPIc Practice Test 11 - Advanced Low",
+    "description": "Complete OPIc simulation targeting Advanced Low proficiency",
+    "targetLevel": "Advanced Low",
+    "difficulty": "advanced",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-advanced-low-3",
+    "title": "OPIc Practice Test 12 - Advanced Low",
+    "description": "Complete OPIc simulation targeting Advanced Low proficiency",
+    "targetLevel": "Advanced Low",
+    "difficulty": "advanced",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-advanced-mid-1",
+    "title": "OPIc Practice Test 13 - Advanced Mid",
+    "description": "Complete OPIc simulation targeting Advanced Mid proficiency",
+    "targetLevel": "Advanced Mid",
+    "difficulty": "advanced",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-advanced-mid-2",
+    "title": "OPIc Practice Test 14 - Advanced Mid",
+    "description": "Complete OPIc simulation targeting Advanced Mid proficiency",
+    "targetLevel": "Advanced Mid",
+    "difficulty": "advanced",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "testId": "opic-mock-advanced-mid-3",
+    "title": "OPIc Practice Test 15 - Advanced Mid",
+    "description": "Complete OPIc simulation targeting Advanced Mid proficiency",
+    "targetLevel": "Advanced Mid",
+    "difficulty": "advanced",
+    "totalDuration": 40,
+    "sections": {
+      "selfAssessment": {
+        "duration": 5,
+        "description": "Complete background survey about yourself",
+        "topics": [
+          "Living Situation",
+          "Work/Study",
+          "Hobbies & Interests",
+          "Social Activities"
+        ]
+      },
+      "warmUp": {
+        "duration": 5,
+        "questions": [
+          "Please state your name and spell it for me.",
+          "Tell me what you do for work or study.",
+          "Describe the place where you live."
+        ]
+      },
+      "mainQuestions": {
+        "duration": 25,
+        "questions": []
+      },
+      "rolePlay": {
+        "duration": 5,
+        "scenarios": [
+          {
+            "situation": "Job Interview Negotiation",
+            "setup": "You're in a job interview and discussing salary and benefits. The interviewer represents the company.",
+            "rolePlay": "The salary offer is lower than expected, and the benefits package doesn't include some things you need. Negotiate professionally.",
+            "followUp": "The company can't increase the salary, but they're open to other benefits. What would you propose?"
+          }
+        ]
+      }
+    }
+  }
+]

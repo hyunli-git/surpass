@@ -1,0 +1,1321 @@
+{
+  "ielts": [
+    {
+      "testId": "ielts-mock-1",
+      "title": "IELTS Academic Practice Test 1",
+      "description": "Complete IELTS Academic test simulation - Version 1",
+      "difficulty": "beginner",
+      "totalDuration": 165,
+      "sections": {
+        "listening": {
+          "duration": 30,
+          "scenarios": [
+            {
+              "title": "University Information Session 1",
+              "type": "academic"
+            },
+            {
+              "title": "Student Accommodation Inquiry 1",
+              "type": "social"
+            },
+            {
+              "title": "Academic Lecture 1",
+              "type": "academic"
+            },
+            {
+              "title": "Discussion on Research Methods 1",
+              "type": "academic"
+            }
+          ]
+        },
+        "reading": {
+          "duration": 60,
+          "passages": [
+            {
+              "title": "Artificial Intelligence in Healthcare Diagnostics",
+              "content": "The integration of artificial intelligence into medical diagnostics represents a paradigm shift in healthcare delivery. Machine learning algorithms can now analyze medical images, interpret laboratory results, and predict disease outcomes with remarkable accuracy, often surpassing human specialists in specific diagnostic tasks.\n\nDeep learning models have revolutionized radiology, with AI systems capable of detecting early-stage cancers in mammograms, identifying diabetic retinopathy in eye scans, and spotting pneumonia in chest X-rays. Google's DeepMind developed an AI system that can diagnose over 50 eye diseases with 94% accuracy, potentially preventing blindness in millions of patients worldwide.\n\nHowever, the implementation of AI diagnostics raises significant ethical and practical concerns. Medical professionals worry about liability when AI systems make incorrect diagnoses. Who bears responsibility if an algorithm misses a critical diagnosis or recommends inappropriate treatment? Current legal frameworks struggle to address these unprecedented scenarios.\n\nFurthermore, AI systems can perpetuate existing healthcare inequalities. Training data often lacks diversity, leading to algorithms that perform poorly for underrepresented populations. Studies have shown that skin cancer detection AI systems are less accurate for darker skin tones, potentially exacerbating health disparities.\n\nDespite these challenges, healthcare institutions worldwide are investing heavily in AI diagnostics. The Mayo Clinic uses AI to predict patient deterioration, while IBM Watson assists oncologists in treatment planning. The COVID-19 pandemic accelerated AI adoption, with algorithms helping to analyze chest CT scans and predict patient outcomes.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "Google's DeepMind AI system can diagnose eye diseases with what accuracy?",
+                  "options": [
+                    "84% accuracy",
+                    "94% accuracy",
+                    "99% accuracy",
+                    "90% accuracy"
+                  ],
+                  "correct": "94% accuracy"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "AI diagnostic systems perform equally well for all ethnic groups.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "The _______ pandemic accelerated AI adoption in healthcare.",
+                  "correct": "COVID-19"
+                }
+              ]
+            },
+            {
+              "title": "The Rise of Quantum Computing",
+              "content": "Quantum computing represents the next frontier in computational technology, promising to solve complex problems that are currently impossible for classical computers. Unlike traditional computers that process information in binary bits, quantum computers use quantum bits (qubits) that can exist in multiple states simultaneously.\n\nThis quantum superposition allows quantum computers to perform certain calculations exponentially faster than classical computers. While a classical computer might take millions of years to factor large numbers used in encryption, a sufficiently powerful quantum computer could accomplish this task in hours or days.\n\nMajor technology companies are investing billions in quantum research. IBM has developed quantum computers with over 1000 qubits, while Google claimed \"quantum supremacy\" in 2019 by performing a specific calculation faster than the world's most powerful supercomputer. However, current quantum computers are extremely fragile, requiring temperatures colder than outer space to maintain quantum states.\n\nThe potential applications are revolutionary. Quantum computers could accelerate drug discovery by simulating molecular interactions, optimize complex logistics networks, and enhance artificial intelligence capabilities. In cryptography, quantum computers pose both opportunities and threats, potentially breaking current encryption while enabling unhackable quantum communication.\n\nDespite enormous investment and research efforts, practical quantum computing remains years away. Current quantum computers are prone to errors and can only maintain quantum states for microseconds. Scientists are working on error correction methods and more stable qubit designs to overcome these limitations.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "IBM's quantum computers have how many qubits?",
+                  "options": [
+                    "over 500 qubits",
+                    "exactly 1000 qubits",
+                    "over 1000 qubits",
+                    "under 1000 qubits"
+                  ],
+                  "correct": "over 1000 qubits"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "Google achieved quantum supremacy in 2018.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "Quantum computers require temperatures colder than _______ to function.",
+                  "correct": "outer space"
+                }
+              ]
+            },
+            {
+              "title": "Ocean Plastic Pollution and Innovative Solutions",
+              "content": "The world's oceans contain an estimated 150 million tonnes of plastic waste, with an additional 8 million tonnes entering marine environments annually. This pollution threatens marine ecosystems, human health, and global food security, creating one of the most pressing environmental challenges of our time.\n\nMicroplastics, particles smaller than 5 millimeters, have been found in marine organisms from plankton to whales. These particles enter the food chain, potentially affecting human health through seafood consumption. Research has detected microplastics in human blood, placenta, and lung tissue, though long-term health effects remain unclear.\n\nTraditional cleanup methods prove inadequate for the scale of ocean plastic pollution. However, innovative technologies are emerging to address this crisis. The Ocean Cleanup, founded by Dutch inventor Boyan Slat, has developed systems to collect plastic from the Great Pacific Garbage Patch, a concentration of debris twice the size of Texas.\n\nBiotechnology offers promising solutions through plastic-eating enzymes and bacteria. Scientists have discovered microorganisms capable of breaking down PET plastic, commonly used in bottles and packaging. These biological solutions could potentially degrade plastic waste in marine environments without harmful byproducts.\n\nPrevention remains crucial for long-term ocean health. Extended producer responsibility programs require manufacturers to manage plastic waste throughout product lifecycles. Several countries have implemented plastic bottle deposit systems, achieving recycling rates exceeding 90%. Single-use plastic bans in cities worldwide demonstrate growing commitment to pollution prevention.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "How much plastic waste enters oceans annually?",
+                  "options": [
+                    "6 million tonnes",
+                    "8 million tonnes",
+                    "10 million tonnes",
+                    "12 million tonnes"
+                  ],
+                  "correct": "8 million tonnes"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "The Great Pacific Garbage Patch is three times the size of Texas.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "_______ programs require manufacturers to manage plastic waste throughout product lifecycles.",
+                  "correct": "Extended producer responsibility"
+                }
+              ]
+            }
+          ]
+        },
+        "writing": {
+          "duration": 60,
+          "tasks": [
+            {
+              "type": "Task 1",
+              "description": "Chart analysis 1",
+              "time": 20
+            },
+            {
+              "type": "Task 2",
+              "prompt": "Some people believe that university education should be free for all students, while others think students should pay for their education. \n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words.",
+              "time": 40
+            }
+          ]
+        },
+        "speaking": {
+          "duration": 15,
+          "parts": [
+            {
+              "part": "Part 1",
+              "questions": [
+                "Personal questions set 1"
+              ]
+            },
+            {
+              "part": "Part 2",
+              "questions": [
+                "Cue card topic 1"
+              ]
+            },
+            {
+              "part": "Part 3",
+              "questions": [
+                "Discussion questions 1"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "testId": "ielts-mock-2",
+      "title": "IELTS Academic Practice Test 2",
+      "description": "Complete IELTS Academic test simulation - Version 2",
+      "difficulty": "beginner",
+      "totalDuration": 165,
+      "sections": {
+        "listening": {
+          "duration": 30,
+          "scenarios": [
+            {
+              "title": "University Information Session 2",
+              "type": "academic"
+            },
+            {
+              "title": "Student Accommodation Inquiry 2",
+              "type": "social"
+            },
+            {
+              "title": "Academic Lecture 2",
+              "type": "academic"
+            },
+            {
+              "title": "Discussion on Research Methods 2",
+              "type": "academic"
+            }
+          ]
+        },
+        "reading": {
+          "duration": 60,
+          "passages": [
+            {
+              "title": "Artificial Intelligence in Healthcare Diagnostics",
+              "content": "The integration of artificial intelligence into medical diagnostics represents a paradigm shift in healthcare delivery. Machine learning algorithms can now analyze medical images, interpret laboratory results, and predict disease outcomes with remarkable accuracy, often surpassing human specialists in specific diagnostic tasks.\n\nDeep learning models have revolutionized radiology, with AI systems capable of detecting early-stage cancers in mammograms, identifying diabetic retinopathy in eye scans, and spotting pneumonia in chest X-rays. Google's DeepMind developed an AI system that can diagnose over 50 eye diseases with 94% accuracy, potentially preventing blindness in millions of patients worldwide.\n\nHowever, the implementation of AI diagnostics raises significant ethical and practical concerns. Medical professionals worry about liability when AI systems make incorrect diagnoses. Who bears responsibility if an algorithm misses a critical diagnosis or recommends inappropriate treatment? Current legal frameworks struggle to address these unprecedented scenarios.\n\nFurthermore, AI systems can perpetuate existing healthcare inequalities. Training data often lacks diversity, leading to algorithms that perform poorly for underrepresented populations. Studies have shown that skin cancer detection AI systems are less accurate for darker skin tones, potentially exacerbating health disparities.\n\nDespite these challenges, healthcare institutions worldwide are investing heavily in AI diagnostics. The Mayo Clinic uses AI to predict patient deterioration, while IBM Watson assists oncologists in treatment planning. The COVID-19 pandemic accelerated AI adoption, with algorithms helping to analyze chest CT scans and predict patient outcomes.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "Google's DeepMind AI system can diagnose eye diseases with what accuracy?",
+                  "options": [
+                    "84% accuracy",
+                    "94% accuracy",
+                    "99% accuracy",
+                    "90% accuracy"
+                  ],
+                  "correct": "94% accuracy"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "AI diagnostic systems perform equally well for all ethnic groups.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "The _______ pandemic accelerated AI adoption in healthcare.",
+                  "correct": "COVID-19"
+                }
+              ]
+            },
+            {
+              "title": "The Rise of Quantum Computing",
+              "content": "Quantum computing represents the next frontier in computational technology, promising to solve complex problems that are currently impossible for classical computers. Unlike traditional computers that process information in binary bits, quantum computers use quantum bits (qubits) that can exist in multiple states simultaneously.\n\nThis quantum superposition allows quantum computers to perform certain calculations exponentially faster than classical computers. While a classical computer might take millions of years to factor large numbers used in encryption, a sufficiently powerful quantum computer could accomplish this task in hours or days.\n\nMajor technology companies are investing billions in quantum research. IBM has developed quantum computers with over 1000 qubits, while Google claimed \"quantum supremacy\" in 2019 by performing a specific calculation faster than the world's most powerful supercomputer. However, current quantum computers are extremely fragile, requiring temperatures colder than outer space to maintain quantum states.\n\nThe potential applications are revolutionary. Quantum computers could accelerate drug discovery by simulating molecular interactions, optimize complex logistics networks, and enhance artificial intelligence capabilities. In cryptography, quantum computers pose both opportunities and threats, potentially breaking current encryption while enabling unhackable quantum communication.\n\nDespite enormous investment and research efforts, practical quantum computing remains years away. Current quantum computers are prone to errors and can only maintain quantum states for microseconds. Scientists are working on error correction methods and more stable qubit designs to overcome these limitations.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "IBM's quantum computers have how many qubits?",
+                  "options": [
+                    "over 500 qubits",
+                    "exactly 1000 qubits",
+                    "over 1000 qubits",
+                    "under 1000 qubits"
+                  ],
+                  "correct": "over 1000 qubits"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "Google achieved quantum supremacy in 2018.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "Quantum computers require temperatures colder than _______ to function.",
+                  "correct": "outer space"
+                }
+              ]
+            },
+            {
+              "title": "Ocean Plastic Pollution and Innovative Solutions",
+              "content": "The world's oceans contain an estimated 150 million tonnes of plastic waste, with an additional 8 million tonnes entering marine environments annually. This pollution threatens marine ecosystems, human health, and global food security, creating one of the most pressing environmental challenges of our time.\n\nMicroplastics, particles smaller than 5 millimeters, have been found in marine organisms from plankton to whales. These particles enter the food chain, potentially affecting human health through seafood consumption. Research has detected microplastics in human blood, placenta, and lung tissue, though long-term health effects remain unclear.\n\nTraditional cleanup methods prove inadequate for the scale of ocean plastic pollution. However, innovative technologies are emerging to address this crisis. The Ocean Cleanup, founded by Dutch inventor Boyan Slat, has developed systems to collect plastic from the Great Pacific Garbage Patch, a concentration of debris twice the size of Texas.\n\nBiotechnology offers promising solutions through plastic-eating enzymes and bacteria. Scientists have discovered microorganisms capable of breaking down PET plastic, commonly used in bottles and packaging. These biological solutions could potentially degrade plastic waste in marine environments without harmful byproducts.\n\nPrevention remains crucial for long-term ocean health. Extended producer responsibility programs require manufacturers to manage plastic waste throughout product lifecycles. Several countries have implemented plastic bottle deposit systems, achieving recycling rates exceeding 90%. Single-use plastic bans in cities worldwide demonstrate growing commitment to pollution prevention.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "How much plastic waste enters oceans annually?",
+                  "options": [
+                    "6 million tonnes",
+                    "8 million tonnes",
+                    "10 million tonnes",
+                    "12 million tonnes"
+                  ],
+                  "correct": "8 million tonnes"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "The Great Pacific Garbage Patch is three times the size of Texas.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "_______ programs require manufacturers to manage plastic waste throughout product lifecycles.",
+                  "correct": "Extended producer responsibility"
+                }
+              ]
+            }
+          ]
+        },
+        "writing": {
+          "duration": 60,
+          "tasks": [
+            {
+              "type": "Task 1",
+              "description": "Chart analysis 2",
+              "time": 20
+            },
+            {
+              "type": "Task 2",
+              "prompt": "Many workplaces are adopting artificial intelligence and automation to replace human workers. Some believe this will lead to mass unemployment, while others argue it will create new opportunities and improve productivity.\n\nTo what extent do you agree that AI and automation are beneficial for society?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words.",
+              "time": 40
+            }
+          ]
+        },
+        "speaking": {
+          "duration": 15,
+          "parts": [
+            {
+              "part": "Part 1",
+              "questions": [
+                "Personal questions set 2"
+              ]
+            },
+            {
+              "part": "Part 2",
+              "questions": [
+                "Cue card topic 2"
+              ]
+            },
+            {
+              "part": "Part 3",
+              "questions": [
+                "Discussion questions 2"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "testId": "ielts-mock-3",
+      "title": "IELTS Academic Practice Test 3",
+      "description": "Complete IELTS Academic test simulation - Version 3",
+      "difficulty": "intermediate",
+      "totalDuration": 165,
+      "sections": {
+        "listening": {
+          "duration": 30,
+          "scenarios": [
+            {
+              "title": "University Information Session 3",
+              "type": "academic"
+            },
+            {
+              "title": "Student Accommodation Inquiry 3",
+              "type": "social"
+            },
+            {
+              "title": "Academic Lecture 3",
+              "type": "academic"
+            },
+            {
+              "title": "Discussion on Research Methods 3",
+              "type": "academic"
+            }
+          ]
+        },
+        "reading": {
+          "duration": 60,
+          "passages": [
+            {
+              "title": "Artificial Intelligence in Healthcare Diagnostics",
+              "content": "The integration of artificial intelligence into medical diagnostics represents a paradigm shift in healthcare delivery. Machine learning algorithms can now analyze medical images, interpret laboratory results, and predict disease outcomes with remarkable accuracy, often surpassing human specialists in specific diagnostic tasks.\n\nDeep learning models have revolutionized radiology, with AI systems capable of detecting early-stage cancers in mammograms, identifying diabetic retinopathy in eye scans, and spotting pneumonia in chest X-rays. Google's DeepMind developed an AI system that can diagnose over 50 eye diseases with 94% accuracy, potentially preventing blindness in millions of patients worldwide.\n\nHowever, the implementation of AI diagnostics raises significant ethical and practical concerns. Medical professionals worry about liability when AI systems make incorrect diagnoses. Who bears responsibility if an algorithm misses a critical diagnosis or recommends inappropriate treatment? Current legal frameworks struggle to address these unprecedented scenarios.\n\nFurthermore, AI systems can perpetuate existing healthcare inequalities. Training data often lacks diversity, leading to algorithms that perform poorly for underrepresented populations. Studies have shown that skin cancer detection AI systems are less accurate for darker skin tones, potentially exacerbating health disparities.\n\nDespite these challenges, healthcare institutions worldwide are investing heavily in AI diagnostics. The Mayo Clinic uses AI to predict patient deterioration, while IBM Watson assists oncologists in treatment planning. The COVID-19 pandemic accelerated AI adoption, with algorithms helping to analyze chest CT scans and predict patient outcomes.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "Google's DeepMind AI system can diagnose eye diseases with what accuracy?",
+                  "options": [
+                    "84% accuracy",
+                    "94% accuracy",
+                    "99% accuracy",
+                    "90% accuracy"
+                  ],
+                  "correct": "94% accuracy"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "AI diagnostic systems perform equally well for all ethnic groups.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "The _______ pandemic accelerated AI adoption in healthcare.",
+                  "correct": "COVID-19"
+                }
+              ]
+            },
+            {
+              "title": "The Rise of Quantum Computing",
+              "content": "Quantum computing represents the next frontier in computational technology, promising to solve complex problems that are currently impossible for classical computers. Unlike traditional computers that process information in binary bits, quantum computers use quantum bits (qubits) that can exist in multiple states simultaneously.\n\nThis quantum superposition allows quantum computers to perform certain calculations exponentially faster than classical computers. While a classical computer might take millions of years to factor large numbers used in encryption, a sufficiently powerful quantum computer could accomplish this task in hours or days.\n\nMajor technology companies are investing billions in quantum research. IBM has developed quantum computers with over 1000 qubits, while Google claimed \"quantum supremacy\" in 2019 by performing a specific calculation faster than the world's most powerful supercomputer. However, current quantum computers are extremely fragile, requiring temperatures colder than outer space to maintain quantum states.\n\nThe potential applications are revolutionary. Quantum computers could accelerate drug discovery by simulating molecular interactions, optimize complex logistics networks, and enhance artificial intelligence capabilities. In cryptography, quantum computers pose both opportunities and threats, potentially breaking current encryption while enabling unhackable quantum communication.\n\nDespite enormous investment and research efforts, practical quantum computing remains years away. Current quantum computers are prone to errors and can only maintain quantum states for microseconds. Scientists are working on error correction methods and more stable qubit designs to overcome these limitations.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "IBM's quantum computers have how many qubits?",
+                  "options": [
+                    "over 500 qubits",
+                    "exactly 1000 qubits",
+                    "over 1000 qubits",
+                    "under 1000 qubits"
+                  ],
+                  "correct": "over 1000 qubits"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "Google achieved quantum supremacy in 2018.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "Quantum computers require temperatures colder than _______ to function.",
+                  "correct": "outer space"
+                }
+              ]
+            },
+            {
+              "title": "Ocean Plastic Pollution and Innovative Solutions",
+              "content": "The world's oceans contain an estimated 150 million tonnes of plastic waste, with an additional 8 million tonnes entering marine environments annually. This pollution threatens marine ecosystems, human health, and global food security, creating one of the most pressing environmental challenges of our time.\n\nMicroplastics, particles smaller than 5 millimeters, have been found in marine organisms from plankton to whales. These particles enter the food chain, potentially affecting human health through seafood consumption. Research has detected microplastics in human blood, placenta, and lung tissue, though long-term health effects remain unclear.\n\nTraditional cleanup methods prove inadequate for the scale of ocean plastic pollution. However, innovative technologies are emerging to address this crisis. The Ocean Cleanup, founded by Dutch inventor Boyan Slat, has developed systems to collect plastic from the Great Pacific Garbage Patch, a concentration of debris twice the size of Texas.\n\nBiotechnology offers promising solutions through plastic-eating enzymes and bacteria. Scientists have discovered microorganisms capable of breaking down PET plastic, commonly used in bottles and packaging. These biological solutions could potentially degrade plastic waste in marine environments without harmful byproducts.\n\nPrevention remains crucial for long-term ocean health. Extended producer responsibility programs require manufacturers to manage plastic waste throughout product lifecycles. Several countries have implemented plastic bottle deposit systems, achieving recycling rates exceeding 90%. Single-use plastic bans in cities worldwide demonstrate growing commitment to pollution prevention.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "How much plastic waste enters oceans annually?",
+                  "options": [
+                    "6 million tonnes",
+                    "8 million tonnes",
+                    "10 million tonnes",
+                    "12 million tonnes"
+                  ],
+                  "correct": "8 million tonnes"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "The Great Pacific Garbage Patch is three times the size of Texas.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "_______ programs require manufacturers to manage plastic waste throughout product lifecycles.",
+                  "correct": "Extended producer responsibility"
+                }
+              ]
+            }
+          ]
+        },
+        "writing": {
+          "duration": 60,
+          "tasks": [
+            {
+              "type": "Task 1",
+              "description": "Chart analysis 3",
+              "time": 20
+            },
+            {
+              "type": "Task 2",
+              "prompt": "Some people believe that university education should be free for all students, while others think students should pay for their education. \n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words.",
+              "time": 40
+            }
+          ]
+        },
+        "speaking": {
+          "duration": 15,
+          "parts": [
+            {
+              "part": "Part 1",
+              "questions": [
+                "Personal questions set 3"
+              ]
+            },
+            {
+              "part": "Part 2",
+              "questions": [
+                "Cue card topic 3"
+              ]
+            },
+            {
+              "part": "Part 3",
+              "questions": [
+                "Discussion questions 3"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "testId": "ielts-mock-4",
+      "title": "IELTS Academic Practice Test 4",
+      "description": "Complete IELTS Academic test simulation - Version 4",
+      "difficulty": "intermediate",
+      "totalDuration": 165,
+      "sections": {
+        "listening": {
+          "duration": 30,
+          "scenarios": [
+            {
+              "title": "University Information Session 4",
+              "type": "academic"
+            },
+            {
+              "title": "Student Accommodation Inquiry 4",
+              "type": "social"
+            },
+            {
+              "title": "Academic Lecture 4",
+              "type": "academic"
+            },
+            {
+              "title": "Discussion on Research Methods 4",
+              "type": "academic"
+            }
+          ]
+        },
+        "reading": {
+          "duration": 60,
+          "passages": [
+            {
+              "title": "Artificial Intelligence in Healthcare Diagnostics",
+              "content": "The integration of artificial intelligence into medical diagnostics represents a paradigm shift in healthcare delivery. Machine learning algorithms can now analyze medical images, interpret laboratory results, and predict disease outcomes with remarkable accuracy, often surpassing human specialists in specific diagnostic tasks.\n\nDeep learning models have revolutionized radiology, with AI systems capable of detecting early-stage cancers in mammograms, identifying diabetic retinopathy in eye scans, and spotting pneumonia in chest X-rays. Google's DeepMind developed an AI system that can diagnose over 50 eye diseases with 94% accuracy, potentially preventing blindness in millions of patients worldwide.\n\nHowever, the implementation of AI diagnostics raises significant ethical and practical concerns. Medical professionals worry about liability when AI systems make incorrect diagnoses. Who bears responsibility if an algorithm misses a critical diagnosis or recommends inappropriate treatment? Current legal frameworks struggle to address these unprecedented scenarios.\n\nFurthermore, AI systems can perpetuate existing healthcare inequalities. Training data often lacks diversity, leading to algorithms that perform poorly for underrepresented populations. Studies have shown that skin cancer detection AI systems are less accurate for darker skin tones, potentially exacerbating health disparities.\n\nDespite these challenges, healthcare institutions worldwide are investing heavily in AI diagnostics. The Mayo Clinic uses AI to predict patient deterioration, while IBM Watson assists oncologists in treatment planning. The COVID-19 pandemic accelerated AI adoption, with algorithms helping to analyze chest CT scans and predict patient outcomes.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "Google's DeepMind AI system can diagnose eye diseases with what accuracy?",
+                  "options": [
+                    "84% accuracy",
+                    "94% accuracy",
+                    "99% accuracy",
+                    "90% accuracy"
+                  ],
+                  "correct": "94% accuracy"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "AI diagnostic systems perform equally well for all ethnic groups.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "The _______ pandemic accelerated AI adoption in healthcare.",
+                  "correct": "COVID-19"
+                }
+              ]
+            },
+            {
+              "title": "The Rise of Quantum Computing",
+              "content": "Quantum computing represents the next frontier in computational technology, promising to solve complex problems that are currently impossible for classical computers. Unlike traditional computers that process information in binary bits, quantum computers use quantum bits (qubits) that can exist in multiple states simultaneously.\n\nThis quantum superposition allows quantum computers to perform certain calculations exponentially faster than classical computers. While a classical computer might take millions of years to factor large numbers used in encryption, a sufficiently powerful quantum computer could accomplish this task in hours or days.\n\nMajor technology companies are investing billions in quantum research. IBM has developed quantum computers with over 1000 qubits, while Google claimed \"quantum supremacy\" in 2019 by performing a specific calculation faster than the world's most powerful supercomputer. However, current quantum computers are extremely fragile, requiring temperatures colder than outer space to maintain quantum states.\n\nThe potential applications are revolutionary. Quantum computers could accelerate drug discovery by simulating molecular interactions, optimize complex logistics networks, and enhance artificial intelligence capabilities. In cryptography, quantum computers pose both opportunities and threats, potentially breaking current encryption while enabling unhackable quantum communication.\n\nDespite enormous investment and research efforts, practical quantum computing remains years away. Current quantum computers are prone to errors and can only maintain quantum states for microseconds. Scientists are working on error correction methods and more stable qubit designs to overcome these limitations.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "IBM's quantum computers have how many qubits?",
+                  "options": [
+                    "over 500 qubits",
+                    "exactly 1000 qubits",
+                    "over 1000 qubits",
+                    "under 1000 qubits"
+                  ],
+                  "correct": "over 1000 qubits"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "Google achieved quantum supremacy in 2018.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "Quantum computers require temperatures colder than _______ to function.",
+                  "correct": "outer space"
+                }
+              ]
+            },
+            {
+              "title": "Ocean Plastic Pollution and Innovative Solutions",
+              "content": "The world's oceans contain an estimated 150 million tonnes of plastic waste, with an additional 8 million tonnes entering marine environments annually. This pollution threatens marine ecosystems, human health, and global food security, creating one of the most pressing environmental challenges of our time.\n\nMicroplastics, particles smaller than 5 millimeters, have been found in marine organisms from plankton to whales. These particles enter the food chain, potentially affecting human health through seafood consumption. Research has detected microplastics in human blood, placenta, and lung tissue, though long-term health effects remain unclear.\n\nTraditional cleanup methods prove inadequate for the scale of ocean plastic pollution. However, innovative technologies are emerging to address this crisis. The Ocean Cleanup, founded by Dutch inventor Boyan Slat, has developed systems to collect plastic from the Great Pacific Garbage Patch, a concentration of debris twice the size of Texas.\n\nBiotechnology offers promising solutions through plastic-eating enzymes and bacteria. Scientists have discovered microorganisms capable of breaking down PET plastic, commonly used in bottles and packaging. These biological solutions could potentially degrade plastic waste in marine environments without harmful byproducts.\n\nPrevention remains crucial for long-term ocean health. Extended producer responsibility programs require manufacturers to manage plastic waste throughout product lifecycles. Several countries have implemented plastic bottle deposit systems, achieving recycling rates exceeding 90%. Single-use plastic bans in cities worldwide demonstrate growing commitment to pollution prevention.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "How much plastic waste enters oceans annually?",
+                  "options": [
+                    "6 million tonnes",
+                    "8 million tonnes",
+                    "10 million tonnes",
+                    "12 million tonnes"
+                  ],
+                  "correct": "8 million tonnes"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "The Great Pacific Garbage Patch is three times the size of Texas.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "_______ programs require manufacturers to manage plastic waste throughout product lifecycles.",
+                  "correct": "Extended producer responsibility"
+                }
+              ]
+            }
+          ]
+        },
+        "writing": {
+          "duration": 60,
+          "tasks": [
+            {
+              "type": "Task 1",
+              "description": "Chart analysis 4",
+              "time": 20
+            },
+            {
+              "type": "Task 2",
+              "prompt": "Many workplaces are adopting artificial intelligence and automation to replace human workers. Some believe this will lead to mass unemployment, while others argue it will create new opportunities and improve productivity.\n\nTo what extent do you agree that AI and automation are beneficial for society?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words.",
+              "time": 40
+            }
+          ]
+        },
+        "speaking": {
+          "duration": 15,
+          "parts": [
+            {
+              "part": "Part 1",
+              "questions": [
+                "Personal questions set 4"
+              ]
+            },
+            {
+              "part": "Part 2",
+              "questions": [
+                "Cue card topic 4"
+              ]
+            },
+            {
+              "part": "Part 3",
+              "questions": [
+                "Discussion questions 4"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "testId": "ielts-mock-5",
+      "title": "IELTS Academic Practice Test 5",
+      "description": "Complete IELTS Academic test simulation - Version 5",
+      "difficulty": "advanced",
+      "totalDuration": 165,
+      "sections": {
+        "listening": {
+          "duration": 30,
+          "scenarios": [
+            {
+              "title": "University Information Session 5",
+              "type": "academic"
+            },
+            {
+              "title": "Student Accommodation Inquiry 5",
+              "type": "social"
+            },
+            {
+              "title": "Academic Lecture 5",
+              "type": "academic"
+            },
+            {
+              "title": "Discussion on Research Methods 5",
+              "type": "academic"
+            }
+          ]
+        },
+        "reading": {
+          "duration": 60,
+          "passages": [
+            {
+              "title": "Artificial Intelligence in Healthcare Diagnostics",
+              "content": "The integration of artificial intelligence into medical diagnostics represents a paradigm shift in healthcare delivery. Machine learning algorithms can now analyze medical images, interpret laboratory results, and predict disease outcomes with remarkable accuracy, often surpassing human specialists in specific diagnostic tasks.\n\nDeep learning models have revolutionized radiology, with AI systems capable of detecting early-stage cancers in mammograms, identifying diabetic retinopathy in eye scans, and spotting pneumonia in chest X-rays. Google's DeepMind developed an AI system that can diagnose over 50 eye diseases with 94% accuracy, potentially preventing blindness in millions of patients worldwide.\n\nHowever, the implementation of AI diagnostics raises significant ethical and practical concerns. Medical professionals worry about liability when AI systems make incorrect diagnoses. Who bears responsibility if an algorithm misses a critical diagnosis or recommends inappropriate treatment? Current legal frameworks struggle to address these unprecedented scenarios.\n\nFurthermore, AI systems can perpetuate existing healthcare inequalities. Training data often lacks diversity, leading to algorithms that perform poorly for underrepresented populations. Studies have shown that skin cancer detection AI systems are less accurate for darker skin tones, potentially exacerbating health disparities.\n\nDespite these challenges, healthcare institutions worldwide are investing heavily in AI diagnostics. The Mayo Clinic uses AI to predict patient deterioration, while IBM Watson assists oncologists in treatment planning. The COVID-19 pandemic accelerated AI adoption, with algorithms helping to analyze chest CT scans and predict patient outcomes.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "Google's DeepMind AI system can diagnose eye diseases with what accuracy?",
+                  "options": [
+                    "84% accuracy",
+                    "94% accuracy",
+                    "99% accuracy",
+                    "90% accuracy"
+                  ],
+                  "correct": "94% accuracy"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "AI diagnostic systems perform equally well for all ethnic groups.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "The _______ pandemic accelerated AI adoption in healthcare.",
+                  "correct": "COVID-19"
+                }
+              ]
+            },
+            {
+              "title": "The Rise of Quantum Computing",
+              "content": "Quantum computing represents the next frontier in computational technology, promising to solve complex problems that are currently impossible for classical computers. Unlike traditional computers that process information in binary bits, quantum computers use quantum bits (qubits) that can exist in multiple states simultaneously.\n\nThis quantum superposition allows quantum computers to perform certain calculations exponentially faster than classical computers. While a classical computer might take millions of years to factor large numbers used in encryption, a sufficiently powerful quantum computer could accomplish this task in hours or days.\n\nMajor technology companies are investing billions in quantum research. IBM has developed quantum computers with over 1000 qubits, while Google claimed \"quantum supremacy\" in 2019 by performing a specific calculation faster than the world's most powerful supercomputer. However, current quantum computers are extremely fragile, requiring temperatures colder than outer space to maintain quantum states.\n\nThe potential applications are revolutionary. Quantum computers could accelerate drug discovery by simulating molecular interactions, optimize complex logistics networks, and enhance artificial intelligence capabilities. In cryptography, quantum computers pose both opportunities and threats, potentially breaking current encryption while enabling unhackable quantum communication.\n\nDespite enormous investment and research efforts, practical quantum computing remains years away. Current quantum computers are prone to errors and can only maintain quantum states for microseconds. Scientists are working on error correction methods and more stable qubit designs to overcome these limitations.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "IBM's quantum computers have how many qubits?",
+                  "options": [
+                    "over 500 qubits",
+                    "exactly 1000 qubits",
+                    "over 1000 qubits",
+                    "under 1000 qubits"
+                  ],
+                  "correct": "over 1000 qubits"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "Google achieved quantum supremacy in 2018.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "Quantum computers require temperatures colder than _______ to function.",
+                  "correct": "outer space"
+                }
+              ]
+            },
+            {
+              "title": "Ocean Plastic Pollution and Innovative Solutions",
+              "content": "The world's oceans contain an estimated 150 million tonnes of plastic waste, with an additional 8 million tonnes entering marine environments annually. This pollution threatens marine ecosystems, human health, and global food security, creating one of the most pressing environmental challenges of our time.\n\nMicroplastics, particles smaller than 5 millimeters, have been found in marine organisms from plankton to whales. These particles enter the food chain, potentially affecting human health through seafood consumption. Research has detected microplastics in human blood, placenta, and lung tissue, though long-term health effects remain unclear.\n\nTraditional cleanup methods prove inadequate for the scale of ocean plastic pollution. However, innovative technologies are emerging to address this crisis. The Ocean Cleanup, founded by Dutch inventor Boyan Slat, has developed systems to collect plastic from the Great Pacific Garbage Patch, a concentration of debris twice the size of Texas.\n\nBiotechnology offers promising solutions through plastic-eating enzymes and bacteria. Scientists have discovered microorganisms capable of breaking down PET plastic, commonly used in bottles and packaging. These biological solutions could potentially degrade plastic waste in marine environments without harmful byproducts.\n\nPrevention remains crucial for long-term ocean health. Extended producer responsibility programs require manufacturers to manage plastic waste throughout product lifecycles. Several countries have implemented plastic bottle deposit systems, achieving recycling rates exceeding 90%. Single-use plastic bans in cities worldwide demonstrate growing commitment to pollution prevention.",
+              "questions": [
+                {
+                  "type": "multiple-choice",
+                  "text": "How much plastic waste enters oceans annually?",
+                  "options": [
+                    "6 million tonnes",
+                    "8 million tonnes",
+                    "10 million tonnes",
+                    "12 million tonnes"
+                  ],
+                  "correct": "8 million tonnes"
+                },
+                {
+                  "type": "true-false-not-given",
+                  "text": "The Great Pacific Garbage Patch is three times the size of Texas.",
+                  "correct": "False"
+                },
+                {
+                  "type": "sentence-completion",
+                  "text": "_______ programs require manufacturers to manage plastic waste throughout product lifecycles.",
+                  "correct": "Extended producer responsibility"
+                }
+              ]
+            }
+          ]
+        },
+        "writing": {
+          "duration": 60,
+          "tasks": [
+            {
+              "type": "Task 1",
+              "description": "Chart analysis 5",
+              "time": 20
+            },
+            {
+              "type": "Task 2",
+              "prompt": "Some people believe that university education should be free for all students, while others think students should pay for their education. \n\nDiscuss both views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\nWrite at least 250 words.",
+              "time": 40
+            }
+          ]
+        },
+        "speaking": {
+          "duration": 15,
+          "parts": [
+            {
+              "part": "Part 1",
+              "questions": [
+                "Personal questions set 5"
+              ]
+            },
+            {
+              "part": "Part 2",
+              "questions": [
+                "Cue card topic 5"
+              ]
+            },
+            {
+              "part": "Part 3",
+              "questions": [
+                "Discussion questions 5"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "tef": [
+    {
+      "testId": "tef-mock-1",
+      "title": "TEF Test complet 1",
+      "description": "Simulation complète du TEF - Version 1",
+      "difficulty": "débutant",
+      "totalDuration": 150,
+      "sections": {
+        "comprehensionEcrite": {
+          "duration": 60,
+          "passages": [
+            {
+              "title": "Les voitures électriques : vers une mobilité durable",
+              "content": "L'adoption des véhicules électriques s'accélère dans le monde entier, portée par les préoccupations environnementales et les avancées technologiques. En 2023, les ventes mondiales de voitures électriques ont dépassé 10 millions d'unités, représentant 14% du marché automobile total.\n\nLa Norvège fait figure de pionnier avec 80% de ventes de véhicules électriques en 2023, grâce à une politique incitative comprenant des exemptions fiscales, l'accès gratuit aux péages et au stationnement. Ce succès démontre l'efficacité des mesures gouvernementales pour accélérer la transition énergétique.\n\nL'autonomie des batteries reste un défi majeur. Les modèles actuels offrent généralement 300 à 500 kilomètres d'autonomie, suffisant pour la majorité des trajets quotidiens mais limitant les voyages longue distance. Les constructeurs investissent massivement dans la recherche pour développer des batteries plus performantes et durables.\n\nL'infrastructure de recharge constitue un autre enjeu crucial. L'Europe compte environ 400 000 bornes de recharge publiques, mais les experts estiment qu'il faudra tripler ce nombre d'ici 2030 pour répondre à la demande croissante. La recharge rapide progresse également, permettant de récupérer 80% de la capacité en moins de 30 minutes.\n\nLes défis environnementaux persistent néanmoins. L'extraction du lithium nécessaire aux batteries pose des problèmes écologiques dans certaines régions. De plus, l'impact carbone dépend largement de la source d'électricité utilisée pour la recharge, privilégiant les pays avec une électricité décarbonée.",
+              "questions": [
+                {
+                  "type": "QCM",
+                  "text": "En Norvège, quel pourcentage des ventes de voitures étaient électriques en 2023?",
+                  "options": [
+                    "70%",
+                    "75%",
+                    "80%",
+                    "85%"
+                  ],
+                  "correct": "80%"
+                },
+                {
+                  "type": "vrai-faux",
+                  "text": "L'Europe devra tripler son nombre de bornes de recharge d'ici 2030.",
+                  "correct": "Vrai"
+                },
+                {
+                  "type": "complétement",
+                  "text": "Les ventes mondiales de voitures électriques ont représenté _____% du marché automobile en 2023.",
+                  "correct": "14"
+                }
+              ]
+            },
+            {
+              "title": "L'économie circulaire : repenser notre modèle de consommation",
+              "content": "L'économie circulaire propose une alternative au modèle linéaire traditionnel \"extraire-produire-jeter\" en favorisant la réutilisation, le recyclage et la réparation des produits. Cette approche vise à réduire les déchets et l'utilisation des ressources naturelles tout en créant de nouveaux emplois.\n\nLes entreprises innovantes adoptent des modèles d'affaires circulaires. Patagonia, marque de vêtements outdoor, répare gratuitement ses produits et rachète les articles usagés pour les revendre. Cette stratégie renforce la fidélité client tout en réduisant l'impact environnemental de la production textile.\n\nLe secteur du bâtiment expérimente également la circularité. Les Pays-Bas ont développé des \"passeports matériaux\" numériques qui documentent tous les matériaux utilisés dans les constructions, facilitant leur réutilisation lors de démolitions. Cette innovation pourrait révolutionner l'industrie de la construction, traditionnellement très consommatrice de ressources.\n\nL'Union européenne s'engage vers l'économie circulaire avec des objectifs ambitieux : recycler 65% des déchets municipaux d'ici 2035 et réduire la mise en décharge à maximum 10%. Des mesures comme le \"droit à la réparation\" obligent les fabricants à proposer des pièces détachées pendant au moins 10 ans.\n\nCependant, la transition nécessite un changement profond des mentalités consuméristes. Les consommateurs doivent privilégier la durabilité à la nouveauté, accepter les produits reconditionnés et modifier leurs habitudes d'achat. Cette transformation culturelle représente le plus grand défi de l'économie circulaire.",
+              "questions": [
+                {
+                  "type": "QCM",
+                  "text": "L'UE vise à recycler quel pourcentage des déchets municipaux d'ici 2035?",
+                  "options": [
+                    "60%",
+                    "65%",
+                    "70%",
+                    "75%"
+                  ],
+                  "correct": "65%"
+                },
+                {
+                  "type": "vrai-faux",
+                  "text": "Le 'droit à la réparation' oblige les fabricants à proposer des pièces détachées pendant 5 ans.",
+                  "correct": "Faux"
+                },
+                {
+                  "type": "complétement",
+                  "text": "Les _______ matériaux documentent tous les matériaux utilisés dans les constructions.",
+                  "correct": "passeports"
+                }
+              ]
+            }
+          ]
+        },
+        "expressionEcrite": {
+          "duration": 60,
+          "tasks": [
+            {
+              "type": "Section A",
+              "description": "Message professionnel 1",
+              "time": 15
+            },
+            {
+              "type": "Section B",
+              "prompt": "L'intelligence artificielle commence à être utilisée dans l'éducation pour personnaliser l'apprentissage. Cette évolution divise les enseignants entre enthousiastes et sceptiques.\n\nConsignes :\n• Exprimez votre point de vue sur l'IA dans l'éducation\n• Justifiez avec deux arguments principaux et des exemples\n• Analysez les bénéfices et les risques potentiels\n• Proposez une approche équilibrée pour l'avenir\n\nNombre de mots requis : 200 à 250 mots\nTemps alloué : 30 minutes",
+              "time": 30
+            }
+          ]
+        },
+        "comprehensionOrale": {
+          "duration": 40,
+          "scenarios": [
+            {
+              "title": "Situation quotidienne 1",
+              "type": "social"
+            },
+            {
+              "title": "Contexte professionnel 1",
+              "type": "professionnel"
+            }
+          ]
+        },
+        "expressionOrale": {
+          "duration": 15,
+          "sections": [
+            {
+              "section": "A",
+              "description": "Entretien dirigé 1"
+            },
+            {
+              "section": "B",
+              "description": "Expression libre 1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "testId": "tef-mock-2",
+      "title": "TEF Test complet 2",
+      "description": "Simulation complète du TEF - Version 2",
+      "difficulty": "débutant",
+      "totalDuration": 150,
+      "sections": {
+        "comprehensionEcrite": {
+          "duration": 60,
+          "passages": [
+            {
+              "title": "Les voitures électriques : vers une mobilité durable",
+              "content": "L'adoption des véhicules électriques s'accélère dans le monde entier, portée par les préoccupations environnementales et les avancées technologiques. En 2023, les ventes mondiales de voitures électriques ont dépassé 10 millions d'unités, représentant 14% du marché automobile total.\n\nLa Norvège fait figure de pionnier avec 80% de ventes de véhicules électriques en 2023, grâce à une politique incitative comprenant des exemptions fiscales, l'accès gratuit aux péages et au stationnement. Ce succès démontre l'efficacité des mesures gouvernementales pour accélérer la transition énergétique.\n\nL'autonomie des batteries reste un défi majeur. Les modèles actuels offrent généralement 300 à 500 kilomètres d'autonomie, suffisant pour la majorité des trajets quotidiens mais limitant les voyages longue distance. Les constructeurs investissent massivement dans la recherche pour développer des batteries plus performantes et durables.\n\nL'infrastructure de recharge constitue un autre enjeu crucial. L'Europe compte environ 400 000 bornes de recharge publiques, mais les experts estiment qu'il faudra tripler ce nombre d'ici 2030 pour répondre à la demande croissante. La recharge rapide progresse également, permettant de récupérer 80% de la capacité en moins de 30 minutes.\n\nLes défis environnementaux persistent néanmoins. L'extraction du lithium nécessaire aux batteries pose des problèmes écologiques dans certaines régions. De plus, l'impact carbone dépend largement de la source d'électricité utilisée pour la recharge, privilégiant les pays avec une électricité décarbonée.",
+              "questions": [
+                {
+                  "type": "QCM",
+                  "text": "En Norvège, quel pourcentage des ventes de voitures étaient électriques en 2023?",
+                  "options": [
+                    "70%",
+                    "75%",
+                    "80%",
+                    "85%"
+                  ],
+                  "correct": "80%"
+                },
+                {
+                  "type": "vrai-faux",
+                  "text": "L'Europe devra tripler son nombre de bornes de recharge d'ici 2030.",
+                  "correct": "Vrai"
+                },
+                {
+                  "type": "complétement",
+                  "text": "Les ventes mondiales de voitures électriques ont représenté _____% du marché automobile en 2023.",
+                  "correct": "14"
+                }
+              ]
+            },
+            {
+              "title": "L'économie circulaire : repenser notre modèle de consommation",
+              "content": "L'économie circulaire propose une alternative au modèle linéaire traditionnel \"extraire-produire-jeter\" en favorisant la réutilisation, le recyclage et la réparation des produits. Cette approche vise à réduire les déchets et l'utilisation des ressources naturelles tout en créant de nouveaux emplois.\n\nLes entreprises innovantes adoptent des modèles d'affaires circulaires. Patagonia, marque de vêtements outdoor, répare gratuitement ses produits et rachète les articles usagés pour les revendre. Cette stratégie renforce la fidélité client tout en réduisant l'impact environnemental de la production textile.\n\nLe secteur du bâtiment expérimente également la circularité. Les Pays-Bas ont développé des \"passeports matériaux\" numériques qui documentent tous les matériaux utilisés dans les constructions, facilitant leur réutilisation lors de démolitions. Cette innovation pourrait révolutionner l'industrie de la construction, traditionnellement très consommatrice de ressources.\n\nL'Union européenne s'engage vers l'économie circulaire avec des objectifs ambitieux : recycler 65% des déchets municipaux d'ici 2035 et réduire la mise en décharge à maximum 10%. Des mesures comme le \"droit à la réparation\" obligent les fabricants à proposer des pièces détachées pendant au moins 10 ans.\n\nCependant, la transition nécessite un changement profond des mentalités consuméristes. Les consommateurs doivent privilégier la durabilité à la nouveauté, accepter les produits reconditionnés et modifier leurs habitudes d'achat. Cette transformation culturelle représente le plus grand défi de l'économie circulaire.",
+              "questions": [
+                {
+                  "type": "QCM",
+                  "text": "L'UE vise à recycler quel pourcentage des déchets municipaux d'ici 2035?",
+                  "options": [
+                    "60%",
+                    "65%",
+                    "70%",
+                    "75%"
+                  ],
+                  "correct": "65%"
+                },
+                {
+                  "type": "vrai-faux",
+                  "text": "Le 'droit à la réparation' oblige les fabricants à proposer des pièces détachées pendant 5 ans.",
+                  "correct": "Faux"
+                },
+                {
+                  "type": "complétement",
+                  "text": "Les _______ matériaux documentent tous les matériaux utilisés dans les constructions.",
+                  "correct": "passeports"
+                }
+              ]
+            }
+          ]
+        },
+        "expressionEcrite": {
+          "duration": 60,
+          "tasks": [
+            {
+              "type": "Section A",
+              "description": "Message professionnel 2",
+              "time": 15
+            },
+            {
+              "type": "Section B",
+              "prompt": "De nombreuses villes interdisent progressivement les voitures diesel et essence dans leurs centres pour réduire la pollution. Cette mesure suscite des débats entre partisans de l'écologie et défenseurs de la liberté de circulation.\n\nConsignes :\n• Présentez votre position sur ces interdictions de circulation\n• Développez deux arguments principaux avec des exemples concrets\n• Proposez des alternatives pour faciliter cette transition\n• Concluez en évoquant l'avenir de la mobilité urbaine\n\nNombre de mots requis : 200 à 250 mots\nTemps alloué : 30 minutes",
+              "time": 30
+            }
+          ]
+        },
+        "comprehensionOrale": {
+          "duration": 40,
+          "scenarios": [
+            {
+              "title": "Situation quotidienne 2",
+              "type": "social"
+            },
+            {
+              "title": "Contexte professionnel 2",
+              "type": "professionnel"
+            }
+          ]
+        },
+        "expressionOrale": {
+          "duration": 15,
+          "sections": [
+            {
+              "section": "A",
+              "description": "Entretien dirigé 2"
+            },
+            {
+              "section": "B",
+              "description": "Expression libre 2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "testId": "tef-mock-3",
+      "title": "TEF Test complet 3",
+      "description": "Simulation complète du TEF - Version 3",
+      "difficulty": "intermédiaire",
+      "totalDuration": 150,
+      "sections": {
+        "comprehensionEcrite": {
+          "duration": 60,
+          "passages": [
+            {
+              "title": "Les voitures électriques : vers une mobilité durable",
+              "content": "L'adoption des véhicules électriques s'accélère dans le monde entier, portée par les préoccupations environnementales et les avancées technologiques. En 2023, les ventes mondiales de voitures électriques ont dépassé 10 millions d'unités, représentant 14% du marché automobile total.\n\nLa Norvège fait figure de pionnier avec 80% de ventes de véhicules électriques en 2023, grâce à une politique incitative comprenant des exemptions fiscales, l'accès gratuit aux péages et au stationnement. Ce succès démontre l'efficacité des mesures gouvernementales pour accélérer la transition énergétique.\n\nL'autonomie des batteries reste un défi majeur. Les modèles actuels offrent généralement 300 à 500 kilomètres d'autonomie, suffisant pour la majorité des trajets quotidiens mais limitant les voyages longue distance. Les constructeurs investissent massivement dans la recherche pour développer des batteries plus performantes et durables.\n\nL'infrastructure de recharge constitue un autre enjeu crucial. L'Europe compte environ 400 000 bornes de recharge publiques, mais les experts estiment qu'il faudra tripler ce nombre d'ici 2030 pour répondre à la demande croissante. La recharge rapide progresse également, permettant de récupérer 80% de la capacité en moins de 30 minutes.\n\nLes défis environnementaux persistent néanmoins. L'extraction du lithium nécessaire aux batteries pose des problèmes écologiques dans certaines régions. De plus, l'impact carbone dépend largement de la source d'électricité utilisée pour la recharge, privilégiant les pays avec une électricité décarbonée.",
+              "questions": [
+                {
+                  "type": "QCM",
+                  "text": "En Norvège, quel pourcentage des ventes de voitures étaient électriques en 2023?",
+                  "options": [
+                    "70%",
+                    "75%",
+                    "80%",
+                    "85%"
+                  ],
+                  "correct": "80%"
+                },
+                {
+                  "type": "vrai-faux",
+                  "text": "L'Europe devra tripler son nombre de bornes de recharge d'ici 2030.",
+                  "correct": "Vrai"
+                },
+                {
+                  "type": "complétement",
+                  "text": "Les ventes mondiales de voitures électriques ont représenté _____% du marché automobile en 2023.",
+                  "correct": "14"
+                }
+              ]
+            },
+            {
+              "title": "L'économie circulaire : repenser notre modèle de consommation",
+              "content": "L'économie circulaire propose une alternative au modèle linéaire traditionnel \"extraire-produire-jeter\" en favorisant la réutilisation, le recyclage et la réparation des produits. Cette approche vise à réduire les déchets et l'utilisation des ressources naturelles tout en créant de nouveaux emplois.\n\nLes entreprises innovantes adoptent des modèles d'affaires circulaires. Patagonia, marque de vêtements outdoor, répare gratuitement ses produits et rachète les articles usagés pour les revendre. Cette stratégie renforce la fidélité client tout en réduisant l'impact environnemental de la production textile.\n\nLe secteur du bâtiment expérimente également la circularité. Les Pays-Bas ont développé des \"passeports matériaux\" numériques qui documentent tous les matériaux utilisés dans les constructions, facilitant leur réutilisation lors de démolitions. Cette innovation pourrait révolutionner l'industrie de la construction, traditionnellement très consommatrice de ressources.\n\nL'Union européenne s'engage vers l'économie circulaire avec des objectifs ambitieux : recycler 65% des déchets municipaux d'ici 2035 et réduire la mise en décharge à maximum 10%. Des mesures comme le \"droit à la réparation\" obligent les fabricants à proposer des pièces détachées pendant au moins 10 ans.\n\nCependant, la transition nécessite un changement profond des mentalités consuméristes. Les consommateurs doivent privilégier la durabilité à la nouveauté, accepter les produits reconditionnés et modifier leurs habitudes d'achat. Cette transformation culturelle représente le plus grand défi de l'économie circulaire.",
+              "questions": [
+                {
+                  "type": "QCM",
+                  "text": "L'UE vise à recycler quel pourcentage des déchets municipaux d'ici 2035?",
+                  "options": [
+                    "60%",
+                    "65%",
+                    "70%",
+                    "75%"
+                  ],
+                  "correct": "65%"
+                },
+                {
+                  "type": "vrai-faux",
+                  "text": "Le 'droit à la réparation' oblige les fabricants à proposer des pièces détachées pendant 5 ans.",
+                  "correct": "Faux"
+                },
+                {
+                  "type": "complétement",
+                  "text": "Les _______ matériaux documentent tous les matériaux utilisés dans les constructions.",
+                  "correct": "passeports"
+                }
+              ]
+            }
+          ]
+        },
+        "expressionEcrite": {
+          "duration": 60,
+          "tasks": [
+            {
+              "type": "Section A",
+              "description": "Message professionnel 3",
+              "time": 15
+            },
+            {
+              "type": "Section B",
+              "prompt": "Les voitures autonomes commencent à circuler sur les routes. Certains y voient une révolution qui améliorera la sécurité routière, d'autres s'inquiètent des risques technologiques et éthiques.\n\nConsignes :\n• Présentez votre opinion sur les voitures autonomes\n• Développez deux arguments principaux\n• Donnez des exemples concrets pour illustrer vos propos\n• Concluez en évoquant les conditions nécessaires à leur développement\n\nNombre de mots requis : 200 à 250 mots\nTemps alloué : 30 minutes",
+              "time": 30
+            }
+          ]
+        },
+        "comprehensionOrale": {
+          "duration": 40,
+          "scenarios": [
+            {
+              "title": "Situation quotidienne 3",
+              "type": "social"
+            },
+            {
+              "title": "Contexte professionnel 3",
+              "type": "professionnel"
+            }
+          ]
+        },
+        "expressionOrale": {
+          "duration": 15,
+          "sections": [
+            {
+              "section": "A",
+              "description": "Entretien dirigé 3"
+            },
+            {
+              "section": "B",
+              "description": "Expression libre 3"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "testId": "tef-mock-4",
+      "title": "TEF Test complet 4",
+      "description": "Simulation complète du TEF - Version 4",
+      "difficulty": "intermédiaire",
+      "totalDuration": 150,
+      "sections": {
+        "comprehensionEcrite": {
+          "duration": 60,
+          "passages": [
+            {
+              "title": "Les voitures électriques : vers une mobilité durable",
+              "content": "L'adoption des véhicules électriques s'accélère dans le monde entier, portée par les préoccupations environnementales et les avancées technologiques. En 2023, les ventes mondiales de voitures électriques ont dépassé 10 millions d'unités, représentant 14% du marché automobile total.\n\nLa Norvège fait figure de pionnier avec 80% de ventes de véhicules électriques en 2023, grâce à une politique incitative comprenant des exemptions fiscales, l'accès gratuit aux péages et au stationnement. Ce succès démontre l'efficacité des mesures gouvernementales pour accélérer la transition énergétique.\n\nL'autonomie des batteries reste un défi majeur. Les modèles actuels offrent généralement 300 à 500 kilomètres d'autonomie, suffisant pour la majorité des trajets quotidiens mais limitant les voyages longue distance. Les constructeurs investissent massivement dans la recherche pour développer des batteries plus performantes et durables.\n\nL'infrastructure de recharge constitue un autre enjeu crucial. L'Europe compte environ 400 000 bornes de recharge publiques, mais les experts estiment qu'il faudra tripler ce nombre d'ici 2030 pour répondre à la demande croissante. La recharge rapide progresse également, permettant de récupérer 80% de la capacité en moins de 30 minutes.\n\nLes défis environnementaux persistent néanmoins. L'extraction du lithium nécessaire aux batteries pose des problèmes écologiques dans certaines régions. De plus, l'impact carbone dépend largement de la source d'électricité utilisée pour la recharge, privilégiant les pays avec une électricité décarbonée.",
+              "questions": [
+                {
+                  "type": "QCM",
+                  "text": "En Norvège, quel pourcentage des ventes de voitures étaient électriques en 2023?",
+                  "options": [
+                    "70%",
+                    "75%",
+                    "80%",
+                    "85%"
+                  ],
+                  "correct": "80%"
+                },
+                {
+                  "type": "vrai-faux",
+                  "text": "L'Europe devra tripler son nombre de bornes de recharge d'ici 2030.",
+                  "correct": "Vrai"
+                },
+                {
+                  "type": "complétement",
+                  "text": "Les ventes mondiales de voitures électriques ont représenté _____% du marché automobile en 2023.",
+                  "correct": "14"
+                }
+              ]
+            },
+            {
+              "title": "L'économie circulaire : repenser notre modèle de consommation",
+              "content": "L'économie circulaire propose une alternative au modèle linéaire traditionnel \"extraire-produire-jeter\" en favorisant la réutilisation, le recyclage et la réparation des produits. Cette approche vise à réduire les déchets et l'utilisation des ressources naturelles tout en créant de nouveaux emplois.\n\nLes entreprises innovantes adoptent des modèles d'affaires circulaires. Patagonia, marque de vêtements outdoor, répare gratuitement ses produits et rachète les articles usagés pour les revendre. Cette stratégie renforce la fidélité client tout en réduisant l'impact environnemental de la production textile.\n\nLe secteur du bâtiment expérimente également la circularité. Les Pays-Bas ont développé des \"passeports matériaux\" numériques qui documentent tous les matériaux utilisés dans les constructions, facilitant leur réutilisation lors de démolitions. Cette innovation pourrait révolutionner l'industrie de la construction, traditionnellement très consommatrice de ressources.\n\nL'Union européenne s'engage vers l'économie circulaire avec des objectifs ambitieux : recycler 65% des déchets municipaux d'ici 2035 et réduire la mise en décharge à maximum 10%. Des mesures comme le \"droit à la réparation\" obligent les fabricants à proposer des pièces détachées pendant au moins 10 ans.\n\nCependant, la transition nécessite un changement profond des mentalités consuméristes. Les consommateurs doivent privilégier la durabilité à la nouveauté, accepter les produits reconditionnés et modifier leurs habitudes d'achat. Cette transformation culturelle représente le plus grand défi de l'économie circulaire.",
+              "questions": [
+                {
+                  "type": "QCM",
+                  "text": "L'UE vise à recycler quel pourcentage des déchets municipaux d'ici 2035?",
+                  "options": [
+                    "60%",
+                    "65%",
+                    "70%",
+                    "75%"
+                  ],
+                  "correct": "65%"
+                },
+                {
+                  "type": "vrai-faux",
+                  "text": "Le 'droit à la réparation' oblige les fabricants à proposer des pièces détachées pendant 5 ans.",
+                  "correct": "Faux"
+                },
+                {
+                  "type": "complétement",
+                  "text": "Les _______ matériaux documentent tous les matériaux utilisés dans les constructions.",
+                  "correct": "passeports"
+                }
+              ]
+            }
+          ]
+        },
+        "expressionEcrite": {
+          "duration": 60,
+          "tasks": [
+            {
+              "type": "Section A",
+              "description": "Message professionnel 4",
+              "time": 15
+            },
+            {
+              "type": "Section B",
+              "prompt": "L'intelligence artificielle commence à être utilisée dans l'éducation pour personnaliser l'apprentissage. Cette évolution divise les enseignants entre enthousiastes et sceptiques.\n\nConsignes :\n• Exprimez votre point de vue sur l'IA dans l'éducation\n• Justifiez avec deux arguments principaux et des exemples\n• Analysez les bénéfices et les risques potentiels\n• Proposez une approche équilibrée pour l'avenir\n\nNombre de mots requis : 200 à 250 mots\nTemps alloué : 30 minutes",
+              "time": 30
+            }
+          ]
+        },
+        "comprehensionOrale": {
+          "duration": 40,
+          "scenarios": [
+            {
+              "title": "Situation quotidienne 4",
+              "type": "social"
+            },
+            {
+              "title": "Contexte professionnel 4",
+              "type": "professionnel"
+            }
+          ]
+        },
+        "expressionOrale": {
+          "duration": 15,
+          "sections": [
+            {
+              "section": "A",
+              "description": "Entretien dirigé 4"
+            },
+            {
+              "section": "B",
+              "description": "Expression libre 4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "testId": "tef-mock-5",
+      "title": "TEF Test complet 5",
+      "description": "Simulation complète du TEF - Version 5",
+      "difficulty": "avancé",
+      "totalDuration": 150,
+      "sections": {
+        "comprehensionEcrite": {
+          "duration": 60,
+          "passages": [
+            {
+              "title": "Les voitures électriques : vers une mobilité durable",
+              "content": "L'adoption des véhicules électriques s'accélère dans le monde entier, portée par les préoccupations environnementales et les avancées technologiques. En 2023, les ventes mondiales de voitures électriques ont dépassé 10 millions d'unités, représentant 14% du marché automobile total.\n\nLa Norvège fait figure de pionnier avec 80% de ventes de véhicules électriques en 2023, grâce à une politique incitative comprenant des exemptions fiscales, l'accès gratuit aux péages et au stationnement. Ce succès démontre l'efficacité des mesures gouvernementales pour accélérer la transition énergétique.\n\nL'autonomie des batteries reste un défi majeur. Les modèles actuels offrent généralement 300 à 500 kilomètres d'autonomie, suffisant pour la majorité des trajets quotidiens mais limitant les voyages longue distance. Les constructeurs investissent massivement dans la recherche pour développer des batteries plus performantes et durables.\n\nL'infrastructure de recharge constitue un autre enjeu crucial. L'Europe compte environ 400 000 bornes de recharge publiques, mais les experts estiment qu'il faudra tripler ce nombre d'ici 2030 pour répondre à la demande croissante. La recharge rapide progresse également, permettant de récupérer 80% de la capacité en moins de 30 minutes.\n\nLes défis environnementaux persistent néanmoins. L'extraction du lithium nécessaire aux batteries pose des problèmes écologiques dans certaines régions. De plus, l'impact carbone dépend largement de la source d'électricité utilisée pour la recharge, privilégiant les pays avec une électricité décarbonée.",
+              "questions": [
+                {
+                  "type": "QCM",
+                  "text": "En Norvège, quel pourcentage des ventes de voitures étaient électriques en 2023?",
+                  "options": [
+                    "70%",
+                    "75%",
+                    "80%",
+                    "85%"
+                  ],
+                  "correct": "80%"
+                },
+                {
+                  "type": "vrai-faux",
+                  "text": "L'Europe devra tripler son nombre de bornes de recharge d'ici 2030.",
+                  "correct": "Vrai"
+                },
+                {
+                  "type": "complétement",
+                  "text": "Les ventes mondiales de voitures électriques ont représenté _____% du marché automobile en 2023.",
+                  "correct": "14"
+                }
+              ]
+            },
+            {
+              "title": "L'économie circulaire : repenser notre modèle de consommation",
+              "content": "L'économie circulaire propose une alternative au modèle linéaire traditionnel \"extraire-produire-jeter\" en favorisant la réutilisation, le recyclage et la réparation des produits. Cette approche vise à réduire les déchets et l'utilisation des ressources naturelles tout en créant de nouveaux emplois.\n\nLes entreprises innovantes adoptent des modèles d'affaires circulaires. Patagonia, marque de vêtements outdoor, répare gratuitement ses produits et rachète les articles usagés pour les revendre. Cette stratégie renforce la fidélité client tout en réduisant l'impact environnemental de la production textile.\n\nLe secteur du bâtiment expérimente également la circularité. Les Pays-Bas ont développé des \"passeports matériaux\" numériques qui documentent tous les matériaux utilisés dans les constructions, facilitant leur réutilisation lors de démolitions. Cette innovation pourrait révolutionner l'industrie de la construction, traditionnellement très consommatrice de ressources.\n\nL'Union européenne s'engage vers l'économie circulaire avec des objectifs ambitieux : recycler 65% des déchets municipaux d'ici 2035 et réduire la mise en décharge à maximum 10%. Des mesures comme le \"droit à la réparation\" obligent les fabricants à proposer des pièces détachées pendant au moins 10 ans.\n\nCependant, la transition nécessite un changement profond des mentalités consuméristes. Les consommateurs doivent privilégier la durabilité à la nouveauté, accepter les produits reconditionnés et modifier leurs habitudes d'achat. Cette transformation culturelle représente le plus grand défi de l'économie circulaire.",
+              "questions": [
+                {
+                  "type": "QCM",
+                  "text": "L'UE vise à recycler quel pourcentage des déchets municipaux d'ici 2035?",
+                  "options": [
+                    "60%",
+                    "65%",
+                    "70%",
+                    "75%"
+                  ],
+                  "correct": "65%"
+                },
+                {
+                  "type": "vrai-faux",
+                  "text": "Le 'droit à la réparation' oblige les fabricants à proposer des pièces détachées pendant 5 ans.",
+                  "correct": "Faux"
+                },
+                {
+                  "type": "complétement",
+                  "text": "Les _______ matériaux documentent tous les matériaux utilisés dans les constructions.",
+                  "correct": "passeports"
+                }
+              ]
+            }
+          ]
+        },
+        "expressionEcrite": {
+          "duration": 60,
+          "tasks": [
+            {
+              "type": "Section A",
+              "description": "Message professionnel 5",
+              "time": 15
+            },
+            {
+              "type": "Section B",
+              "prompt": "Les voitures autonomes commencent à circuler sur les routes. Certains y voient une révolution qui améliorera la sécurité routière, d'autres s'inquiètent des risques technologiques et éthiques.\n\nConsignes :\n• Présentez votre opinion sur les voitures autonomes\n• Développez deux arguments principaux\n• Donnez des exemples concrets pour illustrer vos propos\n• Concluez en évoquant les conditions nécessaires à leur développement\n\nNombre de mots requis : 200 à 250 mots\nTemps alloué : 30 minutes",
+              "time": 30
+            }
+          ]
+        },
+        "comprehensionOrale": {
+          "duration": 40,
+          "scenarios": [
+            {
+              "title": "Situation quotidienne 5",
+              "type": "social"
+            },
+            {
+              "title": "Contexte professionnel 5",
+              "type": "professionnel"
+            }
+          ]
+        },
+        "expressionOrale": {
+          "duration": 15,
+          "sections": [
+            {
+              "section": "A",
+              "description": "Entretien dirigé 5"
+            },
+            {
+              "section": "B",
+              "description": "Expression libre 5"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
