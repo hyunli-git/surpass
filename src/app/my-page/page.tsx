@@ -26,6 +26,7 @@ import StudyStreak from '@/components/dashboard/StudyStreak';
 import SkillProgress from '@/components/dashboard/SkillProgress';
 import GoalsWidget from '@/components/dashboard/GoalsWidget';
 import AchievementsBadges from '@/components/dashboard/AchievementsBadges';
+import LanguageTestResults from '@/components/dashboard/LanguageTestResults';
 
 interface UserProfile {
   id: number;
@@ -61,7 +62,7 @@ interface SkillProgressData {
 
 export default function MyPage() {
   const t = useTranslations();
-  const [activeTab, setActiveTab] = useState<'overview' | 'results' | 'progress' | 'goals' | 'settings'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'languages' | 'results' | 'progress' | 'goals' | 'settings'>('overview');
   const [timeFilter, setTimeFilter] = useState<'week' | 'month' | 'quarter' | 'year'>('month');
   const [testTypeFilter, setTestTypeFilter] = useState<'all' | 'ielts' | 'tef' | 'opic'>('all');
   
@@ -264,17 +265,17 @@ export default function MyPage() {
         <div className="bg-white rounded-xl shadow-lg mb-6">
           <div className="border-b">
             <nav className="flex space-x-8 px-6">
-              {(['overview', 'results', 'progress', 'goals', 'settings'] as const).map((tab) => (
+              {(['overview', 'languages', 'results', 'progress', 'goals', 'settings'] as const).map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`py-4 px-2 border-b-2 font-medium text-sm capitalize ${
+                  className={`py-4 px-2 border-b-2 font-medium text-sm ${
                     activeTab === tab
                       ? 'border-blue-500 text-blue-600'
                       : 'border-transparent text-gray-500 hover:text-gray-700'
                   }`}
                 >
-                  {tab}
+                  {tab === 'languages' ? 'Languages' : tab}
                 </button>
               ))}
             </nav>
@@ -330,6 +331,11 @@ export default function MyPage() {
                   <AchievementsBadges achievementCount={dashboardStats.achievements} />
                 </div>
               </div>
+            )}
+
+            {/* Languages Tab */}
+            {activeTab === 'languages' && (
+              <LanguageTestResults />
             )}
 
             {/* Results Tab */}
