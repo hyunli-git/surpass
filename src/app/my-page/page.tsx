@@ -1,222 +1,287 @@
 'use client';
 
-import { useState } from 'react';
-import { 
-  User, 
-  BarChart3, 
-  Target, 
-  Trophy, 
-  Clock,
-  Download,
-  Plus
-} from 'lucide-react';
-import LanguageTestResults from '@/components/dashboard/LanguageTestResults';
-
-interface UserProfile {
-  id: number;
-  name: string;
-  email: string;
-  targetTestType: string;
-  targetScore: string;
-  joinDate: string;
-  totalStudyTime: number;
-  totalAttempts: number;
-}
-
-interface DashboardStats {
-  totalAttempts: number;
-  averageScore: number;
-  bestScore: number;
-  totalStudyTime: number;
-  currentStreak: number;
-  completedGoals: number;
-  achievements: number;
-}
-
 export default function MyPage() {
-  const [activeTab, setActiveTab] = useState<'overview' | 'languages' | 'results' | 'progress' | 'goals' | 'settings'>('overview');
-  
-  // Mock data
-  const [userProfile] = useState<UserProfile>({
-    id: 1,
-    name: 'Sarah Johnson',
-    email: 'sarah.johnson@email.com',
-    targetTestType: 'IELTS',
-    targetScore: 'Band 7.5',
-    joinDate: '2024-01-15',
-    totalStudyTime: 4320, // 72 hours
-    totalAttempts: 48
-  });
-
-  const [dashboardStats] = useState<DashboardStats>({
-    totalAttempts: 48,
-    averageScore: 6.8,
-    bestScore: 8.0,
-    totalStudyTime: 4320,
-    currentStreak: 12,
-    completedGoals: 5,
-    achievements: 8
-  });
-
-  const formatStudyTime = (minutes: number) => {
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-    return `${hours}h ${mins}m`;
-  };
-
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto">
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        
         {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
+        <div style={{ marginBottom: '30px' }}>
+          <h1 style={{ fontSize: '32px', fontWeight: 'bold', color: '#1f2937', marginBottom: '10px' }}>
+            My Dashboard
+          </h1>
+          <p style={{ color: '#6b7280', fontSize: '16px' }}>
+            Track your progress and improve your test performance
+          </p>
+        </div>
+
+        {/* Profile Card */}
+        <div style={{ 
+          backgroundColor: 'white', 
+          borderRadius: '12px', 
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+          padding: '24px', 
+          marginBottom: '24px' 
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+            <div style={{ 
+              width: '60px', 
+              height: '60px', 
+              backgroundColor: '#dbeafe', 
+              borderRadius: '50%', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              fontSize: '24px'
+            }}>
+              👤
+            </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">My Dashboard</h1>
-              <p className="text-gray-600 mt-2">Track your progress and improve your test performance</p>
-            </div>
-            <div className="flex gap-3">
-              <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
-                <Download className="w-4 h-4" />
-                Export Data
-              </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                <Plus className="w-4 h-4" />
-                Set New Goal
-              </button>
+              <h2 style={{ fontSize: '24px', fontWeight: 'bold', color: '#1f2937', margin: '0 0 5px 0' }}>
+                Sarah Johnson
+              </h2>
+              <p style={{ color: '#6b7280', margin: '0 0 10px 0' }}>
+                sarah.johnson@email.com
+              </p>
+              <p style={{ fontSize: '14px', color: '#9ca3af', margin: 0 }}>
+                Target: IELTS Band 7.5 • Joined: Jan 15, 2024
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Profile Summary */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                <User className="w-8 h-8 text-blue-600" />
+        {/* Stats Grid */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+          gap: '20px', 
+          marginBottom: '30px' 
+        }}>
+          <div style={{ 
+            backgroundColor: 'white', 
+            borderRadius: '12px', 
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+            padding: '20px' 
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+              <div style={{ 
+                width: '48px', 
+                height: '48px', 
+                backgroundColor: '#dcfce7', 
+                borderRadius: '8px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                fontSize: '20px'
+              }}>
+                🎯
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">{userProfile.name}</h2>
-                <p className="text-gray-600">{userProfile.email}</p>
-                <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
-                  <span>Target: {userProfile.targetTestType} {userProfile.targetScore}</span>
-                  <span>•</span>
-                  <span>Joined: {new Date(userProfile.joinDate).toLocaleDateString()}</span>
-                </div>
+                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#1f2937' }}>48</div>
+                <div style={{ fontSize: '14px', color: '#6b7280' }}>Total Attempts</div>
               </div>
             </div>
-            <div className="text-right">
-              <div className="text-2xl font-bold text-blue-600">{dashboardStats.currentStreak}</div>
-              <div className="text-sm text-gray-600">day study streak</div>
+          </div>
+
+          <div style={{ 
+            backgroundColor: 'white', 
+            borderRadius: '12px', 
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+            padding: '20px' 
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+              <div style={{ 
+                width: '48px', 
+                height: '48px', 
+                backgroundColor: '#dbeafe', 
+                borderRadius: '8px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                fontSize: '20px'
+              }}>
+                📊
+              </div>
+              <div>
+                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#1f2937' }}>6.8</div>
+                <div style={{ fontSize: '14px', color: '#6b7280' }}>Average Score</div>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ 
+            backgroundColor: 'white', 
+            borderRadius: '12px', 
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+            padding: '20px' 
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+              <div style={{ 
+                width: '48px', 
+                height: '48px', 
+                backgroundColor: '#fef3c7', 
+                borderRadius: '8px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                fontSize: '20px'
+              }}>
+                🏆
+              </div>
+              <div>
+                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#1f2937' }}>8.0</div>
+                <div style={{ fontSize: '14px', color: '#6b7280' }}>Best Score</div>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ 
+            backgroundColor: 'white', 
+            borderRadius: '12px', 
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+            padding: '20px' 
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+              <div style={{ 
+                width: '48px', 
+                height: '48px', 
+                backgroundColor: '#e9d5ff', 
+                borderRadius: '8px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                fontSize: '20px'
+              }}>
+                ⏱️
+              </div>
+              <div>
+                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#1f2937' }}>72h</div>
+                <div style={{ fontSize: '14px', color: '#6b7280' }}>Study Time</div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <Target className="w-6 h-6 text-green-600" />
-              </div>
+        {/* Language Test Results */}
+        <div style={{ 
+          backgroundColor: 'white', 
+          borderRadius: '12px', 
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+          padding: '24px' 
+        }}>
+          <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1f2937', marginBottom: '20px' }}>
+            🏴 Language Test Results
+          </h3>
+          
+          {/* English IELTS */}
+          <div style={{ 
+            border: '1px solid #e5e7eb', 
+            borderRadius: '8px', 
+            padding: '20px', 
+            marginBottom: '16px' 
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
               <div>
-                <div className="text-2xl font-bold text-gray-900">{dashboardStats.totalAttempts}</div>
-                <div className="text-sm text-gray-600">Total Attempts</div>
+                <h4 style={{ fontSize: '18px', fontWeight: '600', color: '#1f2937', margin: '0 0 5px 0' }}>
+                  🇺🇸 English - IELTS
+                </h4>
+                <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
+                  Latest test: Sep 1, 2024
+                </p>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#1f2937' }}>7.5</div>
+                <div style={{ fontSize: '12px', color: '#6b7280' }}>Band 7.5</div>
+              </div>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '12px' }}>
+              <div style={{ backgroundColor: '#f9fafb', borderRadius: '6px', padding: '12px', textAlign: 'center' }}>
+                <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '4px' }}>Reading</div>
+                <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1f2937' }}>8.0</div>
+              </div>
+              <div style={{ backgroundColor: '#f9fafb', borderRadius: '6px', padding: '12px', textAlign: 'center' }}>
+                <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '4px' }}>Listening</div>
+                <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1f2937' }}>7.5</div>
+              </div>
+              <div style={{ backgroundColor: '#f9fafb', borderRadius: '6px', padding: '12px', textAlign: 'center' }}>
+                <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '4px' }}>Writing</div>
+                <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1f2937' }}>7.0</div>
+              </div>
+              <div style={{ backgroundColor: '#f9fafb', borderRadius: '6px', padding: '12px', textAlign: 'center' }}>
+                <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '4px' }}>Speaking</div>
+                <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1f2937' }}>7.5</div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <BarChart3 className="w-6 h-6 text-blue-600" />
-              </div>
+          {/* French TEF */}
+          <div style={{ 
+            border: '1px solid #e5e7eb', 
+            borderRadius: '8px', 
+            padding: '20px', 
+            marginBottom: '16px' 
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
               <div>
-                <div className="text-2xl font-bold text-gray-900">{dashboardStats.averageScore.toFixed(1)}</div>
-                <div className="text-sm text-gray-600">Average Score</div>
+                <h4 style={{ fontSize: '18px', fontWeight: '600', color: '#1f2937', margin: '0 0 5px 0' }}>
+                  🇫🇷 French - TEF Canada
+                </h4>
+                <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
+                  Latest test: Aug 30, 2024
+                </p>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#1f2937' }}>315</div>
+                <div style={{ fontSize: '12px', color: '#6b7280' }}>B2 Level</div>
+              </div>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '12px' }}>
+              <div style={{ backgroundColor: '#f9fafb', borderRadius: '6px', padding: '12px', textAlign: 'center' }}>
+                <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '4px' }}>Reading</div>
+                <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1f2937' }}>280</div>
+              </div>
+              <div style={{ backgroundColor: '#f9fafb', borderRadius: '6px', padding: '12px', textAlign: 'center' }}>
+                <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '4px' }}>Listening</div>
+                <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1f2937' }}>305</div>
+              </div>
+              <div style={{ backgroundColor: '#f9fafb', borderRadius: '6px', padding: '12px', textAlign: 'center' }}>
+                <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '4px' }}>Writing</div>
+                <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1f2937' }}>325</div>
+              </div>
+              <div style={{ backgroundColor: '#f9fafb', borderRadius: '6px', padding: '12px', textAlign: 'center' }}>
+                <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '4px' }}>Speaking</div>
+                <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1f2937' }}>350</div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                <Trophy className="w-6 h-6 text-yellow-600" />
-              </div>
+          {/* Korean OPIc */}
+          <div style={{ 
+            border: '1px solid #e5e7eb', 
+            borderRadius: '8px', 
+            padding: '20px' 
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
               <div>
-                <div className="text-2xl font-bold text-gray-900">{dashboardStats.bestScore.toFixed(1)}</div>
-                <div className="text-sm text-gray-600">Best Score</div>
+                <h4 style={{ fontSize: '18px', fontWeight: '600', color: '#1f2937', margin: '0 0 5px 0' }}>
+                  🇰🇷 Korean - OPIc
+                </h4>
+                <p style={{ fontSize: '14px', color: '#6b7280', margin: 0 }}>
+                  Latest test: Aug 10, 2024
+                </p>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1f2937' }}>IH</div>
+                <div style={{ fontSize: '12px', color: '#6b7280' }}>Intermediate High</div>
               </div>
             </div>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                <Clock className="w-6 h-6 text-purple-600" />
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-gray-900">{formatStudyTime(dashboardStats.totalStudyTime)}</div>
-                <div className="text-sm text-gray-600">Study Time</div>
-              </div>
+            
+            <div style={{ backgroundColor: '#f9fafb', borderRadius: '6px', padding: '12px', textAlign: 'center' }}>
+              <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '4px' }}>Speaking</div>
+              <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1f2937' }}>Intermediate High</div>
             </div>
-          </div>
-        </div>
-
-        {/* Tab Navigation */}
-        <div className="bg-white rounded-xl shadow-lg mb-6">
-          <div className="border-b">
-            <nav className="flex space-x-8 px-6">
-              {(['overview', 'languages', 'results', 'progress'] as const).map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`py-4 px-2 border-b-2 font-medium text-sm ${
-                    activeTab === tab
-                      ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700'
-                  }`}
-                >
-                  {tab === 'languages' ? 'Languages' : tab}
-                </button>
-              ))}
-            </nav>
-          </div>
-
-          <div className="p-6">
-            {/* Overview Tab */}
-            {activeTab === 'overview' && (
-              <div className="space-y-6">
-                <div className="text-center py-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Welcome to your dashboard!</h3>
-                  <p className="text-gray-600">Your learning journey starts here. Track your progress across different languages and tests.</p>
-                </div>
-              </div>
-            )}
-
-            {/* Languages Tab */}
-            {activeTab === 'languages' && (
-              <LanguageTestResults />
-            )}
-
-            {/* Results Tab */}
-            {activeTab === 'results' && (
-              <div className="space-y-6">
-                <div className="text-center py-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Test Results</h3>
-                  <p className="text-gray-600">Detailed results and analytics coming soon.</p>
-                </div>
-              </div>
-            )}
-
-            {/* Progress Tab */}
-            {activeTab === 'progress' && (
-              <div className="space-y-6">
-                <div className="text-center py-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Progress Tracking</h3>
-                  <p className="text-gray-600">Visual progress charts and analytics coming soon.</p>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
