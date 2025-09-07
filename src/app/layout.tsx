@@ -1,8 +1,15 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { Outfit } from 'next/font/google';
 import Header from '@/components/Header';
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-outfit'
+});
 
 export const metadata: Metadata = {
   title: 'Surpass - Master Language Tests with AI',
@@ -18,7 +25,7 @@ export default async function RootLayout({
 
   return (
     <html>
-      <body>
+      <body className={outfit.variable}>
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main>{children}</main>

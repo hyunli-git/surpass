@@ -24,6 +24,7 @@
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-serif: Charter, Georgia, Cambria, "Times New Roman", serif;
     --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", monospace;
+    --font-outfit: var(--font-outfit), 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
     
     /* Spacing */
     --space-xs: 0.25rem;
@@ -72,9 +73,15 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-outfit);
     font-weight: 600;
     line-height: 1.3;
     margin-bottom: var(--space-md);
+}
+
+/* Explicit Outfit font for main title classes */
+.title-main, .title-sub, .hero-title, .section-title {
+    font-family: var(--font-outfit);
 }
 
 h1 {
