@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import { locales, localeNames, localeFlags, type Locale } from '@/i18n';
+import { locales, localeNames, localeFlags, type Locale } from '@/i18n-config';
 
 export default function LanguageSelector() {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,51 +1,20 @@
 import {notFound} from 'next/navigation';
 import {getRequestConfig} from 'next-intl/server';
+import { cookies } from 'next/headers';
+import { locales, defaultLocale, type Locale } from './i18n-config';
  
-// Can be imported from a shared config
-export const locales = ['en', 'ko', 'ja', 'zh', 'es', 'fr', 'de', 'pt', 'it', 'ru', 'ar'] as const;
-export type Locale = typeof locales[number];
-
-export const defaultLocale = 'en' as const;
-
-export const localeNames: Record<Locale, string> = {
-  en: 'English',
-  ko: '한국어',
-  ja: '日本語', 
-  zh: '中文',
-  es: 'Español',
-  fr: 'Français',
-  de: 'Deutsch',
-  pt: 'Português',
-  it: 'Italiano',
-  ru: 'Русский',
-  ar: 'العربية'
-};
-
-export const localeFlags: Record<Locale, string> = {
-  en: '🇺🇸',
-  ko: '🇰🇷',
-  ja: '🇯🇵',
-  zh: '🇨🇳', 
-  es: '🇪🇸',
-  fr: '🇫🇷',
-  de: '🇩🇪',
-  pt: '🇵🇹',
-  it: '🇮🇹',
-  ru: '🇷🇺',
-  ar: '🇸🇦'
-};
- 
-export default getRequestConfig(async ({locale}) => {
-  // Use default locale if none provided
-  const currentLocale = locale || defaultLocale;
+export default getRequestConfig(async () => {
+  // Get locale from cookie
+  const cookieStore = await cookies();
+  const locale = cookieStore.get('NEXT_LOCALE')?.value || defaultLocale;
   
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(currentLocale as Locale)) {
+  // Validate that the locale is valid
+  if (!locales.includes(locale as Locale)) {
     notFound();
   }
  
   return {
-    messages: (await import(`../messages/${currentLocale}.json`)).default,
-    locale: currentLocale as string
+    messages: (await import(`../messages/${locale}.json`)).default,
+    locale: locale as string
   };
 });

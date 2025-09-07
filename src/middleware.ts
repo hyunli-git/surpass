@@ -1,29 +1,26 @@
-import createMiddleware from 'next-intl/middleware';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const intlMiddleware = createMiddleware({
-  // A list of all locales that are supported
-  locales: ['en', 'ko', 'ja', 'zh', 'es', 'fr', 'de', 'pt', 'it', 'ru', 'ar'],
- 
-  // Used when no locale matches
-  defaultLocale: 'en',
-  
-  // Never show locale in URL
-  localePrefix: 'never',
-  
-  // Don't redirect based on Accept-Language header
-  localeDetection: false
-});
-
 export default function middleware(request: NextRequest) {
-  // Add CORS headers for VPN compatibility
-  const response = intlMiddleware(request);
+  const response = NextResponse.next();
   
-  // Add additional headers for VPN/proxy compatibility
+  // Get locale from cookie or default to 'en'
+  const locale = request.cookies.get('NEXT_LOCALE')?.value || 'en';
+  
+  // Set locale cookie if not present
+  if (!request.cookies.get('NEXT_LOCALE')) {
+    response.cookies.set('NEXT_LOCALE', locale, {
+      path: '/',
+      sameSite: 'lax'
+    });
+  }
+  
+  // Add CORS headers for VPN compatibility
   response.headers.set('Access-Control-Allow-Origin', '*');
   response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   response.headers.set('Access-Control-Allow-Headers', '*');
+  response.headers.set('X-DNS-Prefetch-Control', 'on');
+  response.headers.set('X-XSS-Protection', '1; mode=block');
   
   // Handle preflight requests
   if (request.method === 'OPTIONS') {
