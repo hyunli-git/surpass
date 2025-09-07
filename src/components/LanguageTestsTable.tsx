@@ -4,6 +4,7 @@
 
 import { useState } from 'react';
 import { LanguageTest } from '@/data/languageTests';
+import GoalSetting from './GoalSetting';
 
 interface LanguageTestsTableProps {
   tests: LanguageTest[];
@@ -14,6 +15,8 @@ export default function LanguageTestsTable({ tests, selectedLanguage }: Language
   const [sortBy, setSortBy] = useState<'rank' | 'testTakers' | 'name'>('rank');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [searchTerm, setSearchTerm] = useState('');
+  const [goalModalOpen, setGoalModalOpen] = useState(false);
+  const [selectedTestId, setSelectedTestId] = useState<string>('');
 
   const handleSort = (field: 'rank' | 'testTakers' | 'name') => {
     if (sortBy === field) {
@@ -72,6 +75,11 @@ export default function LanguageTestsTable({ tests, selectedLanguage }: Language
     }
   };
 
+  const handleSetGoal = (testId: string) => {
+    setSelectedTestId(testId);
+    setGoalModalOpen(true);
+  };
+
   return (
     <div className="language-tests-table">
       {/* Search and controls */}
@@ -124,6 +132,7 @@ export default function LanguageTestsTable({ tests, selectedLanguage }: Language
               <th>Format</th>
               <th>Category</th>
               <th>Description</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -171,6 +180,24 @@ export default function LanguageTestsTable({ tests, selectedLanguage }: Language
                   <div className="target-audience">
                     <strong>Target:</strong> {test.targetAudience}
                   </div>
+                </td>
+                <td className="actions-cell">
+                  <button
+                    onClick={() => handleSetGoal(test.id)}
+                    style={{
+                      padding: '8px 16px',
+                      backgroundColor: '#3b82f6',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '6px',
+                      fontSize: '14px',
+                      cursor: 'pointer',
+                      fontWeight: '500',
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
+                    🎯 Set Goal
+                  </button>
                 </td>
               </tr>
             ))}
@@ -223,6 +250,24 @@ export default function LanguageTestsTable({ tests, selectedLanguage }: Language
               <div className="target-audience">
                 <strong>Target Audience:</strong> {test.targetAudience}
               </div>
+              
+              <button
+                onClick={() => handleSetGoal(test.id)}
+                style={{
+                  padding: '10px 16px',
+                  backgroundColor: '#3b82f6',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                  fontWeight: '500',
+                  marginTop: '12px',
+                  width: '100%'
+                }}
+              >
+                🎯 Set Goal
+              </button>
             </div>
           </div>
         ))}
@@ -235,6 +280,16 @@ export default function LanguageTestsTable({ tests, selectedLanguage }: Language
           <p>Try adjusting your search or filter criteria</p>
         </div>
       )}
+
+      {/* Goal Setting Modal */}
+      <GoalSetting
+        isOpen={goalModalOpen}
+        onClose={() => {
+          setGoalModalOpen(false);
+          setSelectedTestId('');
+        }}
+        preselectedTestId={selectedTestId}
+      />
     </div>
   );
 }

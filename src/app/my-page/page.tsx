@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient';
 import type { User } from '@supabase/supabase-js';
+import MyGoals from '@/components/MyGoals';
 
 export default function MyPage() {
   const [user, setUser] = useState<User | null>(null);
@@ -343,6 +344,9 @@ export default function MyPage() {
             </div>
           </div>
         </div>
+
+        {/* My Goals Section */}
+        <MyGoals />
 
         {/* Stats Grid */}
         <div style={{ 
