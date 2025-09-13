@@ -217,8 +217,8 @@ export class UserService {
     const totalSessions = (skillSessions?.length || 0) + (mockSessions?.length || 0);
     const completedSessions = totalSessions;
     
-    const skillScores = skillSessions?.map(s => s.score || 0) || [];
-    const mockScores = mockSessions?.map(s => s.total_score || 0) || [];
+    const skillScores = (skillSessions || []).map((s: UserSkillSession) => s.score || 0);
+    const mockScores = (mockSessions || []).map((s: UserMockTestSession) => s.total_score || 0);
     const allScores = [...skillScores, ...mockScores];
     
     const averageScore = allScores.length > 0 
