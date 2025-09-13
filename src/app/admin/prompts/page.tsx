@@ -195,7 +195,12 @@ export default function PromptAdminPage() {
 
       if (error) throw error;
 
-      const sections = data?.map((item) => {
+      type SectionRow = {
+        order_index?: number;
+        prompt_section_content?: any;
+      };
+
+      const sections = (data || []).map((item: SectionRow) => {
         const content = item.prompt_section_content;
         const section = Array.isArray(content) ? content[0] : content;
         const promptSection = Array.isArray(section?.prompt_sections) ? section.prompt_sections[0] : section?.prompt_sections;
