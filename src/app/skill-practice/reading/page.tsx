@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { supabase } from '@/utils/supabaseClient';
 import { TestService } from '@/lib/database/testService';
 import Link from 'next/link';
-import type { User } from '@supabase/supabase-js';
+import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import type { SkillPracticeSet } from '@/lib/database/types';
 
 export default function ReadingPracticePage() {
@@ -28,7 +28,7 @@ export default function ReadingPracticePage() {
 
     checkUser();
 
-    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: authListener } = supabase.auth.onAuthStateChange((event: AuthChangeEvent, session: Session | null) => {
       setUser(session?.user ?? null);
     });
 

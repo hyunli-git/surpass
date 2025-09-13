@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient';
-import type { User } from '@supabase/supabase-js';
+import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import Link from 'next/link';
 
 // onStartMockTest 함수를 props로 받도록 정의합니다.
@@ -21,7 +21,7 @@ export default function MockTests({ onStartMockTest }: MockTestsProps) {
 
     checkUser();
 
-    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: authListener } = supabase.auth.onAuthStateChange((event: AuthChangeEvent, session: Session | null) => {
       setUser(session?.user ?? null);
     });
 
