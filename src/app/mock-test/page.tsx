@@ -16,6 +16,18 @@ function MockTestContent() {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [notes, setNotes] = useState<string>('');
 
+  // Enter full-screen exam mode: hide global header and lock body scroll
+  useEffect(() => {
+    if (isStarted) {
+      document.body.classList.add('exam-mode');
+    } else {
+      document.body.classList.remove('exam-mode');
+    }
+    return () => {
+      document.body.classList.remove('exam-mode');
+    };
+  }, [isStarted]);
+
   // Mock test data
   const testSections = {
     listening: {

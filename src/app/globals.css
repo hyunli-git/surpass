@@ -76,6 +76,23 @@ main {
     padding-top: var(--header-height);
 }
 
+/* Exam Mode: hide global header and use full viewport */
+body.exam-mode header {
+    display: none !important;
+}
+
+body.exam-mode main {
+    padding-top: 0;
+}
+
+body.exam-mode {
+    overflow: hidden; /* prevent background scroll; panels inside manage scrolling */
+}
+
+body.exam-mode .mock-test-interface {
+    min-height: 100vh;
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-outfit);
