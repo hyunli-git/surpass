@@ -417,16 +417,45 @@ function ListeningSection({
   answers: Record<string, string>;
 }) {
   const questionId = `listening_${currentQuestion}`;
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [audioTime, setAudioTime] = useState(0); // seconds
+  const durationSec = 150; // 2:30 mock audio length
+
+  useEffect(() => {
+    if (!isPlaying) return;
+    const timer = setInterval(() => {
+      setAudioTime((t) => {
+        if (t >= durationSec) {
+          clearInterval(timer);
+          return durationSec;
+        }
+        return t + 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [isPlaying]);
+
+  const togglePlay = () => {
+    // Simple UI-only player (no actual audio asset yet)
+    if (audioTime >= durationSec) {
+      setAudioTime(0);
+    }
+    setIsPlaying((p) => !p);
+  };
+
+  const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
   
   return (
     <div className="listening-section">
       <div className="audio-player">
         <div className="audio-controls">
-          <button className="play-btn">▶</button>
+          <button className="play-btn" onClick={togglePlay} aria-label={isPlaying ? 'Pause audio' : 'Play audio'}>
+            {isPlaying ? '⏸' : '▶'}
+          </button>
           <div className="audio-progress">
-            <div className="progress-bar"></div>
+            <div className="progress-bar" style={{ width: `${(audioTime / durationSec) * 100}%` }}></div>
           </div>
-          <span className="audio-time">0:00 / 2:30</span>
+          <span className="audio-time">{fmt(audioTime)} / {fmt(durationSec)}</span>
         </div>
         <div className="audio-info">
           Part 1: Questions 1-10 - Conversation about booking a hotel room
