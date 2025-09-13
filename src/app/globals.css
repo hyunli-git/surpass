@@ -71,6 +71,11 @@ body {
     background: var(--bg-primary);
 }
 
+/* Ensure content clears the fixed header */
+main {
+    padding-top: var(--header-height);
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-outfit);
