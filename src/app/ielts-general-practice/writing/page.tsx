@@ -38,6 +38,7 @@ export default function IeltsGTWritingPracticePage() {
   const [band, setBand] = useState<number>(9);
   const [sample, setSample] = useState<null | { response: string; justification?: string }>(null);
   const [tips, setTips] = useState<string[]>([]);
+  const [genLoading, setGenLoading] = useState(false);
 
   const target = GT_TASKS[task].targetWords;
   const words = useMemo(() => text.trim().split(/\s+/).filter(Boolean).length, [text]);
@@ -103,6 +104,24 @@ export default function IeltsGTWritingPracticePage() {
     load();
   }, [task, band]);
 
+  const generateSampleFromMyAnswer = async () => {
+    if (text.trim().length < 10) return;
+    setGenLoading(true);
+    try {
+      const res = await fetch('/api/writing/sample', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ response: text, band, task, prompt: GT_TASKS[task].instructions }),
+      });
+      const json = await res.json();
+      if (json.success && json.sample) {
+        setSample({ response: json.sample });
+      }
+    } finally {
+      setGenLoading(false);
+    }
+  };
+
   return (
     <div className="container" style={{ margin: "50px auto" }}>
       <section className="hero">
@@ -147,6 +166,9 @@ export default function IeltsGTWritingPracticePage() {
                 {submitting ? "Analyzing…" : "Get AI Feedback"}
               </button>
               <button className="btn" onClick={() => setText("")}>Clear</button>
+              <button className="btn" disabled={genLoading || text.trim().length < 10} onClick={generateSampleFromMyAnswer}>
+                {genLoading ? 'Generating…' : `Generate Band ${band} Sample from my answer`}
+              </button>
             </div>
           </div>
 
