@@ -235,10 +235,13 @@ export class UserService {
                             ) );
 
     // Calculate skill breakdown
+    type ExtendedUserSkillSession = UserSkillSession & {
+      practice_set?: { skill?: { name?: string } };
+    };
     const skillBreakdown: Record<string, { sessions: number; averageScore: number; }> = {};
     
-    skillSessions?.forEach(session => {
-      const skillName = session.practice_set?.skill?.name || 'Unknown';
+    (skillSessions || []).forEach((session: ExtendedUserSkillSession) => {
+      const skillName = session.practice_set?.skill?.name ?? 'Unknown';
       if (!skillBreakdown[skillName]) {
         skillBreakdown[skillName] = { sessions: 0, averageScore: 0 };
       }
