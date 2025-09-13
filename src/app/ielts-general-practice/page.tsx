@@ -41,6 +41,9 @@ export default function IeltsGeneralPracticePage() {
           </div>
           <h1>IELTS General Training</h1>
           <p>Complete preparation for work, migration, and general English proficiency</p>
+          <div className="hero-actions" style={{ marginTop: 'var(--space-md)' }}>
+            <Link href="/ielts-general-practice/writing" className="btn btn-primary">Start GT Writing Practice</Link>
+          </div>
         </div>
       </section>
 
