@@ -92,6 +92,32 @@ async function addPromptContent(practice_set_id, { title, instructions, content_
   return data;
 }
 
+async function addSampleAnswer(practice_set_id, { band, title, sample_text, tips }) {
+  const { data: existing } = await supabase
+    .from('skill_practice_content')
+    .select('*')
+    .eq('practice_set_id', practice_set_id)
+    .eq('content_type', 'sample')
+    .eq('metadata->>band', String(band))
+    .maybeSingle();
+  if (existing) return existing;
+  const { data, error } = await supabase
+    .from('skill_practice_content')
+    .insert({
+      practice_set_id,
+      section_number: 99,
+      title,
+      content_type: 'sample',
+      content_text: sample_text,
+      instructions: 'Band ' + band + ' sample answer and tips',
+      metadata: { band, tips, type: 'sample_answer' },
+    })
+    .select()
+    .single();
+  if (error) throw error;
+  return data;
+}
+
 async function main() {
   console.log('[seed] Seeding IELTS GT Writing practice…');
   const testType = await ensureTestType('IELTS', 'IELTS', 'en');
@@ -117,6 +143,25 @@ async function main() {
       '• state what you would like the manager to do',
   });
 
+  await addSampleAnswer(t1.id, {
+    band: 9,
+    title: 'Band 9 Sample – Formal Complaint Letter',
+    sample_text:
+      `Dear Sir or Madam,\n\n` +
+      `I am writing to express my dissatisfaction with a blender (Model SB-300) that I purchased from your Maple Avenue branch on 12 May. Although the item was advertised as suitable for daily use, it began malfunctioning within a week. The motor emits a burning smell and the machine shuts down after less than a minute of operation, even when blending soft fruit.\n\n` +
+      `I contacted your customer service desk by phone on 19 May and was advised to bring the appliance to the store for inspection. I did so the following day; however, despite waiting for over thirty minutes, I was told that no technician was available and that I should return on another occasion. This has caused considerable inconvenience as I rely on the blender to prepare meals for my young child.\n\n` +
+      `Under the Consumer Rights Act, I am entitled to a product that is of satisfactory quality and fit for purpose. I would therefore appreciate a full refund or an immediate replacement of equal or higher specification. Please also confirm, in writing, how you intend to prevent similar issues from affecting other customers.\n\n` +
+      `I look forward to your prompt response.\n\n` +
+      `Yours faithfully,\n` +
+      `Alex Kim`,
+    tips: [
+      'Clear purpose in the opening and a decisive request in the closing',
+      'Formal register with precise lexical choices (e.g., “dissatisfaction”, “malfunctioning”)',
+      'Logical paragraphing: problem → prior contact → legal basis → requested resolution',
+      'Accurate tone and sign-off (Yours faithfully) matching an unknown recipient',
+    ],
+  });
+
   // Task 2 – Essay
   const t2 = await upsertPracticeSet({
     test_type_id: testType.id,
@@ -134,6 +179,22 @@ async function main() {
       'Some people think governments should invest more in public transport than building new roads. To what extent do you agree or disagree? Give reasons for your answer and include relevant examples from your own knowledge or experience.',
   });
 
+  await addSampleAnswer(t2.id, {
+    band: 9,
+    title: 'Band 9 Sample – Transport Investment Essay',
+    sample_text:
+      `It is often argued that limited public funds should prioritise public transport rather than the construction of new roads. I fully agree with this view because high-capacity transit reduces congestion more sustainably and delivers broader social benefits than car‑centred infrastructure.\n\n` +
+      `To begin with, mass transit moves far more people using far less space. A single metro line can carry the equivalent of several motorway lanes, yet it occupies only a fraction of the land and produces significantly fewer emissions per passenger. Cities such as Seoul and Singapore have demonstrated that sustained investment in rail and bus rapid transit leads to shorter travel times and greater economic productivity, even as populations grow. By contrast, expanding road capacity tends to induce additional demand; commuters who previously avoided driving are enticed back onto the network, and congestion soon returns.\n\n` +
+      `Moreover, public transport advances equity and urban liveability. Reliable, affordable services allow students, older residents and low‑income workers to access jobs and education without the cost burden of car ownership. Streets with fewer cars can be redesigned for pedestrians and cyclists, improving air quality and public health. While road upgrades are sometimes necessary—for example, to maintain freight corridors—these projects should be selective and accompanied by pricing measures to manage demand.\n\n` +
+      `In conclusion, channelling resources into public transport offers a durable solution to congestion while enhancing social inclusion and environmental outcomes. Governments should therefore prioritise high‑quality, integrated transit networks and resist the short‑term temptation to widen roads that will quickly fill again.`,
+    tips: [
+      'State a clear position in the introduction and sustain it throughout',
+      'Use specific, policy‑level examples (e.g., induced demand, real cities)',
+      'Demonstrate range and precision in vocabulary and complex grammar',
+      'Conclude by synthesising arguments rather than repeating them',
+    ],
+  });
+
   console.log('[seed] Completed. Created or verified two GT writing practice sets.');
 }
 
@@ -141,4 +202,3 @@ main().catch((e) => {
   console.error('[seed] Failed:', e);
   process.exit(1);
 });
-

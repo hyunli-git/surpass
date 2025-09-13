@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { promptManager } from "@/utils/promptManager";
 
 type TaskKey = "task1" | "task2";
 
@@ -34,6 +35,9 @@ export default function IeltsGTWritingPracticePage() {
   const [running, setRunning] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<any>(null);
+  const [band, setBand] = useState<number>(9);
+  const [sample, setSample] = useState<null | { response: string; justification?: string }>(null);
+  const [tips, setTips] = useState<string[]>([]);
 
   const target = GT_TASKS[task].targetWords;
   const words = useMemo(() => text.trim().split(/\s+/).filter(Boolean).length, [text]);
@@ -76,6 +80,29 @@ export default function IeltsGTWritingPracticePage() {
 
   const fmt = (s: number) => `${Math.floor(s/60)}:${String(s%60).padStart(2, "0")}`;
 
+  // Load sample answer + tips for selected band and task from DB (scoring_examples, score_benchmarks)
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const partName = task;
+        const examples = await promptManager.getScoringExamples('IELTS', 'writing', partName, [band]);
+        const benchmarks = await promptManager.getScoreBenchmarks('IELTS', 'writing', partName);
+        const ex = examples?.[0];
+        setSample(ex ? { response: ex.example_response, justification: ex.score_justification } : null);
+        // Aggregate improvement tips for the chosen band level
+        const levelTips = (benchmarks || [])
+          .filter(b => b.score_level === band)
+          .flatMap(b => Array.isArray(b.improvement_tips) ? b.improvement_tips : [])
+          .slice(0, 8);
+        setTips(levelTips);
+      } catch (e) {
+        setSample(null);
+        setTips([]);
+      }
+    };
+    load();
+  }, [task, band]);
+
   return (
     <div className="container" style={{ margin: "50px auto" }}>
       <section className="hero">
@@ -86,7 +113,7 @@ export default function IeltsGTWritingPracticePage() {
       </section>
 
       <section className="practice-section">
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 380px", gap: 24 }}>
+        <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 420px", gap: 24 }}>
           <div>
             <div className="filter-pills" style={{ marginBottom: 16 }}>
               <button className={`filter-pill ${task === "task1" ? "active" : ""}`} onClick={() => setTask("task1")}>Task 1 – Letter</button>
@@ -124,31 +151,72 @@ export default function IeltsGTWritingPracticePage() {
           </div>
 
           <aside className="test-sidebar" style={{ position: "sticky", top: 24, alignSelf: "start" }}>
-            <div className="notes-panel">
-              <h4>Feedback</h4>
-              {!result && <p style={{ color: "var(--text-secondary)" }}>Submit your response to see detailed scoring and suggestions.</p>}
-              {result?.error && (
-                <p style={{ color: "var(--accent-red)" }}>{result.error}</p>
-              )}
-              {result && !result.error && (
-                <div style={{ display: "grid", gap: 12 }}>
-                  <div className="test-card">
-                    <h3 style={{ marginTop: 0 }}>Overall</h3>
-                    <div>Band: <strong>{result.bandScore}</strong></div>
-                    <div>Estimated Score: <strong>{result.overallScore}</strong></div>
-                    <div>Words: <strong>{result.wordCount}</strong></div>
-                  </div>
-                  <div className="test-card">
-                    <h3 style={{ marginTop: 0 }}>Criteria</h3>
-                    <ul className="test-card-features">
-                      <li>Task Response: {result.criteria?.taskResponse?.score}</li>
-                      <li>Coherence & Cohesion: {result.criteria?.coherenceCohesion?.score}</li>
-                      <li>Lexical Resource: {result.criteria?.lexicalResource?.score}</li>
-                      <li>Grammatical Accuracy: {result.criteria?.grammaticalAccuracy?.score}</li>
-                    </ul>
-                  </div>
+            <div className="notes-panel" style={{ display: 'grid', gap: 16 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h4>Band Reference</h4>
+                <div>
+                  <select className="form-input" value={task} onChange={e => setTask(e.target.value as TaskKey)}>
+                    <option value="task1">Task 1</option>
+                    <option value="task2">Task 2</option>
+                  </select>
+                  <select className="form-input" style={{ marginLeft: 8 }} value={band} onChange={e => setBand(Number(e.target.value))}>
+                    {[9,8,7,6].map(b => <option key={b} value={b}>Band {b}</option>)}
+                  </select>
                 </div>
-              )}
+              </div>
+
+              <div className="test-card">
+                <h3 style={{ marginTop: 0 }}>Band {band} Sample</h3>
+                {!sample && <p style={{ color: 'var(--text-secondary)' }}>No sample available in database for this band.</p>}
+                {sample && (
+                  <div>
+                    <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: 0 }}>{sample.response}</pre>
+                    {sample.justification && (
+                      <p style={{ marginTop: 8, color: 'var(--text-secondary)' }}>
+                        Rationale: {sample.justification}
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              <div className="test-card">
+                <h3 style={{ marginTop: 0 }}>Tips to Reach Band {band}</h3>
+                {tips.length === 0 ? (
+                  <p style={{ color: 'var(--text-secondary)' }}>No tips available in database for this band.</p>
+                ) : (
+                  <ul className="test-card-features">
+                    {tips.map((t, i) => <li key={i}>{t}</li>)}
+                  </ul>
+                )}
+              </div>
+
+              <div className="notes-panel">
+                <h4>Feedback</h4>
+                {!result && <p style={{ color: "var(--text-secondary)" }}>Submit your response to see detailed scoring and suggestions.</p>}
+                {result?.error && (
+                  <p style={{ color: "var(--accent-red)" }}>{result.error}</p>
+                )}
+                {result && !result.error && (
+                  <div style={{ display: "grid", gap: 12 }}>
+                    <div className="test-card">
+                      <h3 style={{ marginTop: 0 }}>Overall</h3>
+                      <div>Band: <strong>{result.bandScore}</strong></div>
+                      <div>Estimated Score: <strong>{result.overallScore}</strong></div>
+                      <div>Words: <strong>{result.wordCount}</strong></div>
+                    </div>
+                    <div className="test-card">
+                      <h3 style={{ marginTop: 0 }}>Criteria</h3>
+                      <ul className="test-card-features">
+                        <li>Task Response: {result.criteria?.taskResponse?.score}</li>
+                        <li>Coherence & Cohesion: {result.criteria?.coherenceCohesion?.score}</li>
+                        <li>Lexical Resource: {result.criteria?.lexicalResource?.score}</li>
+                        <li>Grammatical Accuracy: {result.criteria?.grammaticalAccuracy?.score}</li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </aside>
         </div>
@@ -156,4 +224,3 @@ export default function IeltsGTWritingPracticePage() {
     </div>
   );
 }
-
