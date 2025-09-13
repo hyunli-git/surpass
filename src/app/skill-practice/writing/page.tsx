@@ -22,17 +22,7 @@ export default function WritingPracticePage() {
   const legacy = searchParams.get('legacy');
   const shouldRedirect = !isTEF && legacy !== '1';
 
-  // Immediate redirect to the new IELTS GT Writing page to avoid showing loading UI
-  useEffect(() => {
-    if (shouldRedirect) {
-      router.replace('/ielts-general-practice/writing');
-    }
-  }, [shouldRedirect, router]);
-
-  if (shouldRedirect) {
-    return null; // prevent flicker
-  }
-
+  // All hooks must be called before any conditional returns
   useEffect(() => {
     const checkUser = async () => {
       const { data: { session } } = await supabase.auth.getSession();
@@ -69,6 +59,17 @@ export default function WritingPracticePage() {
 
     loadPracticeSets();
   }, [testType, isTEF]);
+
+  // Immediate redirect to the new IELTS GT Writing page to avoid showing loading UI
+  useEffect(() => {
+    if (shouldRedirect) {
+      router.replace('/ielts-general-practice/writing');
+    }
+  }, [shouldRedirect, router]);
+
+  if (shouldRedirect) {
+    return null; // prevent flicker
+  }
 
   // Map database practice sets to UI format
   const writingTasks = practiceSets.map(set => ({
