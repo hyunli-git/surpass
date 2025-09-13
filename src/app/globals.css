@@ -4854,7 +4854,8 @@ nav {
 
 /* Mock Test Interface */
 .mock-test-interface {
-    height: 100vh;
+    /* Fit within viewport below fixed header */
+    min-height: calc(100vh - var(--header-height));
     display: flex;
     flex-direction: column;
     background: #fff;
@@ -4928,13 +4929,16 @@ nav {
 .test-content {
     display: flex;
     flex: 1;
+    /* allow side panels and main to scroll within available height */
     overflow: hidden;
+    min-height: 0; /* fix flex overflow in some browsers */
 }
 
 .test-main {
     flex: 1;
     overflow-y: auto;
     padding: var(--space-lg);
+    min-height: 0; /* allow child to shrink within flex container */
 }
 
 .test-sidebar {
@@ -4944,6 +4948,7 @@ nav {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    min-height: 0;
 }
 
 .notes-panel, .navigation-panel {
