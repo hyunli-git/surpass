@@ -106,6 +106,13 @@ export default function WritingPracticePage() {
                 Browse All Tests
               </Link>
             </div>
+            {!isTEF && (
+              <div style={{ marginTop: '12px' }}>
+                <Link href="/ielts-general-practice/writing" className="btn">
+                  Try IELTS GT Writing Practice (no DB required)
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
