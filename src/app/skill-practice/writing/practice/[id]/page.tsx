@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import { useFeedback } from '@/hooks/useFeedback';
 import FeedbackResults from '@/components/feedback/FeedbackResults';
+import { TestService } from '@/lib/database/testService';
+import type { SkillPracticeSet } from '@/lib/database/types';
 
 interface WritingTask {
   id: string;
@@ -49,24 +51,62 @@ export default function WritingPracticePage() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const { isLoading, feedback, error, analyzeFeedback, reset } = useFeedback();
 
-  // Mock task data (replace with actual API call)
+  // Prefer DB-backed practice set if available; fall back to mock content
   useEffect(() => {
-    const mockTask: WritingTask = {
-      id: taskId,
-      title: getTaskTitle(testType),
-      description: getTaskDescription(testType),
-      prompt: getTaskPrompt(testType),
-      instructions: getTaskInstructions(testType),
-      timeLimit: getTimeLimit(testType),
-      minWords: getMinWords(testType),
-      maxWords: getMaxWords(testType),
-      tips: getTaskTips(testType),
-      testType,
-      taskType: getTaskType(testType)
+    let cancelled = false;
+    const load = async () => {
+      const numericId = Number(taskId);
+      if (!Number.isFinite(numericId)) return;
+      try {
+        const set: SkillPracticeSet | null = await TestService.getSkillPracticeSetWithContent(numericId);
+        if (!set) throw new Error('No set');
+        const c = (set.content && set.content[0]) as any;
+        const title = set.title || getTaskTitle(testType);
+        const prompt = (c?.instructions || c?.content_text || getTaskPrompt(testType)) as string;
+        const tLimit = set.estimated_duration || getTimeLimit(testType);
+        const min = set.title?.toLowerCase().includes('task 1') ? 150 : 250;
+        const max = min + 200;
+        const concrete: WritingTask = {
+          id: taskId,
+          title,
+          description: set.description || '',
+          prompt,
+          instructions: [prompt],
+          timeLimit: tLimit,
+          minWords: min,
+          maxWords: max,
+          tips: getTaskTips(testType),
+          testType,
+          taskType: getTaskType(testType)
+        };
+        if (!cancelled) {
+          setTask(concrete);
+          setTimeRemaining(concrete.timeLimit * 60);
+          return;
+        }
+      } catch {
+        // fall through to mock
+      }
+      if (!cancelled) {
+        const mockTask: WritingTask = {
+          id: taskId,
+          title: getTaskTitle(testType),
+          description: getTaskDescription(testType),
+          prompt: getTaskPrompt(testType),
+          instructions: getTaskInstructions(testType),
+          timeLimit: getTimeLimit(testType),
+          minWords: getMinWords(testType),
+          maxWords: getMaxWords(testType),
+          tips: getTaskTips(testType),
+          testType,
+          taskType: getTaskType(testType)
+        };
+        setTask(mockTask);
+        setTimeRemaining(mockTask.timeLimit * 60);
+      }
     };
-    
-    setTask(mockTask);
-    setTimeRemaining(mockTask.timeLimit * 60);
+    load();
+    return () => { cancelled = true; };
   }, [taskId, testType]);
 
   // Timer logic
