@@ -5042,6 +5042,14 @@ nav {
     max-width: 100%;
 }
 
+/* Reset styles from writing workspace when inside the mock-test interface */
+.mock-test-interface .question-panel {
+    width: 100%;
+    background: transparent;
+    border-right: none;
+    padding: 0; /* padding handled by .test-main */
+}
+
 .audio-player {
     background: #f8f9fa;
     border: 1px solid var(--border-light);
