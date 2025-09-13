@@ -80,6 +80,9 @@ main {
 body.exam-mode header {
     display: none !important;
 }
+body.exam-mode #mainHeader {
+    display: none !important;
+}
 
 body.exam-mode main {
     padding-top: 0;
