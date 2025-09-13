@@ -225,8 +225,14 @@ export class UserService {
       ? allScores.reduce((sum, score) => sum + score, 0) / allScores.length 
       : 0;
 
-    const totalTimeSpent = (skillSessions?.reduce((sum, s) => sum + (s.time_spent || 0), 0) || 0) +
-                          (mockSessions?.reduce((sum, s) => sum + (s.total_time || 0), 0) || 0);
+    const totalTimeSpent = ( (skillSessions || []).reduce(
+                              (sum: number, s: UserSkillSession) => sum + (s.time_spent || 0),
+                              0
+                            ) ) +
+                          ( (mockSessions || []).reduce(
+                              (sum: number, s: UserMockTestSession) => sum + (s.total_time || 0),
+                              0
+                            ) );
 
     // Calculate skill breakdown
     const skillBreakdown: Record<string, { sessions: number; averageScore: number; }> = {};
