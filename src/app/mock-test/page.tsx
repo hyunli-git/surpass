@@ -419,28 +419,78 @@ function ListeningSection({
   const questionId = `listening_${currentQuestion}`;
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioTime, setAudioTime] = useState(0); // seconds
-  const durationSec = 150; // 2:30 mock audio length
+  const [durationSec, setDurationSec] = useState(150); // fallback duration
+  const [loadingAudio, setLoadingAudio] = useState(false);
+  const audioRef = (typeof window !== 'undefined') ? new Audio() : null;
+  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+
+  const scriptText = `Receptionist: Good evening, Sea Breeze Hotel. How can I help you?\n
+Caller: Hi, I'd like to book a room for this Saturday night.\n
+Receptionist: Certainly. Is that for one guest or two?\n
+Caller: Two guests. We'd like a double room, non‑smoking if possible.\n
+Receptionist: We have a standard double available for one night. Check‑in is from 3 p.m. and checkout is at 11 a.m. Breakfast is included.\n
+Caller: Great. Could you confirm the price, please?\n
+Receptionist: It's 120 dollars including tax. May I have your name and a contact number?`;
 
   useEffect(() => {
-    if (!isPlaying) return;
-    const timer = setInterval(() => {
-      setAudioTime((t) => {
-        if (t >= durationSec) {
-          clearInterval(timer);
-          return durationSec;
-        }
-        return t + 1;
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [isPlaying]);
+    if (!audioRef) return;
+    const onTime = () => setAudioTime(Math.floor(audioRef.currentTime));
+    const onLoaded = () => setDurationSec(Math.max(1, Math.floor(audioRef.duration || 150)));
+    const onEnded = () => setIsPlaying(false);
+    audioRef.addEventListener('timeupdate', onTime);
+    audioRef.addEventListener('loadeddata', onLoaded);
+    audioRef.addEventListener('ended', onEnded);
+    return () => {
+      audioRef.removeEventListener('timeupdate', onTime);
+      audioRef.removeEventListener('loadeddata', onLoaded);
+      audioRef.removeEventListener('ended', onEnded);
+    };
+  }, [audioRef]);
 
-  const togglePlay = () => {
-    // Simple UI-only player (no actual audio asset yet)
-    if (audioTime >= durationSec) {
-      setAudioTime(0);
+  const ensureAudio = async () => {
+    if (audioUrl || !audioRef) return;
+    setLoadingAudio(true);
+    try {
+      // Try server-side TTS for realistic audio; gracefully fallback if not configured
+      const res = await fetch('/api/tts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: scriptText, voice: 'nova' })
+      });
+      if (!res.ok) throw new Error('TTS unavailable');
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      setAudioUrl(url);
+      audioRef.src = url;
+    } catch (e) {
+      // Fallback: lightweight built-in speech synthesis if available
+      try {
+        const synth = (window as any).speechSynthesis;
+        if (synth) {
+          const utter = new SpeechSynthesisUtterance(scriptText);
+          synth.cancel();
+          synth.speak(utter);
+          // Fake progress for UI consistency (approx 30s)
+          setDurationSec(30);
+        }
+      } catch {}
+    } finally {
+      setLoadingAudio(false);
     }
-    setIsPlaying((p) => !p);
+  };
+
+  const togglePlay = async () => {
+    if (!audioRef) return;
+    if (!audioUrl) {
+      await ensureAudio();
+    }
+    if (audioRef.paused) {
+      await audioRef.play().catch(() => {});
+      setIsPlaying(true);
+    } else {
+      audioRef.pause();
+      setIsPlaying(false);
+    }
   };
 
   const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
@@ -449,11 +499,11 @@ function ListeningSection({
     <div className="listening-section">
       <div className="audio-player">
         <div className="audio-controls">
-          <button className="play-btn" onClick={togglePlay} aria-label={isPlaying ? 'Pause audio' : 'Play audio'}>
-            {isPlaying ? '⏸' : '▶'}
+          <button className="play-btn" onClick={togglePlay} aria-label={isPlaying ? 'Pause audio' : 'Play audio'} disabled={loadingAudio}>
+            {loadingAudio ? '…' : isPlaying ? '⏸' : '▶'}
           </button>
           <div className="audio-progress">
-            <div className="progress-bar" style={{ width: `${(audioTime / durationSec) * 100}%` }}></div>
+            <div className="progress-bar" style={{ width: `${Math.min(100, (audioTime / durationSec) * 100)}%` }}></div>
           </div>
           <span className="audio-time">{fmt(audioTime)} / {fmt(durationSec)}</span>
         </div>
