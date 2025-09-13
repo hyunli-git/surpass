@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase } from '@/utils/supabaseClient';
 import { TestService } from '@/lib/database/testService';
 import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import type { SkillPracticeSet } from '@/lib/database/types';
 
 export default function WritingPracticePage() {
+  const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [practiceSets, setPracticeSets] = useState<SkillPracticeSet[]>([]);
@@ -20,6 +21,14 @@ export default function WritingPracticePage() {
   const isTEF = testType === 'tef';
 
   useEffect(() => {
+    // Redirect IELTS users to the new GT Writing Practice by default
+    // unless explicitly opting into legacy with ?legacy=1
+    const legacy = searchParams.get('legacy');
+    if (!isTEF && legacy !== '1') {
+      router.replace('/ielts-general-practice/writing');
+      return; // Avoid running the rest of the hook unnecessarily
+    }
+
     const checkUser = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       setUser(session?.user ?? null);
@@ -35,7 +44,7 @@ export default function WritingPracticePage() {
     return () => {
       authListener.subscription.unsubscribe();
     };
-  }, []);
+  }, [isTEF, router, searchParams]);
 
   // Load practice sets from database
   useEffect(() => {
