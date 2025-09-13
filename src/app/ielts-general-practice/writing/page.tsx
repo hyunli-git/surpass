@@ -123,7 +123,7 @@ export default function IeltsGTWritingPracticePage() {
   };
 
   return (
-    <div className="container" style={{ margin: "50px auto" }}>
+    <div style={{ margin: "50px 0" }}>
       <section className="hero">
         <div className="container container-narrow">
           <h1>IELTS General Training – Writing Practice</h1>
