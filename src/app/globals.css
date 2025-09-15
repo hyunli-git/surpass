@@ -685,21 +685,18 @@ nav {
 }
 
 /* Writing Practice Grid Layout */
-.practice-section .container.writing-practice-grid {
+.writing-practice-grid {
     display: grid;
     grid-template-columns: 1fr 420px;
     gap: 24px;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 var(--space-xl);
 }
 
 @media (max-width: 1024px) {
-    .practice-section .container.writing-practice-grid {
+    .writing-practice-grid {
         grid-template-columns: 1fr;
     }
     
-    .practice-section .container.writing-practice-grid aside {
+    .writing-practice-grid aside {
         position: static !important;
     }
 }

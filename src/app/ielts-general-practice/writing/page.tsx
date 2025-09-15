@@ -132,7 +132,7 @@ export default function IeltsGTWritingPracticePage() {
       </section>
 
       <section className="practice-section">
-        <div className="container writing-practice-grid" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+        <div className="container writing-practice-grid">
           <div>
             <div className="filter-pills" style={{ marginBottom: 16 }}>
               <button className={`filter-pill ${task === "task1" ? "active" : ""}`} onClick={() => setTask("task1")}>Task 1 – Letter</button>
