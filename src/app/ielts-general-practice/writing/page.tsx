@@ -125,14 +125,15 @@ export default function IeltsGTWritingPracticePage() {
   return (
     <div style={{ paddingTop: "50px", paddingBottom: "50px", width: "100%", maxWidth: "none" }}>
       <section className="hero">
-        <div className="container">
+        <div className="container" style={{ backgroundColor: 'rgba(255, 0, 0, 0.1)' }}>
           <h1>IELTS General Training – Writing Practice</h1>
           <p>Choose Task 1 or Task 2, write your response, and get instant AI feedback.</p>
         </div>
       </section>
 
       <section className="practice-section">
-        <div className="container writing-practice-grid">
+        <div className="container" style={{ backgroundColor: 'rgba(0, 255, 0, 0.1)' }}>
+          <div className="writing-practice-grid">
           <div>
             <div className="filter-pills" style={{ marginBottom: 16 }}>
               <button className={`filter-pill ${task === "task1" ? "active" : ""}`} onClick={() => setTask("task1")}>Task 1 – Letter</button>
@@ -241,6 +242,7 @@ export default function IeltsGTWritingPracticePage() {
               </div>
             </div>
           </aside>
+          </div>
         </div>
       </section>
     </div>
