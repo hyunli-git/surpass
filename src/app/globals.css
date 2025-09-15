@@ -146,6 +146,7 @@ a:hover {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--space-xl);
+    /* Temporary debug: background-color: rgba(255, 0, 0, 0.1); */
 }
 
 .container-narrow {
@@ -684,18 +685,21 @@ nav {
 }
 
 /* Writing Practice Grid Layout */
-.writing-practice-grid {
+.practice-section .container.writing-practice-grid {
     display: grid;
     grid-template-columns: 1fr minmax(320px, 420px);
     gap: 24px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
 }
 
 @media (max-width: 1024px) {
-    .writing-practice-grid {
+    .practice-section .container.writing-practice-grid {
         grid-template-columns: 1fr;
     }
     
-    .writing-practice-grid aside {
+    .practice-section .container.writing-practice-grid aside {
         position: static !important;
     }
 }
