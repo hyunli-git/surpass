@@ -687,7 +687,7 @@ nav {
 /* Writing Practice Grid Layout */
 .practice-section .container.writing-practice-grid {
     display: grid;
-    grid-template-columns: 1fr minmax(320px, 420px);
+    grid-template-columns: 1fr 420px;
     gap: 24px;
     max-width: var(--max-width);
     margin: 0 auto;
