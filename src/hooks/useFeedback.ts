@@ -18,7 +18,7 @@ interface FeedbackRequest {
 
 interface FeedbackState {
   isLoading: boolean;
-  feedback: any | null;
+  feedback: unknown | null;
   error: string | null;
 }
 

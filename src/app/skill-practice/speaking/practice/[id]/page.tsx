@@ -241,7 +241,7 @@ export default function SpeakingPracticePage() {
     return (
       <FeedbackResults
         type="speaking"
-        feedback={feedback}
+        feedback={feedback as any}
         testType={task.testType}
         onRetry={restartTask}
       />

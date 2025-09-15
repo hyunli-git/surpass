@@ -5,8 +5,7 @@ import type {
   SkillPracticeSet, 
   SkillPracticeContent,
   SkillPracticeQuestion,
-  MockTest,
-  MockTestSection
+  MockTest
 } from './types';
 
 export class TestService {

@@ -8,7 +8,6 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 // Be resilient locally: if env vars are missing, export a safe shim
 // so the UI can still render (features requiring Supabase will no-op).
 function createSupabaseShim() {
-  /* eslint-disable no-console */
   console.warn('[supabase] Environment variables missing; using local shim.');
   const error = new Error('Supabase not configured');
   const chain = {
@@ -23,18 +22,18 @@ function createSupabaseShim() {
   return {
     auth: {
       async getSession() { return { data: { session: null }, error: null } },
-      onAuthStateChange(_cb: any) {
-        return { data: { subscription: { unsubscribe() { /* noop */ } } } } as any;
+      onAuthStateChange() {
+        return { data: { subscription: { unsubscribe() { /* noop */ } } } } as ReturnType<typeof createClient>['auth']['onAuthStateChange'];
       },
       async signOut() { return { error: null } },
       async signUp() { return { data: null, error } },
       async signInWithPassword() { return { data: null, error } },
       async getUser() { return { data: { user: null }, error: null } },
     },
-    from(_table: string) { return chain },
-  } as any;
+    from() { return chain },
+  } as unknown;
 }
 
-export const supabase: any = (supabaseUrl && supabaseAnonKey)
+export const supabase: ReturnType<typeof createClient> = (supabaseUrl && supabaseAnonKey)
   ? createClient(supabaseUrl, supabaseAnonKey)
-  : createSupabaseShim()
+  : createSupabaseShim() as ReturnType<typeof createClient>

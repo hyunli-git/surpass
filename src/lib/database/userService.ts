@@ -17,7 +17,7 @@ export class UserService {
         user_id: userId,
         practice_set_id: practiceSetId,
         is_completed: false
-      })
+      } as never)
       .select()
       .single();
     
@@ -32,7 +32,7 @@ export class UserService {
   ): Promise<UserSkillSession | null> {
     const { data, error } = await supabase
       .from('user_skill_sessions')
-      .update(updates)
+      .update(updates as never)
       .eq('id', sessionId)
       .select()
       .single();
@@ -58,7 +58,7 @@ export class UserService {
         score: score,
         time_spent: timeSpent,
         is_completed: true
-      })
+      } as never)
       .eq('id', sessionId)
       .select()
       .single();
@@ -99,7 +99,7 @@ export class UserService {
         user_id: userId,
         mock_test_id: mockTestId,
         is_completed: false
-      })
+      } as never)
       .select()
       .single();
     
@@ -124,7 +124,7 @@ export class UserService {
         section_scores: sectionScores,
         feedback: feedback,
         is_completed: true
-      })
+      } as never)
       .eq('id', sessionId)
       .select()
       .single();
@@ -157,7 +157,7 @@ export class UserService {
         is_correct: isCorrect,
         points_earned: pointsEarned,
         time_taken: timeTaken
-      })
+      } as never)
       .select()
       .single();
     

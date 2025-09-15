@@ -95,8 +95,7 @@ interface FeedbackResultsProps {
 export default function FeedbackResults({ 
   type, 
   feedback, 
-  testType, 
-  originalResponse,
+  testType,
   onRetry,
   onNextTask 
 }: FeedbackResultsProps) {

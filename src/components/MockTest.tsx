@@ -62,7 +62,7 @@ export default function MockTest() {
       };
       
       // 3. 'test_results' 테이블에 데이터를 삽입(저장)합니다.
-      const { error } = await supabase.from('test_results').insert(resultData);
+      const { error } = await supabase.from('test_results').insert(resultData as never);
 
       if (error) {
         alert('결과 저장에 실패했습니다: ' + error.message);

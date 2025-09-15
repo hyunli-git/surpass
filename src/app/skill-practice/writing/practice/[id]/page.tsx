@@ -225,7 +225,7 @@ export default function WritingPracticePage() {
     return (
       <FeedbackResults
         type="writing"
-        feedback={feedback}
+        feedback={feedback as any}
         testType={task.testType}
         originalResponse={response}
         onRetry={handleRetry}

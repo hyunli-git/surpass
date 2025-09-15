@@ -144,7 +144,8 @@ class PromptManager {
       let instructions = '';
 
       for (const section of data) {
-        const content = Array.isArray(section.prompt_section_content) ? section.prompt_section_content[0] : section.prompt_section_content;
+        const sectionData = section as any;
+        const content = Array.isArray(sectionData.prompt_section_content) ? sectionData.prompt_section_content[0] : sectionData.prompt_section_content;
         const processedContent = this.processVariables(content?.content || '', {
           ...(content?.variables || {}),
           ...variables
@@ -384,9 +385,10 @@ class PromptManager {
 
       if (existing) {
         // Update existing record
-        const newCount = existing.usage_count + 1;
-        const newAvgTime = ((existing.avg_processing_time * existing.usage_count) + processingTime) / newCount;
-        const successCount = existing.success_rate ? Math.round((existing.success_rate / 100) * existing.usage_count) : 0;
+        const existingData = existing as any;
+        const newCount = existingData.usage_count + 1;
+        const newAvgTime = ((existingData.avg_processing_time * existingData.usage_count) + processingTime) / newCount;
+        const successCount = existingData.success_rate ? Math.round((existingData.success_rate / 100) * existingData.usage_count) : 0;
         const newSuccessRate = ((successCount + (success ? 1 : 0)) / newCount) * 100;
 
         await supabase
@@ -396,8 +398,8 @@ class PromptManager {
             avg_processing_time: newAvgTime,
             success_rate: newSuccessRate,
             last_used_at: new Date().toISOString()
-          })
-          .eq('id', existing.id);
+          } as never)
+          .eq('id', (existing as any).id);
       } else {
         // Create new record
         await supabase
@@ -408,7 +410,7 @@ class PromptManager {
             avg_processing_time: processingTime,
             success_rate: success ? 100 : 0,
             last_used_at: new Date().toISOString()
-          });
+          } as never);
       }
     } catch (error) {
       console.error('Error tracking prompt usage:', error);

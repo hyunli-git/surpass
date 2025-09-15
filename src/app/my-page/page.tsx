@@ -36,7 +36,7 @@ export default function MyPage() {
         const { data: userProfile, error } = await supabase
           .from('user_profiles')
           .select('*')
-          .eq('email', session.user.email)
+          .eq('email', session.user.email || '')
           .single();
         
         if (error && error.code !== 'PGRST116') {
@@ -45,11 +45,17 @@ export default function MyPage() {
         }
         
         if (userProfile) {
+          const profileData = userProfile as { 
+            name?: string; 
+            email?: string; 
+            target_test_type?: string; 
+            target_score?: string 
+          };
           setProfile({
-            name: userProfile.name || '',
-            email: userProfile.email || session.user.email || '',
-            targetTest: userProfile.target_test_type || 'IELTS',
-            targetScore: userProfile.target_score || ''
+            name: profileData.name || '',
+            email: profileData.email || session.user.email || '',
+            targetTest: profileData.target_test_type || 'IELTS',
+            targetScore: profileData.target_score || ''
           });
         } else {
           // Create new profile if doesn't exist
@@ -87,7 +93,7 @@ export default function MyPage() {
           target_test_type: editProfile.targetTest.toLowerCase(),
           target_score: editProfile.targetScore,
           updated_at: new Date().toISOString()
-        });
+        } as never);
 
       if (error) {
         console.error('Error saving profile:', error);

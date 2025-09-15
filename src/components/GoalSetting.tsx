@@ -119,8 +119,8 @@ export default function GoalSetting({ isOpen, onClose, preselectedTestId }: Goal
             target_date: targetDate,
             notes: notes,
             updated_at: new Date().toISOString()
-          })
-          .eq('id', existingGoal.id);
+          } as never)
+          .eq('id', existingGoal.id || '');
           
         if (error) {
           console.error('Error updating goal:', error);
@@ -143,7 +143,7 @@ export default function GoalSetting({ isOpen, onClose, preselectedTestId }: Goal
             notes: notes,
             status: 'active',
             goal_type: 'score_target'
-          });
+          } as never);
           
         if (error) {
           console.error('Error creating goal:', error);

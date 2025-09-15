@@ -22,9 +22,9 @@ async function getIds(examName: string, skillName: string, partName: string) {
   ]);
 
   return {
-    exam_type_id: examRes.data?.id || null,
-    skill_type_id: skillRes.data?.id || null,
-    test_part_id: partRes.data?.id || null,
+    exam_type_id: (examRes.data as { id?: number } | null)?.id || null,
+    skill_type_id: (skillRes.data as { id?: number } | null)?.id || null,
+    test_part_id: (partRes.data as { id?: number } | null)?.id || null,
   };
 }
 
@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
         weaknesses: [],
         criteria_breakdown: {},
         is_verified: false,
-      });
+      } as never);
     }
 
     return NextResponse.json({ success: true, sample: sampleText });
