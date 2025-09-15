@@ -23,7 +23,7 @@ function createSupabaseShim() {
     auth: {
       async getSession() { return { data: { session: null }, error: null } },
       onAuthStateChange() {
-        return { data: { subscription: { unsubscribe() { /* noop */ } } } } as ReturnType<typeof createClient>['auth']['onAuthStateChange'];
+        return { data: { subscription: { unsubscribe() { /* noop */ } } } } as any;
       },
       async signOut() { return { error: null } },
       async signUp() { return { data: null, error } },
