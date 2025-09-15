@@ -683,6 +683,23 @@ nav {
     color: var(--text-primary);
 }
 
+/* Writing Practice Grid Layout */
+.writing-practice-grid {
+    display: grid;
+    grid-template-columns: 1fr minmax(320px, 420px);
+    gap: 24px;
+}
+
+@media (max-width: 1024px) {
+    .writing-practice-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .writing-practice-grid aside {
+        position: static !important;
+    }
+}
+
 /* Mock Test Cards */
 .mock-test-cards {
     display: grid;

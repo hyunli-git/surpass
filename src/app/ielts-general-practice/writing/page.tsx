@@ -123,16 +123,16 @@ export default function IeltsGTWritingPracticePage() {
   };
 
   return (
-    <div style={{ margin: "50px 0" }}>
+    <div style={{ paddingTop: "50px", paddingBottom: "50px" }}>
       <section className="hero">
-        <div className="container container-narrow">
+        <div className="container">
           <h1>IELTS General Training – Writing Practice</h1>
           <p>Choose Task 1 or Task 2, write your response, and get instant AI feedback.</p>
         </div>
       </section>
 
       <section className="practice-section">
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 420px", gap: 24 }}>
+        <div className="container writing-practice-grid">
           <div>
             <div className="filter-pills" style={{ marginBottom: 16 }}>
               <button className={`filter-pill ${task === "task1" ? "active" : ""}`} onClick={() => setTask("task1")}>Task 1 – Letter</button>
