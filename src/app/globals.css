@@ -687,7 +687,7 @@ nav {
 /* Writing Practice Grid Layout */
 .writing-practice-grid {
     display: grid;
-    grid-template-columns: 1fr 325px;
+    grid-template-columns: 1fr 300px;
     gap: 24px;
 }
 
