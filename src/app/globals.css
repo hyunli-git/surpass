@@ -709,9 +709,21 @@ nav {
     
     .writing-textarea {
         min-height: 300px !important;
-        width: 100% !important;
-        max-width: 100% !important;
+        width: calc(100vw - 32px) !important;
+        max-width: calc(100vw - 32px) !important;
         box-sizing: border-box !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+    }
+    
+    .container {
+        padding: 0 16px !important;
+        overflow-x: hidden;
+    }
+    
+    .writing-practice-grid > div:first-child {
+        width: 100%;
+        overflow-x: hidden;
     }
 }
 
