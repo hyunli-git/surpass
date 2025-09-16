@@ -125,14 +125,14 @@ export default function IeltsGTWritingPracticePage() {
   return (
     <div style={{ paddingTop: "50px", paddingBottom: "50px", width: "100%", maxWidth: "none" }}>
       <section className="hero">
-        <div className="container" style={{ backgroundColor: 'rgba(255, 0, 0, 0.1)' }}>
+        <div className="container">
           <h1>IELTS General Training – Writing Practice</h1>
           <p>Choose Task 1 or Task 2, write your response, and get instant AI feedback.</p>
         </div>
       </section>
 
       <section className="practice-section">
-        <div className="container" style={{ backgroundColor: 'rgba(0, 255, 0, 0.1)' }}>
+        <div className="container">
           <div className="writing-practice-grid">
           <div>
             <div className="filter-pills" style={{ marginBottom: 16 }}>
