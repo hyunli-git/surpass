@@ -156,7 +156,7 @@ export default function IeltsGTWritingPracticePage() {
 
             <textarea
               className="writing-textarea"
-              style={{ minHeight: 280 }}
+              style={{ minHeight: 400, width: '100%' }}
               placeholder={task === "task1" ? "Write your formal letter here…" : "Write your essay here…"}
               value={text}
               onChange={(e) => setText(e.target.value)}

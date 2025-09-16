@@ -687,8 +687,8 @@ nav {
 /* Writing Practice Grid Layout */
 .writing-practice-grid {
     display: grid;
-    grid-template-columns: 1fr 360px;
-    gap: 48px;
+    grid-template-columns: 1fr 400px;
+    gap: 32px;
 }
 
 @media (max-width: 1024px) {
@@ -2519,6 +2519,7 @@ nav {
 
 .writing-textarea {
     flex: 1;
+    width: 100%;
     border: 2px solid var(--border-color);
     border-radius: 12px;
     padding: var(--space-lg);
@@ -2529,6 +2530,7 @@ nav {
     outline: none;
     color: var(--text-primary);
     background: var(--bg-primary);
+    box-sizing: border-box;
 }
 
 .writing-textarea:focus {
