@@ -725,6 +725,26 @@ nav {
         width: 100%;
         overflow-x: hidden;
     }
+    
+    /* Mobile: Fix Band Reference scrolling issues */
+    .test-sidebar {
+        position: static !important;
+        top: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    
+    .notes-panel {
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    
+    /* Compact mobile layout for reference cards */
+    .test-card {
+        margin-bottom: 1rem;
+        max-height: 200px;
+        overflow-y: auto;
+    }
 }
 
 /* Mock Test Cards */
