@@ -694,10 +694,24 @@ nav {
 @media (max-width: 1024px) {
     .writing-practice-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
     
     .writing-practice-grid aside {
         position: static !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .writing-practice-grid {
+        gap: 12px;
+    }
+    
+    .writing-textarea {
+        min-height: 300px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
 
