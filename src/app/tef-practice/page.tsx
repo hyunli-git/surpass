@@ -103,7 +103,7 @@ export default function TEFPracticePage() {
                       <span>50 questions</span>
                     </div>
                     <Link 
-                      href="/skill-practice/reading?test=tef&lang=fr" 
+                      href={`/skill-practice/reading?test=${selectedFormat}&lang=fr`} 
                       className="btn btn-outline" 
                       style={{ width: '100%', marginTop: 'var(--space-md)' }}
                     >
@@ -121,7 +121,7 @@ export default function TEFPracticePage() {
                       <span>60 questions</span>
                     </div>
                     <Link 
-                      href="/skill-practice/listening?test=tef&lang=fr" 
+                      href={`/skill-practice/listening?test=${selectedFormat}&lang=fr`} 
                       className="btn btn-outline" 
                       style={{ width: '100%', marginTop: 'var(--space-md)' }}
                     >
@@ -139,7 +139,7 @@ export default function TEFPracticePage() {
                       <span>2 tasks</span>
                     </div>
                     <Link 
-                      href="/skill-practice/writing?test=tef&lang=fr" 
+                      href={`/skill-practice/writing?test=${selectedFormat}&lang=fr`} 
                       className="btn btn-outline" 
                       style={{ width: '100%', marginTop: 'var(--space-md)' }}
                     >
@@ -157,7 +157,7 @@ export default function TEFPracticePage() {
                       <span>2 sections</span>
                     </div>
                     <Link 
-                      href="/skill-practice/speaking?test=tef&lang=fr" 
+                      href={`/skill-practice/speaking?test=${selectedFormat}&lang=fr`} 
                       className="btn btn-outline" 
                       style={{ width: '100%', marginTop: 'var(--space-md)' }}
                     >
@@ -239,7 +239,7 @@ export default function TEFPracticePage() {
               {/* Mock Test Button */}
               <div style={{ textAlign: 'center', marginTop: 'var(--space-2xl)' }}>
                 <Link 
-                  href={`/mock-test?test=${selectedFormat}&lang=fr`}
+                  href={`/mock-test/${selectedFormat}`}
                   className="btn btn-primary btn-large"
                   style={{ fontSize: '18px', padding: '16px 32px' }}
                 >

@@ -71,6 +71,79 @@ body {
     background: var(--bg-primary);
 }
 
+/* Make grey text use Outfit font */
+* {
+    color: inherit;
+}
+
+/* Apply Outfit font to all grey text elements */
+*[style*="color: var(--text-secondary)"],
+*[style*="color:var(--text-secondary)"] {
+    font-family: var(--font-outfit) !important;
+}
+
+/* Specific grey text classes and elements */
+p, .text-secondary,
+.nav-link,
+.hero p,
+.feature-card p,
+.format-subtitle,
+.format-features li,
+.skill-card p,
+.module-details,
+.test-card-features li,
+.instruction-card li,
+.notes-content,
+.passage-text,
+.modal p,
+.stat-label,
+.price-period,
+.price-usd,
+.plan-description,
+.faq-item p,
+.team-bio,
+.value-card p,
+.contact-item strong,
+.section-subtitle,
+.score-category,
+.analysis-item p,
+.writing-hero p,
+.task-subtitle,
+.task-description,
+.structure-step p,
+.criteria-item p,
+.auth-message,
+.auth-note,
+.results-info,
+.feature-tag,
+.test-description,
+.target-audience,
+.hero-description,
+.stat-detail,
+.proof-text,
+.feature-description,
+.test-name,
+.author-role,
+.achievement-metric,
+.testimonials-cta p,
+.mode-label,
+.test-mode-info p,
+.normal-mode-info p,
+.info-item .label,
+.start-note,
+.total-timer,
+.page-description,
+.test-meta,
+.word-count,
+.question-type,
+.explanation,
+.audio-description,
+.time-display,
+.module-subtitle {
+    font-family: var(--font-outfit) !important;
+    color: var(--text-secondary);
+}
+
 /* Ensure content clears the fixed header */
 main {
     padding-top: var(--header-height);
@@ -191,7 +264,7 @@ nav {
 .nav-link {
     padding: var(--space-sm) var(--space-md);
     color: var(--text-secondary);
-    font-size: 0.9375rem;
+    font-size: 1.0625rem;
     font-weight: 500;
     border-radius: 6px;
     transition: var(--transition);
@@ -355,7 +428,7 @@ nav {
 
 .test-card-features li {
     padding: var(--space-xs) 0;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--text-secondary);
     display: flex;
     align-items: center;
@@ -403,7 +476,7 @@ nav {
 
 .filter-pill {
     padding: var(--space-sm) var(--space-md);
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--text-secondary);
     background: transparent;
@@ -471,7 +544,7 @@ nav {
 .feature-card p {
     flex: 1;
     color: var(--text-secondary);
-    font-size: 0.9375rem;
+    font-size: 1rem;
     margin-bottom: var(--space-lg);
 }
 
@@ -565,7 +638,7 @@ nav {
 .format-features li {
     padding: var(--space-sm) 0;
     color: var(--text-secondary);
-    font-size: 0.9375rem;
+    font-size: 1rem;
 }
 
 /* Skill Cards */
@@ -633,7 +706,7 @@ nav {
 }
 
 .skill-card p {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--text-secondary);
     margin-bottom: var(--space-md);
 }
@@ -3019,7 +3092,7 @@ nav {
 }
 
 .test-count {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     color: var(--text-secondary);
     font-weight: 500;
 }
@@ -3355,7 +3428,7 @@ nav {
 }
 
 .target-audience {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
 }
 
@@ -6294,7 +6367,7 @@ nav {
 }
 
 .module-subtitle {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--text-secondary);
     margin-bottom: var(--space-md);
 }

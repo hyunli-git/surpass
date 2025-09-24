@@ -70,8 +70,18 @@ export default function IeltsGTWritingPracticePage() {
         }),
       });
       const json = await res.json();
-      if (json.success) setResult(json.feedback);
-      else setResult({ error: json.error || "Failed to analyze" });
+      if (json.success) {
+        setResult(json.feedback);
+        // Scroll to feedback section after a short delay
+        setTimeout(() => {
+          const feedbackElement = document.querySelector('.feedback-section');
+          if (feedbackElement) {
+            feedbackElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      } else {
+        setResult({ error: json.error || "Failed to analyze" });
+      }
     } catch (e) {
       setResult({ error: "Network error" });
     } finally {
@@ -104,18 +114,26 @@ export default function IeltsGTWritingPracticePage() {
     load();
   }, [task, band]);
 
-  const generateSampleFromMyAnswer = async () => {
+  const generateSampleFromMyAnswer = async (targetBand?: number) => {
     if (text.trim().length < 10) return;
     setGenLoading(true);
+    const bandToUse = targetBand || band;
     try {
       const res = await fetch('/api/writing/sample', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ response: text, band, task, prompt: GT_TASKS[task].instructions }),
+        body: JSON.stringify({ response: text, band: bandToUse, task, prompt: GT_TASKS[task].instructions }),
       });
       const json = await res.json();
       if (json.success && json.sample) {
         setSample({ response: json.sample });
+        // Scroll to sample section after a short delay
+        setTimeout(() => {
+          const sampleElement = document.querySelector('.sample-section');
+          if (sampleElement) {
+            sampleElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
       }
     } finally {
       setGenLoading(false);
@@ -133,8 +151,7 @@ export default function IeltsGTWritingPracticePage() {
 
       <section className="practice-section">
         <div className="container">
-          <div className="writing-practice-grid">
-          <div>
+          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             <div className="filter-pills" style={{ marginBottom: 16 }}>
               <button className={`filter-pill ${task === "task1" ? "active" : ""}`} onClick={() => setTask("task1")}>Task 1 – Letter</button>
               <button className={`filter-pill ${task === "task2" ? "active" : ""}`} onClick={() => setTask("task2")}>Task 2 – Essay</button>
@@ -162,86 +179,226 @@ export default function IeltsGTWritingPracticePage() {
               onChange={(e) => setText(e.target.value)}
             />
 
-            <div style={{ display: "flex", gap: 12, marginTop: 12 }}>
+            <div style={{ display: "flex", gap: 12, marginTop: 12, flexWrap: "wrap" }}>
               <button className="btn btn-primary" disabled={submitting || text.trim().length < 10} onClick={submitForFeedback}>
                 {submitting ? "Analyzing…" : "Get AI Feedback"}
               </button>
               <button className="btn" onClick={() => setText("")}>Clear</button>
-              <button className="btn" disabled={genLoading || text.trim().length < 10} onClick={generateSampleFromMyAnswer}>
-                {genLoading ? 'Generating…' : `Generate Band ${band} Sample from my answer`}
-              </button>
             </div>
-          </div>
 
-          <aside className="test-sidebar" style={{ position: "sticky", top: 24, alignSelf: "start" }}>
-            <div className="notes-panel" style={{ display: 'grid', gap: 16 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <h4>Band Reference</h4>
-                <div>
-                  <select className="form-input" value={task} onChange={e => setTask(e.target.value as TaskKey)}>
-                    <option value="task1">Task 1</option>
-                    <option value="task2">Task 2</option>
-                  </select>
-                  <select className="form-input" style={{ marginLeft: 8 }} value={band} onChange={e => setBand(Number(e.target.value))}>
-                    {[9,8,7,6].map(b => <option key={b} value={b}>Band {b}</option>)}
-                  </select>
+            {/* Improvement Tabs */}
+            {text.trim().length >= 10 && (
+              <div style={{ marginTop: "24px" }}>
+                <h4 style={{ marginBottom: "16px", color: "var(--text-primary)" }}>Show My Text Improved to Band Level</h4>
+                <div className="filter-pills" style={{ marginBottom: "16px" }}>
+                  {[6, 7, 8, 9].map((bandLevel) => (
+                    <button
+                      key={bandLevel}
+                      className={`filter-pill ${band === bandLevel ? 'active' : ''}`}
+                      onClick={() => {
+                        setBand(bandLevel);
+                        generateSampleFromMyAnswer(bandLevel);
+                      }}
+                      disabled={genLoading}
+                    >
+                      {genLoading && band === bandLevel ? `Improving to Band ${bandLevel}...` : `Improve to Band ${bandLevel}`}
+                    </button>
+                  ))}
                 </div>
               </div>
+            )}
 
-              <div className="test-card">
-                <h3 style={{ marginTop: 0 }}>Band {band} Sample</h3>
-                {!sample && <p style={{ color: 'var(--text-secondary)' }}>No sample available in database for this band.</p>}
-                {sample && (
+            {/* Improved Text Section - appears when generated */}
+            {sample && sample.response && (
+              <div className="sample-section" style={{ marginTop: "32px", padding: "24px", border: "1px solid var(--border)", borderRadius: "8px", backgroundColor: "var(--bg-tertiary)" }}>
+                <h3 style={{ marginTop: 0, marginBottom: "16px", color: "var(--accent-primary)" }}>Your Text Improved to Band {band}</h3>
+                
+                {/* Before/After Comparison */}
+                <div style={{ display: "grid", gap: "20px", marginBottom: "20px" }}>
                   <div>
-                    <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: 0 }}>{sample.response}</pre>
-                    {sample.justification && (
-                      <p style={{ marginTop: 8, color: 'var(--text-secondary)' }}>
-                        Rationale: {sample.justification}
-                      </p>
+                    <h4 style={{ marginTop: 0, marginBottom: "8px", fontSize: "14px", color: "var(--text-secondary)" }}>Your Original:</h4>
+                    <div style={{ 
+                      padding: "16px", 
+                      backgroundColor: "var(--bg-secondary)", 
+                      borderRadius: "4px", 
+                      borderLeft: "4px solid #e74c3c",
+                      whiteSpace: 'pre-wrap', 
+                      fontFamily: 'inherit', 
+                      lineHeight: "1.6", 
+                      fontSize: "14px",
+                      opacity: 0.8
+                    }}>
+                      {text}
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 style={{ marginTop: 0, marginBottom: "8px", fontSize: "14px", color: "var(--accent-primary)" }}>Improved Version (Band {band}):</h4>
+                    <div style={{ 
+                      padding: "16px", 
+                      backgroundColor: "var(--bg-primary)", 
+                      border: "1px solid var(--accent-primary)",
+                      borderRadius: "4px", 
+                      borderLeft: "4px solid var(--accent-primary)",
+                      whiteSpace: 'pre-wrap', 
+                      fontFamily: 'inherit', 
+                      lineHeight: "1.6", 
+                      fontSize: "16px"
+                    }}>
+                      {sample.response}
+                    </div>
+                  </div>
+                </div>
+
+                {sample.justification && (
+                  <div style={{ marginTop: "16px", padding: "16px", backgroundColor: "var(--bg-secondary)", borderRadius: "4px", borderLeft: "4px solid #27ae60" }}>
+                    <h4 style={{ marginTop: 0, marginBottom: "8px", fontSize: "14px", color: "#27ae60" }}>Key Improvements Made:</h4>
+                    <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: "14px", lineHeight: "1.5" }}>
+                      {sample.justification}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Feedback Section - appears below the writing area after submission */}
+            {result && (
+              <div className="feedback-section" style={{ marginTop: "32px", padding: "24px", border: "1px solid var(--border)", borderRadius: "8px", backgroundColor: "var(--bg-secondary)" }}>
+                <h3 style={{ marginTop: 0, marginBottom: "24px" }}>Your Feedback Results</h3>
+                
+                {result?.error ? (
+                  <div style={{ padding: "16px", backgroundColor: "var(--accent-red)", color: "white", borderRadius: "4px" }}>
+                    <strong>Error:</strong> {result.error}
+                  </div>
+                ) : (
+                  <div style={{ display: "grid", gap: "24px" }}>
+                    {/* Overall Score Card */}
+                    <div className="test-card" style={{ padding: "20px" }}>
+                      <h4 style={{ marginTop: 0, marginBottom: "16px", color: "var(--accent-primary)" }}>Overall Assessment</h4>
+                      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: "16px" }}>
+                        <div style={{ textAlign: "center" }}>
+                          <div style={{ fontSize: "24px", fontWeight: "bold", color: "var(--accent-primary)" }}>{result.bandScore}</div>
+                          <div style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Band Score</div>
+                        </div>
+                        <div style={{ textAlign: "center" }}>
+                          <div style={{ fontSize: "24px", fontWeight: "bold", color: "var(--accent-primary)" }}>{result.overallScore}</div>
+                          <div style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Overall Score</div>
+                        </div>
+                        <div style={{ textAlign: "center" }}>
+                          <div style={{ fontSize: "24px", fontWeight: "bold", color: "var(--accent-primary)" }}>{result.wordCount}</div>
+                          <div style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Word Count</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Detailed Criteria Breakdown */}
+                    <div className="test-card" style={{ padding: "20px" }}>
+                      <h4 style={{ marginTop: 0, marginBottom: "16px", color: "var(--accent-primary)" }}>Detailed Criteria Scores</h4>
+                      <div style={{ display: "grid", gap: "12px" }}>
+                        {result.criteria?.taskResponse && (
+                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0", borderBottom: "1px solid var(--border)" }}>
+                            <span>Task Response</span>
+                            <span style={{ fontWeight: "bold", color: "var(--accent-primary)" }}>{result.criteria.taskResponse.score}</span>
+                          </div>
+                        )}
+                        {result.criteria?.coherenceCohesion && (
+                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0", borderBottom: "1px solid var(--border)" }}>
+                            <span>Coherence & Cohesion</span>
+                            <span style={{ fontWeight: "bold", color: "var(--accent-primary)" }}>{result.criteria.coherenceCohesion.score}</span>
+                          </div>
+                        )}
+                        {result.criteria?.lexicalResource && (
+                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0", borderBottom: "1px solid var(--border)" }}>
+                            <span>Lexical Resource</span>
+                            <span style={{ fontWeight: "bold", color: "var(--accent-primary)" }}>{result.criteria.lexicalResource.score}</span>
+                          </div>
+                        )}
+                        {result.criteria?.grammaticalAccuracy && (
+                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0" }}>
+                            <span>Grammatical Accuracy</span>
+                            <span style={{ fontWeight: "bold", color: "var(--accent-primary)" }}>{result.criteria.grammaticalAccuracy.score}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Detailed Feedback for each criteria */}
+                    {result.criteria && (
+                      <div style={{ display: "grid", gap: "16px" }}>
+                        {result.criteria.taskResponse?.feedback && (
+                          <div className="test-card" style={{ padding: "16px" }}>
+                            <h5 style={{ marginTop: 0, color: "var(--accent-primary)" }}>Task Response Feedback</h5>
+                            <p style={{ margin: 0, lineHeight: "1.6" }}>{result.criteria.taskResponse.feedback}</p>
+                          </div>
+                        )}
+                        {result.criteria.coherenceCohesion?.feedback && (
+                          <div className="test-card" style={{ padding: "16px" }}>
+                            <h5 style={{ marginTop: 0, color: "var(--accent-primary)" }}>Coherence & Cohesion Feedback</h5>
+                            <p style={{ margin: 0, lineHeight: "1.6" }}>{result.criteria.coherenceCohesion.feedback}</p>
+                          </div>
+                        )}
+                        {result.criteria.lexicalResource?.feedback && (
+                          <div className="test-card" style={{ padding: "16px" }}>
+                            <h5 style={{ marginTop: 0, color: "var(--accent-primary)" }}>Lexical Resource Feedback</h5>
+                            <p style={{ margin: 0, lineHeight: "1.6" }}>{result.criteria.lexicalResource.feedback}</p>
+                          </div>
+                        )}
+                        {result.criteria.grammaticalAccuracy?.feedback && (
+                          <div className="test-card" style={{ padding: "16px" }}>
+                            <h5 style={{ marginTop: 0, color: "var(--accent-primary)" }}>Grammatical Accuracy Feedback</h5>
+                            <p style={{ margin: 0, lineHeight: "1.6" }}>{result.criteria.grammaticalAccuracy.feedback}</p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Overall Suggestions */}
+                    {result.suggestions && result.suggestions.length > 0 && (
+                      <div className="test-card" style={{ padding: "20px" }}>
+                        <h4 style={{ marginTop: 0, marginBottom: "16px", color: "var(--accent-primary)" }}>Improvement Suggestions</h4>
+                        <ul style={{ margin: 0, paddingLeft: "20px" }}>
+                          {result.suggestions.map((suggestion: string, index: number) => (
+                            <li key={index} style={{ marginBottom: "8px", lineHeight: "1.6" }}>{suggestion}</li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
                   </div>
                 )}
               </div>
-
-              <div className="test-card">
-                <h3 style={{ marginTop: 0 }}>Tips to Reach Band {band}</h3>
-                {tips.length === 0 ? (
-                  <p style={{ color: 'var(--text-secondary)' }}>No tips available in database for this band.</p>
-                ) : (
-                  <ul className="test-card-features">
-                    {tips.map((t, i) => <li key={i}>{t}</li>)}
-                  </ul>
-                )}
+            )}
+            
+            {/* Quick Reference Section - now inline */}
+            <div className="test-card" style={{ marginTop: "32px", padding: "20px" }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                <h3 style={{ margin: 0 }}>Quick Reference</h3>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <span style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Current: {words} words</span>
+                  <span style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
+                    Target: {task === 'task1' ? '150+' : '250+'} words
+                  </span>
+                </div>
               </div>
-
-              <div className="notes-panel">
-                <h4>Feedback</h4>
-                {!result && <p style={{ color: "var(--text-secondary)" }}>Submit your response to see detailed scoring and suggestions.</p>}
-                {result?.error && (
-                  <p style={{ color: "var(--accent-red)" }}>{result.error}</p>
-                )}
-                {result && !result.error && (
-                  <div style={{ display: "grid", gap: 12 }}>
-                    <div className="test-card">
-                      <h3 style={{ marginTop: 0 }}>Overall</h3>
-                      <div>Band: <strong>{result.bandScore}</strong></div>
-                      <div>Estimated Score: <strong>{result.overallScore}</strong></div>
-                      <div>Words: <strong>{result.wordCount}</strong></div>
-                    </div>
-                    <div className="test-card">
-                      <h3 style={{ marginTop: 0 }}>Criteria</h3>
-                      <ul className="test-card-features">
-                        <li>Task Response: {result.criteria?.taskResponse?.score}</li>
-                        <li>Coherence & Cohesion: {result.criteria?.coherenceCohesion?.score}</li>
-                        <li>Lexical Resource: {result.criteria?.lexicalResource?.score}</li>
-                        <li>Grammatical Accuracy: {result.criteria?.grammaticalAccuracy?.score}</li>
-                      </ul>
-                    </div>
+              
+              {tips.length > 0 && (
+                <div>
+                  <h4 style={{ marginTop: 0, marginBottom: '12px', color: 'var(--accent-primary)' }}>Tips to Reach Band {band}:</h4>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '8px' }}>
+                    {tips.slice(0, 4).map((t, i) => (
+                      <div key={i} style={{ 
+                        padding: '8px 12px', 
+                        backgroundColor: 'var(--bg-secondary)', 
+                        borderRadius: '4px', 
+                        fontSize: '0.9rem',
+                        color: 'var(--text-secondary)'
+                      }}>
+                        • {t}
+                      </div>
+                    ))}
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
-          </aside>
           </div>
         </div>
       </section>

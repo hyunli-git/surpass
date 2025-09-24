@@ -8,17 +8,15 @@ export default async function TestsPage() {
   let tests = null;
   
   try {
-    const { data, error } = await supabase.from('tests').select('*');
+    const { data, error } = await supabase.from('tests').select('*').order('name');
     
     if (error) {
       console.error("Error fetching tests:", error);
-      // Continue with null tests instead of showing error
     } else {
       tests = data;
     }
   } catch (err) {
     console.error("Failed to connect to database:", err);
-    // Continue with null tests
   }
 
   return (

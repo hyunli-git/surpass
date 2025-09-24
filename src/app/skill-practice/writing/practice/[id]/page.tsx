@@ -236,61 +236,52 @@ export default function WritingPracticePage() {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-4">
-              <FileText className="w-8 h-8 text-blue-600" />
-              <div>
-                <h1 className="text-2xl font-bold text-gray-800">{task.title}</h1>
-                <p className="text-gray-600 uppercase">{task.testType} Writing Practice</p>
-              </div>
+        {/* Compact Header */}
+        <div className="bg-white rounded-lg shadow-sm p-3 mb-4 border border-gray-200">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <FileText className="w-5 h-5 text-blue-600" />
+              <h1 className="text-lg font-semibold text-gray-800">{task.title}</h1>
             </div>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               {/* Timer */}
-              <div className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
+              <div className={`flex items-center gap-2 px-3 py-1 rounded-md text-sm ${
                 timeRemaining <= 300 ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'
               }`}>
-                <Clock className="w-5 h-5" />
-                <span className="text-xl font-mono">{formatTime(timeRemaining)}</span>
+                <Clock className="w-4 h-4" />
+                <span className="font-mono">{formatTime(timeRemaining)}</span>
               </div>
               
               {/* Timer Controls */}
-              <div className="flex gap-2">
+              <div className="flex gap-1">
                 {!isTimerActive ? (
                   <button
                     onClick={startTimer}
-                    className="px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm"
+                    className="px-2 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 text-xs"
                   >
                     Start
                   </button>
                 ) : (
                   <button
                     onClick={pauseTimer}
-                    className="px-3 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 text-sm"
+                    className="px-2 py-1 bg-yellow-600 text-white rounded-md hover:bg-yellow-700 text-xs"
                   >
                     Pause
                   </button>
                 )}
                 <button
                   onClick={resetTimer}
-                  className="p-2 text-gray-600 hover:text-gray-800"
+                  className="p-1 text-gray-600 hover:text-gray-800"
                 >
-                  <RotateCcw className="w-4 h-4" />
+                  <RotateCcw className="w-3 h-3" />
                 </button>
               </div>
-            </div>
-          </div>
-
-          {/* Word Count */}
-          <div className="flex items-center justify-between">
-            <p className="text-gray-600">{task.description}</p>
-            <div className={`text-sm font-medium ${getWordCountColor()}`}>
-              {wordCount} words
-              <span className="text-gray-400 ml-2">
-                ({task.minWords}-{task.maxWords} recommended)
-              </span>
+              
+              {/* Word Count */}
+              <div className={`text-sm font-medium ${getWordCountColor()}`}>
+                {wordCount}/{task.minWords}
+              </div>
             </div>
           </div>
         </div>

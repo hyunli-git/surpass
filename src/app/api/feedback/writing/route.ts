@@ -58,7 +58,7 @@ interface WritingFeedback {
   }[];
 }
 
-// Simulated AI analysis (replace with actual AI service)
+// Real AI analysis using OpenAI
 async function analyzeWritingResponse(
   response: string,
   testType: string,
@@ -68,10 +68,142 @@ async function analyzeWritingResponse(
 ): Promise<WritingFeedback> {
   const wordCount = response.split(/\s+/).length;
   
-  // Simulate AI analysis based on test type and response
-  const feedback: WritingFeedback = {
-    overallScore: Math.floor(Math.random() * 4) + 6, // 6-9 range
-    bandScore: getBandScore(testType, Math.floor(Math.random() * 4) + 6),
+  try {
+    const systemPrompt = createSystemPrompt(testType, taskType);
+    const analysisPrompt = createAnalysisPrompt(response, prompt, testType, taskType, wordCount, targetWordCount);
+    
+    const aiResponse = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'gpt-4',
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: analysisPrompt }
+        ],
+        temperature: 0.3,
+        max_tokens: 2000
+      }),
+    });
+
+    if (!aiResponse.ok) {
+      throw new Error('AI service unavailable');
+    }
+
+    const aiData = await aiResponse.json();
+    const analysis = JSON.parse(aiData.choices[0].message.content);
+    
+    return {
+      overallScore: analysis.overallScore,
+      bandScore: getBandScore(testType, analysis.overallScore),
+      wordCount,
+      timeManagement: {
+        timeSpent: 0,
+        recommendation: getTimeRecommendation(wordCount, targetWordCount)
+      },
+      criteria: analysis.criteria,
+      detailedFeedback: analysis.detailedFeedback,
+      correctedVersion: analysis.correctedVersion || response,
+      vocabularyEnhancements: analysis.vocabularyEnhancements || [],
+      grammarCorrections: analysis.grammarCorrections || []
+    };
+    
+  } catch (error) {
+    console.error('AI analysis failed, using fallback:', error);
+    // Fallback to basic analysis if AI fails
+    return getFallbackAnalysis(response, testType, taskType, prompt, wordCount, targetWordCount);
+  }
+}
+
+function createSystemPrompt(testType: string, taskType: string): string {
+  const basePrompt = `You are an expert language assessment specialist for ${testType.toUpperCase()} ${taskType} tasks. Analyze the given writing response with the precision of an official examiner.
+
+Provide your assessment as a JSON object with the following structure:
+{
+  "overallScore": number (1-9 for IELTS, 1-6 for TEF levels),
+  "criteria": {
+    "taskResponse": {"score": number, "feedback": string, "suggestions": [string]},
+    "coherenceCohesion": {"score": number, "feedback": string, "suggestions": [string]},
+    "lexicalResource": {"score": number, "feedback": string, "suggestions": [string]},
+    "grammaticalAccuracy": {"score": number, "feedback": string, "suggestions": [string]}
+  },
+  "detailedFeedback": {
+    "strengths": [string],
+    "areasForImprovement": [string],
+    "specificSuggestions": [string]
+  },
+  "correctedVersion": string,
+  "vocabularyEnhancements": [{"original": string, "enhanced": string, "explanation": string}],
+  "grammarCorrections": [{"original": string, "corrected": string, "rule": string}]
+}`;
+
+  const specificCriteria = getTestSpecificCriteria(testType, taskType);
+  return `${basePrompt}\n\nSpecific assessment criteria for ${testType} ${taskType}:\n${specificCriteria}`;
+}
+
+function createAnalysisPrompt(
+  response: string, 
+  prompt: string, 
+  testType: string, 
+  taskType: string, 
+  wordCount: number, 
+  targetWordCount?: number
+): string {
+  return `
+Task Prompt: "${prompt}"
+
+Student Response (${wordCount} words): "${response}"
+
+Target Word Count: ${targetWordCount || 'Not specified'}
+
+Please provide a comprehensive assessment of this ${testType} ${taskType} response, focusing on:
+1. Task fulfillment and content relevance
+2. Organization and coherence
+3. Vocabulary range and accuracy
+4. Grammar and sentence structure
+5. Overall effectiveness
+
+Be specific in your feedback and provide actionable suggestions for improvement.
+Return your analysis as a valid JSON object only, no additional text.`;
+}
+
+function getTestSpecificCriteria(testType: string, taskType: string): string {
+  switch (testType) {
+    case 'ielts':
+      return `IELTS Writing Assessment Criteria:
+- Task Response: Addresses all parts of task, clear position, relevant ideas, appropriate length
+- Coherence & Cohesion: Logical organization, clear progression, appropriate linking devices
+- Lexical Resource: Range of vocabulary, accuracy, appropriateness, spelling
+- Grammatical Range & Accuracy: Sentence variety, accuracy, punctuation`;
+    case 'tef':
+      return `TEF Writing Assessment Criteria:
+- Contenu: Pertinence et richesse des idées, respect du sujet
+- Structure: Organisation logique, progression claire, connecteurs
+- Langue: Vocabulaire varié et précis, registre approprié
+- Correction: Grammaire, syntaxe, orthographe`;
+    default:
+      return 'Standard writing assessment criteria for language proficiency evaluation.';
+  }
+}
+
+// Fallback analysis when AI is unavailable
+function getFallbackAnalysis(
+  response: string,
+  testType: string,
+  taskType: string,
+  prompt: string,
+  wordCount: number,
+  targetWordCount?: number
+): WritingFeedback {
+  // Basic analysis based on response characteristics
+  const baseScore = Math.max(4, Math.min(8, Math.floor(wordCount / 50) + 4));
+  
+  return {
+    overallScore: baseScore,
+    bandScore: getBandScore(testType, baseScore),
     wordCount,
     timeManagement: {
       timeSpent: 0,
@@ -79,22 +211,22 @@ async function analyzeWritingResponse(
     },
     criteria: {
       taskResponse: {
-        score: Math.floor(Math.random() * 4) + 6,
+        score: baseScore,
         feedback: generateTaskResponseFeedback(response, prompt, testType),
         suggestions: generateTaskResponseSuggestions(testType, taskType)
       },
       coherenceCohesion: {
-        score: Math.floor(Math.random() * 4) + 6,
+        score: baseScore,
         feedback: generateCoherenceFeedback(response),
         suggestions: generateCoherenceSuggestions()
       },
       lexicalResource: {
-        score: Math.floor(Math.random() * 4) + 6,
+        score: baseScore,
         feedback: generateLexicalFeedback(response),
         suggestions: generateLexicalSuggestions()
       },
       grammaticalAccuracy: {
-        score: Math.floor(Math.random() * 4) + 6,
+        score: baseScore,
         feedback: generateGrammarFeedback(response),
         suggestions: generateGrammarSuggestions()
       }
@@ -108,8 +240,6 @@ async function analyzeWritingResponse(
     vocabularyEnhancements: generateVocabularyEnhancements(response),
     grammarCorrections: generateGrammarCorrections(response)
   };
-
-  return feedback;
 }
 
 function getBandScore(testType: string, score: number): string {

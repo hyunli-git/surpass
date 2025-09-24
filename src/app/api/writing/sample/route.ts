@@ -30,11 +30,23 @@ async function getIds(examName: string, skillName: string, partName: string) {
 
 function buildPrompt(userResponse: string, targetBand: number, task: 'task1'|'task2', prompt?: string) {
   const taskDesc = task === 'task1' ? 'General Training Task 1 (formal letter)' : 'General Training Task 2 (opinion essay)';
-  const sys = `You are an IELTS examiner and writing coach. Rewrite the candidate's response as an ideal Band ${targetBand} sample for ${taskDesc}. Keep the same topic and intent, but improve organisation, coherence, lexical resource and grammatical range. Stay within appropriate length (T1: 150–180 words, T2: 250–290 words).`;
+  const sys = `You are an IELTS examiner and writing coach. Take the candidate's response and improve it to achieve Band ${targetBand} for ${taskDesc}. 
+
+Key improvements to make:
+- Maintain the candidate's original ideas and content structure
+- Enhance vocabulary with more sophisticated and precise word choices
+- Improve sentence variety and grammatical complexity
+- Strengthen coherence and cohesion with better linking devices
+- Ensure appropriate register and tone
+- Correct any grammatical errors
+- Stay within appropriate length (T1: 150–180 words, T2: 250–290 words)
+
+The improved version should clearly demonstrate Band ${targetBand} qualities while staying true to the candidate's original intent.`;
+  
   const usr = [
-    prompt ? `Prompt:\n${prompt}` : null,
-    `Candidate Response:\n${userResponse}`,
-    `Requirements: Produce only the improved sample response. Do not add commentary.`
+    prompt ? `Task Prompt:\n${prompt}` : null,
+    `Candidate's Original Response:\n${userResponse}`,
+    `Please provide the improved version that demonstrates Band ${targetBand} quality. Return only the improved text without explanations.`
   ].filter(Boolean).join('\n\n');
   return { system: sys, user: usr };
 }

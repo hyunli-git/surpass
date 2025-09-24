@@ -94,6 +94,14 @@ export default function TestList({ tests }: { tests: Test[] | null }) {
                 >
                   {t('startPractice')}
                 </Link>
+              ) : test.name.includes('TCF') ? (
+                <Link 
+                  href="/tcf-practice" 
+                  className="btn btn-primary" 
+                  style={{ width: '100%' }}
+                >
+                  {t('startPractice')}
+                </Link>
               ) : test.name.includes('OPIc') || test.name.includes('OPIC') ? (
                 <Link 
                   href="/opic-practice" 
