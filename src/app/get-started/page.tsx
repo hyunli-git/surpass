@@ -217,72 +217,72 @@ export default function GetStartedPage() {
               <p>Try adjusting your search terms or filters</p>
             </div>
           ) : (
-            <div className="test-list">
+            <div className="test-grid">
               {filteredTests.map(test => (
                 <Link 
                   key={test.id} 
                   href={getTestPath(test)}
-                  className="test-list-item"
-                  style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+                  className="test-card-link"
+                  style={{ textDecoration: 'none', color: 'inherit' }}
                 >
-                  <div className="test-card-horizontal">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1 }}>
-                      <span style={{ fontSize: '2rem', flexShrink: 0 }}>{test.flag}</span>
-                      
-                      <div style={{ flex: 1 }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                          <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
-                            {test.name}
-                          </h3>
-                          <span style={{ 
-                            color: 'var(--accent-blue)', 
-                            fontSize: '0.75rem', 
-                            fontWeight: '600',
-                            background: 'var(--bg-active)',
-                            padding: '2px 6px',
-                            borderRadius: '8px'
-                          }}>
-                            #{test.rank}
-                          </span>
-                        </div>
-                        
-                        <p style={{ 
-                          color: 'var(--text-secondary)', 
-                          marginBottom: '12px',
-                          lineHeight: '1.4'
+                  <div className="test-card" style={{ height: '100%' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                      <span style={{ fontSize: '2rem' }}>{test.flag}</span>
+                      <div>
+                        <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '4px' }}>
+                          {test.name}
+                        </h3>
+                        <span style={{ 
+                          color: 'var(--accent-blue)', 
+                          fontSize: '0.75rem', 
+                          fontWeight: '600',
+                          background: 'var(--bg-active)',
+                          padding: '2px 8px',
+                          borderRadius: '12px'
                         }}>
-                          {test.description}
-                        </p>
-                        
-                        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                            <Users style={{ width: '16px', height: '16px', color: 'var(--text-muted)' }} />
-                            <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-                              {test.testTakers} test takers
-                            </span>
-                          </div>
-                          {test.format && (
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                              <BookOpen style={{ width: '16px', height: '16px', color: 'var(--text-muted)' }} />
-                              <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-                                {test.format} format
-                              </span>
-                            </div>
-                          )}
-                          {test.targetAudience && (
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                              <Globe style={{ width: '16px', height: '16px', color: 'var(--text-muted)' }} />
-                              <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-                                {test.targetAudience}
-                              </span>
-                            </div>
-                          )}
-                        </div>
+                          #{test.rank}
+                        </span>
                       </div>
                     </div>
                     
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                      <ArrowRight style={{ width: '20px', height: '20px', color: 'var(--text-muted)' }} />
+                    <p style={{ 
+                      color: 'var(--text-secondary)', 
+                      marginBottom: '16px',
+                      lineHeight: '1.5',
+                      fontSize: '0.9rem'
+                    }}>
+                      {test.description}
+                    </p>
+                    
+                    <div style={{ marginBottom: '16px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
+                        <Users style={{ width: '16px', height: '16px', color: 'var(--text-muted)' }} />
+                        <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
+                          {test.testTakers}
+                        </span>
+                      </div>
+                      {test.format && (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
+                          <BookOpen style={{ width: '16px', height: '16px', color: 'var(--text-muted)' }} />
+                          <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
+                            {test.format}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    <div style={{ marginTop: 'auto' }}>
+                      <div className="btn btn-primary" style={{ 
+                        width: '100%', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center', 
+                        gap: '8px',
+                        fontSize: '0.9rem'
+                      }}>
+                        Start Practice
+                        <ArrowRight style={{ width: '16px', height: '16px' }} />
+                      </div>
                     </div>
                   </div>
                 </Link>
