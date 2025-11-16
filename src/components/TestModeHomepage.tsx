@@ -2,10 +2,31 @@
 
 import Link from 'next/link';
 import { useTestMode } from '@/contexts/TestModeContext';
-import { Play, BookOpen, BarChart3, Clock, Target, TrendingUp } from 'lucide-react';
+import { Play, BookOpen, BarChart3, Clock, Target, TrendingUp, User } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { supabase } from '@/utils/supabaseClient';
+import type { User as SupabaseUser } from '@supabase/supabase-js';
 
 export default function TestModeHomepage() {
   const { selectedTest } = useTestMode();
+  const [user, setUser] = useState<SupabaseUser | null>(null);
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
+    };
+
+    checkUser();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, []);
 
   if (!selectedTest) return null;
 
@@ -54,6 +75,23 @@ export default function TestModeHomepage() {
                 {selectedTest.testTakers} test takers worldwide
               </span>
             </div>
+            {user && (
+              <div style={{ 
+                marginTop: '24px', 
+                padding: '12px 20px', 
+                background: 'var(--bg-secondary)', 
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                fontSize: '0.9rem',
+                color: 'var(--text-secondary)'
+              }}>
+                <User style={{ width: '16px', height: '16px' }} />
+                Welcome back, {user.email}
+              </div>
+            )}
           </div>
 
           {/* Quick Actions */}
@@ -186,9 +224,14 @@ export default function TestModeHomepage() {
             borderRadius: '12px',
             color: 'white'
           }}>
-            <h2 style={{ marginBottom: '16px', color: 'white' }}>Ready to start your {selectedTest.name} journey?</h2>
+            <h2 style={{ marginBottom: '16px', color: 'white' }}>
+              {user ? `Continue your ${selectedTest.name} journey` : `Ready to start your ${selectedTest.name} journey?`}
+            </h2>
             <p style={{ marginBottom: '32px', opacity: 0.9 }}>
-              Begin with skill-specific practice or jump into a full mock test to assess your current level.
+              {user 
+                ? `Welcome back! Continue practicing or take a new mock test to track your progress.`
+                : `Begin with skill-specific practice or jump into a full mock test to assess your current level.`
+              }
             </p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href={links.practice} className="btn" style={{ 
@@ -196,7 +239,7 @@ export default function TestModeHomepage() {
                 color: 'var(--accent-blue)',
                 fontWeight: '600'
               }}>
-                Start Practice
+                {user ? 'Continue Practice' : 'Start Practice'}
               </Link>
               <Link href={links.mockTest} className="btn" style={{ 
                 background: 'rgba(255, 255, 255, 0.2)', 
@@ -205,6 +248,15 @@ export default function TestModeHomepage() {
               }}>
                 Take Mock Test
               </Link>
+              {!user && (
+                <Link href="/login" className="btn" style={{ 
+                  background: 'rgba(255, 255, 255, 0.1)', 
+                  color: 'white',
+                  border: '1px solid rgba(255, 255, 255, 0.3)'
+                }}>
+                  Sign In to Save Progress
+                </Link>
+              )}
             </div>
           </div>
         </div>
