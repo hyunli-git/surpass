@@ -32,10 +32,16 @@ export default function TestModeHomepage() {
 
   const getTestSpecificLinks = () => {
     const testSlug = selectedTest.name.toLowerCase().replace(/\s+/g, '-');
-    return {
+    console.log('TestModeHomepage - selectedTest:', selectedTest);
+    console.log('TestModeHomepage - testSlug:', testSlug);
+    
+    const links = {
       practice: '/skill-practice',
       mockTest: `/mock-test/${testSlug}`
     };
+    
+    console.log('TestModeHomepage - generated links:', links);
+    return links;
   };
 
   const links = getTestSpecificLinks();
