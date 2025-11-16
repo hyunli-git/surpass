@@ -50,7 +50,7 @@ export default function Header() {
         
         <ul className="nav-links">
           <li><Link href="/" className="nav-link">Home</Link></li>
-          <li><Link href="/tests" className="nav-link">Tests</Link></li>
+          <li><Link href="/get-started" className="nav-link">Tests</Link></li>
           <li><Link href="/pricing" className="nav-link">Pricing</Link></li>
           <li><Link href="/about" className="nav-link">About</Link></li>
           
@@ -66,7 +66,10 @@ export default function Header() {
               <li><button onClick={handleLogout} className="btn">Logout</button></li>
             </>
           ) : (
-            <li><Link href="/login" className="btn">Login</Link></li>
+            <>
+              <li><Link href="/get-started" className="btn btn-primary">Get Started</Link></li>
+              <li><Link href="/login" className="btn">Sign In</Link></li>
+            </>
           )}
         </ul>
       </nav>

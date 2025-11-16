@@ -11,11 +11,11 @@ export default function Hero() {
         <h1>Master any language test with AI</h1>
         <p>Personalized preparation for TOEIC, IELTS, HSK, JLPT, and 30+ language tests worldwide.</p>
         <div className="hero-actions">
-          <Link href="/tests" className="btn btn-primary">
-            Start Learning
+          <Link href="/get-started" className="btn btn-primary">
+            Get Started
           </Link>
-          <Link href="/tests" className="btn">
-            Browse All Tests
+          <Link href="/login" className="btn">
+            Sign In
           </Link>
         </div>
       </div>
