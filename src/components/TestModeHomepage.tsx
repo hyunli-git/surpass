@@ -31,18 +31,11 @@ export default function TestModeHomepage() {
   if (!selectedTest) return null;
 
   const getTestSpecificLinks = () => {
-    const testRoutes: Record<string, { practice: string; mockTest: string }> = {
-      'IELTS': { practice: '/ielts-practice', mockTest: '/mock-test' },
-      'TOEIC': { practice: '/skill-practice', mockTest: '/mock-test' },
-      'TEF': { practice: '/tef-practice', mockTest: '/mock-test/tef-canada' },
-      'TCF': { practice: '/tcf-practice', mockTest: '/mock-test' },
-      'OPIC': { practice: '/opic-practice', mockTest: '/mock-opic-speaking' },
-      'TOEFL': { practice: '/skill-practice', mockTest: '/mock-test' },
-      'HSK': { practice: '/skill-practice', mockTest: '/mock-test' },
-      'JLPT': { practice: '/skill-practice', mockTest: '/mock-test' }
+    const testSlug = selectedTest.name.toLowerCase().replace(/\s+/g, '-');
+    return {
+      practice: '/skill-practice',
+      mockTest: `/mock-test/${testSlug}`
     };
-    
-    return testRoutes[selectedTest.name] || { practice: '/skill-practice', mockTest: '/mock-test' };
   };
 
   const links = getTestSpecificLinks();
