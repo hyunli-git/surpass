@@ -70,6 +70,8 @@ export default function DynamicMockTest({ testCode }: DynamicMockTestProps) {
 
   // Determine which test to load
   const effectiveTestCode = testCode || selectedTest?.name || 'IELTS';
+  
+  console.log('DynamicMockTest props:', { testCode, selectedTestName: selectedTest?.name, effectiveTestCode });
 
   useEffect(() => {
     loadTestData();
@@ -80,6 +82,8 @@ export default function DynamicMockTest({ testCode }: DynamicMockTestProps) {
       setLoading(true);
       setError(null);
 
+      console.log('Loading test data for:', effectiveTestCode);
+      
       // 1. Get test by code
       const { data: testData, error: testError } = await supabase
         .from('tests')
@@ -87,8 +91,11 @@ export default function DynamicMockTest({ testCode }: DynamicMockTestProps) {
         .eq('code', effectiveTestCode)
         .single();
 
+      console.log('Supabase test query result:', { testData, testError });
+
       if (testError || !testData) {
-        throw new Error(`Test not found: ${effectiveTestCode}`);
+        console.error('Test query error:', testError);
+        throw new Error(`Test not found: ${effectiveTestCode}. Error: ${testError?.message || 'Unknown error'}`);
       }
 
       setTest(testData);

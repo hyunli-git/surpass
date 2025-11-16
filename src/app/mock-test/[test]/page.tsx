@@ -12,13 +12,22 @@ interface MockTestPageProps {
 }
 
 function MockTestContent({ testCode }: { testCode: string }) {
-  // Validate that the test exists
-  const test = LANGUAGE_TESTS.find(t => 
-    t.name.toLowerCase().replace(/\s+/g, '-') === testCode.toLowerCase() ||
-    t.name.toLowerCase() === testCode.toLowerCase()
-  );
+  console.log('MockTestContent testCode:', testCode);
+  
+  // Convert URL slug back to test name
+  const test = LANGUAGE_TESTS.find(t => {
+    const testSlug = t.name.toLowerCase().replace(/\s+/g, '-');
+    return testSlug === testCode.toLowerCase() || t.name.toLowerCase() === testCode.toLowerCase();
+  });
+
+  console.log('Found test:', test);
 
   if (!test) {
+    console.log('Test not found for code:', testCode);
+    console.log('Available tests:', LANGUAGE_TESTS.map(t => ({ 
+      name: t.name, 
+      slug: t.name.toLowerCase().replace(/\s+/g, '-') 
+    })));
     notFound();
   }
 
