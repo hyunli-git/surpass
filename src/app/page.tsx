@@ -18,23 +18,46 @@ export default function HomePage() {
   const router = useRouter();
 
   useEffect(() => {
+    let mounted = true;
+
     const checkUser = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      setUser(session?.user ?? null);
-      setLoading(false);
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (mounted) {
+          setUser(session?.user ?? null);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error('Auth check error:', error);
+        if (mounted) {
+          setUser(null);
+          setLoading(false);
+        }
+      }
     };
+
+    // Set a timeout to prevent infinite loading
+    const timeoutId = setTimeout(() => {
+      if (mounted && loading) {
+        setLoading(false);
+      }
+    }, 3000);
 
     checkUser();
 
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
+      if (mounted) {
+        setUser(session?.user ?? null);
+        setLoading(false);
+      }
     });
 
     return () => {
+      mounted = false;
+      clearTimeout(timeoutId);
       authListener.subscription.unsubscribe();
     };
-  }, []);
+  }, [loading]);
 
   useEffect(() => {
     // Handle auth token in URL hash (from email confirmations)
@@ -58,43 +81,12 @@ export default function HomePage() {
     handleAuthToken();
   }, [router]);
 
-  // Show loading while checking authentication
-  if (loading) {
-    return (
-      <div className="page-container" style={{ 
-        paddingTop: '100px', 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        minHeight: '60vh'
-      }}>
-        <div>Loading...</div>
-      </div>
-    );
-  }
-
   // If user is signed in and in test mode, show test homepage
-  if (isTestModeActive && selectedTest) {
+  if (user && isTestModeActive && selectedTest) {
     return <TestModeHomepage />;
   }
 
-  // If user is signed in but not in test mode, redirect to test selection
-  if (user && !isTestModeActive) {
-    router.push('/get-started');
-    return (
-      <div className="page-container" style={{ 
-        paddingTop: '100px', 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        minHeight: '60vh'
-      }}>
-        <div>Redirecting to test selection...</div>
-      </div>
-    );
-  }
-
-  // Default: show marketing homepage for non-authenticated users
+  // For all other cases (loading, signed-in without test, or not signed-in), show homepage
   return (
     <>
       <Hero />

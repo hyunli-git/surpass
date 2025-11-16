@@ -122,7 +122,8 @@ export default function Header() {
             {user ? (
               <>
                 <li><Link href="/my-page" className="nav-link">My Page</Link></li>
-                <li><span className="nav-link">{user.email}</span></li>
+                <li><span className="nav-link" style={{ fontSize: '0.875rem', opacity: 0.8 }}>{user.email}</span></li>
+                {!isTestModeActive && <li><Link href="/get-started" className="btn btn-primary">Select Test</Link></li>}
                 <li><button onClick={handleLogout} className="btn">Logout</button></li>
               </>
             ) : (
