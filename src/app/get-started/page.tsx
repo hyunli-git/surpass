@@ -119,7 +119,7 @@ export default function GetStartedPage() {
             <h2 style={{ textAlign: 'center', marginBottom: '40px', fontSize: '2rem' }}>
               Most Popular Tests
             </h2>
-            <div className="test-grid">
+            <div className="grid grid-3">
               {topTests.map(test => (
                 <Link 
                   key={test.id} 
@@ -217,7 +217,7 @@ export default function GetStartedPage() {
               <p>Try adjusting your search terms or filters</p>
             </div>
           ) : (
-            <div className="test-grid">
+            <div className="grid grid-3">
               {filteredTests.map(test => (
                 <Link 
                   key={test.id} 
