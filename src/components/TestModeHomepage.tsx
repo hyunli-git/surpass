@@ -51,7 +51,7 @@ export default function TestModeHomepage() {
     <div className="page-container" style={{ paddingTop: '100px', paddingBottom: '50px' }}>
       {/* Hero Section */}
       <section className="hero" style={{ paddingTop: '40px', paddingBottom: '60px' }}>
-        <div className="container container-narrow">
+        <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <div style={{ fontSize: '4rem', marginBottom: '20px' }}>{selectedTest.flag}</div>
             <h1 style={{ marginBottom: '16px', fontSize: '2.5rem' }}>
@@ -216,13 +216,15 @@ export default function TestModeHomepage() {
 
       {/* Call to Action */}
       <section style={{ marginBottom: '40px' }}>
-        <div className="container container-narrow">
+        <div className="container">
           <div className="cta-card" style={{ 
             textAlign: 'center', 
             padding: '40px', 
             background: 'linear-gradient(135deg, var(--accent-blue), var(--accent-purple))', 
             borderRadius: '12px',
-            color: 'white'
+            color: 'white',
+            maxWidth: '800px',
+            margin: '0 auto'
           }}>
             <h2 style={{ marginBottom: '16px', color: 'white' }}>
               {user ? `Continue your ${selectedTest.name} journey` : `Ready to start your ${selectedTest.name} journey?`}
