@@ -4,6 +4,7 @@ import { Outfit } from 'next/font/google';
 import Header from '@/components/Header';
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
+import { TestModeProvider } from '@/contexts/TestModeContext';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -27,8 +28,10 @@ export default async function RootLayout({
     <html>
       <body className={outfit.variable}>
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main>{children}</main>
+          <TestModeProvider>
+            <Header />
+            <main>{children}</main>
+          </TestModeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

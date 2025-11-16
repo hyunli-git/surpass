@@ -3,12 +3,16 @@
 import { useState } from 'react';
 import { Search, ArrowRight, Globe, Clock, Users, BookOpen } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { LANGUAGE_TESTS, LANGUAGES, type LanguageTest } from '@/data/languageTests';
+import { useTestMode } from '@/contexts/TestModeContext';
 
 export default function GetStartedPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState('all');
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'TOP_10' | 'TOP_11_20' | 'TOP_21_30'>('all');
+  const { setSelectedTest } = useTestMode();
+  const router = useRouter();
 
   const filteredTests = LANGUAGE_TESTS.filter(test => {
     const matchesSearch = test.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -23,20 +27,12 @@ export default function GetStartedPage() {
 
   const topTests = LANGUAGE_TESTS.filter(test => test.category === 'TOP_10').slice(0, 6);
 
-  const getTestPath = (test: LanguageTest) => {
-    // Map test names to their practice pages
-    const testRoutes: Record<string, string> = {
-      'IELTS': '/ielts-practice',
-      'TOEIC': '/skill-practice',
-      'TEF': '/tef-practice',
-      'TCF': '/tcf-practice',
-      'OPIC': '/opic-practice',
-      'TOEFL': '/skill-practice',
-      'HSK': '/skill-practice',
-      'JLPT': '/skill-practice'
-    };
+  const handleTestSelection = (test: LanguageTest) => {
+    // Set the test mode
+    setSelectedTest(test);
     
-    return testRoutes[test.name] || '/skill-practice';
+    // Navigate to homepage which will now show test-specific content
+    router.push('/');
   };
 
   return (
@@ -121,11 +117,11 @@ export default function GetStartedPage() {
             </h2>
             <div className="grid grid-3">
               {topTests.map(test => (
-                <Link 
-                  key={test.id} 
-                  href={getTestPath(test)}
+                <div
+                  key={test.id}
+                  onClick={() => handleTestSelection(test)}
                   className="test-card-link"
-                  style={{ textDecoration: 'none', color: 'inherit' }}
+                  style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
                 >
                   <div className="test-card popular-test" style={{ height: '100%' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
@@ -185,7 +181,7 @@ export default function GetStartedPage() {
                       </div>
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -219,11 +215,11 @@ export default function GetStartedPage() {
           ) : (
             <div className="grid grid-3">
               {filteredTests.map(test => (
-                <Link 
-                  key={test.id} 
-                  href={getTestPath(test)}
+                <div
+                  key={test.id}
+                  onClick={() => handleTestSelection(test)}
                   className="test-card-link"
-                  style={{ textDecoration: 'none', color: 'inherit' }}
+                  style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
                 >
                   <div className="test-card" style={{ height: '100%' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
@@ -285,7 +281,7 @@ export default function GetStartedPage() {
                       </div>
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           )}
